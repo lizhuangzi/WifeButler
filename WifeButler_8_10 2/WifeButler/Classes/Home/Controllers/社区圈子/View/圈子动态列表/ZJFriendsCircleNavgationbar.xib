@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ZJFriendsCircleNavgationbar">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxM-ZO-JYA">
+                    <rect key="frame" x="282" y="7" width="30" height="30"/>
+                    <state key="normal" image="sendTrends"/>
+                    <connections>
+                        <action selector="subBtn_clicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="2D8-kW-XAd"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="朋友圈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfA-HJ-wmp">
+                    <rect key="frame" x="135" y="12" width="51" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVQ-Sc-i2q">
+                    <rect key="frame" x="8" y="9" width="30" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="3y7-fP-KXU"/>
+                    </constraints>
+                    <state key="normal" image="jiantou_03"/>
+                    <connections>
+                        <action selector="subBtn_clicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="oLs-cw-0fT"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mVQ-Sc-i2q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="6gG-Hw-Jp1"/>
+                <constraint firstAttribute="bottom" secondItem="mVQ-Sc-i2q" secondAttribute="bottom" constant="9" id="Px4-CK-bzn"/>
+                <constraint firstItem="GfA-HJ-wmp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="RQA-Zl-g2c"/>
+                <constraint firstItem="xxM-ZO-JYA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="TKS-s4-XTD"/>
+                <constraint firstItem="GfA-HJ-wmp" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Zij-Xm-bp2"/>
+                <constraint firstItem="mVQ-Sc-i2q" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="kBR-Sj-lVM"/>
+                <constraint firstAttribute="trailing" secondItem="xxM-ZO-JYA" secondAttribute="trailing" constant="8" id="lS3-Nt-5IT"/>
+                <constraint firstItem="mVQ-Sc-i2q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="xoW-Jq-Xts"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="leftBtn" destination="mVQ-Sc-i2q" id="8IX-It-cUU"/>
+                <outlet property="rightBtn" destination="xxM-ZO-JYA" id="dWm-j2-SDI"/>
+                <outlet property="title" destination="GfA-HJ-wmp" id="u9O-0t-gBU"/>
+            </connections>
+            <point key="canvasLocation" x="577" y="326"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="jiantou_03" width="11" height="19"/>
+        <image name="sendTrends" width="30" height="30"/>
+    </resources>
+</document>

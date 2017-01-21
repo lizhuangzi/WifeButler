@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ZTBackImageView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPL-mK-oUf">
+                    <rect key="frame" x="61" y="192" width="198" height="183"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZTBackXiaoXi" translatesAutoresizingMaskIntoConstraints="NO" id="cIY-uw-iRI">
+                            <rect key="frame" x="42" y="0.0" width="115" height="115"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="115" id="mOt-z4-xSZ"/>
+                                <constraint firstAttribute="width" constant="115" id="uzo-9W-vdy"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无消息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Trl-5g-eV3">
+                            <rect key="frame" x="0.0" y="123" width="198" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="ToJ-ud-O33"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.47812500000000002" green="0.47812500000000002" blue="0.47812500000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Trl-5g-eV3" firstAttribute="top" secondItem="cIY-uw-iRI" secondAttribute="bottom" constant="8" id="2hW-Ev-RTn"/>
+                        <constraint firstItem="Trl-5g-eV3" firstAttribute="leading" secondItem="TPL-mK-oUf" secondAttribute="leading" id="Jzh-tP-vHY"/>
+                        <constraint firstAttribute="width" constant="198" id="NlR-ff-WgC"/>
+                        <constraint firstAttribute="height" constant="183" id="R2I-D3-YpH"/>
+                        <constraint firstItem="cIY-uw-iRI" firstAttribute="top" secondItem="TPL-mK-oUf" secondAttribute="top" id="gCU-qm-94b"/>
+                        <constraint firstItem="cIY-uw-iRI" firstAttribute="centerX" secondItem="TPL-mK-oUf" secondAttribute="centerX" id="k3m-DZ-F0W"/>
+                        <constraint firstAttribute="trailing" secondItem="Trl-5g-eV3" secondAttribute="trailing" id="scu-3E-rPA"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.97628205121794875" green="0.97628205121794875" blue="0.97628205121794875" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="TPL-mK-oUf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="9Hb-17-Ifd"/>
+                <constraint firstItem="TPL-mK-oUf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="xUr-W3-DwG"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="backImageView" destination="cIY-uw-iRI" id="Uaa-NQ-5XD"/>
+                <outlet property="titleLab" destination="Trl-5g-eV3" id="k7S-bq-tJC"/>
+            </connections>
+            <point key="canvasLocation" x="515" y="222"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ZTBackXiaoXi" width="73" height="90"/>
+    </resources>
+</document>

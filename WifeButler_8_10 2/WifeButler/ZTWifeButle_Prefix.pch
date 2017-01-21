@@ -1,0 +1,43 @@
+//
+//  ZTWifeButle_Prefix.pch
+//  WifeButler
+//
+//  Created by ZT on 16/5/16.
+//  Copyright © 2016年 zjtd. All rights reserved.
+//
+
+#ifndef ZTWifeButle_Prefix_pch
+#define ZTWifeButle_Prefix_pch
+
+#import "UIBarButtonItem+Extension.h"
+#import <SVProgressHUD.h>
+#import  "MJExtension.h"
+#import <AFHTTPSessionManager.h>
+#import <UIImageView+WebCache.h>
+#import <MJRefresh.h>
+#import "CCNetWorkingTool.h"
+#import "UIView+Extension.h"
+#import "NSString+ZJMyString.h"
+#import "ZJLoginController.h"
+// 接口
+#import "NSURL.h"
+
+
+
+#define iphoneWidth [UIScreen mainScreen].bounds.size.width
+#define iphoneHeight [UIScreen mainScreen].bounds.size.height
+
+#define MAINCOLOR [UIColor colorWithRed:221.0f/255 green:32.0f/255 blue:46.0f/255 alpha:1]
+
+
+#define NSSaveUserDefaults(obj,key) [[NSUserDefaults standardUserDefaults] setObject:obj forKey:key];
+
+#define NSGetUserDefaults(key)    [[NSUserDefaults standardUserDefaults] objectForKey:key]
+
+#ifdef DEBUG
+#define ZJLog(...) NSLog(__VA_ARGS__)
+#else
+#define ZJLog(...)
+#endif
+
+#endif /* ZTWifeButle_Prefix_pch */
