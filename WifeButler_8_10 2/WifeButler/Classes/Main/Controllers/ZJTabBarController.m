@@ -26,8 +26,6 @@
     
     [self addChildVc];
     
-//    self.tabBar.tintColor = [UIColor colorWithRed:0.125 green:0.678 blue:0.584 alpha:1.000];
-    
     self.tabBar.barTintColor = HexCOLOR(@"#4a4a4a");
     // 设置显示时间
     [SVProgressHUD setMinimumDismissTimeInterval:2.0];
