@@ -19,10 +19,9 @@
 #import "ZTXiangQinHealthyLifeViewController.h"
 #import "ZTJianKangShenHuoBottomModel.h"
 #import "ZTLunBoToModel.h"
-#import <iCarousel/iCarousel.h>
 #import "UIColor+HexColor.h"
 
-@interface ZJHomePageController ()<UIScrollViewDelegate, SDCycleScrollViewDelegate, iCarouselDelegate, iCarouselDataSource>
+@interface ZJHomePageController ()<UIScrollViewDelegate, SDCycleScrollViewDelegate>
 {
     NSArray *_dataSource;
 }
@@ -37,7 +36,7 @@
 
 @property (nonatomic, assign) CGSize cardSize;
 
-@property (weak, nonatomic) IBOutlet iCarousel *carousel;
+
 
 @end
 
@@ -61,154 +60,113 @@
         [self netWorking];
     });
     
-    [self setPram];
 }
 
-- (void)setPram
-{
-    CGFloat cardWidth = [UIScreen mainScreen].bounds.size.width * 1.0f / 4.0f;
-    self.cardSize = CGSizeMake(cardWidth, cardWidth);
-    
-    self.carousel.delegate = self;
-    self.carousel.dataSource = self;
-    self.carousel.type = iCarouselTypeCustom;
-//    self.carousel.bounceDistance = 0.2f;
-    
-}
+
 
 
 #pragma mark - iCarousel的代理协议
-- (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
-{
-    return 5;
-}
 
-- (CGFloat)carouselItemWidth:(iCarousel *)carousel
-{
-    return self.cardSize.width;
-}
-
-- (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
-{
-    switch (option) {
-            //        case iCarouselOptionVisibleItems:
-            //        {
-            //            return 5;
-            //        }
-            
-        // 可以打开这里看一下效果
-        case iCarouselOptionWrap:
-        {
-            return YES;
-        }
-            
-        default:
-            break;
-    }
-    
-    return value;
-}
-
-- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
-{
-    UIView *cardView = view;
-    
-    if ( !cardView )
-    {
-        cardView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.cardSize.width, self.cardSize.height)];
-//        cardView.layer.masksToBounds = YES;
-//        cardView.layer.cornerRadius = cardView.frame.size.width / 2.0;
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:cardView.bounds];
-        [cardView addSubview:imageView];
-        
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
-        imageView.backgroundColor = [UIColor clearColor];
-        imageView.tag = [@"image" hash];
-        
-    }
-    
-    UIImageView *imageView = (UIImageView*)[cardView viewWithTag:[@"image" hash]];
-    imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ZT%ld%ld",index + 1, index + 1]];
-    
-    
-    return cardView;
-}
+//- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
+//{
+//    UIView *cardView = view;
+//    
+//    if ( !cardView )
+//    {
+//        cardView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.cardSize.width, self.cardSize.height)];
+////        cardView.layer.masksToBounds = YES;
+////        cardView.layer.cornerRadius = cardView.frame.size.width / 2.0;
+//        
+//        UIImageView *imageView = [[UIImageView alloc] initWithFrame:cardView.bounds];
+//        [cardView addSubview:imageView];
+//        
+//        imageView.contentMode = UIViewContentModeScaleAspectFill;
+//        imageView.backgroundColor = [UIColor clearColor];
+//        imageView.tag = [@"image" hash];
+//        
+//    }
+//    
+//    UIImageView *imageView = (UIImageView*)[cardView viewWithTag:[@"image" hash]];
+//    imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ZT%ld%ld",index + 1, index + 1]];
+//    
+//    
+//    return cardView;
+//}
 
 
-- (CATransform3D)carousel:(iCarousel *)carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform
-{
-    
-    //    NSLog(@"offsetoffsetoffset:%f", offset);
-    
-    // 位置的变化
-    CGFloat translation = [self translationByOffset:offset];
-    
-    // 大小的变化
-    CGFloat scale = [self scaleByOffset:offset];
-    
-    transform = CATransform3DScale(transform, scale, scale, 1.0f);
-    
-    return CATransform3DTranslate(transform, offset * self.cardSize.width, - translation * self.cardSize.width, 0);
+//- (CATransform3D)carousel:(iCarousel *)carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform
+//{
+//    
+//    //    NSLog(@"offsetoffsetoffset:%f", offset);
+//    
+//    // 位置的变化
+//    CGFloat translation = [self translationByOffset:offset];
+//    
+//    // 大小的变化
+//    CGFloat scale = [self scaleByOffset:offset];
+//    
+//    transform = CATransform3DScale(transform, scale, scale, 1.0f);
+//    
+//    return CATransform3DTranslate(transform, offset * self.cardSize.width, - translation * self.cardSize.width, 0);
+//
+//}
 
-}
-
-- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
-{
-    ZJLog(@"indexindexindex:::%ld", (long)index);
-
-    __weak typeof(self) weakSelf = self;
-    
-    
-    if (index == 2) {
-        
-        UIStoryboard * sb=[UIStoryboard storyboardWithName:@"ZJHomePageController" bundle:nil];
-        ZJCommunityShopVC * nav = [sb instantiateViewControllerWithIdentifier:@"ZJCommunityShopVC"];
-        nav.hidesBottomBarWhenPushed=YES;
-        [weakSelf.navigationController pushViewController:nav animated:YES];
-    }
-    
-    if (index == 3) {
-        
-        if (KToken == nil) {
-
-            [SVProgressHUD showErrorWithStatus:@"请先进行登录"];
-
-            return;
-        }
-
-        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuQuanZi" bundle:nil];
-        ZTQuanZiZViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTQuanZiZViewController"];
-        nav.hidesBottomBarWhenPushed = YES;
-        [weakSelf.navigationController pushViewController:nav animated:YES];
-    }
-    
-    if (index == 4) {
-        
-        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuZhenWu" bundle:nil];
-        ZTSheQuZhenWuViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTSheQuZhenWuViewController"];
-        nav.hidesBottomBarWhenPushed = YES;
-        [weakSelf.navigationController pushViewController:nav animated:YES];
-    }
-    
-    if (index == 0) {
-        
-        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuWuYe" bundle:nil];
-        ZTSheQuWuYeViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTSheQuWuYeViewController"];
-        nav.hidesBottomBarWhenPushed = YES;
-        nav.Type = 2;
-        [weakSelf.navigationController pushViewController:nav animated:YES];
-    }
-    
-    if (index == 1) {
-        
-        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuWuYe" bundle:nil];
-        ZTSheQuWuYeViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTSheQuWuYeViewController"];
-        nav.hidesBottomBarWhenPushed = YES;
-        nav.Type = 3;
-        [weakSelf.navigationController pushViewController:nav animated:YES];
-    }
-}
+//- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
+//{
+//    ZJLog(@"indexindexindex:::%ld", (long)index);
+//
+//    __weak typeof(self) weakSelf = self;
+//    
+//    
+//    if (index == 2) {
+//        
+//        UIStoryboard * sb=[UIStoryboard storyboardWithName:@"ZJHomePageController" bundle:nil];
+//        ZJCommunityShopVC * nav = [sb instantiateViewControllerWithIdentifier:@"ZJCommunityShopVC"];
+//        nav.hidesBottomBarWhenPushed=YES;
+//        [weakSelf.navigationController pushViewController:nav animated:YES];
+//    }
+//    
+//    if (index == 3) {
+//        
+//        if (KToken == nil) {
+//
+//            [SVProgressHUD showErrorWithStatus:@"请先进行登录"];
+//
+//            return;
+//        }
+//
+//        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuQuanZi" bundle:nil];
+//        ZTQuanZiZViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTQuanZiZViewController"];
+//        nav.hidesBottomBarWhenPushed = YES;
+//        [weakSelf.navigationController pushViewController:nav animated:YES];
+//    }
+//    
+//    if (index == 4) {
+//        
+//        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuZhenWu" bundle:nil];
+//        ZTSheQuZhenWuViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTSheQuZhenWuViewController"];
+//        nav.hidesBottomBarWhenPushed = YES;
+//        [weakSelf.navigationController pushViewController:nav animated:YES];
+//    }
+//    
+//    if (index == 0) {
+//        
+//        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuWuYe" bundle:nil];
+//        ZTSheQuWuYeViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTSheQuWuYeViewController"];
+//        nav.hidesBottomBarWhenPushed = YES;
+//        nav.Type = 2;
+//        [weakSelf.navigationController pushViewController:nav animated:YES];
+//    }
+//    
+//    if (index == 1) {
+//        
+//        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuWuYe" bundle:nil];
+//        ZTSheQuWuYeViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTSheQuWuYeViewController"];
+//        nav.hidesBottomBarWhenPushed = YES;
+//        nav.Type = 3;
+//        [weakSelf.navigationController pushViewController:nav animated:YES];
+//    }
+//}
 
 // 缩放大小
 - (CGFloat)scaleByOffset:(CGFloat)offset

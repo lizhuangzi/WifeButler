@@ -9,7 +9,6 @@ pod 'SVProgressHUD', '~> 2.0.3'
 pod 'IQKeyboardManager', '~> 3.2.4'
 pod 'SDCycleScrollView', '~> 1.64'
 pod 'MWPhotoBrowser', '~> 2.1.2'
-pod 'iCarousel'
 pod 'AlipaySDK-2.0', '~> 15.0.2'
 
 end
