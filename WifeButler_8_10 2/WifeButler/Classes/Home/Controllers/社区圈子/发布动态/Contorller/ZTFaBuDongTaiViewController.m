@@ -9,6 +9,7 @@
 #import "ZTFaBuDongTaiViewController.h"
 #import "UIImageView+Del.h"
 #import "ZYQAssetPickerController.h"
+#import "ZJLoginController.h"
 
 @interface ZTFaBuDongTaiViewController ()<UITextViewDelegate, UIActionSheetDelegate,  UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIImageViewDelDelegate, ZYQAssetPickerControllerDelegate>
 {

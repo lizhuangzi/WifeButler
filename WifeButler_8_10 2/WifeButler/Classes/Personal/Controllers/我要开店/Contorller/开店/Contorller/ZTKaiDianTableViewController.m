@@ -9,6 +9,7 @@
 #import "ZTKaiDianTableViewController.h"
 #import "ZTDianPuXinXiTableViewController.h"
 #import "NSString+ZJMyJudgeString.h"
+#import "ZJLoginController.h"
 
 @interface ZTKaiDianTableViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 {

@@ -18,7 +18,7 @@
 #import "CCNetWorkingTool.h"
 #import "UIView+Extension.h"
 #import "NSString+ZJMyString.h"
-#import "ZJLoginController.h"
+
 // 接口
 #import "NSURL.h"
 

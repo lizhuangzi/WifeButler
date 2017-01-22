@@ -12,6 +12,7 @@
 #import "ZTHealthyLifestyleViewController.h"
 #import "ZTGarbageOfRiceViewController.h"
 #import "UIColor+HexColor.h"
+#import "UIColor+EasyExistion.h"
 
 @interface ZJTabBarController ()
 @property(nonatomic,strong)ZJHomePageController *homePage;
@@ -26,7 +27,7 @@
     
     [self addChildVc];
     
-    self.tabBar.barTintColor = HexCOLOR(@"#4a4a4a");
+    self.tabBar.barTintColor = [UIColor whiteColor];
     // 设置显示时间
     [SVProgressHUD setMinimumDismissTimeInterval:2.0];
 }
@@ -40,13 +41,13 @@
 - (void)addChildVc
 {
     // 首页
-    [self addChildVCWithSBName:@"ZJHomePageController" title:@"首页" norImageName:@"ZTHome" selectedImageName:@"ZTHomeLighlighted"];
+    [self addChildVCWithSBName:@"ZJHomePageController" title:@"社区首页" norImageName:@"ZTHome" selectedImageName:@"ZTHomeLighlighted"];
     
-    [self addChildVCWithSBName:@"ZTHealthyLifestyle" title:@"健康生活" norImageName:@"ZTHeathSH" selectedImageName:@"ZTHeathSHhighlighted"];
+    [self addChildVCWithSBName:@"ZTHealthyLifestyle" title:@"老伴资讯" norImageName:@"ZTTabInformation" selectedImageName:@"ZTHeathSHhighlighted"];
 
-    [self addChildVCWithSBName:@"ZTGarbageOfRice" title:@"垃圾换米" norImageName:@"ZTZhiHuan" selectedImageName:@"ZTZhiHuanHighlighted"];
+    [self addChildVCWithSBName:@"ZTGarbageOfRice" title:@"垃圾换大米" norImageName:@"ZTZhiHuan" selectedImageName:@"ZTZhiHuanHighlighted"];
 
-    [self addChildVCWithSBName:@"ZJMineController" title:@"我的" norImageName:@"ZTWoDe" selectedImageName:@"ZTWoDeHighlighted"];
+    [self addChildVCWithSBName:@"ZJMineController" title:@"个人中心" norImageName:@"ZTWoDe" selectedImageName:@"ZTWoDeHighlighted"];
 }
 
 
@@ -74,7 +75,7 @@
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = HexCOLOR(@"#7d7d7d");
     NSMutableDictionary *selectTextAttrs = [NSMutableDictionary dictionary];
-    selectTextAttrs[NSForegroundColorAttributeName] = HexCOLOR(@"#ffffff");
+    selectTextAttrs[NSForegroundColorAttributeName] = [UIColor setR:251 G:87 B:81];
     
     [vc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     [vc.tabBarItem setTitleTextAttributes:selectTextAttrs forState:UIControlStateSelected];

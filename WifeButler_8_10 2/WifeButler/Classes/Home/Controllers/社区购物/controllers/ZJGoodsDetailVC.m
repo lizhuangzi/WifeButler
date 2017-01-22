@@ -13,6 +13,7 @@
 #import "ZJGoodsDetailCell4.h"
 #import "SDCycleScrollView.h"
 #import "ZTPersonGouWuCheViewController.h"
+#import "ZJLoginController.h"
 
 @interface ZJGoodsDetailVC ()<ZJBuyGoodsNumDelegate,UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate, SDCycleScrollViewDelegate>
 

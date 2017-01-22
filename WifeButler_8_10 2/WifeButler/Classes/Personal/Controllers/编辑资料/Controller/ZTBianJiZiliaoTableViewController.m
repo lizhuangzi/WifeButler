@@ -8,6 +8,7 @@
 
 #import "ZTBianJiZiliaoTableViewController.h"
 #import "ZTLogoModel.h"
+#import "ZJLoginController.h"
 
 
 @interface ZTBianJiZiliaoTableViewController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>

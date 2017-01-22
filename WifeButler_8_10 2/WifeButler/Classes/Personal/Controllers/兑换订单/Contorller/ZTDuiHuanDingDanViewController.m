@@ -12,6 +12,7 @@
 #import "ZTDingDanXiangQinDuiHuanViewController.h"
 #import "ZTBackImageView.h"
 #import "ZTDuiHuanOederModel.h"
+#import "ZJLoginController.h"
 
 typedef enum {
     

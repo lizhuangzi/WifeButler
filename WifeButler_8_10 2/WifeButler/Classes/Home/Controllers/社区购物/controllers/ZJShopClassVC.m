@@ -13,6 +13,7 @@
 #import "ZTHuiZhuanDingDan1ViewController.h"
 #import "WZLBadgeImport.h"
 #import "ZTSheQuWuYeFuWuXiangQinViewController.h"
+#import "ZJLoginController.h"
 
 @interface ZJShopClassVC ()<UICollectionViewDataSource,UICollectionViewDelegate,ZJAddBusDelegate>
 

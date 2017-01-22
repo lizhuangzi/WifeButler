@@ -12,6 +12,7 @@
 #import "ZTJieSuanGouWuCheViewController.h"
 #import "ZTJieSuang11Model.h"
 #import "ZTBackImageView.h"
+#import "ZJLoginController.h"
 
 @interface ZTPersonGouWuCheViewController ()
 {

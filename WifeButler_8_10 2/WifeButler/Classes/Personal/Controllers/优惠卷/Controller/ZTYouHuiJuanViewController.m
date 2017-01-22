@@ -10,6 +10,7 @@
 #import "ZTYouHuiJuanTableViewCell.h"
 #import "ZTYouHuiJuanModel.h"
 #import "ZTBackImageView.h"
+#import "ZJLoginController.h"
 
 @interface ZTYouHuiJuanViewController ()
 {

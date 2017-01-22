@@ -9,6 +9,7 @@
 #import "ZTHuiZhuanPingJiaTableViewController.h"
 #import "UIImageView+Del.h"
 #import "ZYQAssetPickerController.h"
+#import "ZJLoginController.h"
 
 @interface ZTHuiZhuanPingJiaTableViewController ()<UITextViewDelegate, UIActionSheetDelegate,  UINavigationControllerDelegate>
 

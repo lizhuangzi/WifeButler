@@ -8,6 +8,7 @@
 
 #import "ZTDingDanXiangQinDuiHuanViewController.h"
 #import "ZTOrderXiangQinModel.h"
+#import "ZJLoginController.h"
 
 @interface ZTDingDanXiangQinDuiHuanViewController ()
 {

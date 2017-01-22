@@ -245,18 +245,13 @@
 		7BFBA6BE1CFE80EC00D4E07C /* ZJCommunityShopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA6841CFE80EC00D4E07C /* ZJCommunityShopVC.m */; };
 		7BFBA6BF1CFE80EC00D4E07C /* ZJGoodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA6861CFE80EC00D4E07C /* ZJGoodsDetailVC.m */; };
 		7BFBA6C01CFE80EC00D4E07C /* ZJShopClassVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA6881CFE80EC00D4E07C /* ZJShopClassVC.m */; };
-		7BFBA6D11CFE80EC00D4E07C /* index1_04@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFBA6AE1CFE80EC00D4E07C /* index1_04@2x.png */; };
-		7BFBA6D21CFE80EC00D4E07C /* index1_05@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFBA6AF1CFE80EC00D4E07C /* index1_05@2x.png */; };
-		7BFBA6D31CFE80EC00D4E07C /* index_00@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFBA6B01CFE80EC00D4E07C /* index_00@2x.png */; };
-		7BFBA6D41CFE80EC00D4E07C /* index_01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFBA6B11CFE80EC00D4E07C /* index_01@2x.png */; };
-		7BFBA6D51CFE80EC00D4E07C /* index_02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFBA6B21CFE80EC00D4E07C /* index_02@2x.png */; };
-		7BFBA6D61CFE80EC00D4E07C /* index_03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFBA6B31CFE80EC00D4E07C /* index_03@2x.png */; };
 		7BFBA6E31CFE848600D4E07C /* ZTFuJinShangJiaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA6DC1CFE848600D4E07C /* ZTFuJinShangJiaViewController.m */; };
 		7BFBA6E41CFE848600D4E07C /* ZTFuJinShangJiaCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA6E01CFE848600D4E07C /* ZTFuJinShangJiaCollectionViewCell.m */; };
 		7BFBA6E51CFE848600D4E07C /* ZTFuJinShangJiaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA6E21CFE848600D4E07C /* ZTFuJinShangJiaTableViewCell.m */; };
 		7BFBA6E81CFEC2B700D4E07C /* ZTLeiBieaaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA6E71CFEC2B700D4E07C /* ZTLeiBieaaModel.m */; };
 		7BFBA6EB1CFF030600D4E07C /* ZTAddAddressTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA6EA1CFF030600D4E07C /* ZTAddAddressTableViewController.m */; };
 		7BFBA6ED1CFF032A00D4E07C /* ZTAddAddress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BFBA6EC1CFF032A00D4E07C /* ZTAddAddress.storyboard */; };
+		C71365321E350BEB00C89CB5 /* UIColor+EasyExistion.m in Sources */ = {isa = PBXBuildFile; fileRef = C71365311E350BEB00C89CB5 /* UIColor+EasyExistion.m */; };
 		C7BA19CB1E26778F00405816 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */; };
 		D11D1A281D7BB95400E2A815 /* HomeNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11D1A271D7BB95400E2A815 /* HomeNavgationController.m */; };
 		DBEE1B066618603F83A88679 /* libPods-WifeButler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCE7C4784446788DC838254 /* libPods-WifeButler.a */; };
@@ -716,12 +711,6 @@
 		7BFBA6861CFE80EC00D4E07C /* ZJGoodsDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJGoodsDetailVC.m; sourceTree = "<group>"; };
 		7BFBA6871CFE80EC00D4E07C /* ZJShopClassVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJShopClassVC.h; sourceTree = "<group>"; };
 		7BFBA6881CFE80EC00D4E07C /* ZJShopClassVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJShopClassVC.m; sourceTree = "<group>"; };
-		7BFBA6AE1CFE80EC00D4E07C /* index1_04@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "index1_04@2x.png"; sourceTree = "<group>"; };
-		7BFBA6AF1CFE80EC00D4E07C /* index1_05@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "index1_05@2x.png"; sourceTree = "<group>"; };
-		7BFBA6B01CFE80EC00D4E07C /* index_00@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "index_00@2x.png"; sourceTree = "<group>"; };
-		7BFBA6B11CFE80EC00D4E07C /* index_01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "index_01@2x.png"; sourceTree = "<group>"; };
-		7BFBA6B21CFE80EC00D4E07C /* index_02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "index_02@2x.png"; sourceTree = "<group>"; };
-		7BFBA6B31CFE80EC00D4E07C /* index_03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "index_03@2x.png"; sourceTree = "<group>"; };
 		7BFBA6DB1CFE848600D4E07C /* ZTFuJinShangJiaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTFuJinShangJiaViewController.h; sourceTree = "<group>"; };
 		7BFBA6DC1CFE848600D4E07C /* ZTFuJinShangJiaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTFuJinShangJiaViewController.m; sourceTree = "<group>"; };
 		7BFBA6DF1CFE848600D4E07C /* ZTFuJinShangJiaCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTFuJinShangJiaCollectionViewCell.h; sourceTree = "<group>"; };
@@ -733,6 +722,8 @@
 		7BFBA6E91CFF030600D4E07C /* ZTAddAddressTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTAddAddressTableViewController.h; sourceTree = "<group>"; };
 		7BFBA6EA1CFF030600D4E07C /* ZTAddAddressTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTAddAddressTableViewController.m; sourceTree = "<group>"; };
 		7BFBA6EC1CFF032A00D4E07C /* ZTAddAddress.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZTAddAddress.storyboard; sourceTree = "<group>"; };
+		C71365301E350BEB00C89CB5 /* UIColor+EasyExistion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+EasyExistion.h"; sourceTree = "<group>"; };
+		C71365311E350BEB00C89CB5 /* UIColor+EasyExistion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+EasyExistion.m"; sourceTree = "<group>"; };
 		C7BA19C91E26778F00405816 /* UIColor+HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
 		C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
 		CFFCA33AEFF47FF60F105438 /* Pods-WifeButler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WifeButler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WifeButler/Pods-WifeButler.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1956,6 +1947,8 @@
 		7BB43F951CE9C57F007D722A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C71365301E350BEB00C89CB5 /* UIColor+EasyExistion.h */,
+				C71365311E350BEB00C89CB5 /* UIColor+EasyExistion.m */,
 				C7BA19C91E26778F00405816 /* UIColor+HexColor.h */,
 				C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */,
 				7B288D321D582C9A000A19AF /* 微信sdk */,
@@ -2884,7 +2877,6 @@
 			children = (
 				7BFBA67D1CFE80EC00D4E07C /* Controllers */,
 				7BFBA6AB1CFE80EC00D4E07C /* Models */,
-				7BFBA6AC1CFE80EC00D4E07C /* resources */,
 				7BFBA6BB1CFE80EC00D4E07C /* View */,
 			);
 			path = Home;
@@ -2967,19 +2959,6 @@
 				7BCC31641D2E59AF007D930A /* ZTLunBoToModel.m */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		7BFBA6AC1CFE80EC00D4E07C /* resources */ = {
-			isa = PBXGroup;
-			children = (
-				7BFBA6AE1CFE80EC00D4E07C /* index1_04@2x.png */,
-				7BFBA6AF1CFE80EC00D4E07C /* index1_05@2x.png */,
-				7BFBA6B01CFE80EC00D4E07C /* index_00@2x.png */,
-				7BFBA6B11CFE80EC00D4E07C /* index_01@2x.png */,
-				7BFBA6B21CFE80EC00D4E07C /* index_02@2x.png */,
-				7BFBA6B31CFE80EC00D4E07C /* index_03@2x.png */,
-			);
-			path = resources;
 			sourceTree = "<group>";
 		};
 		7BFBA6BB1CFE80EC00D4E07C /* View */ = {
@@ -3152,11 +3131,9 @@
 				7B288D391D582C9A000A19AF /* README.txt in Resources */,
 				7BE3C6421CF188DF00851512 /* ZTAddressPickView.xib in Resources */,
 				7BE3C6AE1CF1A05F00851512 /* ZTHuiZhuanDingDan.storyboard in Resources */,
-				7BFBA6D61CFE80EC00D4E07C /* index_03@2x.png in Resources */,
 				7B4F39741CF2906800D427CD /* ZTXiaoXiXiangQinViewController.xib in Resources */,
 				7B2366C81D0285D8003BC590 /* ZTheard2.xib in Resources */,
 				7BE3C63B1CF1888F00851512 /* ZJGuangLiShouHuoDiZhiTableViewCell.xib in Resources */,
-				7BFBA6D31CFE80EC00D4E07C /* index_00@2x.png in Resources */,
 				7BB43FB91CE9C57F007D722A /* ZJMineController.storyboard in Resources */,
 				7BE3C63D1CF1888F00851512 /* ZTBianJiShouHuoDiZhi.storyboard in Resources */,
 				7BE3C6BE1CF1A54C00851512 /* ZYQAssetPicker.Bundle in Resources */,
@@ -3168,7 +3145,6 @@
 				7B5B07BD1D0EAA8600D0246A /* ZTSheQuZhenWu.storyboard in Resources */,
 				7BD04B2B1CF820FE00D431D5 /* ZTBianJiInfo.storyboard in Resources */,
 				7B0536D81D0FE5AD00BE9762 /* ZJTrendsDetailHeaderView.xib in Resources */,
-				7BFBA6D41CFE80EC00D4E07C /* index_01@2x.png in Resources */,
 				7B2366C61D0285CA003BC590 /* ZTHeard1.xib in Resources */,
 				7B019D811D52CB120073506E /* ZTBackImageView.xib in Resources */,
 				7B0536DE1D0FE5AD00BE9762 /* ZJSheQuanZiHeaderView.xib in Resources */,
@@ -3180,14 +3156,11 @@
 				7B05372B1D102BB500BE9762 /* ZTSheQuQuanZi.storyboard in Resources */,
 				7BF499761CFD87C800CCEB45 /* ZTJieSuanGouWuChe.storyboard in Resources */,
 				7BD5B7E11D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.xib in Resources */,
-				7BFBA6D51CFE80EC00D4E07C /* index_02@2x.png in Resources */,
 				7B2366B71D026FFF003BC590 /* ZTSheQuWuYe.storyboard in Resources */,
-				7BFBA6D11CFE80EC00D4E07C /* index1_04@2x.png in Resources */,
 				7B4F39791CF295DE00D427CD /* ZTGouWuChe.storyboard in Resources */,
 				7BCAA45A1D40AEBE00F46C33 /* ZTTiShiView.xib in Resources */,
 				7B8D04C31CEAB3380024B812 /* ZJLogin.storyboard in Resources */,
 				7BFBA6BD1CFE80EC00D4E07C /* ZJHomePageController.storyboard in Resources */,
-				7BFBA6D21CFE80EC00D4E07C /* index1_05@2x.png in Resources */,
 				7BB43F5E1CE9C3BC007D722A /* LaunchScreen.storyboard in Resources */,
 				7BB43F5B1CE9C3BC007D722A /* Assets.xcassets in Resources */,
 				7BBE4D411D069FB800DBF00F /* ZTXiangQinHealthyLifeViewController.xib in Resources */,
@@ -3325,6 +3298,7 @@
 				7BE420641D13A730009A8FAB /* ZJGoodsDetailCell2.m in Sources */,
 				7B288D411D582DCF000A19AF /* ApiXml.mm in Sources */,
 				7BF4997C1CFD90A200CCEB45 /* ZTShangPingXiangQin11TableViewCell.m in Sources */,
+				C71365321E350BEB00C89CB5 /* UIColor+EasyExistion.m in Sources */,
 				7B86D80D1CF86C9400AB1E05 /* ZTLaJiHuanMiModel.m in Sources */,
 				7B0537051D0FE5E400BE9762 /* TYTextStorage.m in Sources */,
 				7B0537341D102E2700BE9762 /* ZTQuanZiZTableViewCell.m in Sources */,

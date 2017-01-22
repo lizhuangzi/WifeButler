@@ -19,6 +19,7 @@
 #import "WZLBadgeImport.h"
 #import "ZTXiangQinHealthyLifeViewController.h"
 #import "ZJGoodsDetailVC.h"
+#import "ZJLoginController.h"
 
 @interface ZJCommunityShopVC ()<UICollectionViewDataSource,UICollectionViewDelegate, SDCycleScrollViewDelegate,
     ZJLabelClickDelegate,UISearchBarDelegate>

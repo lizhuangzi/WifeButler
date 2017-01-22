@@ -16,6 +16,7 @@
 #import "ZTJianPanView.h"
 #import "MWPhotoBrowser.h"
 #import <Photos/Photos.h>
+#import "ZJLoginController.h"
 
 @interface ZJTrendsDetailController ()<ZJThrendsDetailReplyViewDelegate,TYAttributedLabelDelegate, ZJTrendsDetailViewDelegate, MWPhotoBrowserDelegate>
 

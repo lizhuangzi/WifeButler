@@ -7,6 +7,7 @@
 //
 
 #import "ZTYiJianFanKuiViewController.h"
+#import "ZJLoginController.h"
 
 @interface ZTYiJianFanKuiViewController ()<UITextViewDelegate>
 
