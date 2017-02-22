@@ -13,6 +13,8 @@
 #import "ZJLoginController.h"
 #import "ZTBackImageView.h"
 #import "UIColor+HexColor.h"
+#import "MJRefresh.h"
+
 @interface ZJGuangLiShouHuoDiZhiViewController ()<UITableViewDelegate, UITableViewDataSource>
 {
     UITableView *_tableView;

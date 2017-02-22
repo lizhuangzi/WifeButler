@@ -14,6 +14,7 @@
 #import "WZLBadgeImport.h"
 #import "ZTSheQuWuYeFuWuXiangQinViewController.h"
 #import "ZJLoginController.h"
+#import "MJRefresh.h"
 
 @interface ZJShopClassVC ()<UICollectionViewDataSource,UICollectionViewDelegate,ZJAddBusDelegate>
 

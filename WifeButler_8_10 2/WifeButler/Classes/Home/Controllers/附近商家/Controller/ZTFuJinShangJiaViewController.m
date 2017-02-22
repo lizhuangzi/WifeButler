@@ -13,6 +13,7 @@
 #import "ZJShopClassVC.h"
 #import "ZJGoodsDetailVC.h"
 #import "ZTSheQuWuYeFuWuXiangQinViewController.h"
+#import "MJRefresh.h"
 
 typedef enum {
 

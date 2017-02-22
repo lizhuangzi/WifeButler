@@ -14,8 +14,6 @@
 #import  "MJExtension.h"
 #import <AFHTTPSessionManager.h>
 #import <UIImageView+WebCache.h>
-#import <MJRefresh.h>
-#import "CCNetWorkingTool.h"
 #import "UIView+Extension.h"
 #import "NSString+ZJMyString.h"
 

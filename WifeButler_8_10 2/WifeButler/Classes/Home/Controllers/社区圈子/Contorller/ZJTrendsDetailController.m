@@ -17,6 +17,7 @@
 #import "MWPhotoBrowser.h"
 #import <Photos/Photos.h>
 #import "ZJLoginController.h"
+#import "MJRefresh.h"
 
 @interface ZJTrendsDetailController ()<ZJThrendsDetailReplyViewDelegate,TYAttributedLabelDelegate, ZJTrendsDetailViewDelegate, MWPhotoBrowserDelegate>
 
@@ -105,76 +106,76 @@
     
     ZJLog(@"%@", parameters);
     
-    [CCNetWorkingTool POST:url parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-//        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
-        
-        if ([CCNetWorkingTool success:responseObject]) {
-            
-            ZJLog(@"%@", responseObject);
-            
-            self.detailModel = [ZJTrendsDetailModel mj_objectWithKeyValues:responseObject[@"resultCode"]];
-            
-            // 二层回复
-            self.detailModel.comment = [ZJCommentModel mj_objectArrayWithKeyValuesArray:self.detailModel.comment];
-
-            if (self.commentBlock) {
-                
-                self.commentBlock(self.detailModel.comment);
-            }
-            
-            NSMutableArray *muArr = [NSMutableArray array];
-            
-            for (int i = 0; i < self.detailModel.comment.count; ++i) {
-                
-                ZJTrendsCommentViewFrameModel *commentFrameModel = [[ZJTrendsCommentViewFrameModel alloc] init];
-                commentFrameModel.model = self.detailModel.comment[i];
-                
-                [muArr addObject:commentFrameModel];
-            }
-            
-            self.commentFrames = [muArr mutableCopy];
-            
-            self.frameModel.detailModel = self.detailModel;
-            
-            [self refreshView];
-            
-        }
-        
-        // 登录失效 进行提示登录
-        if ([[responseObject objectForKey:@"code"] intValue] == 40000) {
-            
-            [SVProgressHUD dismiss];
-            
-            __weak typeof(self) weakSelf = self;
-            
-            UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"提示" message:@"您登录已经失效,请重新进行登录哦!" preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                
-                UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];
-                ZJLoginController *vc = [sb instantiateViewControllerWithIdentifier:@"ZJLoginController"];
-                vc.isLogo = YES;
-                [vc setShuaiXinShuJu:^{
-                    
-                    [self getTrendsDetailData];
-                }];
-                
-                [weakSelf.navigationController pushViewController:vc animated:YES];
-            }];
-            
-            [vc addAction:otherAction];
-            
-            [weakSelf presentViewController:vc animated:YES completion:nil];
-            
-        }
-        
-        [self.scrollView.mj_header endRefreshing];
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-        [self.scrollView.mj_header endRefreshing];
-    }];
+//    [CCNetWorkingTool POST:url parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+//        
+////        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
+//        
+//        if ([CCNetWorkingTool success:responseObject]) {
+//            
+//            ZJLog(@"%@", responseObject);
+//            
+//            self.detailModel = [ZJTrendsDetailModel mj_objectWithKeyValues:responseObject[@"resultCode"]];
+//            
+//            // 二层回复
+//            self.detailModel.comment = [ZJCommentModel mj_objectArrayWithKeyValuesArray:self.detailModel.comment];
+//
+//            if (self.commentBlock) {
+//                
+//                self.commentBlock(self.detailModel.comment);
+//            }
+//            
+//            NSMutableArray *muArr = [NSMutableArray array];
+//            
+//            for (int i = 0; i < self.detailModel.comment.count; ++i) {
+//                
+//                ZJTrendsCommentViewFrameModel *commentFrameModel = [[ZJTrendsCommentViewFrameModel alloc] init];
+//                commentFrameModel.model = self.detailModel.comment[i];
+//                
+//                [muArr addObject:commentFrameModel];
+//            }
+//            
+//            self.commentFrames = [muArr mutableCopy];
+//            
+//            self.frameModel.detailModel = self.detailModel;
+//            
+//            [self refreshView];
+//            
+//        }
+//        
+//        // 登录失效 进行提示登录
+//        if ([[responseObject objectForKey:@"code"] intValue] == 40000) {
+//            
+//            [SVProgressHUD dismiss];
+//            
+//            __weak typeof(self) weakSelf = self;
+//            
+//            UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"提示" message:@"您登录已经失效,请重新进行登录哦!" preferredStyle:UIAlertControllerStyleAlert];
+//            
+//            UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//                
+//                UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];
+//                ZJLoginController *vc = [sb instantiateViewControllerWithIdentifier:@"ZJLoginController"];
+//                vc.isLogo = YES;
+//                [vc setShuaiXinShuJu:^{
+//                    
+//                    [self getTrendsDetailData];
+//                }];
+//                
+//                [weakSelf.navigationController pushViewController:vc animated:YES];
+//            }];
+//            
+//            [vc addAction:otherAction];
+//            
+//            [weakSelf presentViewController:vc animated:YES completion:nil];
+//            
+//        }
+//        
+//        [self.scrollView.mj_header endRefreshing];
+//        
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        
+//        [self.scrollView.mj_header endRefreshing];
+//    }];
     
 }
 

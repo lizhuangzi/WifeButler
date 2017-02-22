@@ -10,6 +10,7 @@
 #import "ZTSheQuZhenWuTableViewCell.h"
 #import "SDCycleScrollView.h"
 #import "ZTZhenWuXiangQinViewController.h"
+#import "MJRefresh.h"
 
 @interface ZTSheQuZhenWuViewController ()<SDCycleScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 {

@@ -33,7 +33,6 @@
 		7B0536E11D0FE5AD00BE9762 /* ZJTrendsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536CB1D0FE5AD00BE9762 /* ZJTrendsHeaderView.m */; };
 		7B0536E21D0FE5AD00BE9762 /* ZJTrendsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B0536CC1D0FE5AD00BE9762 /* ZJTrendsHeaderView.xib */; };
 		7B0536E31D0FE5AD00BE9762 /* ZTSheQuQuanZiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536CE1D0FE5AD00BE9762 /* ZTSheQuQuanZiTableViewCell.m */; };
-		7B0536FC1D0FE5E400BE9762 /* CCNetWorkingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536E61D0FE5E400BE9762 /* CCNetWorkingTool.m */; };
 		7B0536FD1D0FE5E400BE9762 /* NSMutableAttributedString+TY.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536E91D0FE5E400BE9762 /* NSMutableAttributedString+TY.m */; };
 		7B0536FE1D0FE5E400BE9762 /* TYAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536EB1D0FE5E400BE9762 /* TYAttributedLabel.m */; };
 		7B0536FF1D0FE5E400BE9762 /* TYDrawStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536ED1D0FE5E400BE9762 /* TYDrawStorage.m */; };
@@ -322,8 +321,6 @@
 		7B0536CC1D0FE5AD00BE9762 /* ZJTrendsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZJTrendsHeaderView.xib; sourceTree = "<group>"; };
 		7B0536CD1D0FE5AD00BE9762 /* ZTSheQuQuanZiTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTSheQuQuanZiTableViewCell.h; sourceTree = "<group>"; };
 		7B0536CE1D0FE5AD00BE9762 /* ZTSheQuQuanZiTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTSheQuQuanZiTableViewCell.m; sourceTree = "<group>"; };
-		7B0536E51D0FE5E400BE9762 /* CCNetWorkingTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNetWorkingTool.h; sourceTree = "<group>"; };
-		7B0536E61D0FE5E400BE9762 /* CCNetWorkingTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNetWorkingTool.m; sourceTree = "<group>"; };
 		7B0536E81D0FE5E400BE9762 /* NSMutableAttributedString+TY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+TY.h"; sourceTree = "<group>"; };
 		7B0536E91D0FE5E400BE9762 /* NSMutableAttributedString+TY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+TY.m"; sourceTree = "<group>"; };
 		7B0536EA1D0FE5E400BE9762 /* TYAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAttributedLabel.h; sourceTree = "<group>"; };
@@ -881,15 +878,6 @@
 				7B0536CE1D0FE5AD00BE9762 /* ZTSheQuQuanZiTableViewCell.m */,
 			);
 			path = "圈子动态列表";
-			sourceTree = "<group>";
-		};
-		7B0536E41D0FE5E400BE9762 /* CCNetWorkingTool */ = {
-			isa = PBXGroup;
-			children = (
-				7B0536E51D0FE5E400BE9762 /* CCNetWorkingTool.h */,
-				7B0536E61D0FE5E400BE9762 /* CCNetWorkingTool.m */,
-			);
-			path = CCNetWorkingTool;
 			sourceTree = "<group>";
 		};
 		7B0536E71D0FE5E400BE9762 /* TYAttributedLabel */ = {
@@ -2003,7 +1991,6 @@
 			isa = PBXGroup;
 			children = (
 				7B0537381D10419100BE9762 /* 图片查看器 */,
-				7B0536E41D0FE5E400BE9762 /* CCNetWorkingTool */,
 				7B0536E71D0FE5E400BE9762 /* TYAttributedLabel */,
 			);
 			path = Tools;
@@ -3368,7 +3355,6 @@
 				7B0537001D0FE5E400BE9762 /* TYImageCache.m in Sources */,
 				7BFBA6E51CFE848600D4E07C /* ZTFuJinShangJiaTableViewCell.m in Sources */,
 				7B0537161D0FE88000BE9762 /* ZTSheQuChuanZiQiPaoViewController.m in Sources */,
-				7B0536FC1D0FE5E400BE9762 /* CCNetWorkingTool.m in Sources */,
 				7B01CA3F1CFDB477008BF259 /* ZTJieShuan2Model.m in Sources */,
 				7B8D04CA1CEB079D0024B812 /* ZTLogoModel.m in Sources */,
 				7B0536D71D0FE5AD00BE9762 /* ZJTrendsDetailHeaderView.m in Sources */,

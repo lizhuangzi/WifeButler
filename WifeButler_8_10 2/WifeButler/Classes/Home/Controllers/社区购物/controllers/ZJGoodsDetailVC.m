@@ -14,6 +14,7 @@
 #import "SDCycleScrollView.h"
 #import "ZTPersonGouWuCheViewController.h"
 #import "ZJLoginController.h"
+#import "MJRefresh.h"
 
 @interface ZJGoodsDetailVC ()<ZJBuyGoodsNumDelegate,UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate, SDCycleScrollViewDelegate>
 

@@ -23,7 +23,7 @@
 #import "Masonry.h"
 
 
-@interface ZJHomePageController ()<UIScrollViewDelegate, SDCycleScrollViewDelegate>
+@interface ZJHomePageController ()<UIScrollViewDelegate, SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     NSArray *_dataSource;
 }
@@ -70,12 +70,33 @@
 {
     UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
     table.backgroundColor = [UIColor redColor];
+    table.dataSource = self;
+    table.delegate = self;
     [self.view addSubview:table];
+
     [table mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
     }];
+    table.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    self.homeTableView = table;
 }
 
+#pragma mark - tableDatasource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString * rId = @"ID";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:rId];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rId];
+    }
+    return cell;
+}
 
 #pragma mark - iCarousel的代理协议
 

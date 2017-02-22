@@ -13,6 +13,8 @@
 #import "ZTXiangQinHealthyLifeViewController.h"
 #import "ZTJianKangShenHuoBottomModel.h"
 #import "UIColor+HexColor.h"
+#import "MJRefresh.h"
+
 @interface ZTHealthyLifestyleViewController ()<SDCycleScrollViewDelegate>
 {
     int _pize;

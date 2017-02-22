@@ -11,6 +11,7 @@
 #import "SDCycleScrollView.h"
 #import "ZTPingLunModel.h"
 #import "ZTYuYueViewController.h"
+#import "MJRefresh.h"
 
 typedef enum {
     

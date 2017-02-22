@@ -12,6 +12,7 @@
 #import "ZTWoDeXiaoXiModel.h"
 #import "ZTBackImageView.h"
 #import "ZJLoginController.h"
+#import "MJRefresh.h"
 
 @interface ZTNeiBuGongGao1ViewController () <UITableViewDataSource, UITableViewDelegate>
 {

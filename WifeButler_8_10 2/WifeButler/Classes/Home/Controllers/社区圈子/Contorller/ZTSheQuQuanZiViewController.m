@@ -19,6 +19,7 @@
 #import "MWPhotoBrowser.h"
 #import <Photos/Photos.h>
 #import "ZJLoginController.h"
+#import "MJRefresh.h"
 
 @interface ZTSheQuQuanZiViewController ()<UIPopoverPresentationControllerDelegate,ZTSheQuQuanZiTableViewCellDelegate, UITableViewDataSource,UITableViewDelegate,ZJFriendsCircleNavgationbarDelegate, ZJSheQuanZiHeaderViewDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MWPhotoBrowserDelegate>
 
@@ -153,68 +154,68 @@
     }
     
 
-    [CCNetWorkingTool POST:url parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        if ([CCNetWorkingTool success:responseObject]) {
-            
-            NSArray *trendsArr = [ZJTrendsListModel mj_objectArrayWithKeyValuesArray:responseObject[@"resultCode"][@"list"]];
-           
-            NSMutableArray *muArr = [NSMutableArray array];
-            
-            for (int i = 0; i < trendsArr.count; ++i) {
-                
-                ZJTrendsListModel *model = trendsArr[i];
-               
-                ZJTrendsCellFrameModel *frameModel = [[ZJTrendsCellFrameModel alloc]init];
-                frameModel.model = model;
-                [muArr addObject:frameModel];
-                
-            }
-            
-            [self.trendsArr addObjectsFromArray:muArr];
-            [self.tableView reloadData];
-            
-            [self settingHeaderViewWithBackGroundIcon:responseObject[@"resultCode"][@"bg"] icon:responseObject[@"resultCode"][@"avatar"] nickName:responseObject[@"resultCode"][@"nickname"]];
-        }
-        
-        
-        // 登录失效 进行提示登录
-        if ([[responseObject objectForKey:@"code"] intValue] == 40000) {
-            
-            [SVProgressHUD dismiss];
-            
-            __weak typeof(self) weakSelf = self;
-            
-            UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"提示" message:@"您登录已经失效,请重新进行登录哦!" preferredStyle:UIAlertControllerStyleAlert];
-            
-
-            UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                
-                UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];
-                ZJLoginController *vc = [sb instantiateViewControllerWithIdentifier:@"ZJLoginController"];
-                vc.isLogo = YES;
-                [vc setShuaiXinShuJu:^{
-                    
-                    [self getTrendsData];
-                }];
-                
-                [weakSelf.navigationController pushViewController:vc animated:YES];
-            }];
-            
-            [vc addAction:otherAction];
-            
-            [weakSelf presentViewController:vc animated:YES completion:nil];
-            
-        }
-
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
-    }];
+//    [CCNetWorkingTool POST:url parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+//        
+//        if ([CCNetWorkingTool success:responseObject]) {
+//            
+//            NSArray *trendsArr = [ZJTrendsListModel mj_objectArrayWithKeyValuesArray:responseObject[@"resultCode"][@"list"]];
+//           
+//            NSMutableArray *muArr = [NSMutableArray array];
+//            
+//            for (int i = 0; i < trendsArr.count; ++i) {
+//                
+//                ZJTrendsListModel *model = trendsArr[i];
+//               
+//                ZJTrendsCellFrameModel *frameModel = [[ZJTrendsCellFrameModel alloc]init];
+//                frameModel.model = model;
+//                [muArr addObject:frameModel];
+//                
+//            }
+//            
+//            [self.trendsArr addObjectsFromArray:muArr];
+//            [self.tableView reloadData];
+//            
+//            [self settingHeaderViewWithBackGroundIcon:responseObject[@"resultCode"][@"bg"] icon:responseObject[@"resultCode"][@"avatar"] nickName:responseObject[@"resultCode"][@"nickname"]];
+//        }
+//        
+//        
+//        // 登录失效 进行提示登录
+//        if ([[responseObject objectForKey:@"code"] intValue] == 40000) {
+//            
+//            [SVProgressHUD dismiss];
+//            
+//            __weak typeof(self) weakSelf = self;
+//            
+//            UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"提示" message:@"您登录已经失效,请重新进行登录哦!" preferredStyle:UIAlertControllerStyleAlert];
+//            
+//
+//            UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//                
+//                UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];
+//                ZJLoginController *vc = [sb instantiateViewControllerWithIdentifier:@"ZJLoginController"];
+//                vc.isLogo = YES;
+//                [vc setShuaiXinShuJu:^{
+//                    
+//                    [self getTrendsData];
+//                }];
+//                
+//                [weakSelf.navigationController pushViewController:vc animated:YES];
+//            }];
+//            
+//            [vc addAction:otherAction];
+//            
+//            [weakSelf presentViewController:vc animated:YES completion:nil];
+//            
+//        }
+//
+//        [self.tableView.mj_header endRefreshing];
+//        [self.tableView.mj_footer endRefreshing];
+//        
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        
+//        [self.tableView.mj_header endRefreshing];
+//        [self.tableView.mj_footer endRefreshing];
+//    }];
     
 }
 

@@ -20,6 +20,7 @@
 #import "ZTXiangQinHealthyLifeViewController.h"
 #import "ZJGoodsDetailVC.h"
 #import "ZJLoginController.h"
+#import "MJRefresh.h"
 
 @interface ZJCommunityShopVC ()<UICollectionViewDataSource,UICollectionViewDelegate, SDCycleScrollViewDelegate,
     ZJLabelClickDelegate,UISearchBarDelegate>

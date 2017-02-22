@@ -10,6 +10,7 @@
 #import "ZTTongLeiShangPinCollectionViewCell.h"
 #import "ZTTongLeiModel.h"
 #import "ZTSheQuWuYeFuWuXiangQinViewController.h"
+#import "MJRefresh.h"
 
 typedef enum {
     
