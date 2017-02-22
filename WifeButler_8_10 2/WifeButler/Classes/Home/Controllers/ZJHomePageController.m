@@ -22,6 +22,7 @@
 #import "UIColor+HexColor.h"
 #import "Masonry.h"
 
+#import "WifeButlerNetWorking.h"
 
 @interface ZJHomePageController ()<UIScrollViewDelegate, SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 {
@@ -41,28 +42,42 @@
 //首页tableview
 @property (nonatomic,weak) UITableView * homeTableView;
 
+/**tableview组的数组*/
+@property (nonatomic,strong) NSMutableArray * dataArray;
+
 @end
 
 @implementation ZJHomePageController
+
+#pragma mark - 懒加载
+- (NSMutableArray *)dataArray
+{
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
     [self createNav];
+    
     [self createTableView];
     
+    
     // 如果用户没有设置经纬度, 设置默认经纬度, 防止社区购物的时候没有物品
-    if ([NSGetUserDefaults(@"jing") length] == 0) {
-        
-        [self netWorkingJinWeiDu];
-    }
+//    if ([NSGetUserDefaults(@"jing") length] == 0) {
+//        
+//        [self netWorkingJinWeiDu];
+//    }
 
     // 延迟加载, 等候storyboard 加载完成
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [self netWorking];
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        
+//        [self netWorking];
+//    });
     
 }
 
@@ -82,6 +97,12 @@
 }
 
 #pragma mark - tableDatasource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 4;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 5;

@@ -345,60 +345,60 @@
 #pragma mark - 请求
 - (void)netWorking
 {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];/*添加接可收数据的数据可行*/
-    
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
-
-    [dic setObject:NSGetUserDefaults(@"jing") forKey:@"jing"];
-    [dic setObject:NSGetUserDefaults(@"wei") forKey:@"wei"];
-    
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KSheQuGouWu];
-
-    ZJLog(@"%@", dic);
-    
-    [SVProgressHUD showWithStatus:@"加载中..."];
-    
-    [manager POST:url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
-        
-        ZJLog(@"%@", responseObject);
-        
-        // 登录成功
-        if ([responseObject[@"code"] intValue] == 10000) {
-            
-            [SVProgressHUD dismiss];
-            
-            self.topDataSource = responseObject[@"resultCode"][@"carousel"];
-            
-            [self createScorllView1:responseObject[@"resultCode"][@"carousel"]];
-            
-            self.dataDic = [responseObject objectForKey:@"resultCode"];
-            self.dataAry = [[self.dataDic objectForKey:@"cats"] objectForKey:@"period_1"];
-            self.shopAry = [self.dataDic objectForKey:@"shops"][@"period_1"];
-            
-            [self.collectionView reloadData];
-        }
-        else
-        {
-            
-            [SVProgressHUD showErrorWithStatus:message];
-        }
-        
-        [self.collectionView.mj_header endRefreshing];
-        
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
-        
-        [self.collectionView.mj_header endRefreshing];
-        
-    }];
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
+//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];/*添加接可收数据的数据可行*/
+//    
+//    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+//
+//    [dic setObject:NSGetUserDefaults(@"jing") forKey:@"jing"];
+//    [dic setObject:NSGetUserDefaults(@"wei") forKey:@"wei"];
+//    
+//    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KSheQuGouWu];
+//
+//    ZJLog(@"%@", dic);
+//    
+//    [SVProgressHUD showWithStatus:@"加载中..."];
+//    
+//    [manager POST:url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+//        
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        
+//        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
+//        
+//        ZJLog(@"%@", responseObject);
+//        
+//        // 登录成功
+//        if ([responseObject[@"code"] intValue] == 10000) {
+//            
+//            [SVProgressHUD dismiss];
+//            
+//            self.topDataSource = responseObject[@"resultCode"][@"carousel"];
+//            
+//            [self createScorllView1:responseObject[@"resultCode"][@"carousel"]];
+//            
+//            self.dataDic = [responseObject objectForKey:@"resultCode"];
+//            self.dataAry = [[self.dataDic objectForKey:@"cats"] objectForKey:@"period_1"];
+//            self.shopAry = [self.dataDic objectForKey:@"shops"][@"period_1"];
+//            
+//            [self.collectionView reloadData];
+//        }
+//        else
+//        {
+//            
+//            [SVProgressHUD showErrorWithStatus:message];
+//        }
+//        
+//        [self.collectionView.mj_header endRefreshing];
+//        
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        
+//        [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
+//        
+//        [self.collectionView.mj_header endRefreshing];
+//        
+//    }];
     
 }
 

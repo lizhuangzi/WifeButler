@@ -119,8 +119,7 @@
 /**
  *  社区购物
  */
-//  社区购物首页 分类&轮播图
-#define  KSheQuGouWu        @"goods/goods/goods_index/"
+
 
 //社区购物  类别下的物品
 #define  KSheQuGouWuGoods        @"goods/goods/cat_goods/"

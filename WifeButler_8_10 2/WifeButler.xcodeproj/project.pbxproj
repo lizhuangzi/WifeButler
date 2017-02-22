@@ -252,6 +252,10 @@
 		7BFBA6ED1CFF032A00D4E07C /* ZTAddAddress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BFBA6EC1CFF032A00D4E07C /* ZTAddAddress.storyboard */; };
 		C71365321E350BEB00C89CB5 /* UIColor+EasyExistion.m in Sources */ = {isa = PBXBuildFile; fileRef = C71365311E350BEB00C89CB5 /* UIColor+EasyExistion.m */; };
 		C7BA19CB1E26778F00405816 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */; };
+		C7F8EE991E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8EE981E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m */; };
+		C7F8EE9D1E5D6F72008C8A06 /* WifeButlerNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8EE9C1E5D6F72008C8A06 /* WifeButlerNetWorking.m */; };
+		C7FDFE861E5D8D8800BB6438 /* HomePageSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FDFE851E5D8D8800BB6438 /* HomePageSectionModel.m */; };
+		C7FDFE891E5D8DA900BB6438 /* HomePageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FDFE881E5D8DA900BB6438 /* HomePageCellModel.m */; };
 		D11D1A281D7BB95400E2A815 /* HomeNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11D1A271D7BB95400E2A815 /* HomeNavgationController.m */; };
 		DBEE1B066618603F83A88679 /* libPods-WifeButler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCE7C4784446788DC838254 /* libPods-WifeButler.a */; };
 /* End PBXBuildFile section */
@@ -723,6 +727,15 @@
 		C71365311E350BEB00C89CB5 /* UIColor+EasyExistion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+EasyExistion.m"; sourceTree = "<group>"; };
 		C7BA19C91E26778F00405816 /* UIColor+HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
 		C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
+		C7F8EE971E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerHomeTableHeaderView.h; sourceTree = "<group>"; };
+		C7F8EE981E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerHomeTableHeaderView.m; sourceTree = "<group>"; };
+		C7F8EE9B1E5D6F72008C8A06 /* WifeButlerNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerNetWorking.h; sourceTree = "<group>"; };
+		C7F8EE9C1E5D6F72008C8A06 /* WifeButlerNetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerNetWorking.m; sourceTree = "<group>"; };
+		C7FDFE841E5D8D8800BB6438 /* HomePageSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageSectionModel.h; sourceTree = "<group>"; };
+		C7FDFE851E5D8D8800BB6438 /* HomePageSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageSectionModel.m; sourceTree = "<group>"; };
+		C7FDFE871E5D8DA900BB6438 /* HomePageCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageCellModel.h; sourceTree = "<group>"; };
+		C7FDFE881E5D8DA900BB6438 /* HomePageCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageCellModel.m; sourceTree = "<group>"; };
+		C7FDFE8A1E5D8FCF00BB6438 /* NetWorkPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkPort.h; sourceTree = "<group>"; };
 		CFFCA33AEFF47FF60F105438 /* Pods-WifeButler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WifeButler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WifeButler/Pods-WifeButler.debug.xcconfig"; sourceTree = "<group>"; };
 		D11D1A261D7BB95400E2A815 /* HomeNavgationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavgationController.h; sourceTree = "<group>"; };
 		D11D1A271D7BB95400E2A815 /* HomeNavgationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavgationController.m; sourceTree = "<group>"; };
@@ -1990,6 +2003,7 @@
 		7BB43FA21CE9C57F007D722A /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				C7F8EE9A1E5D6F3A008C8A06 /* 网络请求封装 */,
 				7B0537381D10419100BE9762 /* 图片查看器 */,
 				7B0536E71D0FE5E400BE9762 /* TYAttributedLabel */,
 			);
@@ -2865,6 +2879,7 @@
 				7BFBA67D1CFE80EC00D4E07C /* Controllers */,
 				7BFBA6AB1CFE80EC00D4E07C /* Models */,
 				7BFBA6BB1CFE80EC00D4E07C /* View */,
+				C7FDFE8A1E5D8FCF00BB6438 /* NetWorkPort.h */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -2944,6 +2959,10 @@
 			children = (
 				7BCC31631D2E59AF007D930A /* ZTLunBoToModel.h */,
 				7BCC31641D2E59AF007D930A /* ZTLunBoToModel.m */,
+				C7FDFE841E5D8D8800BB6438 /* HomePageSectionModel.h */,
+				C7FDFE851E5D8D8800BB6438 /* HomePageSectionModel.m */,
+				C7FDFE871E5D8DA900BB6438 /* HomePageCellModel.h */,
+				C7FDFE881E5D8DA900BB6438 /* HomePageCellModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2951,6 +2970,7 @@
 		7BFBA6BB1CFE80EC00D4E07C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C7F8EE961E5D6CB9008C8A06 /* 首页视图 */,
 				7BE420391D13A6AE009A8FAB /* 自定制动画 */,
 			);
 			path = View;
@@ -2993,6 +3013,24 @@
 				7BFBA6E21CFE848600D4E07C /* ZTFuJinShangJiaTableViewCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C7F8EE961E5D6CB9008C8A06 /* 首页视图 */ = {
+			isa = PBXGroup;
+			children = (
+				C7F8EE971E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.h */,
+				C7F8EE981E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m */,
+			);
+			path = "首页视图";
+			sourceTree = "<group>";
+		};
+		C7F8EE9A1E5D6F3A008C8A06 /* 网络请求封装 */ = {
+			isa = PBXGroup;
+			children = (
+				C7F8EE9B1E5D6F72008C8A06 /* WifeButlerNetWorking.h */,
+				C7F8EE9C1E5D6F72008C8A06 /* WifeButlerNetWorking.m */,
+			);
+			path = "网络请求封装";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3244,6 +3282,7 @@
 				7BE3C6381CF1888F00851512 /* ZJGuangLiShouHuoDiZhiViewController.m in Sources */,
 				7B63EAB91CFBE910004F9DA7 /* ZTYouHuiJuanModel.m in Sources */,
 				7B0537291D102B8200BE9762 /* ZTQuanZiZViewController.m in Sources */,
+				C7F8EE9D1E5D6F72008C8A06 /* WifeButlerNetWorking.m in Sources */,
 				7B0536DF1D0FE5AD00BE9762 /* ZJTrendsFunctionView.m in Sources */,
 				7BA606601D055F9F00148007 /* ZTSheQuFuWuViewController.m in Sources */,
 				7BBDB5FE1D010E730098B079 /* UITabBarItem+WZLBadge.m in Sources */,
@@ -3321,6 +3360,7 @@
 				7BC580581CF6C81C00FD157A /* ZTShangPingGuiGeTableViewCell.m in Sources */,
 				7BAD20151D54685A005798F2 /* ZTDuiHuanOrder1TableViewCell.m in Sources */,
 				7BB43FB61CE9C57F007D722A /* ZJTabBarController.m in Sources */,
+				C7F8EE991E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m in Sources */,
 				7BCC31651D2E59AF007D930A /* ZTLunBoToModel.m in Sources */,
 				7BE3C6BF1CF1A54C00851512 /* ZYQAssetPickerController.m in Sources */,
 				7BF9ACA11D12931100F0D000 /* ZTWoDeXiaoXiModel.m in Sources */,
@@ -3385,6 +3425,7 @@
 				7BC580541CF6C81C00FD157A /* ZJProcessorDetailTableCell2.m in Sources */,
 				7B392D4D1D14FB2800A182BC /* ZTDianPuXinXiTableViewController.m in Sources */,
 				7B110A651D17B82F0098E899 /* ZTKaiDianAddressViewController.m in Sources */,
+				C7FDFE891E5D8DA900BB6438 /* HomePageCellModel.m in Sources */,
 				7B288D421D582DCF000A19AF /* payRequsestHandler.mm in Sources */,
 				7BAD201F1D547970005798F2 /* ZTDingDanXiangQinDuiHuanViewController.m in Sources */,
 				7B0536DB1D0FE5AD00BE9762 /* ZJFriendsCircleNavgationbar.m in Sources */,
@@ -3393,6 +3434,7 @@
 				7BEFB6691D1924B500AE8791 /* ZTQuanZiView.m in Sources */,
 				7B4F39731CF2906800D427CD /* ZTXiaoXiXiangQinViewController.m in Sources */,
 				7BC5806D1CF6F91F00FD157A /* ZTYouHuiJuanViewController.m in Sources */,
+				C7FDFE861E5D8D8800BB6438 /* HomePageSectionModel.m in Sources */,
 				7B63EACC1CFC6E7B004F9DA7 /* ZTHuanMiXQModel.m in Sources */,
 				7BE3C64B1CF1938800851512 /* ZTYiJianFanKuiViewController.m in Sources */,
 				7BE420481D13A6BB009A8FAB /* LoopLargeButton.m in Sources */,
