@@ -72,8 +72,7 @@
 // 单条收货地址接口
 #define KShenShiQuAddressOne     @"account/address/myaddressone"
 
-// 默认小区接口经纬度
-#define KMoRenXiaoQuJinWeiDu     @"goods/goods/village_default"
+
 
 
 /**

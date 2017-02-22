@@ -11,7 +11,7 @@
 
 @interface WifeButlerNetWorking : NSObject
 
-+ (void)getHttpRequestWithURLsite:(NSString *)URLSite parameter:(NSDictionary *)parmDict success:(void(^)(NSDictionary *))success  failure:(void(^)(NSError *))failure;
++ (void)getHttpRequestWithURLsite:(NSString *)URLSite parameter:(NSDictionary *)parmDict success:(void(^)(NSDictionary * response))success  failure:(void(^)(NSError * error))failure;
 
-+ (void)postHttpRequestWithURLsite:(NSString *)URLSite parameter:(NSDictionary *)parmDict success:(void(^)(NSDictionary *))success  failure:(void(^)(NSError *))failure;
++ (void)postHttpRequestWithURLsite:(NSString *)URLSite parameter:(NSDictionary *)parmDict success:(void(^)(NSDictionary * response))success  failure:(void(^)(NSError * error))failure;
 @end

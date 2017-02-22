@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "communityCircle.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "index_08_1.png",
+      "filename" : "communityCircle@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "communityCircle@3x.png",
       "scale" : "3x"
     }
   ],

@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "communityRealEstate.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "index_05_1.png",
+      "filename" : "communityRealEstate@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "communityRealEstate@3x.png",
       "scale" : "3x"
     }
   ],

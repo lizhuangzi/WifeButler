@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "EPcalendar.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "index_03_1.png",
+      "filename" : "EPcalendar@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "EPcalendar@3x.png",
       "scale" : "3x"
     }
   ],

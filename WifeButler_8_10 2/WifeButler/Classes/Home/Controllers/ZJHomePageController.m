@@ -22,8 +22,9 @@
 #import "UIColor+HexColor.h"
 #import "Masonry.h"
 
+#import "NetWorkPort.h"
 #import "WifeButlerNetWorking.h"
-
+#import "WifeButlerHomeTableHeaderView.h"
 @interface ZJHomePageController ()<UIScrollViewDelegate, SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     NSArray *_dataSource;
@@ -44,6 +45,8 @@
 
 /**tableview组的数组*/
 @property (nonatomic,strong) NSMutableArray * dataArray;
+
+@property (nonatomic,weak) WifeButlerHomeTableHeaderView * tableHeader;
 
 @end
 
@@ -67,6 +70,8 @@
     [self createTableView];
     
     
+    [self requestData];
+    
     // 如果用户没有设置经纬度, 设置默认经纬度, 防止社区购物的时候没有物品
 //    if ([NSGetUserDefaults(@"jing") length] == 0) {
 //        
@@ -81,6 +86,48 @@
     
 }
 
+- (void)requestData
+{
+    [SVProgressHUD showWithStatus:@"正在加载.."];
+    
+    [WifeButlerNetWorking postHttpRequestWithURLsite:KSheQuGouWu parameter:nil success:^(NSDictionary * response) {
+        
+        ZJLog(@"%@",response);
+        
+        NSString *message = response[@"message"];
+        
+        // 登录成功
+        if ([response[@"code"] intValue] == 10000) {
+            
+            [SVProgressHUD dismiss];
+            
+            NSMutableArray * bannerModels = [ZTLunBoToModel mj_objectArrayWithKeyValuesArray:response[@"resultCode"]];
+            
+            // 轮播图
+            [self createScorllView1:bannerModels];
+            
+            // 获取沙盒根目录
+//            NSString *directory = NSHomeDirectory();
+//            
+//            NSLog(@"directory:%@", directory);
+//            
+//            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_dataSource];
+//            
+//            [data writeToFile:[NSString stringWithFormat:@"%@/LunBoTu", directory] atomically:YES];
+        }
+        else
+        {
+            
+            [SVProgressHUD showErrorWithStatus:message];
+        }
+
+        
+    } failure:^(NSError *error) {
+        
+        [SVProgressHUD showErrorWithStatus:@"网络连接有误,请检查网络设置"];
+    }];
+}
+
 - (void)createTableView
 {
     UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
@@ -93,6 +140,10 @@
         make.edges.mas_equalTo(self.view);
     }];
     table.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    WifeButlerHomeTableHeaderView * header = [WifeButlerHomeTableHeaderView WifeButlerHomeTableHeaderViewWithimageArray:nil];
+    table.tableHeaderView = header;
+    
+    self.tableHeader = header;
     self.homeTableView = table;
 }
 
@@ -322,14 +373,14 @@
 - (void)netWorking
 {
     // 本地存放
-    NSString *directory = NSHomeDirectory();
-    NSData *dataPath = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@/LunBoTu", directory]];
-    _dataSource = [NSKeyedUnarchiver unarchiveObjectWithData:dataPath];
-    
-    if (_dataSource.count != 0) {
-        
-        [self createScorllView1:_dataSource];
-    }
+//    NSString *directory = NSHomeDirectory();
+//    NSData *dataPath = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@/LunBoTu", directory]];
+//    _dataSource = [NSKeyedUnarchiver unarchiveObjectWithData:dataPath];
+//    
+//    if (_dataSource.count != 0) {
+//        
+//        [self createScorllView1:_dataSource];
+//    }
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
@@ -388,17 +439,14 @@
 #pragma mark - 默认经纬度请求
 - (void)netWorkingJinWeiDu
 {
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];/*添加接可收数据的数据可行*/
     
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
     
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KMoRenXiaoQuJinWeiDu];
-    
-    ZJLog(@"%@", dic);
-    
-    [manager POST:url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+    [manager POST:KMoRenXiaoQuJinWeiDu parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
@@ -453,40 +501,20 @@
         [titleArr addObject:title];
         [imageArrMutTemp addObject:imageStr];
     }
-    
-    CGRect rect = self.gunDongView.frame;
-    
-    // 网络加载 --- 创建带标题的图片轮播器
-    SDCycleScrollView *cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, iphoneWidth, rect.size.height) delegate:self placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
-    
-    cycleScrollView2.backgroundColor = [UIColor whiteColor];
-    cycleScrollView2.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
-    cycleScrollView2.currentPageDotColor = [UIColor whiteColor]; // 自定义分页控件小圆标颜色
-    cycleScrollView2.titlesGroup = titleArr;
-    cycleScrollView2.backgroundColor = [UIColor whiteColor];
-    
-    [self.gunDongView addSubview:cycleScrollView2];
-    
-    // --- 模拟加载延迟
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        // 图片
-        cycleScrollView2.imageURLStringsGroup = imageArrMutTemp;
-        
-    });
+    self.tableHeader.bannerImageURLStrings = imageArrMutTemp;
 }
 
 /** 点击图片回调 */
-- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
-{
-    
-    ZTLunBoToModel *model = _dataSource[index];
-    
-    ZTXiangQinHealthyLifeViewController *vc = [[ZTXiangQinHealthyLifeViewController alloc] init];
-    vc.id_temp = model.goods_id;
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
-}
+//- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
+//{
+//    
+//    ZTLunBoToModel *model = _dataSource[index];
+//    
+//    ZTXiangQinHealthyLifeViewController *vc = [[ZTXiangQinHealthyLifeViewController alloc] init];
+//    vc.id_temp = model.goods_id;
+//    vc.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:vc animated:YES];
+//}
 
 
 

@@ -10,4 +10,14 @@
 
 @interface WifeButlerHomeTableHeaderView : UIView
 
++ (instancetype)WifeButlerHomeTableHeaderViewWithimageArray:(NSArray *)imageArray;
+
+@property (nonatomic,strong) NSArray * bannerImageURLStrings;
+@end
+
+
+@interface WifeButlerHomeCircleButton : UIControl
+
+- (instancetype)initWithImageName:(NSString *)imageName andtitle:(NSString *)title;
+
 @end
