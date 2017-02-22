@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ZTZhiHuanHighlighted.png",
+      "filename" : "ZTTabInformationHighlighted.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ZTZhiHuanHighlighted@2x.png",
+      "filename" : "ZTTabInformationHighlighted@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ZTZhiHuanHighlighted@3x.png",
+      "filename" : "ZTTabInformationHighlighted@3x.png",
       "scale" : "3x"
     }
   ],

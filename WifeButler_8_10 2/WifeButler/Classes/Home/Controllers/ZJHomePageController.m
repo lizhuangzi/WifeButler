@@ -20,6 +20,8 @@
 #import "ZTJianKangShenHuoBottomModel.h"
 #import "ZTLunBoToModel.h"
 #import "UIColor+HexColor.h"
+#import "Masonry.h"
+
 
 @interface ZJHomePageController ()<UIScrollViewDelegate, SDCycleScrollViewDelegate>
 {
@@ -36,7 +38,8 @@
 
 @property (nonatomic, assign) CGSize cardSize;
 
-
+//首页tableview
+@property (nonatomic,weak) UITableView * homeTableView;
 
 @end
 
@@ -47,7 +50,8 @@
     [super viewDidLoad];
     
     [self createNav];
-
+    [self createTableView];
+    
     // 如果用户没有设置经纬度, 设置默认经纬度, 防止社区购物的时候没有物品
     if ([NSGetUserDefaults(@"jing") length] == 0) {
         
@@ -62,7 +66,15 @@
     
 }
 
-
+- (void)createTableView
+{
+    UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
+    table.backgroundColor = [UIColor redColor];
+    [self.view addSubview:table];
+    [table mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.view);
+    }];
+}
 
 
 #pragma mark - iCarousel的代理协议
@@ -251,6 +263,11 @@
     
 //    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
 //                                                         forBarMetrics:UIBarMetricsDefault];
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, 20, 20);
+    [btn setBackgroundImage:[UIImage imageNamed:@"ZTZhiHuan"] forState:UIControlStateNormal];
+    UIBarButtonItem * item1 = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    self.navigationItem.rightBarButtonItem = item1;
 }
 
 - (void)didReceiveMemoryWarning {

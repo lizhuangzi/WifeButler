@@ -30,14 +30,14 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwW-bD-4C5">
-                                    <rect key="frame" x="52" y="6" width="35" height="21"/>
+                                    <rect key="frame" x="62" y="6" width="35" height="21"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZTXiaLa" translatesAutoresizingMaskIntoConstraints="NO" id="2ga-Xn-s3G">
-                                    <rect key="frame" x="30" y="12" width="12" height="10"/>
+                                    <rect key="frame" x="40" y="12" width="12" height="10"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="12" id="Jgn-t1-NHm"/>
                                         <constraint firstAttribute="height" constant="10" id="dKj-Sq-hUZ"/>
@@ -48,19 +48,10 @@
                             <constraints>
                                 <constraint firstItem="TwW-bD-4C5" firstAttribute="leading" secondItem="2ga-Xn-s3G" secondAttribute="trailing" constant="10" id="8sV-39-00u"/>
                                 <constraint firstItem="2ga-Xn-s3G" firstAttribute="centerY" secondItem="q6Y-2X-1hf" secondAttribute="centerY" id="9Nm-vl-Dpk"/>
-                                <constraint firstItem="TwW-bD-4C5" firstAttribute="centerX" secondItem="q6Y-2X-1hf" secondAttribute="centerX" id="Yly-l6-oz8"/>
+                                <constraint firstItem="TwW-bD-4C5" firstAttribute="centerX" secondItem="q6Y-2X-1hf" secondAttribute="centerX" constant="10" id="Yly-l6-oz8"/>
                                 <constraint firstItem="TwW-bD-4C5" firstAttribute="centerY" secondItem="q6Y-2X-1hf" secondAttribute="centerY" id="fCK-cA-S2N"/>
                             </constraints>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="b1F-Qv-RjC">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nR1-mf-d3A">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="购物">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                            </button>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addressLab" destination="TwW-bD-4C5" id="qMM-4r-jlg"/>

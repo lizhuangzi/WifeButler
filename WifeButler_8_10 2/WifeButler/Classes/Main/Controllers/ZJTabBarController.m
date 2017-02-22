@@ -43,7 +43,7 @@
     // 首页
     [self addChildVCWithSBName:@"ZJHomePageController" title:@"社区首页" norImageName:@"ZTHome" selectedImageName:@"ZTHomeLighlighted"];
     
-    [self addChildVCWithSBName:@"ZTHealthyLifestyle" title:@"老伴资讯" norImageName:@"ZTTabInformation" selectedImageName:@"ZTHeathSHhighlighted"];
+    [self addChildVCWithSBName:@"ZTHealthyLifestyle" title:@"老伴资讯" norImageName:@"ZTTabInformation" selectedImageName:@"ZTTabInformationHighlighted"];
 
     [self addChildVCWithSBName:@"ZTGarbageOfRice" title:@"垃圾换大米" norImageName:@"ZTZhiHuan" selectedImageName:@"ZTZhiHuanHighlighted"];
 
