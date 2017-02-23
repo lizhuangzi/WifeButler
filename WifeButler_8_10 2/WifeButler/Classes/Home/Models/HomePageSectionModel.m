@@ -7,6 +7,7 @@
 //
 
 #import "HomePageSectionModel.h"
+#import  "MJExtension.h"
 
 @implementation HomePageSectionModel
 

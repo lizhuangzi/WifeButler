@@ -14,7 +14,8 @@
 #import "SDCycleScrollView.h"
 #import "ZTLaJiJieShuanTableViewController.h"
 #import "ZTChuLiQiXQModel.h"
-#import "UIColor+HexColor.h"
+#import  "MJExtension.h"
+
 @interface ZJProcessorDetailTableVC () <ZJBuyGoodsNumDelegate, SDCycleScrollViewDelegate>
 {
     NSMutableArray *_datsSource;

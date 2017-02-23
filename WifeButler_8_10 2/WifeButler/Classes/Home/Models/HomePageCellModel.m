@@ -7,6 +7,7 @@
 //
 
 #import "HomePageCellModel.h"
+#import  "MJExtension.h"
 
 @implementation HomePageCellModel
 

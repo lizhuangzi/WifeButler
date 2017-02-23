@@ -18,6 +18,7 @@
 #import "ZTQuanZiView.h"
 #import "ZJLoginController.h"
 #import "MJRefresh.h"
+#import  "MJExtension.h"
 
 @interface ZTQuanZiZViewController () <UIPopoverPresentationControllerDelegate,UITableViewDataSource, UITableViewDelegate, MWPhotoBrowserDelegate>
 {

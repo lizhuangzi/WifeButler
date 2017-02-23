@@ -12,6 +12,7 @@
 #import "ZTHeardMMCollectionReusableView.h"
 #import "ZTTimeBottonModel.h"
 #import "ZTTimeTopModel.h"
+#import  "MJExtension.h"
 
 @interface ZTXuanZeTimeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {

@@ -13,8 +13,8 @@
 #import "ZTLaJiChuLiQiGouMaiModel.h"
 #import "ZTLaJiHuanMiModel.h"
 #import "ZTLaJiHuanMiViewController.h"
-#import "UIColor+HexColor.h"
 #import "MJRefresh.h"
+#import  "MJExtension.h"
 
 typedef enum {
 

@@ -24,6 +24,7 @@
 #import "ZTXiangQinHealthyLifeViewController.h"
 #import "ZJGoodsDetailVC.h"
 #import "ZTSheQuWuYeFuWuXiangQinViewController.h"
+#import  "MJExtension.h"
 
 
 @interface ZTSheQuWuYeViewController () <UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SDCycleScrollViewDelegate>

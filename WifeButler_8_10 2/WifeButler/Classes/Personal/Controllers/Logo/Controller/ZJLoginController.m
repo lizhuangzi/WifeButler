@@ -9,7 +9,8 @@
 #import "ZJLoginController.h"
 #import "ZTLogoModel.h"
 #import "NSString+ZJMyJudgeString.h"
-#import "UIColor+HexColor.h"
+#import  "MJExtension.h"
+
 @interface ZJLoginController () <UITextFieldDelegate>
 
 

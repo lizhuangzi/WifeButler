@@ -10,6 +10,7 @@
 #import "ZTLogoModel.h"
 #import "ZJLoginController.h"
 #import "UIBarButtonItem+Extension.h"
+#import  "MJExtension.h"
 
 @interface ZTBianJiZiliaoTableViewController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 

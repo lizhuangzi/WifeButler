@@ -11,7 +11,7 @@
 #import "ZTShangPingGuiGeTableViewCell.h"
 #import "ZTShangPinPingJiaTableViewCell.h"
 #import "ZTPingLunModel.h"
-
+#import  "MJExtension.h"
 
 @implementation ZJProcessorDetailTableCell4
 

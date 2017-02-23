@@ -11,11 +11,10 @@
 
 
 #import <SVProgressHUD.h>
-#import  "MJExtension.h"
 #import <AFHTTPSessionManager.h>
 #import <UIImageView+WebCache.h>
 #import "UIView+Extension.h"
-
+#import "UIColor+HexColor.h"
 
 // 接口
 #import "NSURL.h"

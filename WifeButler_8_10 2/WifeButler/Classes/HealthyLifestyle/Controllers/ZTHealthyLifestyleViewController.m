@@ -14,6 +14,7 @@
 #import "ZTJianKangShenHuoBottomModel.h"
 #import "UIColor+HexColor.h"
 #import "MJRefresh.h"
+#import  "MJExtension.h"
 
 @interface ZTHealthyLifestyleViewController ()<SDCycleScrollViewDelegate>
 {

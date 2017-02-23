@@ -12,6 +12,7 @@
 #import "ZTPingLunModel.h"
 #import "ZTYuYueViewController.h"
 #import "MJRefresh.h"
+#import  "MJExtension.h"
 
 typedef enum {
     

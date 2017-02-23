@@ -7,6 +7,7 @@
 //
 
 #import "HomePageCommodityCell.h"
+#import "UIColor+HexColor.h"
 
 @interface HomePageCommodityCell ()
 
@@ -24,6 +25,8 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    self.titleLabel.textColor = WifeButlerCommonRedColor;
+    self.contentView.backgroundColor = WifeButlerTableBackGaryColor;
 }
 
 + (instancetype)CommodityCellWithTableView:(UITableView *)tableView{
@@ -51,12 +54,14 @@
     }
     //商品当前个数（复用来的）
     NSInteger backCount = self.commoditiesBackView.subviews.count;
+    
+    CGFloat wMargin = 1;
+    CGFloat hMargin = 1;
+    CGFloat viewWith = (iphoneWidth - 4*wMargin)/3;
+    CGFloat viewHeight = viewWith/2*3;
+
     if (backCount <tempCount) {  //复用来的商品个小于数据个数
         
-        CGFloat wMargin = 1;
-        CGFloat hMargin = 1;
-        CGFloat viewWith = (iphoneWidth - 4*wMargin)/3;
-        CGFloat viewHeight = viewWith/2*3;
         
         for (NSInteger i = backCount; i<tempCount; i++) {
             
@@ -87,6 +92,11 @@
             HomePageCommodityView * commodity = self.commoditiesBackView.subviews[i];
             commodity.hidden = YES;
         }
+    }
+    if (tempCount<=3) {
+        _model.cellHeight = viewHeight + 2 + 37.5;
+    }else{
+        _model.cellHeight = viewHeight * 2 + 3 + 37.5;
     }
 }
 

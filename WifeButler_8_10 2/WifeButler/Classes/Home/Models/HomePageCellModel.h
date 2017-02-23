@@ -20,7 +20,7 @@
 @property (nonatomic,copy)NSString * money;
 /**销量*/
 @property (nonatomic,copy)NSString * sales;
-
-
+/**单位*/
+@property (nonatomic,copy)NSString * danwei;
 
 @end

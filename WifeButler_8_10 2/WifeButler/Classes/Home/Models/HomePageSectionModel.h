@@ -17,6 +17,8 @@
 /**名字*/
 @property (nonatomic,copy)NSString * title;
 
+@property (nonatomic,assign) CGFloat cellHeight;
+
 + (instancetype)SectionModelWithDictionary:(NSDictionary *)dict;
 
 @end

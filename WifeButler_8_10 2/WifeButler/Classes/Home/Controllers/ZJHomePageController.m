@@ -18,8 +18,8 @@
 //#import "ZTXiangQinHealthyLifeViewController.h"
 #import "ZTJianKangShenHuoBottomModel.h"
 #import "ZTLunBoToModel.h"
-#import "UIColor+HexColor.h"
 #import "Masonry.h"
+#import  "MJExtension.h"
 
 #import "NetWorkPort.h"
 #import "WifeButlerNetWorking.h"
@@ -139,7 +139,7 @@
 
 - (void)requestBoutiqueDataWithLongitude:(NSString *)longtitude latitude:(NSString *)latitude
 {
-    
+    NSArray * titleArr = @[@"兑换精选",@"商品精选",@"服务精选",@"物业精选"];
     NSMutableDictionary * parm = [NSMutableDictionary dictionary];
     parm[@"lng"] = longtitude;
     parm[@"lat"] = latitude;
@@ -149,25 +149,29 @@
             
             NSDictionary * resultCode = response[@"resultCode"];
             
-            for (NSDictionary * tempDict in resultCode.allValues) {
+            for (int i = 0; i<4; i++) {
+               NSDictionary * tempDict = resultCode.allValues[i];
                 HomePageSectionModel * sectionModel = [HomePageSectionModel SectionModelWithDictionary:tempDict];
+                sectionModel.title = titleArr[i];
                 [self.dataArray addObject:sectionModel];
             }
+            
             [self.homeTableView reloadData];
         }
         
     } failure:^(NSError *error) {
         
     }];
-    
 }
 
 - (void)createTableView
 {
     UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
-    table.backgroundColor = [UIColor redColor];
+    table.backgroundColor = WifeButlerTableBackGaryColor;
     table.dataSource = self;
     table.delegate = self;
+    table.allowsSelection = NO;
+    table.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:table];
     
     [table mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -190,8 +194,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    HomePageSectionModel * sectionModel = self.dataArray[section];
-    return sectionModel.list.count;
+    return 1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -210,7 +213,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 200;
+    HomePageSectionModel * model = self.dataArray[indexPath.section];
+    return model.cellHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 150;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

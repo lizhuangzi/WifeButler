@@ -7,6 +7,7 @@
 //
 
 #import "HomePageSectionHeaderView.h"
+#import  "MJExtension.h"
 
 @interface HomePageSectionHeaderView ()
 
@@ -15,6 +16,11 @@
 @end
 
 @implementation HomePageSectionHeaderView
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+}
 
 - (void)setSectionModel:(HomePageSectionModel *)sectionModel
 {

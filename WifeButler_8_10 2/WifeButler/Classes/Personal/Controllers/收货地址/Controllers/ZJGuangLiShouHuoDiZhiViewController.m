@@ -14,6 +14,7 @@
 #import "ZTBackImageView.h"
 #import "UIColor+HexColor.h"
 #import "MJRefresh.h"
+#import  "MJExtension.h"
 
 @interface ZJGuangLiShouHuoDiZhiViewController ()<UITableViewDelegate, UITableViewDataSource>
 {

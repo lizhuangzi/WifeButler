@@ -20,6 +20,7 @@
 #import "ZTShangPingModel.h"
 #import "ZJLoginController.h"
 #import "MJRefresh.h"
+#import  "MJExtension.h"
 
 typedef enum {
 
