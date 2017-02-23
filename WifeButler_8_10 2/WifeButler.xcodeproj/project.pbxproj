@@ -252,6 +252,12 @@
 		7BFBA6ED1CFF032A00D4E07C /* ZTAddAddress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BFBA6EC1CFF032A00D4E07C /* ZTAddAddress.storyboard */; };
 		C71365321E350BEB00C89CB5 /* UIColor+EasyExistion.m in Sources */ = {isa = PBXBuildFile; fileRef = C71365311E350BEB00C89CB5 /* UIColor+EasyExistion.m */; };
 		C7BA19CB1E26778F00405816 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */; };
+		C7C4A4901E5EB20A00075A27 /* HomePageSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C4A48F1E5EB20A00075A27 /* HomePageSectionHeaderView.m */; };
+		C7C4A4921E5EB22500075A27 /* HomePageSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C4A4911E5EB22500075A27 /* HomePageSectionHeaderView.xib */; };
+		C7C4A4961E5EB81E00075A27 /* HomePageCommodityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C4A4941E5EB81E00075A27 /* HomePageCommodityCell.m */; };
+		C7C4A4971E5EB81E00075A27 /* HomePageCommodityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C4A4951E5EB81E00075A27 /* HomePageCommodityCell.xib */; };
+		C7C4A49A1E5EBE5600075A27 /* HomePageCommodityView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C4A4991E5EBE5600075A27 /* HomePageCommodityView.m */; };
+		C7C4A49C1E5EBE6B00075A27 /* HomePageCommodityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C4A49B1E5EBE6B00075A27 /* HomePageCommodityView.xib */; };
 		C7F8EE991E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8EE981E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m */; };
 		C7F8EE9D1E5D6F72008C8A06 /* WifeButlerNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8EE9C1E5D6F72008C8A06 /* WifeButlerNetWorking.m */; };
 		C7FDFE861E5D8D8800BB6438 /* HomePageSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FDFE851E5D8D8800BB6438 /* HomePageSectionModel.m */; };
@@ -727,6 +733,16 @@
 		C71365311E350BEB00C89CB5 /* UIColor+EasyExistion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+EasyExistion.m"; sourceTree = "<group>"; };
 		C7BA19C91E26778F00405816 /* UIColor+HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
 		C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
+		C7C4A48E1E5EB20A00075A27 /* HomePageSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageSectionHeaderView.h; sourceTree = "<group>"; };
+		C7C4A48F1E5EB20A00075A27 /* HomePageSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageSectionHeaderView.m; sourceTree = "<group>"; };
+		C7C4A4911E5EB22500075A27 /* HomePageSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageSectionHeaderView.xib; sourceTree = "<group>"; };
+		C7C4A4931E5EB81E00075A27 /* HomePageCommodityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageCommodityCell.h; sourceTree = "<group>"; };
+		C7C4A4941E5EB81E00075A27 /* HomePageCommodityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageCommodityCell.m; sourceTree = "<group>"; };
+		C7C4A4951E5EB81E00075A27 /* HomePageCommodityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageCommodityCell.xib; sourceTree = "<group>"; };
+		C7C4A4981E5EBE5600075A27 /* HomePageCommodityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageCommodityView.h; sourceTree = "<group>"; };
+		C7C4A4991E5EBE5600075A27 /* HomePageCommodityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageCommodityView.m; sourceTree = "<group>"; };
+		C7C4A49B1E5EBE6B00075A27 /* HomePageCommodityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageCommodityView.xib; sourceTree = "<group>"; };
+		C7D52F9E1E5EE2E100D98448 /* WifeButlerCommonDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerCommonDef.h; sourceTree = "<group>"; };
 		C7F8EE971E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerHomeTableHeaderView.h; sourceTree = "<group>"; };
 		C7F8EE981E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerHomeTableHeaderView.m; sourceTree = "<group>"; };
 		C7F8EE9B1E5D6F72008C8A06 /* WifeButlerNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerNetWorking.h; sourceTree = "<group>"; };
@@ -1996,6 +2012,7 @@
 			children = (
 				7BB43FA01CE9C57F007D722A /* AppDelegate.h */,
 				7BB43FA11CE9C57F007D722A /* AppDelegate.m */,
+				C7D52F9E1E5EE2E100D98448 /* WifeButlerCommonDef.h */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -3020,6 +3037,15 @@
 			children = (
 				C7F8EE971E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.h */,
 				C7F8EE981E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m */,
+				C7C4A48E1E5EB20A00075A27 /* HomePageSectionHeaderView.h */,
+				C7C4A48F1E5EB20A00075A27 /* HomePageSectionHeaderView.m */,
+				C7C4A4911E5EB22500075A27 /* HomePageSectionHeaderView.xib */,
+				C7C4A4931E5EB81E00075A27 /* HomePageCommodityCell.h */,
+				C7C4A4941E5EB81E00075A27 /* HomePageCommodityCell.m */,
+				C7C4A4951E5EB81E00075A27 /* HomePageCommodityCell.xib */,
+				C7C4A4981E5EBE5600075A27 /* HomePageCommodityView.h */,
+				C7C4A4991E5EBE5600075A27 /* HomePageCommodityView.m */,
+				C7C4A49B1E5EBE6B00075A27 /* HomePageCommodityView.xib */,
 			);
 			path = "首页视图";
 			sourceTree = "<group>";
@@ -3156,7 +3182,9 @@
 				7B288D391D582C9A000A19AF /* README.txt in Resources */,
 				7BE3C6421CF188DF00851512 /* ZTAddressPickView.xib in Resources */,
 				7BE3C6AE1CF1A05F00851512 /* ZTHuiZhuanDingDan.storyboard in Resources */,
+				C7C4A4971E5EB81E00075A27 /* HomePageCommodityCell.xib in Resources */,
 				7B4F39741CF2906800D427CD /* ZTXiaoXiXiangQinViewController.xib in Resources */,
+				C7C4A49C1E5EBE6B00075A27 /* HomePageCommodityView.xib in Resources */,
 				7B2366C81D0285D8003BC590 /* ZTheard2.xib in Resources */,
 				7BE3C63B1CF1888F00851512 /* ZJGuangLiShouHuoDiZhiTableViewCell.xib in Resources */,
 				7BB43FB91CE9C57F007D722A /* ZJMineController.storyboard in Resources */,
@@ -3177,6 +3205,7 @@
 				7B0536E21D0FE5AD00BE9762 /* ZJTrendsHeaderView.xib in Resources */,
 				7B63EAB51CFBCE85004F9DA7 /* ZTHuiZhuanPingJia.storyboard in Resources */,
 				7B9B6F171D0D3DB300CC3D09 /* ZTYuYueViewController.xib in Resources */,
+				C7C4A4921E5EB22500075A27 /* HomePageSectionHeaderView.xib in Resources */,
 				7B0537221D0FF02700BE9762 /* ZTFaBuDongTaiViewController.xib in Resources */,
 				7B05372B1D102BB500BE9762 /* ZTSheQuQuanZi.storyboard in Resources */,
 				7BF499761CFD87C800CCEB45 /* ZTJieSuanGouWuChe.storyboard in Resources */,
@@ -3395,6 +3424,7 @@
 				7B0537001D0FE5E400BE9762 /* TYImageCache.m in Sources */,
 				7BFBA6E51CFE848600D4E07C /* ZTFuJinShangJiaTableViewCell.m in Sources */,
 				7B0537161D0FE88000BE9762 /* ZTSheQuChuanZiQiPaoViewController.m in Sources */,
+				C7C4A4961E5EB81E00075A27 /* HomePageCommodityCell.m in Sources */,
 				7B01CA3F1CFDB477008BF259 /* ZTJieShuan2Model.m in Sources */,
 				7B8D04CA1CEB079D0024B812 /* ZTLogoModel.m in Sources */,
 				7B0536D71D0FE5AD00BE9762 /* ZJTrendsDetailHeaderView.m in Sources */,
@@ -3408,6 +3438,7 @@
 				7B2366BD1D02811D003BC590 /* ZTSheQuWuYeFuJinCollectionViewCell.m in Sources */,
 				7B9D39A21CF9725100F6359D /* ZTjieSuanModel.m in Sources */,
 				7BFBA6BE1CFE80EC00D4E07C /* ZJCommunityShopVC.m in Sources */,
+				C7C4A49A1E5EBE5600075A27 /* HomePageCommodityView.m in Sources */,
 				7B8D04BB1CEAB21B0024B812 /* NSString+ZJMyJudgeString.m in Sources */,
 				7BE3C65F1CF19C8300851512 /* ZTNeiBuGongGao1ViewController.m in Sources */,
 				7BA7EA951D24CD0000ECA67E /* ZTJianJieH5TableViewCell.m in Sources */,
@@ -3433,6 +3464,7 @@
 				7BFBA6E41CFE848600D4E07C /* ZTFuJinShangJiaCollectionViewCell.m in Sources */,
 				7BEFB6691D1924B500AE8791 /* ZTQuanZiView.m in Sources */,
 				7B4F39731CF2906800D427CD /* ZTXiaoXiXiangQinViewController.m in Sources */,
+				C7C4A4901E5EB20A00075A27 /* HomePageSectionHeaderView.m in Sources */,
 				7BC5806D1CF6F91F00FD157A /* ZTYouHuiJuanViewController.m in Sources */,
 				C7FDFE861E5D8D8800BB6438 /* HomePageSectionModel.m in Sources */,
 				7B63EACC1CFC6E7B004F9DA7 /* ZTHuanMiXQModel.m in Sources */,

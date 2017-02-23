@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="0EP-nS-8ne" customClass="HomePageSectionHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="394" height="123"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f2a-dH-b3l">
+                    <rect key="frame" x="0.0" y="5" width="394" height="113"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="f2a-dH-b3l" firstAttribute="top" secondItem="0EP-nS-8ne" secondAttribute="top" constant="5" id="6BR-TM-wUG"/>
+                <constraint firstAttribute="trailing" secondItem="f2a-dH-b3l" secondAttribute="trailing" id="A34-tt-FlW"/>
+                <constraint firstItem="f2a-dH-b3l" firstAttribute="leading" secondItem="0EP-nS-8ne" secondAttribute="leading" id="HcV-Mg-2mN"/>
+                <constraint firstAttribute="bottom" secondItem="f2a-dH-b3l" secondAttribute="bottom" constant="5" id="eSj-iD-Zja"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="picture" destination="f2a-dH-b3l" id="0pW-co-rdh"/>
+            </connections>
+            <point key="canvasLocation" x="-69" y="199.5"/>
+        </view>
+    </objects>
+</document>

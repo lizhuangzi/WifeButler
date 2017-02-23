@@ -10,4 +10,13 @@
 /**首页组模型*/
 @interface HomePageSectionModel : NSObject
 
+/*置顶插图**/
+@property (nonatomic,copy)NSString * banner;
+/**内容列表*/
+@property (nonatomic,strong) NSArray * list;
+/**名字*/
+@property (nonatomic,copy)NSString * title;
+
++ (instancetype)SectionModelWithDictionary:(NSDictionary *)dict;
+
 @end

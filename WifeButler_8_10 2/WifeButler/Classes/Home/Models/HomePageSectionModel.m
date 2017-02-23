@@ -10,4 +10,16 @@
 
 @implementation HomePageSectionModel
 
++ (instancetype)SectionModelWithDictionary:(NSDictionary *)dict{
+    
+    HomePageSectionModel * model = [HomePageSectionModel mj_objectWithKeyValues:dict];
+    
+    return model;
+}
+
++ (NSDictionary *)mj_objectClassInArray
+{
+    return @{@"list":@"HomePageCellModel"};
+}
+
 @end

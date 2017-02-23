@@ -10,5 +10,17 @@
 
 /**首页内容模型*/
 @interface HomePageCellModel : NSObject
+/**商品id*/
+@property (nonatomic,copy)NSString * commodityId;
+/**商品名称*/
+@property (nonatomic,copy)NSString * title;
+/**商品图片*/
+@property (nonatomic,copy)NSString * imageURLstr;
+/**价格*/
+@property (nonatomic,copy)NSString * money;
+/**销量*/
+@property (nonatomic,copy)NSString * sales;
+
+
 
 @end

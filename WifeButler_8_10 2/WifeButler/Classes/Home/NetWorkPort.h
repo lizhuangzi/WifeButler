@@ -16,4 +16,8 @@
 /** 默认小区接口经纬度*/
 #define KMoRenXiaoQuJinWeiDu  [HTTP_BaseURL stringByAppendingString: @"goods/goods/village_default"]
 
+/**精品请求*/
+#define KBoutiqueData [HTTP_BaseURL stringByAppendingString: @"homepage/Homepage/getJP"]
+
+
 #endif /* NetWorkPort_h */

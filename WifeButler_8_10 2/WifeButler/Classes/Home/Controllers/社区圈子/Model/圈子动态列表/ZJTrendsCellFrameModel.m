@@ -7,6 +7,8 @@
 //
 
 #import "ZJTrendsCellFrameModel.h"
+#import "NSString+ZJMyString.h"
+
 #define MARGIN 8
 @implementation ZJTrendsCellFrameModel
 

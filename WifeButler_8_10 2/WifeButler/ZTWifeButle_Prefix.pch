@@ -9,18 +9,16 @@
 #ifndef ZTWifeButle_Prefix_pch
 #define ZTWifeButle_Prefix_pch
 
-#import "UIBarButtonItem+Extension.h"
+
 #import <SVProgressHUD.h>
 #import  "MJExtension.h"
 #import <AFHTTPSessionManager.h>
 #import <UIImageView+WebCache.h>
 #import "UIView+Extension.h"
-#import "NSString+ZJMyString.h"
+
 
 // 接口
 #import "NSURL.h"
-
-
 
 #define iphoneWidth [UIScreen mainScreen].bounds.size.width
 #define iphoneHeight [UIScreen mainScreen].bounds.size.height

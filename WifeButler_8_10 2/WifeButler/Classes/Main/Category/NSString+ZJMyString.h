@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 zjtdmac3. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 @interface NSString (ZJMyString)
 

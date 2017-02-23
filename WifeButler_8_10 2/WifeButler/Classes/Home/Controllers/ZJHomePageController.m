@@ -9,14 +9,13 @@
 #import "ZJHomePageController.h"
 #import "ZJCommunityShopVC.h"
 #import "LoopView.h"
-#import "ZTFuJinShangJiaViewController.h"
-#import "ZTSheQuWuYeViewController.h"
-#import "ZTSheQuQuanZiViewController.h"
-#import "ZTSheQuZhenWuViewController.h"
-#import "ZTQuanZiZViewController.h"
-#import "ZJGuangLiShouHuoDiZhiViewController.h"
-#import "SDCycleScrollView.h"
-#import "ZTXiangQinHealthyLifeViewController.h"
+//#import "ZTFuJinShangJiaViewController.h"
+//#import "ZTSheQuWuYeViewController.h"
+//#import "ZTSheQuQuanZiViewController.h"
+//#import "ZTSheQuZhenWuViewController.h"
+//#import "ZTQuanZiZViewController.h"
+//#import "ZJGuangLiShouHuoDiZhiViewController.h"
+//#import "ZTXiangQinHealthyLifeViewController.h"
 #import "ZTJianKangShenHuoBottomModel.h"
 #import "ZTLunBoToModel.h"
 #import "UIColor+HexColor.h"
@@ -24,8 +23,16 @@
 
 #import "NetWorkPort.h"
 #import "WifeButlerNetWorking.h"
+
 #import "WifeButlerHomeTableHeaderView.h"
-@interface ZJHomePageController ()<UIScrollViewDelegate, SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
+#import "HomePageCommodityCell.h"
+#import "HomePageSectionHeaderView.h"
+
+#import "HomePageSectionModel.h"
+#import "HomePageCellModel.h"
+#import "WifeButlerCommonDef.h"
+
+@interface ZJHomePageController ()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     NSArray *_dataSource;
 }
@@ -69,24 +76,26 @@
     
     [self createTableView];
     
-    
-    [self requestData];
+    [self requestBannerData];
     
     // 如果用户没有设置经纬度, 设置默认经纬度, 防止社区购物的时候没有物品
-//    if ([NSGetUserDefaults(@"jing") length] == 0) {
-//        
-//        [self netWorkingJinWeiDu];
-//    }
-
+    if ([NSGetUserDefaults(@"jing") length] == 0) {
+        
+        [self netWorkingJinWeiDu];
+    }else{
+        [self requestBoutiqueDataWithLongitude:NSGetUserDefaults(@"jing") latitude:NSGetUserDefaults(@"wei")];
+    }
+    
     // 延迟加载, 等候storyboard 加载完成
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        
-//        [self netWorking];
-//    });
+    //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    //
+    //        [self netWorking];
+    //    });
     
 }
 
-- (void)requestData
+/**轮播图请求*/
+- (void)requestBannerData
 {
     [SVProgressHUD showWithStatus:@"正在加载.."];
     
@@ -107,20 +116,20 @@
             [self createScorllView1:bannerModels];
             
             // 获取沙盒根目录
-//            NSString *directory = NSHomeDirectory();
-//            
-//            NSLog(@"directory:%@", directory);
-//            
-//            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_dataSource];
-//            
-//            [data writeToFile:[NSString stringWithFormat:@"%@/LunBoTu", directory] atomically:YES];
+            //            NSString *directory = NSHomeDirectory();
+            //
+            //            NSLog(@"directory:%@", directory);
+            //
+            //            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_dataSource];
+            //
+            //            [data writeToFile:[NSString stringWithFormat:@"%@/LunBoTu", directory] atomically:YES];
         }
         else
         {
             
             [SVProgressHUD showErrorWithStatus:message];
         }
-
+        
         
     } failure:^(NSError *error) {
         
@@ -128,14 +137,39 @@
     }];
 }
 
+- (void)requestBoutiqueDataWithLongitude:(NSString *)longtitude latitude:(NSString *)latitude
+{
+    
+    NSMutableDictionary * parm = [NSMutableDictionary dictionary];
+    parm[@"lng"] = longtitude;
+    parm[@"lat"] = latitude;
+    [WifeButlerNetWorking getHttpRequestWithURLsite:KBoutiqueData parameter:parm success:^(NSDictionary *response) {
+        
+        if ([response[CodeKey] intValue] == SUCCESS) {
+            
+            NSDictionary * resultCode = response[@"resultCode"];
+            
+            for (NSDictionary * tempDict in resultCode.allValues) {
+                HomePageSectionModel * sectionModel = [HomePageSectionModel SectionModelWithDictionary:tempDict];
+                [self.dataArray addObject:sectionModel];
+            }
+            [self.homeTableView reloadData];
+        }
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
+}
+
 - (void)createTableView
 {
-    UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
+    UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
     table.backgroundColor = [UIColor redColor];
     table.dataSource = self;
     table.delegate = self;
     [self.view addSubview:table];
-
+    
     [table mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
     }];
@@ -151,67 +185,80 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return self.dataArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    HomePageSectionModel * sectionModel = self.dataArray[section];
+    return sectionModel.list.count;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    HomePageSectionHeaderView * sectionView = [HomePageSectionHeaderView HeaderViewWithTableView:tableView];
+    sectionView.sectionModel = self.dataArray[section];
+    return sectionView;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString * rId = @"ID";
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:rId];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rId];
-    }
+    HomePageCommodityCell * cell = [HomePageCommodityCell CommodityCellWithTableView:tableView];
+    cell.model = self.dataArray[indexPath.section];
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 200;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 150;
+}
 #pragma mark - iCarousel的代理协议
 
 //- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
 //{
 //    UIView *cardView = view;
-//    
+//
 //    if ( !cardView )
 //    {
 //        cardView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.cardSize.width, self.cardSize.height)];
 ////        cardView.layer.masksToBounds = YES;
 ////        cardView.layer.cornerRadius = cardView.frame.size.width / 2.0;
-//        
+//
 //        UIImageView *imageView = [[UIImageView alloc] initWithFrame:cardView.bounds];
 //        [cardView addSubview:imageView];
-//        
+//
 //        imageView.contentMode = UIViewContentModeScaleAspectFill;
 //        imageView.backgroundColor = [UIColor clearColor];
 //        imageView.tag = [@"image" hash];
-//        
+//
 //    }
-//    
+//
 //    UIImageView *imageView = (UIImageView*)[cardView viewWithTag:[@"image" hash]];
 //    imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ZT%ld%ld",index + 1, index + 1]];
-//    
-//    
+//
+//
 //    return cardView;
 //}
 
 
 //- (CATransform3D)carousel:(iCarousel *)carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform
 //{
-//    
+//
 //    //    NSLog(@"offsetoffsetoffset:%f", offset);
-//    
+//
 //    // 位置的变化
 //    CGFloat translation = [self translationByOffset:offset];
-//    
+//
 //    // 大小的变化
 //    CGFloat scale = [self scaleByOffset:offset];
-//    
+//
 //    transform = CATransform3DScale(transform, scale, scale, 1.0f);
-//    
+//
 //    return CATransform3DTranslate(transform, offset * self.cardSize.width, - translation * self.cardSize.width, 0);
 //
 //}
@@ -221,18 +268,18 @@
 //    ZJLog(@"indexindexindex:::%ld", (long)index);
 //
 //    __weak typeof(self) weakSelf = self;
-//    
-//    
+//
+//
 //    if (index == 2) {
-//        
+//
 //        UIStoryboard * sb=[UIStoryboard storyboardWithName:@"ZJHomePageController" bundle:nil];
 //        ZJCommunityShopVC * nav = [sb instantiateViewControllerWithIdentifier:@"ZJCommunityShopVC"];
 //        nav.hidesBottomBarWhenPushed=YES;
 //        [weakSelf.navigationController pushViewController:nav animated:YES];
 //    }
-//    
+//
 //    if (index == 3) {
-//        
+//
 //        if (KToken == nil) {
 //
 //            [SVProgressHUD showErrorWithStatus:@"请先进行登录"];
@@ -245,26 +292,26 @@
 //        nav.hidesBottomBarWhenPushed = YES;
 //        [weakSelf.navigationController pushViewController:nav animated:YES];
 //    }
-//    
+//
 //    if (index == 4) {
-//        
+//
 //        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuZhenWu" bundle:nil];
 //        ZTSheQuZhenWuViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTSheQuZhenWuViewController"];
 //        nav.hidesBottomBarWhenPushed = YES;
 //        [weakSelf.navigationController pushViewController:nav animated:YES];
 //    }
-//    
+//
 //    if (index == 0) {
-//        
+//
 //        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuWuYe" bundle:nil];
 //        ZTSheQuWuYeViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTSheQuWuYeViewController"];
 //        nav.hidesBottomBarWhenPushed = YES;
 //        nav.Type = 2;
 //        [weakSelf.navigationController pushViewController:nav animated:YES];
 //    }
-//    
+//
 //    if (index == 1) {
-//        
+//
 //        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuWuYe" bundle:nil];
 //        ZTSheQuWuYeViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTSheQuWuYeViewController"];
 //        nav.hidesBottomBarWhenPushed = YES;
@@ -276,7 +323,7 @@
 // 缩放大小
 - (CGFloat)scaleByOffset:(CGFloat)offset
 {
-
+    
     if (offset > 0) {
         
         return 1.1 - (offset * 0.18);
@@ -286,7 +333,7 @@
     {
         return 1.1 + (offset * 0.18);
     }
-
+    
 }
 
 // 抛物线程度
@@ -331,12 +378,12 @@
 #pragma mark - 地址选择
 - (IBAction)addressClick:(id)sender {
     
-    ZJGuangLiShouHuoDiZhiViewController *vc = [[ZJGuangLiShouHuoDiZhiViewController alloc] init];
-    [vc setReturnBackBlock:^{
-        [self createNav];
-    }];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    //    ZJGuangLiShouHuoDiZhiViewController *vc = [[ZJGuangLiShouHuoDiZhiViewController alloc] init];
+    //    [vc setReturnBackBlock:^{
+    //        [self createNav];
+    //    }];
+    //    vc.hidesBottomBarWhenPushed = YES;
+    //    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
@@ -354,8 +401,8 @@
 {
     self.addressLab.textColor = WifeButlerCommonRedColor;
     
-//    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
-//                                                         forBarMetrics:UIBarMetricsDefault];
+    //    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
+    //                                                         forBarMetrics:UIBarMetricsDefault];
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 20, 20);
     [btn setBackgroundImage:[UIImage imageNamed:@"ZTZhiHuan"] forState:UIControlStateNormal];
@@ -373,41 +420,29 @@
 - (void)netWorking
 {
     // 本地存放
-//    NSString *directory = NSHomeDirectory();
-//    NSData *dataPath = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@/LunBoTu", directory]];
-//    _dataSource = [NSKeyedUnarchiver unarchiveObjectWithData:dataPath];
-//    
-//    if (_dataSource.count != 0) {
-//        
-//        [self createScorllView1:_dataSource];
-//    }
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];/*添加接可收数据的数据可行*/
-//    manager.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
-    
-    
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    //    NSString *directory = NSHomeDirectory();
+    //    NSData *dataPath = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@/LunBoTu", directory]];
+    //    _dataSource = [NSKeyedUnarchiver unarchiveObjectWithData:dataPath];
+    //
+    //    if (_dataSource.count != 0) {
+    //
+    //        [self createScorllView1:_dataSource];
+    //    }
     
     NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KHomeLunBoTu];
     
-    ZJLog(@"%@", dic);
-    
-    [manager POST:url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+    [WifeButlerNetWorking getHttpRequestWithURLsite:url parameter:nil success:^(NSDictionary *response) {
         
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSString *message = [NSString stringWithFormat:@"%@", response[@"message"]];
         
-        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
-        
-        ZJLog(@"%@", responseObject);
+        ZJLog(@"%@", response);
         
         // 登录成功
-        if ([responseObject[@"code"] intValue] == 10000) {
+        if ([response[@"code"] intValue] == 10000) {
             
             [SVProgressHUD dismiss];
             
-            _dataSource = [ZTLunBoToModel mj_objectArrayWithKeyValuesArray:responseObject[@"resultCode"]];
+            _dataSource = [ZTLunBoToModel mj_objectArrayWithKeyValuesArray:response[@"resultCode"]];
             
             // 轮播图
             [self createScorllView1:_dataSource];
@@ -428,10 +463,8 @@
         }
         
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+    } failure:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
-
     }];
     
 }
@@ -440,28 +473,18 @@
 - (void)netWorkingJinWeiDu
 {
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];/*添加接可收数据的数据可行*/
-    
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
-    
-    [manager POST:KMoRenXiaoQuJinWeiDu parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-//        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
-        
-        ZJLog(@"%@", responseObject);
+    [WifeButlerNetWorking getHttpRequestWithURLsite:KMoRenXiaoQuJinWeiDu parameter:nil success:^(NSDictionary *response) {
         
         // 登录成功
-        if ([responseObject[@"code"] intValue] == 10000) {
+        if ([response[@"code"] intValue] == SUCCESS) {
             
             [SVProgressHUD dismiss];
             
-            NSString *weiDu = responseObject[@"resultCode"][@"latitude"];
-            NSString *jinDu = responseObject[@"resultCode"][@"longitude"];
-            NSString *xiaoQu = responseObject[@"resultCode"][@"village"];
+            NSString *weiDu = response[@"resultCode"][@"latitude"];
+            NSString *jinDu = response[@"resultCode"][@"longitude"];
+            NSString *xiaoQu = response[@"resultCode"][@"village"];
+            
+            [self requestBoutiqueDataWithLongitude:jinDu latitude:weiDu];
             
             NSSaveUserDefaults(jinDu, @"jing");
             NSSaveUserDefaults(weiDu, @"wei");
@@ -474,11 +497,9 @@
             
         }
         
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
         
         [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
-        
     }];
     
 }
@@ -507,9 +528,9 @@
 /** 点击图片回调 */
 //- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
 //{
-//    
+//
 //    ZTLunBoToModel *model = _dataSource[index];
-//    
+//
 //    ZTXiangQinHealthyLifeViewController *vc = [[ZTXiangQinHealthyLifeViewController alloc] init];
 //    vc.id_temp = model.goods_id;
 //    vc.hidesBottomBarWhenPushed = YES;

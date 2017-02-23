@@ -7,6 +7,8 @@
 //
 
 #import "ZJDetailViewFrameModel.h"
+#import "NSString+ZJMyString.h"
+
 #define MARGIN 8
 
 @implementation ZJDetailViewFrameModel

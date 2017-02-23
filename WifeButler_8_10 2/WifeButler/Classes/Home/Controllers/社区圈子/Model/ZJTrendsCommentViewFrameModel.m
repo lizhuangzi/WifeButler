@@ -8,6 +8,7 @@
 
 #import "ZJTrendsCommentViewFrameModel.h"
 #import "TYAttributedLabel.h"
+#import "NSString+ZJMyString.h"
 
 #define MARGIN 8
 
