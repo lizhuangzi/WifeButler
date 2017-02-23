@@ -8,6 +8,7 @@
 
 #import "HomeNavgationController.h"
 #import "UIColor+HexColor.h"
+#import "UIImage+ColorExistion.h"
 
 @implementation HomeNavgationController
 
@@ -17,34 +18,9 @@
     [super viewDidLoad];
     
     self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName :[UIFont boldSystemFontOfSize:17]};
-    
-    [self.navigationBar setBarTintColor:[UIColor whiteColor]];
-    
-    self.navigationBar.tintColor = WifeButlerCommonRedColor;
-
-}
-
-- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    [super pushViewController:viewController animated:animated];
-    
-    [self.navigationBar setBarTintColor:WifeButlerCommonRedColor];
-    
-    self.navigationBar.tintColor = [UIColor whiteColor];
-}
-
-- (UIViewController *)popViewControllerAnimated:(BOOL)animated
-{
-    UIViewController * vc = [super popViewControllerAnimated:animated];
-    if (self.viewControllers.count == 1) {
-        self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName :[UIFont boldSystemFontOfSize:17]};
-        
-        [self.navigationBar setBarTintColor:[UIColor whiteColor]];
-        
-        self.navigationBar.tintColor = WifeButlerCommonRedColor;
-    }
-    
-    return vc;
+    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:WifeButlerCommonRedColor] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationBar setTintColor:[UIColor whiteColor]];
+    self.navigationBar.translucent = NO;
 }
 
 @end

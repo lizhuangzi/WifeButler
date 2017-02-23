@@ -408,7 +408,7 @@
 
 - (void)createNav
 {
-    self.addressLab.textColor = WifeButlerCommonRedColor;
+    self.addressLab.textColor = [UIColor whiteColor];
     
     //    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
     //                                                         forBarMetrics:UIBarMetricsDefault];

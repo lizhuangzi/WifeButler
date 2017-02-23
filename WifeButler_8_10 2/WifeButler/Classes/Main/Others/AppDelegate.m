@@ -11,7 +11,7 @@
 #import "ZJTabBarController.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
-
+#import "ZJLoginController.h"
 @interface AppDelegate ()
 
 @end
@@ -31,8 +31,8 @@
     }
     else
     {
-        
-        self.window.rootViewController = [[ZJTabBarController alloc] init];
+//        UIStoryboard * loginVc = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];
+        self.window.rootViewController = [[ZJTabBarController alloc]init];
     }
 
     

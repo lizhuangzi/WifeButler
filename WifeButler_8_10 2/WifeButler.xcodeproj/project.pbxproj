@@ -258,6 +258,7 @@
 		C7C4A4971E5EB81E00075A27 /* HomePageCommodityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C4A4951E5EB81E00075A27 /* HomePageCommodityCell.xib */; };
 		C7C4A49A1E5EBE5600075A27 /* HomePageCommodityView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C4A4991E5EBE5600075A27 /* HomePageCommodityView.m */; };
 		C7C4A49C1E5EBE6B00075A27 /* HomePageCommodityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C4A49B1E5EBE6B00075A27 /* HomePageCommodityView.xib */; };
+		C7D52FA11E5F38AC00D98448 /* UIImage+ColorExistion.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D52FA01E5F38AC00D98448 /* UIImage+ColorExistion.m */; };
 		C7F8EE991E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8EE981E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m */; };
 		C7F8EE9D1E5D6F72008C8A06 /* WifeButlerNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8EE9C1E5D6F72008C8A06 /* WifeButlerNetWorking.m */; };
 		C7FDFE861E5D8D8800BB6438 /* HomePageSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FDFE851E5D8D8800BB6438 /* HomePageSectionModel.m */; };
@@ -743,6 +744,8 @@
 		C7C4A4991E5EBE5600075A27 /* HomePageCommodityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageCommodityView.m; sourceTree = "<group>"; };
 		C7C4A49B1E5EBE6B00075A27 /* HomePageCommodityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageCommodityView.xib; sourceTree = "<group>"; };
 		C7D52F9E1E5EE2E100D98448 /* WifeButlerCommonDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerCommonDef.h; sourceTree = "<group>"; };
+		C7D52F9F1E5F38AC00D98448 /* UIImage+ColorExistion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorExistion.h"; sourceTree = "<group>"; };
+		C7D52FA01E5F38AC00D98448 /* UIImage+ColorExistion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorExistion.m"; sourceTree = "<group>"; };
 		C7F8EE971E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerHomeTableHeaderView.h; sourceTree = "<group>"; };
 		C7F8EE981E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerHomeTableHeaderView.m; sourceTree = "<group>"; };
 		C7F8EE9B1E5D6F72008C8A06 /* WifeButlerNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerNetWorking.h; sourceTree = "<group>"; };
@@ -1968,6 +1971,8 @@
 				C71365311E350BEB00C89CB5 /* UIColor+EasyExistion.m */,
 				C7BA19C91E26778F00405816 /* UIColor+HexColor.h */,
 				C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */,
+				C7D52F9F1E5F38AC00D98448 /* UIImage+ColorExistion.h */,
+				C7D52FA01E5F38AC00D98448 /* UIImage+ColorExistion.m */,
 				7B288D321D582C9A000A19AF /* 微信sdk */,
 				7B019D7C1D52CAE90073506E /* 背景图片 */,
 				7B03BF4D1D0E49CD00DAF357 /* NSString+ZJMyString.h */,
@@ -3393,6 +3398,7 @@
 				7BCC31651D2E59AF007D930A /* ZTLunBoToModel.m in Sources */,
 				7BE3C6BF1CF1A54C00851512 /* ZYQAssetPickerController.m in Sources */,
 				7BF9ACA11D12931100F0D000 /* ZTWoDeXiaoXiModel.m in Sources */,
+				C7D52FA11E5F38AC00D98448 /* UIImage+ColorExistion.m in Sources */,
 				7B9D399F1CF9393C00F6359D /* ZTPingLunModel.m in Sources */,
 				7B86D8101CF874E100AB1E05 /* ZTChuLiQiXQModel.m in Sources */,
 				7B63EAC61CFC6742004F9DA7 /* ZTHuanMiCanShuTableViewCell.m in Sources */,
