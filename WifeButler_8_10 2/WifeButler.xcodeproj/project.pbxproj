@@ -251,6 +251,10 @@
 		7BFBA6EB1CFF030600D4E07C /* ZTAddAddressTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA6EA1CFF030600D4E07C /* ZTAddAddressTableViewController.m */; };
 		7BFBA6ED1CFF032A00D4E07C /* ZTAddAddress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BFBA6EC1CFF032A00D4E07C /* ZTAddAddress.storyboard */; };
 		C71365321E350BEB00C89CB5 /* UIColor+EasyExistion.m in Sources */ = {isa = PBXBuildFile; fileRef = C71365311E350BEB00C89CB5 /* UIColor+EasyExistion.m */; };
+		C781A9171E5FFCF900E3D325 /* XMGConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9101E5FFCF900E3D325 /* XMGConst.m */; };
+		C781A9181E5FFCF900E3D325 /* XMGHomeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9121E5FFCF900E3D325 /* XMGHomeLabel.m */; };
+		C781A9191E5FFCF900E3D325 /* XMGHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9141E5FFCF900E3D325 /* XMGHomeViewController.m */; };
+		C781A91A1E5FFCF900E3D325 /* XMGSocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9161E5FFCF900E3D325 /* XMGSocialViewController.m */; };
 		C7BA19CB1E26778F00405816 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */; };
 		C7C4A4901E5EB20A00075A27 /* HomePageSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C4A48F1E5EB20A00075A27 /* HomePageSectionHeaderView.m */; };
 		C7C4A4921E5EB22500075A27 /* HomePageSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C4A4911E5EB22500075A27 /* HomePageSectionHeaderView.xib */; };
@@ -732,6 +736,14 @@
 		7BFBA6EC1CFF032A00D4E07C /* ZTAddAddress.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZTAddAddress.storyboard; sourceTree = "<group>"; };
 		C71365301E350BEB00C89CB5 /* UIColor+EasyExistion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+EasyExistion.h"; sourceTree = "<group>"; };
 		C71365311E350BEB00C89CB5 /* UIColor+EasyExistion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+EasyExistion.m"; sourceTree = "<group>"; };
+		C781A90F1E5FFCF900E3D325 /* XMGConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGConst.h; sourceTree = "<group>"; };
+		C781A9101E5FFCF900E3D325 /* XMGConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGConst.m; sourceTree = "<group>"; };
+		C781A9111E5FFCF900E3D325 /* XMGHomeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGHomeLabel.h; sourceTree = "<group>"; };
+		C781A9121E5FFCF900E3D325 /* XMGHomeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGHomeLabel.m; sourceTree = "<group>"; };
+		C781A9131E5FFCF900E3D325 /* XMGHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGHomeViewController.h; sourceTree = "<group>"; };
+		C781A9141E5FFCF900E3D325 /* XMGHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGHomeViewController.m; sourceTree = "<group>"; };
+		C781A9151E5FFCF900E3D325 /* XMGSocialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGSocialViewController.h; sourceTree = "<group>"; };
+		C781A9161E5FFCF900E3D325 /* XMGSocialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGSocialViewController.m; sourceTree = "<group>"; };
 		C7BA19C91E26778F00405816 /* UIColor+HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
 		C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
 		C7C4A48E1E5EB20A00075A27 /* HomePageSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageSectionHeaderView.h; sourceTree = "<group>"; };
@@ -2087,6 +2099,7 @@
 		7BB43FC01CE9C904007D722A /* HealthyLifestyle */ = {
 			isa = PBXGroup;
 			children = (
+				C781A9021E5FFC7400E3D325 /* ThirdSliderViewController */,
 				7BBE4D361D069F6F00DBF00F /* 详情H5 */,
 				7BB43FC11CE9C904007D722A /* Controllers */,
 				7BB43FC21CE9C904007D722A /* Model */,
@@ -3037,6 +3050,21 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C781A9021E5FFC7400E3D325 /* ThirdSliderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C781A90F1E5FFCF900E3D325 /* XMGConst.h */,
+				C781A9101E5FFCF900E3D325 /* XMGConst.m */,
+				C781A9111E5FFCF900E3D325 /* XMGHomeLabel.h */,
+				C781A9121E5FFCF900E3D325 /* XMGHomeLabel.m */,
+				C781A9131E5FFCF900E3D325 /* XMGHomeViewController.h */,
+				C781A9141E5FFCF900E3D325 /* XMGHomeViewController.m */,
+				C781A9151E5FFCF900E3D325 /* XMGSocialViewController.h */,
+				C781A9161E5FFCF900E3D325 /* XMGSocialViewController.m */,
+			);
+			path = ThirdSliderViewController;
+			sourceTree = "<group>";
+		};
 		C7F8EE961E5D6CB9008C8A06 /* 首页视图 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3335,6 +3363,7 @@
 				7BA606561D051FD700148007 /* ZTWuYeShopsModel.m in Sources */,
 				7BED501C1D0CF9EB00DB2D60 /* ZTTongLeiShangPinCollectionViewCell.m in Sources */,
 				7BCAA4581D40AEAA00F46C33 /* ZTTiShiKuanView.m in Sources */,
+				C781A9191E5FFCF900E3D325 /* XMGHomeViewController.m in Sources */,
 				7BFBA6EB1CFF030600D4E07C /* ZTAddAddressTableViewController.m in Sources */,
 				7BBDB5FD1D010E730098B079 /* UIBarButtonItem+WZLBadge.m in Sources */,
 				7B0537371D102E7F00BE9762 /* ZTSheQuQuanZiIconCollectionViewCell.m in Sources */,
@@ -3437,6 +3466,7 @@
 				7B03BF4F1D0E49CD00DAF357 /* NSString+ZJMyString.m in Sources */,
 				7B8D04D11CEB22DB0024B812 /* ZTBianJiZiliaoTableViewController.m in Sources */,
 				7BE3C6391CF1888F00851512 /* ZTShouHuoAddressModel.m in Sources */,
+				C781A9171E5FFCF900E3D325 /* XMGConst.m in Sources */,
 				7B0536DD1D0FE5AD00BE9762 /* ZJSheQuanZiHeaderView.m in Sources */,
 				7B2366AC1D026449003BC590 /* ZTWoYaoKaiDianTableViewController.m in Sources */,
 				7B0536D41D0FE5AD00BE9762 /* ZJTrendsModel.m in Sources */,
@@ -3474,6 +3504,7 @@
 				7BC5806D1CF6F91F00FD157A /* ZTYouHuiJuanViewController.m in Sources */,
 				C7FDFE861E5D8D8800BB6438 /* HomePageSectionModel.m in Sources */,
 				7B63EACC1CFC6E7B004F9DA7 /* ZTHuanMiXQModel.m in Sources */,
+				C781A91A1E5FFCF900E3D325 /* XMGSocialViewController.m in Sources */,
 				7BE3C64B1CF1938800851512 /* ZTYiJianFanKuiViewController.m in Sources */,
 				7BE420481D13A6BB009A8FAB /* LoopLargeButton.m in Sources */,
 				7BE3C6C21CF1A55300851512 /* UIImageView+Del.m in Sources */,
@@ -3483,6 +3514,7 @@
 				7BE3C63A1CF1888F00851512 /* ZJGuangLiShouHuoDiZhiTableViewCell.m in Sources */,
 				7B63EAB61CFBCE85004F9DA7 /* ZTHuiZhuanPingJiaTableViewController.m in Sources */,
 				7BF9AC9E1D124E7D00F0D000 /* ZTTimeTopModel.m in Sources */,
+				C781A9181E5FFCF900E3D325 /* XMGHomeLabel.m in Sources */,
 				7B392D5B1D152ADB00A182BC /* ZTShenPiDianPuViewController.m in Sources */,
 				7BAD20221D547FA2005798F2 /* ZTDuiHuanOederModel.m in Sources */,
 				7B9B6F161D0D3DB300CC3D09 /* ZTYuYueViewController.m in Sources */,

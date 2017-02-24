@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XMGHomeViewController.h"
 
-@interface ZTHealthyLifestyleViewController : UIViewController
+@interface ZTHealthyLifestyleViewController : XMGHomeViewController
 
 @end
