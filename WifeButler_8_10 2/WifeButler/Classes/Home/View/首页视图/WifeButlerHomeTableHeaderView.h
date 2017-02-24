@@ -12,6 +12,9 @@
 
 + (instancetype)WifeButlerHomeTableHeaderViewWithimageArray:(NSArray *)imageArray;
 
+/**回调index*/
+@property (nonatomic,copy)void(^returnBlock)(NSInteger index);
+/**URLStr数组*/
 @property (nonatomic,strong) NSArray * bannerImageURLStrings;
 @end
 

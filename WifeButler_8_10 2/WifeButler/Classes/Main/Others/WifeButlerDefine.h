@@ -13,3 +13,4 @@ extern NSString * const CodeKey;
 extern NSString * const WifeButlerLongtitudeKey;
 extern NSString * const  WifeButlerLatitudeKey;
 
+#define WEAKSELF typeof(self) __weak weakSelf = self;

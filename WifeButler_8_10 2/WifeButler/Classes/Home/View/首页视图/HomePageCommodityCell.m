@@ -23,7 +23,7 @@
 @implementation HomePageCommodityCell
 
 - (void)awakeFromNib
-{
+{   
     [super awakeFromNib];
     self.titleLabel.textColor = WifeButlerCommonRedColor;
     self.contentView.backgroundColor = WifeButlerTableBackGaryColor;

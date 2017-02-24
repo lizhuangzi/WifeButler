@@ -16,6 +16,8 @@
 //#import "ZTQuanZiZViewController.h"
 //#import "ZJGuangLiShouHuoDiZhiViewController.h"
 //#import "ZTXiangQinHealthyLifeViewController.h"
+#import "EPCalendarViewController.h"
+
 #import "ZTJianKangShenHuoBottomModel.h"
 #import "ZTLunBoToModel.h"
 #import "Masonry.h"
@@ -167,6 +169,7 @@
 
 - (void)createTableView
 {
+    //创建tableview
     UITableView * table = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
     table.backgroundColor = WifeButlerTableBackGaryColor;
     table.dataSource = self;
@@ -179,8 +182,18 @@
         make.edges.mas_equalTo(self.view);
     }];
     table.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
-    
+   
+    WEAKSELF
+    //创建tableviewheaderview
     WifeButlerHomeTableHeaderView * header = [WifeButlerHomeTableHeaderView WifeButlerHomeTableHeaderViewWithimageArray:nil];
+    [header setReturnBlock:^(NSInteger index) {
+        
+        if (index == 4) {
+            EPCalendarViewController * calendar = [[EPCalendarViewController alloc]init];
+            [weakSelf.navigationController pushViewController:calendar animated:YES];
+        }
+        
+    }];
     table.tableHeaderView = header;
     
     self.tableHeader = header;

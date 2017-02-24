@@ -258,6 +258,8 @@
 		C7A191BE1E60263800FEDFD1 /* WifebutlerRCRHomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A191BD1E60263800FEDFD1 /* WifebutlerRCRHomeHeaderView.xib */; };
 		C7A191C21E60337E00FEDFD1 /* exchangeStationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A191C11E60337E00FEDFD1 /* exchangeStationModel.m */; };
 		C7A191CA1E603BB700FEDFD1 /* WifeButlerDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A191C91E603BB700FEDFD1 /* WifeButlerDefine.m */; };
+		C7A191D01E606CF700FEDFD1 /* EPCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A191CF1E606CF700FEDFD1 /* EPCalendarViewController.m */; };
+		C7A191D31E606DA400FEDFD1 /* CustomCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A191D21E606DA400FEDFD1 /* CustomCalendarViewController.m */; };
 		C7BA19CB1E26778F00405816 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */; };
 		C7C4A4901E5EB20A00075A27 /* HomePageSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C4A48F1E5EB20A00075A27 /* HomePageSectionHeaderView.m */; };
 		C7C4A4921E5EB22500075A27 /* HomePageSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C4A4911E5EB22500075A27 /* HomePageSectionHeaderView.xib */; };
@@ -752,6 +754,10 @@
 		C7A191C81E603BB700FEDFD1 /* WifeButlerDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerDefine.h; sourceTree = "<group>"; };
 		C7A191C91E603BB700FEDFD1 /* WifeButlerDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerDefine.m; sourceTree = "<group>"; };
 		C7A191CB1E603DA800FEDFD1 /* RCRNetWorkPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRNetWorkPort.h; sourceTree = "<group>"; };
+		C7A191CE1E606CF700FEDFD1 /* EPCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPCalendarViewController.h; sourceTree = "<group>"; };
+		C7A191CF1E606CF700FEDFD1 /* EPCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPCalendarViewController.m; sourceTree = "<group>"; };
+		C7A191D11E606DA400FEDFD1 /* CustomCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCalendarViewController.h; sourceTree = "<group>"; };
+		C7A191D21E606DA400FEDFD1 /* CustomCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalendarViewController.m; sourceTree = "<group>"; };
 		C7BA19C91E26778F00405816 /* UIColor+HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
 		C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
 		C7C4A48E1E5EB20A00075A27 /* HomePageSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageSectionHeaderView.h; sourceTree = "<group>"; };
@@ -2936,6 +2942,7 @@
 				7BFBA67E1CFE80EC00D4E07C /* ZJHomePageController.h */,
 				7BFBA67F1CFE80EC00D4E07C /* ZJHomePageController.m */,
 				7BFBA6801CFE80EC00D4E07C /* ZJHomePageController.storyboard */,
+				C7A191CD1E606C7400FEDFD1 /* 环保日历 */,
 				7B5B07B81D0EAA4D00D0246A /* 社区政务 */,
 				7BA6065A1D055F7700148007 /* 社区服务 */,
 				7B0536A41D0FE5AD00BE9762 /* 社区圈子 */,
@@ -3074,6 +3081,17 @@
 				C781A9161E5FFCF900E3D325 /* XMGSocialViewController.m */,
 			);
 			path = ThirdSliderViewController;
+			sourceTree = "<group>";
+		};
+		C7A191CD1E606C7400FEDFD1 /* 环保日历 */ = {
+			isa = PBXGroup;
+			children = (
+				C7A191CE1E606CF700FEDFD1 /* EPCalendarViewController.h */,
+				C7A191CF1E606CF700FEDFD1 /* EPCalendarViewController.m */,
+				C7A191D11E606DA400FEDFD1 /* CustomCalendarViewController.h */,
+				C7A191D21E606DA400FEDFD1 /* CustomCalendarViewController.m */,
+			);
+			path = "环保日历";
 			sourceTree = "<group>";
 		};
 		C7F8EE961E5D6CB9008C8A06 /* 首页视图 */ = {
@@ -3454,6 +3472,7 @@
 				7BF9ACAE1D12CCF600F0D000 /* ZTXiaoQuXuanZe.m in Sources */,
 				7BE420621D13A730009A8FAB /* ZJCommunityShopHeaderView.m in Sources */,
 				7B392D541D151ED600A182BC /* ZTDianPuAddressTableViewController.m in Sources */,
+				C7A191D01E606CF700FEDFD1 /* EPCalendarViewController.m in Sources */,
 				7B5B07C01D0EAA9700D0246A /* ZTSheQuZhenWuViewController.m in Sources */,
 				7BD5B7E01D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.m in Sources */,
 				7BC5804C1CF6C81C00FD157A /* ZTGarbageOfRiceViewController.m in Sources */,
@@ -3496,6 +3515,7 @@
 				7BF1DC3D1CFAD636001C1E54 /* ZTDingDanXiangQinTableViewCell.m in Sources */,
 				D11D1A281D7BB95400E2A815 /* HomeNavgationController.m in Sources */,
 				7B9B6F231D0D5A5700CC3D09 /* ZTTime1CollectionViewCell.m in Sources */,
+				C7A191D31E606DA400FEDFD1 /* CustomCalendarViewController.m in Sources */,
 				C7A191BC1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.m in Sources */,
 				7B8A60C61D10F1BD004B2C16 /* ZTJianPanView.m in Sources */,
 				7B0536D01D0FE5AD00BE9762 /* ZJCommentModel.m in Sources */,

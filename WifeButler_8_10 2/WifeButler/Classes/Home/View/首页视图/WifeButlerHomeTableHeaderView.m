@@ -68,12 +68,19 @@
             int row = i/4;
             int cloum = i%4;
             WifeButlerHomeCircleButton * button = [[WifeButlerHomeCircleButton alloc]initWithImageName:imageNameArray[i]  andtitle:titleArray[i]];
+            button.tag = i+2017;
+            [button addTarget:self action:@selector(roundButtonClick:) forControlEvents:UIControlEventTouchUpInside];
             button.frame = CGRectMake(margin + cloum *(btnW+margin), Hmargin + row * (btnH + Hmargin), btnW, btnH);
             [backView addSubview:button];
         }
         
     }
     return self;
+}
+
+- (void)roundButtonClick:(WifeButlerHomeCircleButton *)button
+{
+    !self.returnBlock?:self.returnBlock(button.tag - 2017);
 }
 
 
@@ -87,6 +94,7 @@
 //    vc.hidesBottomBarWhenPushed = YES;
 //    [self.navigationController pushViewController:vc animated:YES];
 }
+
 
 
 @end
