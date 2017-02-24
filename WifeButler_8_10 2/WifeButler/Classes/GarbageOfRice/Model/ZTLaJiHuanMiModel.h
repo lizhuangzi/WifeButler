@@ -9,19 +9,21 @@
 #import <Foundation/Foundation.h>
 
 @interface ZTLaJiHuanMiModel : NSObject
+/**商品id*/
+@property (nonatomic,copy)NSString * commodityId;
+/**商品图片*/
+@property (nonatomic,copy)NSString * iconImageStr;
+/**商品单位*/
+@property (nonatomic,copy)NSString * danwei;
+/**标题*/
+@property (nonatomic,copy)NSString * title;
+/**兑换量*/
+@property (nonatomic,copy)NSString * sales;
+/**原先价格*/
+@property (nonatomic,copy)NSString * oldprice;
+/**现在需要的积分*/
+@property (nonatomic,copy)NSString * scale;
 
-@property (nonatomic, copy) NSString * contents;
-@property (nonatomic, copy) NSString * files;
-@property (nonatomic, copy) NSString * gallery;
-@property (nonatomic, copy) NSString * goods_desc;
-@property (nonatomic, copy) NSString * id;
-@property (nonatomic, copy) NSString * sales;
-@property (nonatomic, copy) NSString * scale;
-@property (nonatomic, copy) NSString * sort;
-@property (nonatomic, copy) NSString * title;
-@property (nonatomic, copy) NSString * update_time;
-@property (nonatomic, copy) NSString * file;
-
-@property (nonatomic, copy) NSString * brief;
++ (instancetype)laJiHuanMiModelWithDictioary:(NSDictionary *)dictionary;
 
 @end

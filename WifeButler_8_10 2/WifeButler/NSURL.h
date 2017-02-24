@@ -86,8 +86,7 @@
 // 垃圾处理器详情
 #define    KLaJiChuLiQiXiangQin   @"goods/goods/goods_own_detail/"
 
-// 垃圾换米列表
-#define    KLaJiHuanMiList        @"goods/goods/goods_exchange_list"
+
 
 // 垃圾处理器详情评价
 #define    KLaJiChuLiQiPingJia    @"goods/goods/comment_rubbish"

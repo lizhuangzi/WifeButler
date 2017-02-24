@@ -208,19 +208,19 @@
             
             self.titleLab.text = _model.title;
             
-            NSArray *arr = [_model.scale componentsSeparatedByString:@"/"];
-            
-            self.kekeLab.text = [NSString stringWithFormat:@"%@/", arr[0]];
-            self.kekeLab1.text = arr[1];
-            
-            self.xiaoLiangLab.text = [NSString stringWithFormat:@"销量%@件", _model.sales];
-            
-            
-            _dataSource = (NSMutableArray *)[_model.contents componentsSeparatedByString:@","];
-            _dataSource1 = (NSMutableArray *)[_model.goods_desc componentsSeparatedByString:@","];
-            
-            // 轮播图
-            [self createScorllView1:[_model.gallery componentsSeparatedByString:@","]];
+//            NSArray *arr = [_model.scale componentsSeparatedByString:@"/"];
+//            
+//            self.kekeLab.text = [NSString stringWithFormat:@"%@/", arr[0]];
+//            self.kekeLab1.text = arr[1];
+//            
+//            self.xiaoLiangLab.text = [NSString stringWithFormat:@"销量%@件", _model.sales];
+//            
+//            
+//            _dataSource = (NSMutableArray *)[_model.contents componentsSeparatedByString:@","];
+//            _dataSource1 = (NSMutableArray *)[_model.goods_desc componentsSeparatedByString:@","];
+//            
+//            // 轮播图
+//            [self createScorllView1:[_model.gallery componentsSeparatedByString:@","]];
             
             [self.tableView reloadData];
         }

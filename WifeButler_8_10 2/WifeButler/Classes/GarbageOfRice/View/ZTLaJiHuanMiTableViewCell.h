@@ -8,17 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class ZTLaJiHuanMiModel;
 @interface ZTLaJiHuanMiTableViewCell : UITableViewCell
 
+@property (nonatomic,strong) ZTLaJiHuanMiModel * model;
 
-@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
-
-@property (weak, nonatomic) IBOutlet UILabel *titleLab;
-
-@property (weak, nonatomic) IBOutlet UILabel *desLab;
-
-@property (weak, nonatomic) IBOutlet UILabel *num1Lab;
-
-@property (weak, nonatomic) IBOutlet UILabel *num2Lab;
++ (instancetype)LaJiHuanMiTableViewCellWithTableView:(UITableView *)tableView;
 
 @end

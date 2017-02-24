@@ -30,7 +30,7 @@
 
 #import "HomePageSectionModel.h"
 #import "HomePageCellModel.h"
-#import "WifeButlerCommonDef.h"
+#import "WifeButlerDefine.h"
 
 @interface ZJHomePageController ()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 {
@@ -58,6 +58,7 @@
 @end
 
 @implementation ZJHomePageController
+
 
 #pragma mark - 懒加载
 - (NSMutableArray *)dataArray
@@ -178,6 +179,7 @@
         make.edges.mas_equalTo(self.view);
     }];
     table.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    
     WifeButlerHomeTableHeaderView * header = [WifeButlerHomeTableHeaderView WifeButlerHomeTableHeaderViewWithimageArray:nil];
     table.tableHeaderView = header;
     
@@ -485,7 +487,7 @@
     [WifeButlerNetWorking getHttpRequestWithURLsite:KMoRenXiaoQuJinWeiDu parameter:nil success:^(NSDictionary *response) {
         
         // 登录成功
-        if ([response[@"code"] intValue] == SUCCESS) {
+        if ([response[CodeKey] intValue] == SUCCESS) {
             
             [SVProgressHUD dismiss];
             

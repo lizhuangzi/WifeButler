@@ -167,7 +167,6 @@
 		7BC580561CF6C81C00FD157A /* ZJProcessorDetailTableCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC580401CF6C81C00FD157A /* ZJProcessorDetailTableCell4.m */; };
 		7BC580571CF6C81C00FD157A /* ZJProcessorDetailTableCell5.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC580421CF6C81C00FD157A /* ZJProcessorDetailTableCell5.m */; };
 		7BC580581CF6C81C00FD157A /* ZTShangPingGuiGeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC580441CF6C81C00FD157A /* ZTShangPingGuiGeTableViewCell.m */; };
-		7BC580591CF6C81C00FD157A /* ZTLaJiChuLiQiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC580481CF6C81C00FD157A /* ZTLaJiChuLiQiTableViewCell.m */; };
 		7BC5805A1CF6C81C00FD157A /* ZTLaJiHuanMiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5804A1CF6C81C00FD157A /* ZTLaJiHuanMiTableViewCell.m */; };
 		7BC5805D1CF6D86600FD157A /* ZTShangPinPingJiaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5805C1CF6D86600FD157A /* ZTShangPinPingJiaTableViewCell.m */; };
 		7BC580641CF6DE7400FD157A /* ZTLaJiJieShuanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC580631CF6DE7400FD157A /* ZTLaJiJieShuanTableViewController.m */; };
@@ -179,7 +178,6 @@
 		7BCAA45A1D40AEBE00F46C33 /* ZTTiShiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BCAA4591D40AEBE00F46C33 /* ZTTiShiView.xib */; };
 		7BCC31651D2E59AF007D930A /* ZTLunBoToModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BCC31641D2E59AF007D930A /* ZTLunBoToModel.m */; };
 		7BD04B2B1CF820FE00D431D5 /* ZTBianJiInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BD04B2A1CF820FE00D431D5 /* ZTBianJiInfo.storyboard */; };
-		7BD59A431CF84FA3004050D0 /* ZTLaJiChuLiQiGouMaiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD59A421CF84FA3004050D0 /* ZTLaJiChuLiQiGouMaiModel.m */; };
 		7BD5B7E01D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD5B7DE1D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.m */; };
 		7BD5B7E11D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BD5B7DF1D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.xib */; };
 		7BE3C6381CF1888F00851512 /* ZJGuangLiShouHuoDiZhiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE3C62C1CF1888F00851512 /* ZJGuangLiShouHuoDiZhiViewController.m */; };
@@ -255,6 +253,11 @@
 		C781A9181E5FFCF900E3D325 /* XMGHomeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9121E5FFCF900E3D325 /* XMGHomeLabel.m */; };
 		C781A9191E5FFCF900E3D325 /* XMGHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9141E5FFCF900E3D325 /* XMGHomeViewController.m */; };
 		C781A91A1E5FFCF900E3D325 /* XMGSocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9161E5FFCF900E3D325 /* XMGSocialViewController.m */; };
+		C7A191B91E6021DD00FEDFD1 /* ZTLaJiHuanMiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A191B81E6021DD00FEDFD1 /* ZTLaJiHuanMiTableViewCell.xib */; };
+		C7A191BC1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A191BB1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.m */; };
+		C7A191BE1E60263800FEDFD1 /* WifebutlerRCRHomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A191BD1E60263800FEDFD1 /* WifebutlerRCRHomeHeaderView.xib */; };
+		C7A191C21E60337E00FEDFD1 /* exchangeStationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A191C11E60337E00FEDFD1 /* exchangeStationModel.m */; };
+		C7A191CA1E603BB700FEDFD1 /* WifeButlerDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A191C91E603BB700FEDFD1 /* WifeButlerDefine.m */; };
 		C7BA19CB1E26778F00405816 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */; };
 		C7C4A4901E5EB20A00075A27 /* HomePageSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C4A48F1E5EB20A00075A27 /* HomePageSectionHeaderView.m */; };
 		C7C4A4921E5EB22500075A27 /* HomePageSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C4A4911E5EB22500075A27 /* HomePageSectionHeaderView.xib */; };
@@ -585,8 +588,6 @@
 		7BC580421CF6C81C00FD157A /* ZJProcessorDetailTableCell5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJProcessorDetailTableCell5.m; sourceTree = "<group>"; };
 		7BC580431CF6C81C00FD157A /* ZTShangPingGuiGeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTShangPingGuiGeTableViewCell.h; sourceTree = "<group>"; };
 		7BC580441CF6C81C00FD157A /* ZTShangPingGuiGeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTShangPingGuiGeTableViewCell.m; sourceTree = "<group>"; };
-		7BC580471CF6C81C00FD157A /* ZTLaJiChuLiQiTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTLaJiChuLiQiTableViewCell.h; sourceTree = "<group>"; };
-		7BC580481CF6C81C00FD157A /* ZTLaJiChuLiQiTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTLaJiChuLiQiTableViewCell.m; sourceTree = "<group>"; };
 		7BC580491CF6C81C00FD157A /* ZTLaJiHuanMiTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTLaJiHuanMiTableViewCell.h; sourceTree = "<group>"; };
 		7BC5804A1CF6C81C00FD157A /* ZTLaJiHuanMiTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTLaJiHuanMiTableViewCell.m; sourceTree = "<group>"; };
 		7BC5805B1CF6D86600FD157A /* ZTShangPinPingJiaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTShangPinPingJiaTableViewCell.h; sourceTree = "<group>"; };
@@ -606,8 +607,6 @@
 		7BCC31631D2E59AF007D930A /* ZTLunBoToModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTLunBoToModel.h; sourceTree = "<group>"; };
 		7BCC31641D2E59AF007D930A /* ZTLunBoToModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTLunBoToModel.m; sourceTree = "<group>"; };
 		7BD04B2A1CF820FE00D431D5 /* ZTBianJiInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZTBianJiInfo.storyboard; sourceTree = "<group>"; };
-		7BD59A411CF84FA3004050D0 /* ZTLaJiChuLiQiGouMaiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTLaJiChuLiQiGouMaiModel.h; sourceTree = "<group>"; };
-		7BD59A421CF84FA3004050D0 /* ZTLaJiChuLiQiGouMaiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTLaJiChuLiQiGouMaiModel.m; sourceTree = "<group>"; };
 		7BD5B7DD1D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZTZhenWuXiangQinViewController.h; path = "WifeButler/Classes/Home/Controllers/社区政务/View/ZTZhenWuXiangQinViewController.h"; sourceTree = SOURCE_ROOT; };
 		7BD5B7DE1D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZTZhenWuXiangQinViewController.m; path = "WifeButler/Classes/Home/Controllers/社区政务/View/ZTZhenWuXiangQinViewController.m"; sourceTree = SOURCE_ROOT; };
 		7BD5B7DF1D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ZTZhenWuXiangQinViewController.xib; path = "WifeButler/Classes/Home/Controllers/社区政务/View/ZTZhenWuXiangQinViewController.xib"; sourceTree = SOURCE_ROOT; };
@@ -744,6 +743,15 @@
 		C781A9141E5FFCF900E3D325 /* XMGHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGHomeViewController.m; sourceTree = "<group>"; };
 		C781A9151E5FFCF900E3D325 /* XMGSocialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGSocialViewController.h; sourceTree = "<group>"; };
 		C781A9161E5FFCF900E3D325 /* XMGSocialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGSocialViewController.m; sourceTree = "<group>"; };
+		C7A191B81E6021DD00FEDFD1 /* ZTLaJiHuanMiTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZTLaJiHuanMiTableViewCell.xib; sourceTree = "<group>"; };
+		C7A191BA1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifebutlerRCRHomeHeaderView.h; sourceTree = "<group>"; };
+		C7A191BB1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifebutlerRCRHomeHeaderView.m; sourceTree = "<group>"; };
+		C7A191BD1E60263800FEDFD1 /* WifebutlerRCRHomeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WifebutlerRCRHomeHeaderView.xib; sourceTree = "<group>"; };
+		C7A191C01E60337E00FEDFD1 /* exchangeStationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exchangeStationModel.h; sourceTree = "<group>"; };
+		C7A191C11E60337E00FEDFD1 /* exchangeStationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = exchangeStationModel.m; sourceTree = "<group>"; };
+		C7A191C81E603BB700FEDFD1 /* WifeButlerDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerDefine.h; sourceTree = "<group>"; };
+		C7A191C91E603BB700FEDFD1 /* WifeButlerDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerDefine.m; sourceTree = "<group>"; };
+		C7A191CB1E603DA800FEDFD1 /* RCRNetWorkPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRNetWorkPort.h; sourceTree = "<group>"; };
 		C7BA19C91E26778F00405816 /* UIColor+HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
 		C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
 		C7C4A48E1E5EB20A00075A27 /* HomePageSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageSectionHeaderView.h; sourceTree = "<group>"; };
@@ -755,7 +763,6 @@
 		C7C4A4981E5EBE5600075A27 /* HomePageCommodityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageCommodityView.h; sourceTree = "<group>"; };
 		C7C4A4991E5EBE5600075A27 /* HomePageCommodityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageCommodityView.m; sourceTree = "<group>"; };
 		C7C4A49B1E5EBE6B00075A27 /* HomePageCommodityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageCommodityView.xib; sourceTree = "<group>"; };
-		C7D52F9E1E5EE2E100D98448 /* WifeButlerCommonDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerCommonDef.h; sourceTree = "<group>"; };
 		C7D52F9F1E5F38AC00D98448 /* UIImage+ColorExistion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorExistion.h"; sourceTree = "<group>"; };
 		C7D52FA01E5F38AC00D98448 /* UIImage+ColorExistion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorExistion.m"; sourceTree = "<group>"; };
 		C7F8EE971E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerHomeTableHeaderView.h; sourceTree = "<group>"; };
@@ -2029,7 +2036,8 @@
 			children = (
 				7BB43FA01CE9C57F007D722A /* AppDelegate.h */,
 				7BB43FA11CE9C57F007D722A /* AppDelegate.m */,
-				C7D52F9E1E5EE2E100D98448 /* WifeButlerCommonDef.h */,
+				C7A191C81E603BB700FEDFD1 /* WifeButlerDefine.h */,
+				C7A191C91E603BB700FEDFD1 /* WifeButlerDefine.m */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -2270,6 +2278,7 @@
 				7BC580211CF6C81C00FD157A /* Controllers */,
 				7BC580451CF6C81C00FD157A /* Model */,
 				7BC580461CF6C81C00FD157A /* View */,
+				C7A191CB1E603DA800FEDFD1 /* RCRNetWorkPort.h */,
 			);
 			path = GarbageOfRice;
 			sourceTree = "<group>";
@@ -2344,10 +2353,10 @@
 		7BC580451CF6C81C00FD157A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7BD59A411CF84FA3004050D0 /* ZTLaJiChuLiQiGouMaiModel.h */,
-				7BD59A421CF84FA3004050D0 /* ZTLaJiChuLiQiGouMaiModel.m */,
 				7B86D80B1CF86C9400AB1E05 /* ZTLaJiHuanMiModel.h */,
 				7B86D80C1CF86C9400AB1E05 /* ZTLaJiHuanMiModel.m */,
+				C7A191C01E60337E00FEDFD1 /* exchangeStationModel.h */,
+				C7A191C11E60337E00FEDFD1 /* exchangeStationModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2355,10 +2364,12 @@
 		7BC580461CF6C81C00FD157A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7BC580471CF6C81C00FD157A /* ZTLaJiChuLiQiTableViewCell.h */,
-				7BC580481CF6C81C00FD157A /* ZTLaJiChuLiQiTableViewCell.m */,
 				7BC580491CF6C81C00FD157A /* ZTLaJiHuanMiTableViewCell.h */,
 				7BC5804A1CF6C81C00FD157A /* ZTLaJiHuanMiTableViewCell.m */,
+				C7A191B81E6021DD00FEDFD1 /* ZTLaJiHuanMiTableViewCell.xib */,
+				C7A191BA1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.h */,
+				C7A191BB1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.m */,
+				C7A191BD1E60263800FEDFD1 /* WifebutlerRCRHomeHeaderView.xib */,
 				7BA7EA931D24CD0000ECA67E /* ZTJianJieH5TableViewCell.h */,
 				7BA7EA941D24CD0000ECA67E /* ZTJianJieH5TableViewCell.m */,
 			);
@@ -3218,6 +3229,7 @@
 				C7C4A4971E5EB81E00075A27 /* HomePageCommodityCell.xib in Resources */,
 				7B4F39741CF2906800D427CD /* ZTXiaoXiXiangQinViewController.xib in Resources */,
 				C7C4A49C1E5EBE6B00075A27 /* HomePageCommodityView.xib in Resources */,
+				C7A191BE1E60263800FEDFD1 /* WifebutlerRCRHomeHeaderView.xib in Resources */,
 				7B2366C81D0285D8003BC590 /* ZTheard2.xib in Resources */,
 				7BE3C63B1CF1888F00851512 /* ZJGuangLiShouHuoDiZhiTableViewCell.xib in Resources */,
 				7BB43FB91CE9C57F007D722A /* ZJMineController.storyboard in Resources */,
@@ -3247,6 +3259,7 @@
 				7B4F39791CF295DE00D427CD /* ZTGouWuChe.storyboard in Resources */,
 				7BCAA45A1D40AEBE00F46C33 /* ZTTiShiView.xib in Resources */,
 				7B8D04C31CEAB3380024B812 /* ZJLogin.storyboard in Resources */,
+				C7A191B91E6021DD00FEDFD1 /* ZTLaJiHuanMiTableViewCell.xib in Resources */,
 				7BFBA6BD1CFE80EC00D4E07C /* ZJHomePageController.storyboard in Resources */,
 				7BB43F5E1CE9C3BC007D722A /* LaunchScreen.storyboard in Resources */,
 				7BB43F5B1CE9C3BC007D722A /* Assets.xcassets in Resources */,
@@ -3349,6 +3362,7 @@
 				7BA606601D055F9F00148007 /* ZTSheQuFuWuViewController.m in Sources */,
 				7BBDB5FE1D010E730098B079 /* UITabBarItem+WZLBadge.m in Sources */,
 				7B0537041D0FE5E400BE9762 /* TYTextContainer.m in Sources */,
+				C7A191CA1E603BB700FEDFD1 /* WifeButlerDefine.m in Sources */,
 				7BE4204A1D13A6BB009A8FAB /* LoopSmallButton.m in Sources */,
 				7B0536D31D0FE5AD00BE9762 /* ZJTrendsDetailModel.m in Sources */,
 				7B0536DA1D0FE5AD00BE9762 /* ZJTrendsDetailView.m in Sources */,
@@ -3398,7 +3412,6 @@
 				7BBDB6041D011C680098B079 /* UserGuideViewController.m in Sources */,
 				7B2366C11D028520003BC590 /* ZTHeard1CollectionReusableView.m in Sources */,
 				7B0537111D0FE85C00BE9762 /* ZTQiPaoCellTableViewCell.m in Sources */,
-				7BD59A431CF84FA3004050D0 /* ZTLaJiChuLiQiGouMaiModel.m in Sources */,
 				7BE3C6511CF1996600851512 /* ZTGuangYuMyViewController.m in Sources */,
 				7B8D04C41CEAB3380024B812 /* ZJLoginController.m in Sources */,
 				7BC5805D1CF6D86600FD157A /* ZTShangPinPingJiaTableViewCell.m in Sources */,
@@ -3412,7 +3425,6 @@
 				7BE420461D13A6BB009A8FAB /* LoopButton.m in Sources */,
 				7BED50191D0CF6D800DB2D60 /* ZTLeiXinShangPinViewController.m in Sources */,
 				7BAD20251D5495D8005798F2 /* ZTOrderXiangQinModel.m in Sources */,
-				7BC580591CF6C81C00FD157A /* ZTLaJiChuLiQiTableViewCell.m in Sources */,
 				7B0536D51D0FE5AD00BE9762 /* ZJTrendsCellFrameModel.m in Sources */,
 				7BAD20181D546867005798F2 /* ZTDuiHuanOrder2TableViewCell.m in Sources */,
 				7B0536D21D0FE5AD00BE9762 /* ZJTrendsCommentViewFrameModel.m in Sources */,
@@ -3484,6 +3496,7 @@
 				7BF1DC3D1CFAD636001C1E54 /* ZTDingDanXiangQinTableViewCell.m in Sources */,
 				D11D1A281D7BB95400E2A815 /* HomeNavgationController.m in Sources */,
 				7B9B6F231D0D5A5700CC3D09 /* ZTTime1CollectionViewCell.m in Sources */,
+				C7A191BC1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.m in Sources */,
 				7B8A60C61D10F1BD004B2C16 /* ZTJianPanView.m in Sources */,
 				7B0536D01D0FE5AD00BE9762 /* ZJCommentModel.m in Sources */,
 				7B9B6F261D0D5A6200CC3D09 /* ZTTime2CollectionViewCell.m in Sources */,
@@ -3526,6 +3539,7 @@
 				7B2366B51D026FEE003BC590 /* ZTSheQuWuYeViewController.m in Sources */,
 				7BE3C63C1CF1888F00851512 /* ZTBianJiDiZhiTableViewController.m in Sources */,
 				7BE420611D13A730009A8FAB /* ZJCommunityShopFooterView.m in Sources */,
+				C7A191C21E60337E00FEDFD1 /* exchangeStationModel.m in Sources */,
 				7B8D04C51CEAB3380024B812 /* ZJSeakPassWordVC.m in Sources */,
 				7B9D39A51CF9A95500F6359D /* ZTGouWuCheFooterVIew.m in Sources */,
 				7BE420681D13A730009A8FAB /* ZJShopClassCell1.m in Sources */,
@@ -3678,10 +3692,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CFFCA33AEFF47FF60F105438 /* Pods-WifeButler.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: hongcheng jiang (9878SZ9237)";
 				ENABLE_BITCODE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WifeButler/ZTWifeButle_Prefix.pch";
 				INFOPLIST_FILE = WifeButler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -3694,6 +3710,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -3701,10 +3718,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4218C6B78AB7C095357F9129 /* Pods-WifeButler.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: hongcheng jiang (55KVZ9FZ2F)";
 				ENABLE_BITCODE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WifeButler/ZTWifeButle_Prefix.pch";
 				INFOPLIST_FILE = WifeButler/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -3717,6 +3736,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};

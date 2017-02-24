@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="uP8-Mn-9bk" customClass="WifebutlerRCRHomeHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="334" height="216"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F05-Ri-IBs">
+                    <rect key="frame" x="0.0" y="0.0" width="334" height="216"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emk-T1-Zrn">
+                    <rect key="frame" x="10" y="9" width="72" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="蓝旗营小区"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEU-It-k0u">
+                    <rect key="frame" x="303" y="10" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="2SH-F5-1ZT"/>
+                        <constraint firstAttribute="height" constant="25" id="6yy-vy-vv4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" backgroundImage="ZTBackYouHuiJuan"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IYN-kp-BQC">
+                    <rect key="frame" x="0.0" y="186" width="334" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日公告" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjQ-cw-4VD">
+                            <rect key="frame" x="5" y="6" width="58" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="LPe-ai-fBt"/>
+                        <constraint firstItem="MjQ-cw-4VD" firstAttribute="centerY" secondItem="IYN-kp-BQC" secondAttribute="centerY" id="Sf4-DE-San"/>
+                        <constraint firstItem="MjQ-cw-4VD" firstAttribute="leading" secondItem="IYN-kp-BQC" secondAttribute="leading" constant="5" id="pVT-ld-MIc"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ihH-bO-rK1">
+                    <rect key="frame" x="15" y="106" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="1Lm-8U-KSf"/>
+                        <constraint firstAttribute="width" constant="60" id="crx-Mw-imi"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="老伴社区总部" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuF-Xv-iTt">
+                    <rect key="frame" x="83" y="101" width="86" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18911069265" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yho-3T-yy4">
+                    <rect key="frame" x="83" y="126" width="89" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="清华大学" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDE-oS-LxJ">
+                    <rect key="frame" x="83" y="151" width="58" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="IYN-kp-BQC" secondAttribute="trailing" id="44B-AT-Jm7"/>
+                <constraint firstAttribute="trailing" secondItem="F05-Ri-IBs" secondAttribute="trailing" id="63z-KA-hEp"/>
+                <constraint firstItem="nuF-Xv-iTt" firstAttribute="top" secondItem="ihH-bO-rK1" secondAttribute="top" constant="-5" id="BXE-t7-Ql4"/>
+                <constraint firstAttribute="trailing" secondItem="MEU-It-k0u" secondAttribute="trailing" constant="6" id="D7P-UA-qIQ"/>
+                <constraint firstItem="pDE-oS-LxJ" firstAttribute="top" secondItem="yho-3T-yy4" secondAttribute="bottom" constant="8" id="DOp-pz-sh6"/>
+                <constraint firstItem="F05-Ri-IBs" firstAttribute="top" secondItem="uP8-Mn-9bk" secondAttribute="top" id="HLR-Ms-7hy"/>
+                <constraint firstItem="nuF-Xv-iTt" firstAttribute="leading" secondItem="ihH-bO-rK1" secondAttribute="trailing" constant="8" id="Hg3-oU-1XE"/>
+                <constraint firstItem="pDE-oS-LxJ" firstAttribute="leading" secondItem="nuF-Xv-iTt" secondAttribute="leading" id="Lrp-gB-OZ5"/>
+                <constraint firstItem="IYN-kp-BQC" firstAttribute="leading" secondItem="uP8-Mn-9bk" secondAttribute="leading" id="NkW-nf-feA"/>
+                <constraint firstItem="MEU-It-k0u" firstAttribute="top" secondItem="uP8-Mn-9bk" secondAttribute="top" constant="10" id="Nux-BV-e5c"/>
+                <constraint firstItem="yho-3T-yy4" firstAttribute="top" secondItem="nuF-Xv-iTt" secondAttribute="bottom" constant="8" id="Uph-2V-8Yp"/>
+                <constraint firstAttribute="bottom" secondItem="IYN-kp-BQC" secondAttribute="bottom" id="cUO-Yh-XpY"/>
+                <constraint firstItem="yho-3T-yy4" firstAttribute="leading" secondItem="nuF-Xv-iTt" secondAttribute="leading" id="kLE-b3-Wpm"/>
+                <constraint firstItem="IYN-kp-BQC" firstAttribute="top" secondItem="ihH-bO-rK1" secondAttribute="bottom" constant="20" id="mYT-M5-pli"/>
+                <constraint firstAttribute="bottom" secondItem="F05-Ri-IBs" secondAttribute="bottom" id="vYf-H9-vYs"/>
+                <constraint firstItem="ihH-bO-rK1" firstAttribute="leading" secondItem="uP8-Mn-9bk" secondAttribute="leading" constant="15" id="xFb-cQ-Eb7"/>
+                <constraint firstItem="F05-Ri-IBs" firstAttribute="leading" secondItem="uP8-Mn-9bk" secondAttribute="leading" id="xHn-30-Gdf"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backImageView" destination="F05-Ri-IBs" id="KhM-Fk-jev"/>
+                <outlet property="houseEstateName" destination="emk-T1-Zrn" id="u7k-hc-U8e"/>
+                <outlet property="iconView" destination="ihH-bO-rK1" id="MdN-BX-tkk"/>
+                <outlet property="locationLabel" destination="pDE-oS-LxJ" id="E94-Ta-DEJ"/>
+                <outlet property="mainNameLabel" destination="nuF-Xv-iTt" id="VOo-Wc-nq7"/>
+                <outlet property="noticeBackView" destination="IYN-kp-BQC" id="UTz-Gi-a0k"/>
+                <outlet property="phoneLabel" destination="yho-3T-yy4" id="456-Tf-6uQ"/>
+                <outlet property="todayNotice" destination="MjQ-cw-4VD" id="V19-ew-37A"/>
+            </connections>
+            <point key="canvasLocation" x="-134" y="176"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ZTBackYouHuiJuan" width="101" height="101"/>
+    </resources>
+</document>

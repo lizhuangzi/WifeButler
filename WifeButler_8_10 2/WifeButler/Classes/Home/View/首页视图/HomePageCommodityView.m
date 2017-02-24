@@ -8,6 +8,8 @@
 
 #import "HomePageCommodityView.h"
 #import "UIColor+HexColor.h"
+#import "UIImage+ColorExistion.h"
+
 @interface HomePageCommodityView ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *pictureView;
@@ -35,7 +37,7 @@
 {
     _cellModel = cellModel;
     self.nameLabel.text = cellModel.title;
-    [self.pictureView sd_setImageWithURL:[NSURL URLWithString:cellModel.imageURLstr] placeholderImage:nil];
+    [self.pictureView sd_setImageWithURL:[NSURL URLWithString:cellModel.imageURLstr] placeholderImage:[UIImage imageWithColor:WifeButlerSeparateLineColor]];
     if (cellModel.danwei.length == 0) {
         self.priceLabel.text = [NSString stringWithFormat:@"¥%@",cellModel.money];
     }else

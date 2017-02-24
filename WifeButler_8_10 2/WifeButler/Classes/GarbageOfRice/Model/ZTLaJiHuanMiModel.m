@@ -7,17 +7,23 @@
 //
 
 #import "ZTLaJiHuanMiModel.h"
+#import "MJExtension.h"
 
 @implementation ZTLaJiHuanMiModel
 
-- (NSString *)files
++ (instancetype)laJiHuanMiModelWithDictioary:(NSDictionary *)dictionary{
+    
+    ZTLaJiHuanMiModel * model = [ZTLaJiHuanMiModel mj_objectWithKeyValues:dictionary];
+    return model;
+}
+- (void)setIconImageStr:(NSString *)iconImageStr
 {
-    return [NSString stringWithFormat:@"%@%@", KImageUrl, _files];
+    _iconImageStr = [NSString stringWithFormat:@"%@%@", KImageUrl, iconImageStr];
 }
 
-- (NSString *)file
-{
-    return [NSString stringWithFormat:@"%@%@", KImageUrl, _file];
-}
 
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{@"commodityId":@"id",@"iconImageStr":@"file"};
+}
 @end
