@@ -10,6 +10,12 @@
 
 @interface XMGHomeViewController : UIViewController
 
-- (void)setupChildVc;
+@property (weak, nonatomic)  UIScrollView *titleScrollView;
+@property (weak, nonatomic)  UIScrollView *contentScrollView;
+
+
+- (void)config;
+
+
 
 @end

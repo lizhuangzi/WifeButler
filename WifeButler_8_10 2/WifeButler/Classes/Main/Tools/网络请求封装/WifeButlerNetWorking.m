@@ -53,5 +53,43 @@
     }];
 }
 
++ (void)getPackagingHttpRequestWithURLsite:(NSString *)URLSite parameter:(NSDictionary *)parmDict success:(void(^)(id resultCode))success  failure:(void(^)(NSError * error))failure{
+    
+    [self getHttpRequestWithURLsite:URLSite parameter:parmDict success:^(NSDictionary *response) {
+        
+        if ([response[@"code"] intValue] == 10000) {
+            
+            NSArray * resultCode = response[@"resultCode"];
+            if (success) {
+                success(resultCode);
+            }
+        }else{
+            NSError * error = [NSError errorWithDomain:NSMachErrorDomain code:20000 userInfo:@{@"msg":response[@"message"]}];
+            failure(error);
+        }
+        
+    } failure:failure];
+    
+}
+
++ (void)postPackagingHttpRequestWithURLsite:(NSString *)URLSite parameter:(NSDictionary *)parmDict success:(void(^)(id resultCode))success  failure:(void(^)(NSError * error))failure{
+    
+    
+    [self postHttpRequestWithURLsite:URLSite parameter:parmDict success:^(NSDictionary *response) {
+        
+        if ([response[@"code"] intValue] == 10000) {
+            
+            NSArray * resultCode = response[@"resultCode"];
+            if (success) {
+                success(resultCode);
+            }
+        }else{
+            NSError * error = [NSError errorWithDomain:NSMachErrorDomain code:20000 userInfo:@{@"msg":response[@"message"]}];
+            failure(error);
+        }
+        
+    } failure:failure];
+    
+}
 
 @end

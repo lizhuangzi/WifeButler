@@ -13,7 +13,7 @@
 //#import "ZTSheQuWuYeViewController.h"
 //#import "ZTSheQuQuanZiViewController.h"
 //#import "ZTSheQuZhenWuViewController.h"
-//#import "ZTQuanZiZViewController.h"
+#import "ZTQuanZiZViewController.h"
 //#import "ZJGuangLiShouHuoDiZhiViewController.h"
 //#import "ZTXiangQinHealthyLifeViewController.h"
 #import "EPCalendarViewController.h"
@@ -186,12 +186,10 @@
     WEAKSELF
     //创建tableviewheaderview
     WifeButlerHomeTableHeaderView * header = [WifeButlerHomeTableHeaderView WifeButlerHomeTableHeaderViewWithimageArray:nil];
+    
     [header setReturnBlock:^(NSInteger index) {
         
-        if (index == 4) {
-            EPCalendarViewController * calendar = [[EPCalendarViewController alloc]init];
-            [weakSelf.navigationController pushViewController:calendar animated:YES];
-        }
+        [weakSelf delalPushViewControllerWithClickIndex:index];
         
     }];
     table.tableHeaderView = header;
@@ -226,6 +224,7 @@
     return cell;
 }
 
+#pragma tableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HomePageSectionModel * model = self.dataArray[indexPath.section];
@@ -241,6 +240,25 @@
 {
     return 150;
 }
+
+#pragma mark - push控制器操作
+- (void)delalPushViewControllerWithClickIndex:(NSInteger)index
+{
+    
+    if (index == 0) {
+        
+        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuQuanZi" bundle:nil];
+        ZTQuanZiZViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTQuanZiZViewController"];
+        nav.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:nav animated:YES];
+    }
+    
+    if (index == 4) {
+        EPCalendarViewController * calendar = [[EPCalendarViewController alloc]init];
+        [self.navigationController pushViewController:calendar animated:YES];
+    }
+}
+
 #pragma mark - iCarousel的代理协议
 
 //- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view

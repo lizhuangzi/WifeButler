@@ -153,7 +153,6 @@
 		7BBDB5FF1D010E730098B079 /* CAAnimation+WAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBDB5F61D010E730098B079 /* CAAnimation+WAnimation.m */; };
 		7BBDB6001D010E730098B079 /* UIView+WZLBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBDB5FB1D010E730098B079 /* UIView+WZLBadge.m */; };
 		7BBDB6041D011C680098B079 /* UserGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBDB6031D011C680098B079 /* UserGuideViewController.m */; };
-		7BBE4D351D0696DA00DBF00F /* ZTJianKangShenHuoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE4D341D0696DA00DBF00F /* ZTJianKangShenHuoTableViewCell.m */; };
 		7BBE4D401D069FB800DBF00F /* ZTXiangQinHealthyLifeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE4D3E1D069FB800DBF00F /* ZTXiangQinHealthyLifeViewController.m */; };
 		7BBE4D411D069FB800DBF00F /* ZTXiangQinHealthyLifeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BBE4D3F1D069FB800DBF00F /* ZTXiangQinHealthyLifeViewController.xib */; };
 		7BBE4D5B1D06C37A00DBF00F /* ZTSheQuWuYeFuWuXiangQinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE4D5A1D06C37A00DBF00F /* ZTSheQuWuYeFuWuXiangQinViewController.m */; };
@@ -248,7 +247,11 @@
 		7BFBA6E81CFEC2B700D4E07C /* ZTLeiBieaaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA6E71CFEC2B700D4E07C /* ZTLeiBieaaModel.m */; };
 		7BFBA6EB1CFF030600D4E07C /* ZTAddAddressTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA6EA1CFF030600D4E07C /* ZTAddAddressTableViewController.m */; };
 		7BFBA6ED1CFF032A00D4E07C /* ZTAddAddress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BFBA6EC1CFF032A00D4E07C /* ZTAddAddress.storyboard */; };
+		C71058391E615ED700C85CBE /* WifeButlerUserParty.m in Sources */ = {isa = PBXBuildFile; fileRef = C71058381E615ED700C85CBE /* WifeButlerUserParty.m */; };
+		C710583E1E61B58600C85CBE /* WifeButlerLoadingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C710583D1E61B58600C85CBE /* WifeButlerLoadingTableView.m */; };
+		C71058411E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71058401E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m */; };
 		C71365321E350BEB00C89CB5 /* UIColor+EasyExistion.m in Sources */ = {isa = PBXBuildFile; fileRef = C71365311E350BEB00C89CB5 /* UIColor+EasyExistion.m */; };
+		C7457CE71E63011C0039CF5B /* WifeButlerInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7457CE61E63011C0039CF5B /* WifeButlerInfoTableViewCell.m */; };
 		C781A9171E5FFCF900E3D325 /* XMGConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9101E5FFCF900E3D325 /* XMGConst.m */; };
 		C781A9181E5FFCF900E3D325 /* XMGHomeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9121E5FFCF900E3D325 /* XMGHomeLabel.m */; };
 		C781A9191E5FFCF900E3D325 /* XMGHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9141E5FFCF900E3D325 /* XMGHomeViewController.m */; };
@@ -564,8 +567,6 @@
 		7BBDB5FC1D010E730098B079 /* WZLBadgeImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZLBadgeImport.h; sourceTree = "<group>"; };
 		7BBDB6021D011C680098B079 /* UserGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserGuideViewController.h; sourceTree = "<group>"; };
 		7BBDB6031D011C680098B079 /* UserGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserGuideViewController.m; sourceTree = "<group>"; };
-		7BBE4D331D0696DA00DBF00F /* ZTJianKangShenHuoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTJianKangShenHuoTableViewCell.h; sourceTree = "<group>"; };
-		7BBE4D341D0696DA00DBF00F /* ZTJianKangShenHuoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTJianKangShenHuoTableViewCell.m; sourceTree = "<group>"; };
 		7BBE4D3D1D069FB800DBF00F /* ZTXiangQinHealthyLifeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTXiangQinHealthyLifeViewController.h; sourceTree = "<group>"; };
 		7BBE4D3E1D069FB800DBF00F /* ZTXiangQinHealthyLifeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTXiangQinHealthyLifeViewController.m; sourceTree = "<group>"; };
 		7BBE4D3F1D069FB800DBF00F /* ZTXiangQinHealthyLifeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZTXiangQinHealthyLifeViewController.xib; sourceTree = "<group>"; };
@@ -735,8 +736,18 @@
 		7BFBA6E91CFF030600D4E07C /* ZTAddAddressTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTAddAddressTableViewController.h; sourceTree = "<group>"; };
 		7BFBA6EA1CFF030600D4E07C /* ZTAddAddressTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTAddAddressTableViewController.m; sourceTree = "<group>"; };
 		7BFBA6EC1CFF032A00D4E07C /* ZTAddAddress.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZTAddAddress.storyboard; sourceTree = "<group>"; };
+		C71058371E615ED700C85CBE /* WifeButlerUserParty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerUserParty.h; sourceTree = "<group>"; };
+		C71058381E615ED700C85CBE /* WifeButlerUserParty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerUserParty.m; sourceTree = "<group>"; };
+		C710583A1E615F0F00C85CBE /* HMSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSingleton.h; sourceTree = "<group>"; };
+		C710583B1E61643B00C85CBE /* InformationPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationPort.h; sourceTree = "<group>"; };
+		C710583C1E61B58600C85CBE /* WifeButlerLoadingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerLoadingTableView.h; sourceTree = "<group>"; };
+		C710583D1E61B58600C85CBE /* WifeButlerLoadingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerLoadingTableView.m; sourceTree = "<group>"; };
+		C710583F1E61BC3000C85CBE /* WifeButlerLoadingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerLoadingTableViewController.h; sourceTree = "<group>"; };
+		C71058401E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerLoadingTableViewController.m; sourceTree = "<group>"; };
 		C71365301E350BEB00C89CB5 /* UIColor+EasyExistion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+EasyExistion.h"; sourceTree = "<group>"; };
 		C71365311E350BEB00C89CB5 /* UIColor+EasyExistion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+EasyExistion.m"; sourceTree = "<group>"; };
+		C7457CE51E63011C0039CF5B /* WifeButlerInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerInfoTableViewCell.h; sourceTree = "<group>"; };
+		C7457CE61E63011C0039CF5B /* WifeButlerInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerInfoTableViewCell.m; sourceTree = "<group>"; };
 		C781A90F1E5FFCF900E3D325 /* XMGConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGConst.h; sourceTree = "<group>"; };
 		C781A9101E5FFCF900E3D325 /* XMGConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGConst.m; sourceTree = "<group>"; };
 		C781A9111E5FFCF900E3D325 /* XMGHomeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGHomeLabel.h; sourceTree = "<group>"; };
@@ -2026,6 +2037,8 @@
 				7BB43F9D1CE9C57F007D722A /* ZJTabBarController.m */,
 				D11D1A261D7BB95400E2A815 /* HomeNavgationController.h */,
 				D11D1A271D7BB95400E2A815 /* HomeNavgationController.m */,
+				C710583F1E61BC3000C85CBE /* WifeButlerLoadingTableViewController.h */,
+				C71058401E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -2033,6 +2046,8 @@
 		7BB43F9E1CE9C57F007D722A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C71058371E615ED700C85CBE /* WifeButlerUserParty.h */,
+				C71058381E615ED700C85CBE /* WifeButlerUserParty.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2040,6 +2055,7 @@
 		7BB43F9F1CE9C57F007D722A /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				C710583A1E615F0F00C85CBE /* HMSingleton.h */,
 				7BB43FA01CE9C57F007D722A /* AppDelegate.h */,
 				7BB43FA11CE9C57F007D722A /* AppDelegate.m */,
 				C7A191C81E603BB700FEDFD1 /* WifeButlerDefine.h */,
@@ -2061,6 +2077,8 @@
 		7BB43FA31CE9C57F007D722A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C710583C1E61B58600C85CBE /* WifeButlerLoadingTableView.h */,
+				C710583D1E61B58600C85CBE /* WifeButlerLoadingTableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2118,6 +2136,7 @@
 				7BB43FC11CE9C904007D722A /* Controllers */,
 				7BB43FC21CE9C904007D722A /* Model */,
 				7BB43FC31CE9C904007D722A /* View */,
+				C710583B1E61643B00C85CBE /* InformationPort.h */,
 			);
 			path = HealthyLifestyle;
 			sourceTree = "<group>";
@@ -2146,8 +2165,8 @@
 		7BB43FC31CE9C904007D722A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7BBE4D331D0696DA00DBF00F /* ZTJianKangShenHuoTableViewCell.h */,
-				7BBE4D341D0696DA00DBF00F /* ZTJianKangShenHuoTableViewCell.m */,
+				C7457CE51E63011C0039CF5B /* WifeButlerInfoTableViewCell.h */,
+				C7457CE61E63011C0039CF5B /* WifeButlerInfoTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3385,6 +3404,7 @@
 				7B0536D31D0FE5AD00BE9762 /* ZJTrendsDetailModel.m in Sources */,
 				7B0536DA1D0FE5AD00BE9762 /* ZJTrendsDetailView.m in Sources */,
 				7BFBA6E31CFE848600D4E07C /* ZTFuJinShangJiaViewController.m in Sources */,
+				C710583E1E61B58600C85CBE /* WifeButlerLoadingTableView.m in Sources */,
 				7B63EAC31CFC6735004F9DA7 /* ZTHuanMiTuPianTableViewCell.m in Sources */,
 				7B9B6F1E1D0D4D4F00CC3D09 /* ZTXuanZeTimeViewController.m in Sources */,
 				7B4F39771CF295CD00D427CD /* ZTPersonGouWuCheViewController.m in Sources */,
@@ -3476,7 +3496,6 @@
 				7B5B07C01D0EAA9700D0246A /* ZTSheQuZhenWuViewController.m in Sources */,
 				7BD5B7E01D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.m in Sources */,
 				7BC5804C1CF6C81C00FD157A /* ZTGarbageOfRiceViewController.m in Sources */,
-				7BBE4D351D0696DA00DBF00F /* ZTJianKangShenHuoTableViewCell.m in Sources */,
 				7BE4204D1D13A6C8009A8FAB /* LoopView.m in Sources */,
 				7B9D39AD1CF9B6AF00F6359D /* ZTWoDeDingDanModel.m in Sources */,
 				7BFBA6C01CFE80EC00D4E07C /* ZJShopClassVC.m in Sources */,
@@ -3509,6 +3528,7 @@
 				7B8D04BB1CEAB21B0024B812 /* NSString+ZJMyJudgeString.m in Sources */,
 				7BE3C65F1CF19C8300851512 /* ZTNeiBuGongGao1ViewController.m in Sources */,
 				7BA7EA951D24CD0000ECA67E /* ZTJianJieH5TableViewCell.m in Sources */,
+				C7457CE71E63011C0039CF5B /* WifeButlerInfoTableViewCell.m in Sources */,
 				7BC580701CF6FB6D00FD157A /* ZTYouHuiJuanTableViewCell.m in Sources */,
 				7B0537031D0FE5E400BE9762 /* TYTextContainer+Extended.m in Sources */,
 				7B01CA3C1CFDB37B008BF259 /* ZTJieSuang11Model.m in Sources */,
@@ -3535,6 +3555,7 @@
 				7B4F39731CF2906800D427CD /* ZTXiaoXiXiangQinViewController.m in Sources */,
 				C7C4A4901E5EB20A00075A27 /* HomePageSectionHeaderView.m in Sources */,
 				7BC5806D1CF6F91F00FD157A /* ZTYouHuiJuanViewController.m in Sources */,
+				C71058411E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m in Sources */,
 				C7FDFE861E5D8D8800BB6438 /* HomePageSectionModel.m in Sources */,
 				7B63EACC1CFC6E7B004F9DA7 /* ZTHuanMiXQModel.m in Sources */,
 				C781A91A1E5FFCF900E3D325 /* XMGSocialViewController.m in Sources */,
@@ -3553,6 +3574,7 @@
 				7B9B6F161D0D3DB300CC3D09 /* ZTYuYueViewController.m in Sources */,
 				7BE420601D13A730009A8FAB /* ZJCommunityShopCell.m in Sources */,
 				7B05372E1D102C2500BE9762 /* ZTSheQuQuanZiModel.m in Sources */,
+				C71058391E615ED700C85CBE /* WifeButlerUserParty.m in Sources */,
 				7BF499791CFD8EFD00CCEB45 /* ZTJieSuan11TableViewCell.m in Sources */,
 				7BB43FB81CE9C57F007D722A /* ZJMineController.m in Sources */,
 				7BB43FB71CE9C57F007D722A /* AppDelegate.m in Sources */,

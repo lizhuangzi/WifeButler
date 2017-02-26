@@ -7,7 +7,13 @@
 //
 
 #import "ZTJianKangShenHuoTopModel.h"
+#import "MJExtension.h"
 
 @implementation ZTJianKangShenHuoTopModel
+
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{@"Id":@"id"};
+}
 
 @end

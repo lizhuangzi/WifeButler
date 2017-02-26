@@ -13,8 +13,7 @@
 #import "masonry.h"
 
 @interface XMGHomeViewController () <UIScrollViewDelegate>
-@property (weak, nonatomic)  UIScrollView *titleScrollView;
-@property (weak, nonatomic)  UIScrollView *contentScrollView;
+
 
 @property (nonatomic,weak) UIView * sliderlineView;
 
@@ -24,20 +23,20 @@
 
 @implementation XMGHomeViewController
 
+- (NSMutableArray *)titleArray
+{
+    if (!_titleArray) {
+        _titleArray = [NSMutableArray array];
+    }
+    return _titleArray;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     NSLog(@"XMGHomeViewController - %f %f %f", XMGRed, XMGGreen, XMGBlue);
     
     [self createUI];
-    
-    // 添加子控制器
-    [self setupChildVc];
-    // 添加标题
-    [self setupTitle];
-    
-    // 默认显示第0个子控制器
-    [self scrollViewDidEndScrollingAnimation:self.contentScrollView];
 }
 
 - (void)createUI
@@ -67,7 +66,6 @@
     
     UIScrollView *  contentScro = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
     contentScro.pagingEnabled = YES;
-    contentScro.delegate = self;
     contentScro.showsHorizontalScrollIndicator = NO;
     contentScro.showsVerticalScrollIndicator = NO;
     [self.view addSubview:contentScro];
@@ -78,15 +76,14 @@
         make.left.mas_equalTo(self.view.mas_left);
         make.bottom.mas_equalTo(self.view.mas_bottom);
     }];
-
 }
 
-/**
- * setupChildVc
- */
-- (void)setupChildVc
+- (void)config
 {
-    
+    [self setupTitle];
+    self.contentScrollView.delegate = self;
+    // 默认显示第0个子控制器
+    [self scrollViewDidEndScrollingAnimation:self.contentScrollView];
 }
 
 /**
@@ -94,14 +91,15 @@
  */
 - (void)setupTitle
 {
-    self.titleArray = [NSMutableArray array];
     // 定义临时变量
     CGFloat labelW = 100;
     CGFloat labelY = 0;
     CGFloat labelH = self.titleScrollView.frame.size.height;
     
+    NSLog(@"%@",self.childViewControllers);
     // 添加label
-    for (NSInteger i = 0; i<7; i++) {
+    for (NSInteger i = 0; i<self.childViewControllers.count; i++) {
+        
         XMGHomeLabel *label = [[XMGHomeLabel alloc] init];
         label.text = [self.childViewControllers[i] title];
         CGFloat labelX = i * labelW;

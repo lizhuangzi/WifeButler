@@ -10,48 +10,73 @@
 #import "ZTHealthyLifestyleViewController.h"
 #import "masonry.h"
 #import "XMGSocialViewController.h"
+#import "WifeButlerNetWorking.h"
+#import "InformationPort.h"
+
+#import "WifeButlerDefine.h"
+
+#import "ZTJianKangShenHuoTopModel.h"
+#import "MJExtension.h"
 
 @interface ZTHealthyLifestyleViewController ()
+
+@property (nonatomic,strong) NSMutableArray * TopModelArray;
 
 @end
 
 @implementation ZTHealthyLifestyleViewController
 
+- (NSMutableArray *)TopModelArray
+{
+    if (!_TopModelArray) {
+        _TopModelArray = [NSMutableArray array];
+    }
+    return _TopModelArray;
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-
+    
+    WEAKSELF
+    [self requestSliderDataAndSuccessBlock:^{
+        
+        [weakSelf setupChildVcWithArray:weakSelf.TopModelArray];
+        
+        [weakSelf config];
+    }];
 }
 
-- (void)setupChildVc
+/**请求顶部模块数据*/
+- (void)requestSliderDataAndSuccessBlock:(void(^)())block
 {
-    XMGSocialViewController *social0 = [[XMGSocialViewController alloc] init];
-    social0.title = @"老伴头条";
-    [self addChildViewController:social0];
     
-    XMGSocialViewController *social1 = [[XMGSocialViewController alloc] init];
-    social1.title = @"垃圾分类";
-    [self addChildViewController:social1];
+    [WifeButlerNetWorking getPackagingHttpRequestWithURLsite:KinformationType parameter:nil success:^(id resultCode) {
+        
+        NSDictionary *result = resultCode;
+        NSArray * cats = result[@"cats"];
+        
+        self.TopModelArray = [ZTJianKangShenHuoTopModel mj_objectArrayWithKeyValuesArray:cats];
+        
+        if (block) {
+            block();
+        }
     
-    XMGSocialViewController *social2 = [[XMGSocialViewController alloc] init];
-    social2.title = @"环保知识";
-    [self addChildViewController:social2];
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+- (void)setupChildVcWithArray:(NSArray *)array {
     
-    XMGSocialViewController *social3 = [[XMGSocialViewController alloc] init];
-    social3.title = @"社区活动";
-    [self addChildViewController:social3];
-    
-    XMGSocialViewController *social4 = [[XMGSocialViewController alloc] init];
-    social4.title = @"养生保健";
-    [self addChildViewController:social4];
-    
-    XMGSocialViewController *social5 = [[XMGSocialViewController alloc] init];
-    social5.title = @"健康生活";
-    [self addChildViewController:social5];
-    
-    XMGSocialViewController *social6 = [[XMGSocialViewController alloc] init];
-    social6.title = @"近期热点";
-    [self addChildViewController:social6];
+    for (int i = 0; i<array.count; i++) {
+        
+        ZTJianKangShenHuoTopModel * model = array[i];
+        XMGSocialViewController *social = [[XMGSocialViewController alloc] init];
+        social.title = model.name;
+        social.controllerId = model.Id;
+        [self addChildViewController:social];
+    }
 }
 
 @end

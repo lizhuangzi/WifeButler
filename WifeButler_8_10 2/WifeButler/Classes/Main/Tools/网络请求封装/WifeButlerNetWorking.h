@@ -14,4 +14,9 @@
 + (void)getHttpRequestWithURLsite:(NSString *)URLSite parameter:(NSDictionary *)parmDict success:(void(^)(NSDictionary * response))success  failure:(void(^)(NSError * error))failure;
 
 + (void)postHttpRequestWithURLsite:(NSString *)URLSite parameter:(NSDictionary *)parmDict success:(void(^)(NSDictionary * response))success  failure:(void(^)(NSError * error))failure;
+
++ (void)getPackagingHttpRequestWithURLsite:(NSString *)URLSite parameter:(NSDictionary *)parmDict success:(void(^)(id resultCode))success  failure:(void(^)(NSError * error))failure;
+
++ (void)postPackagingHttpRequestWithURLsite:(NSString *)URLSite parameter:(NSDictionary *)parmDict success:(void(^)(id resultCode))success  failure:(void(^)(NSError * error))failure;
+
 @end

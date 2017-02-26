@@ -12,7 +12,13 @@
 
 @property (nonatomic, copy) NSString * alt;
 @property (nonatomic, copy) NSString * file;
-@property (nonatomic, copy) NSString * id;
+@property (nonatomic, copy) NSString * Id;
 @property (nonatomic, copy) NSString * name;
+@property (nonatomic, copy) NSString * time;
+@property (nonatomic, copy) NSString * readnum;
+
+@property (nonatomic,strong) NSMutableArray * imageURLStrs;
+/**用于记录cell高度*/
+@property (nonatomic,assign) CGFloat cellHeigh;
 
 @end

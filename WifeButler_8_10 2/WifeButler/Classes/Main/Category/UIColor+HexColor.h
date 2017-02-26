@@ -11,6 +11,8 @@
 #define WifeButlerCommonRedColor HexCOLOR(@"#fe564c")
 #define WifeButlerTableBackGaryColor HexCOLOR(@"#f4f4f4")
 #define WifeButlerSeparateLineColor HexCOLOR(@"#eaeaea")
+#define WifeButlerGaryTextColor1 HexCOLOR(@"#33333")
+#define WifeButlerGaryTextColor2 HexCOLOR(@"#66666")
 
 #define HexCOLOR(hex) ([UIColor colorWithHexString:hex])
 #define HexCOLORNew(hex,alpha) ([UIColor colorWithHexString:hex Alpha:alpha])

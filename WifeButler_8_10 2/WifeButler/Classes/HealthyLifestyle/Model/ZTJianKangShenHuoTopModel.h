@@ -11,7 +11,7 @@
 @interface ZTJianKangShenHuoTopModel : NSObject
 
 @property (nonatomic, copy) NSString * file;
-@property (nonatomic, copy) NSString * id;
+@property (nonatomic, copy) NSString * Id;
 @property (nonatomic, copy) NSString * name;
 @property (nonatomic, copy) NSString * sort;
 @property (nonatomic, copy) NSString * time;

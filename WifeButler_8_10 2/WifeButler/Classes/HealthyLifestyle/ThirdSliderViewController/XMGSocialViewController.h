@@ -7,7 +7,10 @@
 //  社会频道
 
 #import <UIKit/UIKit.h>
+#import "WifeButlerLoadingTableViewController.h"
 
-@interface XMGSocialViewController : UITableViewController
+@interface XMGSocialViewController : WifeButlerLoadingTableViewController
+
+@property (nonatomic,copy)NSString * controllerId;
 
 @end

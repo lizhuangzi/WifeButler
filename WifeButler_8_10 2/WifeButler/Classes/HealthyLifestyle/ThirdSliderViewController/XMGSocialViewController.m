@@ -8,30 +8,98 @@
 
 #import "XMGSocialViewController.h"
 #import "XMGConst.h"
+#import "InformationPort.h"
+#import "WifeButlerNetWorking.h"
+
+#import "WifeButlerDefine.h"
+
+#import "MJExtension.h"
+#import "ZTJianKangShenHuoBottomModel.h"
+#import "WifeButlerInfoTableViewCell.h"
 
 @interface XMGSocialViewController ()
 
+/**记录当前页数*/
+@property (nonatomic,assign) NSInteger  page;
+
+@property (nonatomic,strong) NSMutableArray * dataArray;
 @end
 
 @implementation XMGSocialViewController
 
 static NSString *ID = @"social";
+
+- (NSMutableArray *)dataArray
+{
+    if(!_dataArray){
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
+    self.page = 1;
+
+    [self.tableView registerClass:[WifeButlerInfoTableViewCell class] forCellReuseIdentifier:ID];
     
     NSLog(@"XMGSocialViewController - %f %f %f", XMGRed, XMGGreen, XMGBlue);
+    
+    [self requestHttpData];
+}
+
+- (void)requestHttpData{
+    
+    NSMutableDictionary * parm = [NSMutableDictionary dictionary];
+    parm[@"cat_id"] = self.controllerId;;
+    parm[@"page"] = [NSString stringWithFormat:@"%zd",self.page];
+    
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KinformationContent parameter:parm success:^(id resultCode) {
+       
+        NSArray * result = resultCode;
+        
+        NSArray * arr = [ZTJianKangShenHuoBottomModel mj_objectArrayWithKeyValuesArray:result];
+        self.dataArray.array = arr;
+        [self.tableView reloadData];
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+
+- (void)WifeButlerLoadingTableViewDidLoadingMore:(WifeButlerLoadingTableView *)tableView
+{
+    self.page ++;
+}
+
+- (void)WifeButlerLoadingTableViewDidRefresh:(WifeButlerLoadingTableView *)tableView
+{
+    self.page = 1;
 }
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 50;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %zd", self.title, indexPath.row];
+    WifeButlerInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    cell.model = self.dataArray[indexPath.row];
+    
     return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ZTJianKangShenHuoBottomModel * model = self.dataArray[indexPath.row];
+    return model.cellHeigh;
 }
 @end

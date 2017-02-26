@@ -10,6 +10,7 @@
 
 extern int const SUCCESS;
 extern NSString * const CodeKey;
+extern NSString * const CodeResultKey;
 extern NSString * const WifeButlerLongtitudeKey;
 extern NSString * const  WifeButlerLatitudeKey;
 
