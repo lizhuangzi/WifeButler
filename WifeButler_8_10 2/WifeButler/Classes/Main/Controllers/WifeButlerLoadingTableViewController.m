@@ -19,18 +19,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    WifeButlerLoadingTableView * table = [[WifeButlerLoadingTableView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
+    WifeButlerLoadingTableView * table = [[WifeButlerLoadingTableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     table.backgroundColor = WifeButlerTableBackGaryColor;
     table.dataSource = self;
     table.delegate = self;
     table.loadingDelegate = self;
     table.allowsSelection = NO;
     [self.view addSubview:table];
-    
+    table.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     [table mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
     }];
-    table.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     
     self.tableView = table;
 }

@@ -9,7 +9,10 @@
 #import "CustomCalendarViewController.h"
 
 @interface CustomCalendarViewController ()
+//存放日期的view
 @property (nonatomic,weak) UIView * dateBackView;
+//用于进行交替的view
+@property (nonatomic,strong) NSDate * currentShowingDate;
 @end
 
 @implementation CustomCalendarViewController
@@ -25,12 +28,6 @@
     weekBg.frame = CGRectMake(0, 0, self.view.frame.size.width, itemH);
     [self.view addSubview:weekBg];
     
-    UIView * dateView = [[UIView alloc]init];
-    [self.view addSubview:dateView];
-    dateView.frame = CGRectMake(0, weekBg.height, self.view.width, 200);
-    dateView.backgroundColor = [UIColor whiteColor];
-    self.dateBackView = dateView;
-    
     for (int i = 0; i < array.count; i ++) {
         UILabel *label = [[UILabel alloc]init];
         label.text = array[i];
@@ -40,8 +37,62 @@
         label.textAlignment = NSTextAlignmentCenter;
         [weekBg addSubview:label];
     }
+
+    
+    UIView * dateView = [[UIView alloc]init];
+    [self.view addSubview:dateView];
+    dateView.frame = CGRectMake(0, weekBg.height, self.view.width, 200);
+    dateView.backgroundColor = [UIColor whiteColor];
+    self.dateBackView = dateView;
     
     NSDate * date = [NSDate date];
+    self.currentShowingDate = date;
+    [self createDateButtonWithDate:date];
+    
+    UISwipeGestureRecognizer * swip1 = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(panCalender:)];
+    [swip1 setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.dateBackView addGestureRecognizer:swip1];
+    
+    UISwipeGestureRecognizer * swip2 = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(panCalender:)];
+    [swip2 setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.dateBackView addGestureRecognizer:swip2];
+    
+    
+}
+
+- (void)panCalender:(UISwipeGestureRecognizer *)swip
+{
+    
+    if (swip.direction == UISwipeGestureRecognizerDirectionRight) {
+        
+        CATransition * ani = [CATransition animation];
+        ani.duration = 0.75;
+        ani.type = @"pageUnCurl";
+        [self.dateBackView.layer addAnimation:ani forKey:nil];
+        
+        self.currentShowingDate = [self lastMonth:self.currentShowingDate];
+        [self createDateButtonWithDate:self.currentShowingDate];
+        
+    }else if (swip.direction == UISwipeGestureRecognizerDirectionLeft){
+        
+        CATransition * ani = [CATransition animation];
+        ani.duration = 0.75;
+        ani.type = @"pageCurl";
+        [self.dateBackView.layer addAnimation:ani forKey:nil];
+
+        self.currentShowingDate = [self nextMonth:self.currentShowingDate];
+        [self createDateButtonWithDate:self.currentShowingDate];
+    }
+}
+
+- (void)createDateButtonWithDate:(NSDate *)date
+{
+    BOOL needCreate = YES;
+    if (self.dateBackView.subviews.count>0) {
+        needCreate = NO;
+    }
+    CGFloat itemH = 30;
+    CGFloat itemW = self.view.width/7;
     // 1.分析这个月的第一天是第一周的星期几
     NSInteger firstWeekday = [self firstWeekdayInThisMotnth:date];
     
@@ -49,16 +100,25 @@
     NSInteger dayInThisMonth = [self totaldaysInMonth:date];
     
     for (int i = 0; i < 42; i ++) {
-        UIButton *button = [[UIButton alloc] init];
-        button.titleLabel.font = [UIFont systemFontOfSize:14];
-        
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [dateView addSubview:button];
-        
-        int x = (i % 7) * itemW ;
-        int y = (i / 7) * itemH ;
-        
-        button.frame = CGRectMake(x, y, itemW, itemH);
+        UIButton *button = nil;
+        if (needCreate) {
+            
+            button = [[UIButton alloc] init];
+            button.titleLabel.font = [UIFont systemFontOfSize:14];
+            
+            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+
+            int x = (i % 7) * itemW ;
+            int y = (i / 7) * itemH ;
+            
+            button.frame = CGRectMake(x, y, itemW, itemH);
+
+            [self.dateBackView addSubview:button];
+        }else{
+            button = self.dateBackView.subviews[i];
+            [button setTitle:@"" forState:UIControlStateNormal];
+            [button removeTarget:self action:@selector(dateBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        }
         
         NSInteger day = 0;
         
@@ -75,13 +135,12 @@
         [button setTitle:[NSString stringWithFormat:@"%d",(int)day] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(dateBtnClick:) forControlEvents:UIControlEventTouchDown];
     }
-    
-   
 }
+
 
 - (void)dateBtnClick:(UIButton *)button
 {
-    
+    NSLog(@"点击了");
 }
 
 - (NSInteger)firstWeekdayInThisMotnth:(NSDate *)date{
@@ -106,6 +165,14 @@
 }
 
 
+- (NSDate *)nextMonth:(NSDate *)date
+{
+    NSDateComponents *comp = [[NSDateComponents alloc]init];
+    comp.month = 1;
+    NSDate *newDate = [[NSCalendar currentCalendar] dateByAddingComponents:comp toDate:date options:0];
+    return newDate;
+
+}
 // 日历的上一个月
 - (NSDate *)lastMonth:(NSDate *)date{
     NSDateComponents *comp = [[NSDateComponents alloc]init];

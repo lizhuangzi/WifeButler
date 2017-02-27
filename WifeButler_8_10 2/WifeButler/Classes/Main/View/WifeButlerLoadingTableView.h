@@ -25,4 +25,6 @@
 
 @property (nonatomic,assign) id<WifeButlerloadingTableViewDelegate> loadingDelegate;
 
+- (void)endRefreshing;
+
 @end

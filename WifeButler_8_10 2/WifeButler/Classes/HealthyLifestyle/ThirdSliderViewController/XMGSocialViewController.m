@@ -46,8 +46,7 @@ static NSString *ID = @"social";
 
     [self.tableView registerClass:[WifeButlerInfoTableViewCell class] forCellReuseIdentifier:ID];
     
-    NSLog(@"XMGSocialViewController - %f %f %f", XMGRed, XMGGreen, XMGBlue);
-    
+    [SVProgressHUD showWithStatus:@"正在加载数据"];
     [self requestHttpData];
 }
 
@@ -59,26 +58,55 @@ static NSString *ID = @"social";
     
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KinformationContent parameter:parm success:^(id resultCode) {
        
+        [SVProgressHUD dismiss];
+        
         NSArray * result = resultCode;
         
-        NSArray * arr = [ZTJianKangShenHuoBottomModel mj_objectArrayWithKeyValuesArray:result];
-        self.dataArray.array = arr;
+        if (self.page == 1) {
+            [self.dataArray removeAllObjects];
+        }
+        
+        if (result.count == 0) { //无数据
+            if (self.page == 1) {
+                [SVProgressHUD showInfoWithStatus:@"无数据"];
+                //显示无数据
+            }else{
+                self.page --;
+                [SVProgressHUD showInfoWithStatus:@"没有更多了"];
+            }
+        }else{ //有数据
+            NSArray * arr = [ZTJianKangShenHuoBottomModel mj_objectArrayWithKeyValuesArray:result];
+            [self.dataArray addObjectsFromArray:arr];
+        
+        }
+        
         [self.tableView reloadData];
+        [self.tableView endRefreshing];
         
     } failure:^(NSError *error) {
         
+        self.page = 1;
+        if (error.code == 20000) {
+            [SVProgressHUD showErrorWithStatus:@"数据请求发生错误"];
+        }else{
+            [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
+        }
+        [self.tableView endRefreshing];
     }];
+    
 }
 
 
 - (void)WifeButlerLoadingTableViewDidLoadingMore:(WifeButlerLoadingTableView *)tableView
 {
     self.page ++;
+    [self requestHttpData];
 }
 
 - (void)WifeButlerLoadingTableViewDidRefresh:(WifeButlerLoadingTableView *)tableView
 {
     self.page = 1;
+    [self requestHttpData];
 }
 
 #pragma mark - Table view data source
@@ -94,7 +122,7 @@ static NSString *ID = @"social";
 }
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 200;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

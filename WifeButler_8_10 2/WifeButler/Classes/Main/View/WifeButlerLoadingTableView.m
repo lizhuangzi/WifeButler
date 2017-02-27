@@ -49,13 +49,20 @@
         self.mj_footer = nil;
         
     }else{
-        self.mj_footer =  [MJRefreshAutoFooter footerWithRefreshingBlock:^{
+        self.mj_footer =  [MJRefreshBackFooter footerWithRefreshingBlock:^{
             
             if ([weakSelf.loadingDelegate respondsToSelector:@selector(WifeButlerLoadingTableViewDidLoadingMore:)]) {
                 [weakSelf.loadingDelegate WifeButlerLoadingTableViewDidLoadingMore:weakSelf];
             }
         }];
     }
+}
+
+
+- (void)endRefreshing
+{
+    [self.mj_footer endRefreshing];
+    [self.mj_header endRefreshing];
 }
 
 @end

@@ -58,7 +58,7 @@
     
     [titleScro layoutIfNeeded];
     //滑块底部的线
-    UIView * sliderLineView = [[UIView alloc]initWithFrame:CGRectMake(15, titleScro.height-3, 90, 3)];
+    UIView * sliderLineView = [[UIView alloc]initWithFrame:CGRectMake(7, titleScro.height-3, 90, 3)];
     sliderLineView.backgroundColor = WifeButlerCommonRedColor;
     [titleScro addSubview:sliderLineView];
     self.sliderlineView = sliderLineView;
@@ -172,7 +172,7 @@
     if ([willShowVc isViewLoaded]) return;
     
     // 添加控制器的view到contentScrollView中;
-    willShowVc.view.frame = CGRectMake(offsetX, 0, width, height);
+    willShowVc.view.frame = CGRectMake(offsetX, 0, width, height-self.titleScrollView.height);
     [scrollView addSubview:willShowVc.view];
 }
 
@@ -190,7 +190,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat scale = scrollView.contentOffset.x / iphoneWidth;
-    self.sliderlineView.x = self.titleScrollView.contentSize.width/scrollView.contentSize.width * scrollView.contentOffset.x + 7.5;
+    self.sliderlineView.x = self.titleScrollView.contentSize.width/scrollView.contentSize.width * scrollView.contentOffset.x + 4;
     
     if (scale < 0 || scale > self.titleArray.count - 1) return;
     

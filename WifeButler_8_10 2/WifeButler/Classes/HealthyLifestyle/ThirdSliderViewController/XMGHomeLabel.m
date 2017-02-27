@@ -24,7 +24,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         self.font = [UIFont systemFontOfSize:15];
-        self.textColor = [UIColor colorWithRed:XMGRed green:XMGGreen blue:XMGBlue alpha:1.0];
+        self.textColor = [UIColor blackColor];
         self.textAlignment = NSTextAlignmentCenter;
         self.backgroundColor = [UIColor clearColor];
         self.userInteractionEnabled = YES;
@@ -46,7 +46,7 @@
     self.textColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
     
     // 大小缩放比例
-    CGFloat transformScale = 1 + scale * 0.3; // [1, 1.3]
+    CGFloat transformScale = 1 + scale * 0.2; // [1, 1.3]
     self.transform = CGAffineTransformMakeScale(transformScale, transformScale);
 }
 @end

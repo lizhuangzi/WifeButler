@@ -16,6 +16,7 @@
 #import "ZTQuanZiZViewController.h"
 //#import "ZJGuangLiShouHuoDiZhiViewController.h"
 //#import "ZTXiangQinHealthyLifeViewController.h"
+#import "ZJGuangLiShouHuoDiZhiViewController.h"
 #import "EPCalendarViewController.h"
 
 #import "ZTJianKangShenHuoBottomModel.h"
@@ -41,11 +42,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *addressLab;
 
-@property (weak, nonatomic) IBOutlet UIImageView *iconTopImageView;
-
-@property (weak, nonatomic) IBOutlet UIView *cneterView;
-
-@property (weak, nonatomic) IBOutlet UIView *gunDongView;
 
 @property (nonatomic, assign) CGSize cardSize;
 
