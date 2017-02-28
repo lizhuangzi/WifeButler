@@ -141,7 +141,6 @@
 		7BB43F741CE9C3BC007D722A /* WifeButlerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB43F731CE9C3BC007D722A /* WifeButlerUITests.m */; };
 		7BB43FB31CE9C57F007D722A /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB43F971CE9C57F007D722A /* UIBarButtonItem+Extension.m */; };
 		7BB43FB41CE9C57F007D722A /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB43F991CE9C57F007D722A /* UIView+Extension.m */; };
-		7BB43FB51CE9C57F007D722A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB43F9B1CE9C57F007D722A /* Main.storyboard */; };
 		7BB43FB61CE9C57F007D722A /* ZJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB43F9D1CE9C57F007D722A /* ZJTabBarController.m */; };
 		7BB43FB71CE9C57F007D722A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB43FA11CE9C57F007D722A /* AppDelegate.m */; };
 		7BB43FB81CE9C57F007D722A /* ZJMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB43FA71CE9C57F007D722A /* ZJMineController.m */; };
@@ -271,6 +270,9 @@
 		C7C4A49A1E5EBE5600075A27 /* HomePageCommodityView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C4A4991E5EBE5600075A27 /* HomePageCommodityView.m */; };
 		C7C4A49C1E5EBE6B00075A27 /* HomePageCommodityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C4A49B1E5EBE6B00075A27 /* HomePageCommodityView.xib */; };
 		C7D52FA11E5F38AC00D98448 /* UIImage+ColorExistion.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D52FA01E5F38AC00D98448 /* UIImage+ColorExistion.m */; };
+		C7E4E13D1E65705700169897 /* WifeButlerFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E4E13C1E65705700169897 /* WifeButlerFileManager.m */; };
+		C7E4E1411E657AC900169897 /* WifeButlerAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E4E1401E657AC900169897 /* WifeButlerAccount.m */; };
+		C7E4E1441E657B8A00169897 /* UIWindow+existion.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E4E1431E657B8A00169897 /* UIWindow+existion.m */; };
 		C7F8EE991E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8EE981E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m */; };
 		C7F8EE9D1E5D6F72008C8A06 /* WifeButlerNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8EE9C1E5D6F72008C8A06 /* WifeButlerNetWorking.m */; };
 		C7FDFE861E5D8D8800BB6438 /* HomePageSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FDFE851E5D8D8800BB6438 /* HomePageSectionModel.m */; };
@@ -543,7 +545,6 @@
 		7BB43F971CE9C57F007D722A /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		7BB43F981CE9C57F007D722A /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		7BB43F991CE9C57F007D722A /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
-		7BB43F9B1CE9C57F007D722A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7BB43F9C1CE9C57F007D722A /* ZJTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJTabBarController.h; sourceTree = "<group>"; };
 		7BB43F9D1CE9C57F007D722A /* ZJTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJTabBarController.m; sourceTree = "<group>"; };
 		7BB43FA01CE9C57F007D722A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -782,6 +783,13 @@
 		C7C4A49B1E5EBE6B00075A27 /* HomePageCommodityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageCommodityView.xib; sourceTree = "<group>"; };
 		C7D52F9F1E5F38AC00D98448 /* UIImage+ColorExistion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorExistion.h"; sourceTree = "<group>"; };
 		C7D52FA01E5F38AC00D98448 /* UIImage+ColorExistion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorExistion.m"; sourceTree = "<group>"; };
+		C7E4E13B1E65705700169897 /* WifeButlerFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerFileManager.h; sourceTree = "<group>"; };
+		C7E4E13C1E65705700169897 /* WifeButlerFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerFileManager.m; sourceTree = "<group>"; };
+		C7E4E13F1E657AC900169897 /* WifeButlerAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerAccount.h; sourceTree = "<group>"; };
+		C7E4E1401E657AC900169897 /* WifeButlerAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerAccount.m; sourceTree = "<group>"; };
+		C7E4E1421E657B8A00169897 /* UIWindow+existion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+existion.h"; sourceTree = "<group>"; };
+		C7E4E1431E657B8A00169897 /* UIWindow+existion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+existion.m"; sourceTree = "<group>"; };
+		C7E4E1451E658F3300169897 /* PersonalPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalPort.h; sourceTree = "<group>"; };
 		C7F8EE971E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerHomeTableHeaderView.h; sourceTree = "<group>"; };
 		C7F8EE981E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerHomeTableHeaderView.m; sourceTree = "<group>"; };
 		C7F8EE9B1E5D6F72008C8A06 /* WifeButlerNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerNetWorking.h; sourceTree = "<group>"; };
@@ -2009,6 +2017,8 @@
 				C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */,
 				C7D52F9F1E5F38AC00D98448 /* UIImage+ColorExistion.h */,
 				C7D52FA01E5F38AC00D98448 /* UIImage+ColorExistion.m */,
+				C7E4E1421E657B8A00169897 /* UIWindow+existion.h */,
+				C7E4E1431E657B8A00169897 /* UIWindow+existion.m */,
 				7B288D321D582C9A000A19AF /* 微信sdk */,
 				7B019D7C1D52CAE90073506E /* 背景图片 */,
 				7B03BF4D1D0E49CD00DAF357 /* NSString+ZJMyString.h */,
@@ -2032,7 +2042,6 @@
 		7BB43F9A1CE9C57F007D722A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7BB43F9B1CE9C57F007D722A /* Main.storyboard */,
 				7BB43F9C1CE9C57F007D722A /* ZJTabBarController.h */,
 				7BB43F9D1CE9C57F007D722A /* ZJTabBarController.m */,
 				D11D1A261D7BB95400E2A815 /* HomeNavgationController.h */,
@@ -2067,6 +2076,7 @@
 		7BB43FA21CE9C57F007D722A /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				C7E4E13E1E65705E00169897 /* 文件管理 */,
 				C7F8EE9A1E5D6F3A008C8A06 /* 网络请求封装 */,
 				7B0537381D10419100BE9762 /* 图片查看器 */,
 				7B0536E71D0FE5E400BE9762 /* TYAttributedLabel */,
@@ -2089,6 +2099,7 @@
 				7BB43FA51CE9C57F007D722A /* Controllers */,
 				7BB43FA91CE9C57F007D722A /* Models */,
 				7BB43FAA1CE9C57F007D722A /* View */,
+				C7E4E1451E658F3300169897 /* PersonalPort.h */,
 			);
 			path = Personal;
 			sourceTree = "<group>";
@@ -3113,6 +3124,17 @@
 			path = "环保日历";
 			sourceTree = "<group>";
 		};
+		C7E4E13E1E65705E00169897 /* 文件管理 */ = {
+			isa = PBXGroup;
+			children = (
+				C7E4E13B1E65705700169897 /* WifeButlerFileManager.h */,
+				C7E4E13C1E65705700169897 /* WifeButlerFileManager.m */,
+				C7E4E13F1E657AC900169897 /* WifeButlerAccount.h */,
+				C7E4E1401E657AC900169897 /* WifeButlerAccount.m */,
+			);
+			name = "文件管理";
+			sourceTree = "<group>";
+		};
 		C7F8EE961E5D6CB9008C8A06 /* 首页视图 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3272,7 +3294,6 @@
 				7BB43FB91CE9C57F007D722A /* ZJMineController.storyboard in Resources */,
 				7BE3C63D1CF1888F00851512 /* ZTBianJiShouHuoDiZhi.storyboard in Resources */,
 				7BE3C6BE1CF1A54C00851512 /* ZYQAssetPicker.Bundle in Resources */,
-				7BB43FB51CE9C57F007D722A /* Main.storyboard in Resources */,
 				7B0536DC1D0FE5AD00BE9762 /* ZJFriendsCircleNavgationbar.xib in Resources */,
 				7BC580661CF6DE9400FD157A /* ZTLaJiaJieShuan.storyboard in Resources */,
 				7BFBA6ED1CFF032A00D4E07C /* ZTAddAddress.storyboard in Resources */,
@@ -3392,6 +3413,7 @@
 				7BB43FC61CE9C935007D722A /* ZTHealthyLifestyleViewController.m in Sources */,
 				7B288D431D582DCF000A19AF /* WXUtil.mm in Sources */,
 				7BE3C6381CF1888F00851512 /* ZJGuangLiShouHuoDiZhiViewController.m in Sources */,
+				C7E4E1441E657B8A00169897 /* UIWindow+existion.m in Sources */,
 				7B63EAB91CFBE910004F9DA7 /* ZTYouHuiJuanModel.m in Sources */,
 				7B0537291D102B8200BE9762 /* ZTQuanZiZViewController.m in Sources */,
 				C7F8EE9D1E5D6F72008C8A06 /* WifeButlerNetWorking.m in Sources */,
@@ -3432,6 +3454,7 @@
 				7B0537211D0FF02700BE9762 /* ZTFaBuDongTaiViewController.m in Sources */,
 				7BB43FB31CE9C57F007D722A /* UIBarButtonItem+Extension.m in Sources */,
 				7B9B6F291D0D5EA100CC3D09 /* ZTTime3CollectionViewCell.m in Sources */,
+				C7E4E13D1E65705700169897 /* WifeButlerFileManager.m in Sources */,
 				7B5B07B71D0E9FBA00D0246A /* ZTJianKangShenHuoBottomModel.m in Sources */,
 				7B2366CF1D02A010003BC590 /* ZTZiOneWuYeCollectionViewCell.m in Sources */,
 				7B0536D91D0FE5AD00BE9762 /* ZJTrendsDetailReplyView.m in Sources */,
@@ -3527,6 +3550,7 @@
 				C7C4A49A1E5EBE5600075A27 /* HomePageCommodityView.m in Sources */,
 				7B8D04BB1CEAB21B0024B812 /* NSString+ZJMyJudgeString.m in Sources */,
 				7BE3C65F1CF19C8300851512 /* ZTNeiBuGongGao1ViewController.m in Sources */,
+				C7E4E1411E657AC900169897 /* WifeButlerAccount.m in Sources */,
 				7BA7EA951D24CD0000ECA67E /* ZTJianJieH5TableViewCell.m in Sources */,
 				C7457CE71E63011C0039CF5B /* WifeButlerInfoTableViewCell.m in Sources */,
 				7BC580701CF6FB6D00FD157A /* ZTYouHuiJuanTableViewCell.m in Sources */,

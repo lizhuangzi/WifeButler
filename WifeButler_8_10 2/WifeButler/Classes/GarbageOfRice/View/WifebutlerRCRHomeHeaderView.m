@@ -36,6 +36,8 @@
 {
     [super awakeFromNib];
     self.noticeBackView.layer.opacity = 0.5;
+    self.iconView.layer.cornerRadius = 30;
+    self.iconView.clipsToBounds = YES;
 }
 
 + (instancetype)headerView
@@ -46,7 +48,8 @@
 - (void)setModel:(exchangeStationModel *)model
 {
     _model = model;
-    [self.backImageView sd_setImageWithURL:[NSURL URLWithString:model.shop_pic]];
+    self.backImageView.image = [UIImage imageNamed:@"timg"];
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.shop_pic] placeholderImage:nil];
     self.mainNameLabel.text = model.shop_name;
     self.todayNotice.text = [NSString stringWithFormat:@"今日公告:%@",_model.gonggao];
 }

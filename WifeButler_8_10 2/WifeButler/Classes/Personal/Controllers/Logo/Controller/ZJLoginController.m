@@ -10,6 +10,11 @@
 #import "ZTLogoModel.h"
 #import "NSString+ZJMyJudgeString.h"
 #import  "MJExtension.h"
+#import "WifeButlerNetWorking.h"
+
+#import "PersonalPort.h"
+#import "WifeButlerUserParty.h"
+#import "WifeButlerAccount.h"
 
 @interface ZJLoginController () <UITextFieldDelegate>
 
@@ -207,91 +212,117 @@
         return;
     }
     
-    if ([NSString judgePassWordLegal:self.loginPassWordFiled.text] == NO) {
-        
-        [SVProgressHUD showErrorWithStatus:@"密码不符合格式"];
-        return;
-    }
+//    if ([NSString judgePassWordLegal:self.loginPassWordFiled.text] == NO) {
+//        
+//        [SVProgressHUD showErrorWithStatus:@"密码不符合格式"];
+//        return;
+//    }
+   
     
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];/*添加接可收数据的数据可行*/
-    
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
-    
-    [dic setObject:self.loginPhoneFiled.text forKey:@"mobile"];
-    [dic setObject:self.loginPassWordFiled.text forKey:@"passwd"];
-    
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KLogo];
-    
-    ZJLog(@"%@", dic);
+//    [manager POST:url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+//        
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        
+//        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
+//        
+//        ZJLog(@"%@", responseObject);
+//        
+//        // 登录成功
+//        if ([responseObject[@"code"] intValue] == 10000) {
+//            
+//            ZTLogoModel *model = [ZTLogoModel mj_objectWithKeyValues:responseObject[@"resultCode"]];            
+//            
+//            [SVProgressHUD dismiss];
+//            
+//            NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+//        
+//            NSSaveUserDefaults(self.loginPassWordFiled.text, @"password");
+//            [ud setObject:model.mobile forKey:@"mobile"];
+//   
+//            [ud setObject:model.avatar forKey:@"avatar"];
+//            [ud setObject:model.gender forKey:@"gender"];
+//            [ud setObject:model.id forKey:@"id"];
+//            [ud setObject:model.last_ip forKey:@"last_ip"];
+//            [ud setObject:model.last_time forKey:@"last_time"];
+//            [ud setObject:model.login_ip forKey:@"login_ip"];
+//            [ud setObject:model.login_time forKey:@"login_time"];
+//            [ud setObject:model.mechine forKey:@"mechine"];
+//            [ud setObject:model.nickname forKey:@"nickname"];
+//            [ud setObject:model.salts forKey:@"salts"];
+//            [ud setObject:model.token_app forKey:@"token_app"];
+//            [ud setObject:model.user_agent forKey:@"user_agent"];
+//            
+//            NSSaveUserDefaults(model.jing, @"jing");
+//            NSSaveUserDefaults(model.wei, @"wei");
+//            NSSaveUserDefaults(model.village, @"xiaoQu");
+//
+//            [ud synchronize];
+//            
+//            
+//            if (self.shuaiXinShuJu) {
+//                
+//                self.shuaiXinShuJu();
+//            }
+//            
+//            [self.navigationController popViewControllerAnimated:YES];
+//            
+//        }
+//        else
+//        {
+//            
+//            [SVProgressHUD showErrorWithStatus:message];
+//        }
+//        
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        
+//        [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
+//        
+//    }];
     
     [SVProgressHUD showWithStatus:@"加载中..."];
-    
-    [manager POST:url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+    [ZJLoginController autoLoginWithUserName:self.loginPhoneFiled.text Password:self.loginPassWordFiled.text andfinishBlock:^(LoginResultReturnType returnType) {
         
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
-        
-        ZJLog(@"%@", responseObject);
-        
-        // 登录成功
-        if ([responseObject[@"code"] intValue] == 10000) {
-            
-            ZTLogoModel *model = [ZTLogoModel mj_objectWithKeyValues:responseObject[@"resultCode"]];            
+        if (returnType == LoginResultReturnTypeSuccess) {
             
             [SVProgressHUD dismiss];
-            
-            NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-        
-            NSSaveUserDefaults(self.loginPassWordFiled.text, @"password");
-            [ud setObject:model.mobile forKey:@"mobile"];
-   
-            [ud setObject:model.avatar forKey:@"avatar"];
-            [ud setObject:model.gender forKey:@"gender"];
-            [ud setObject:model.id forKey:@"id"];
-            [ud setObject:model.last_ip forKey:@"last_ip"];
-            [ud setObject:model.last_time forKey:@"last_time"];
-            [ud setObject:model.login_ip forKey:@"login_ip"];
-            [ud setObject:model.login_time forKey:@"login_time"];
-            [ud setObject:model.mechine forKey:@"mechine"];
-            [ud setObject:model.nickname forKey:@"nickname"];
-            [ud setObject:model.salts forKey:@"salts"];
-            [ud setObject:model.token_app forKey:@"token_app"];
-            [ud setObject:model.user_agent forKey:@"user_agent"];
-            
-            NSSaveUserDefaults(model.jing, @"jing");
-            NSSaveUserDefaults(model.wei, @"wei");
-            NSSaveUserDefaults(model.village, @"xiaoQu");
-
-            [ud synchronize];
-            
-            
             if (self.shuaiXinShuJu) {
                 
                 self.shuaiXinShuJu();
             }
             
             [self.navigationController popViewControllerAnimated:YES];
-            
+
+        }else{
+             [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
         }
-        else
-        {
-            
-            [SVProgressHUD showErrorWithStatus:message];
-        }
+      
+    }];
+}
+
+
++ (void)autoLoginWithUserName:(NSString *)userName Password:(NSString *)password andfinishBlock:(void (^)(LoginResultReturnType returnType))finish
+{
+    
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc]init];
+    
+    [parm setObject:userName forKey:@"mobile"];
+    [parm setObject:password forKey:@"passwd"];
+
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KUserLogin parameter:parm success:^(id resultCode) {
         
+        [SVProgressHUD dismiss];
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSDictionary * result = resultCode;
+        WifeButlerUserParty * party = [WifeButlerUserParty UserPartyWithDictionary:result];
+        [[WifeButlerAccount sharedAccount]addUserParty:party];
+        !finish?:finish(LoginResultReturnTypeSuccess);
         
-        [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
-        
+    } failure:^(NSError *error) {
+        !finish?:finish(LoginResultReturnTypeFailure);
     }];
 
 }
-
 
 +(BOOL)judgePassWordLegal:(NSString *)pass{
     

@@ -12,7 +12,11 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
 #import "ZJLoginController.h"
+#import "WifeButlerAccount.h"
+#import "UIWindow+existion.h"
+
 @interface AppDelegate ()
+
 
 @end
 
@@ -22,18 +26,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"])
-    {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+    self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+  
+    if (self.window.isFirstLaunch) {
         
-        UserGuideViewController *userGuideViewController = [[UserGuideViewController alloc] init];
-        self.window.rootViewController = userGuideViewController;
+        [self.window switchGuidViewController];
+    }else{
+        [self.window switchRootViewController];
     }
-    else
-    {
-//        UIStoryboard * loginVc = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];
-        self.window.rootViewController = [[ZJTabBarController alloc]init];
-    }
+    [self.window makeKeyAndVisible];
+//    else
+//    {
+//       UIStoryboard * loginVc = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];
+//    }
 
     
     //向微信注册wxd930ea5d5a258f4f
@@ -41,6 +46,8 @@
     
     return YES;
 }
+
+
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url

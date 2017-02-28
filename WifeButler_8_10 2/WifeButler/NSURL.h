@@ -36,8 +36,7 @@
 // 注册
 #define KRegsion @"member/register/subs"
 
-// 登录
-#define KLogo  @"member/login/subs"
+
 
 // 找回密码
 #define KZhaoHui @"member/reset/subs"

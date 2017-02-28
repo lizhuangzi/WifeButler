@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, LoginResultReturnType) {
+    LoginResultReturnTypeSuccess,
+    LoginResultReturnTypeFailure,
+};
+
 @interface ZJLoginController : UIViewController
 
 /**
@@ -19,5 +24,7 @@
  *  刷新数据
  */
 @property (nonatomic, copy) void (^shuaiXinShuJu)(void);
+
++ (void)autoLoginWithUserName:(NSString *)userName Password:(NSString *)password andfinishBlock:(void(^)(LoginResultReturnType returnType))finish;
 
 @end

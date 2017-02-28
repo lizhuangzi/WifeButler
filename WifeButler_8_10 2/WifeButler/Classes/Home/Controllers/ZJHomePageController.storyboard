@@ -25,7 +25,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="AUJ-SO-KSZ">
                         <view key="titleView" contentMode="scaleToFill" id="q6Y-2X-1hf">
-                            <rect key="frame" x="118" y="5.5" width="139" height="33"/>
+                            <rect key="frame" x="118" y="6" width="139" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwW-bD-4C5">
@@ -42,13 +42,23 @@
                                         <constraint firstAttribute="height" constant="10" id="dKj-Sq-hUZ"/>
                                     </constraints>
                                 </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9f7-bY-G8D">
+                                    <rect key="frame" x="0.0" y="0.0" width="139" height="33"/>
+                                    <connections>
+                                        <action selector="titleButtonClick" destination="MfJ-7c-rdZ" eventType="touchUpInside" id="NND-ZE-DXs"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="TwW-bD-4C5" firstAttribute="leading" secondItem="2ga-Xn-s3G" secondAttribute="trailing" constant="10" id="8sV-39-00u"/>
                                 <constraint firstItem="2ga-Xn-s3G" firstAttribute="centerY" secondItem="q6Y-2X-1hf" secondAttribute="centerY" id="9Nm-vl-Dpk"/>
+                                <constraint firstItem="9f7-bY-G8D" firstAttribute="top" secondItem="q6Y-2X-1hf" secondAttribute="top" id="Rbl-43-avx"/>
+                                <constraint firstAttribute="bottom" secondItem="9f7-bY-G8D" secondAttribute="bottom" id="U3C-lO-TWu"/>
                                 <constraint firstItem="TwW-bD-4C5" firstAttribute="centerX" secondItem="q6Y-2X-1hf" secondAttribute="centerX" constant="10" id="Yly-l6-oz8"/>
+                                <constraint firstAttribute="trailing" secondItem="9f7-bY-G8D" secondAttribute="trailing" id="dGK-h3-nfC"/>
                                 <constraint firstItem="TwW-bD-4C5" firstAttribute="centerY" secondItem="q6Y-2X-1hf" secondAttribute="centerY" id="fCK-cA-S2N"/>
+                                <constraint firstItem="9f7-bY-G8D" firstAttribute="leading" secondItem="q6Y-2X-1hf" secondAttribute="leading" id="uMf-1X-MRw"/>
                             </constraints>
                         </view>
                     </navigationItem>

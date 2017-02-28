@@ -81,18 +81,19 @@
 
 - (void)requestData{
     
-//    [WifeButlerNetWorking getHttpRequestWithURLsite:KexchangeStation parameter:nil success:^(NSDictionary *response) {
-//       
-//        if ([response[CodeKey] intValue] == SUCCESS) {
-//            NSArray * array = response[@"resultCode"];
-//            NSDictionary * dict = array.firstObject;
-//           
-//        }
-//      
-//        
-//    } failure:^(NSError *error) {
-//        
-//    }];
+    [WifeButlerNetWorking getHttpRequestWithURLsite:KexchangeStation parameter:nil success:^(NSDictionary *response) {
+       
+        if ([response[CodeKey] intValue] == SUCCESS) {
+            NSArray * array = response[@"resultCode"];
+            NSDictionary * dict = array.firstObject;
+            exchangeStationModel * model = [exchangeStationModel exchangeStationModelWithDict:dict];
+            self.tableHeaderView.model = model;
+        }
+      
+        
+    } failure:^(NSError *error) {
+        
+    }];
     
     NSMutableDictionary * parm = [NSMutableDictionary dictionary];
     NSString * lok = NSGetUserDefaults(WifeButlerLongtitudeKey);
@@ -104,11 +105,7 @@
         
         if ([response[CodeKey] intValue]==SUCCESS) {
             
-            NSDictionary * resultCode = response[@"resultCode"];
-            NSDictionary * shopDict = resultCode[@"shop"];
-            exchangeStationModel * model = [exchangeStationModel exchangeStationModelWithDict:shopDict];
-            self.tableHeaderView.model = model;
-            
+            NSDictionary * resultCode =  response[@"resultCode"];
             NSArray * goodsList = resultCode[@"goods"];
             for (int i = 0; i<goodsList.count; i++) {
                 NSDictionary * dict = goodsList[i];

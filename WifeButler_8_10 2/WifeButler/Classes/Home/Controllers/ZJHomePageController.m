@@ -53,6 +53,8 @@
 
 @property (nonatomic,weak) WifeButlerHomeTableHeaderView * tableHeader;
 
+
+
 @end
 
 @implementation ZJHomePageController
@@ -439,8 +441,6 @@
 {
     self.addressLab.textColor = [UIColor whiteColor];
     
-    //    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
-    //                                                         forBarMetrics:UIBarMetricsDefault];
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 20, 20);
     [btn setBackgroundImage:[UIImage imageNamed:@"ZTZhiHuan"] forState:UIControlStateNormal];
@@ -579,4 +579,9 @@
 
 
 
+- (IBAction)titleButtonClick {
+    
+    ZJGuangLiShouHuoDiZhiViewController * dizhi = [[ZJGuangLiShouHuoDiZhiViewController alloc]init];
+    [self.navigationController pushViewController:dizhi animated:YES];
+}
 @end

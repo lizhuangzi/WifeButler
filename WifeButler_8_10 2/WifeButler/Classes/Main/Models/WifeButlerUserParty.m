@@ -7,9 +7,22 @@
 //
 
 #import "WifeButlerUserParty.h"
+#import "MJExtension.h"
 
 @implementation WifeButlerUserParty
 
-HMSingletonM(userParty);
++ (instancetype)UserPartyWithDictionary:(NSDictionary *)dictionary
+{
+    WifeButlerUserParty * party = [WifeButlerUserParty mj_objectWithKeyValues:dictionary];
+    
+    return party;
+}
+
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{};
+}
+
+MJCodingImplementation
 
 @end

@@ -11,6 +11,7 @@
 #import "ZJLoginController.h"
 #import "UIBarButtonItem+Extension.h"
 #import  "MJExtension.h"
+#import "PersonalPort.h"
 
 @interface ZTBianJiZiliaoTableViewController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -146,11 +147,10 @@
     [dic setObject:NSGetUserDefaults(@"mobile") forKey:@"mobile"];
     [dic setObject:NSGetUserDefaults(@"password") forKey:@"passwd"];
     
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KLogo];
     
     ZJLog(@"%@", dic);
     
-    [manager POST:url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+    [manager POST:KUserLogin parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
