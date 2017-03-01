@@ -248,9 +248,6 @@
 // 首页轮播图
 #define   KHomeLunBoTu          @"goods/goods/index1"
 
-// 社区圈子首页
-#define   KSheQuQuanZi          @"account/chat/index"
-
 // 社区圈子点赞
 #define   KSheQuQuanZiDianZhan  @"account/chat/support"
 

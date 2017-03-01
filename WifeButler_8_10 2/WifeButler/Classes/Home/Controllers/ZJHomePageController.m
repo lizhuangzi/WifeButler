@@ -243,11 +243,10 @@
 - (void)delalPushViewControllerWithClickIndex:(NSInteger)index
 {
     
-    if (index == 0) {
-        
+    if (index == 0) { //社区圈子
+        WifeButlerLetUserLoginCode
         UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuQuanZi" bundle:nil];
         ZTQuanZiZViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTQuanZiZViewController"];
-        nav.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:nav animated:YES];
     }
     

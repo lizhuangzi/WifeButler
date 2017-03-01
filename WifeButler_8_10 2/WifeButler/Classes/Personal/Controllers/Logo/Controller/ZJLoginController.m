@@ -57,6 +57,9 @@
     
     NSString *_code;
 }
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -200,7 +203,7 @@
 }
 
 
-
+NSString * const LoginViewControllerDidLoginSuccessNotification = @"LoginViewControllerDidLoginSuccessNotification";
 //登录调用接口
 - (void)loginNetWorking
 {
@@ -291,6 +294,8 @@
                 self.shuaiXinShuJu();
             }
             
+            [[NSNotificationCenter defaultCenter]postNotificationName:LoginViewControllerDidLoginSuccessNotification object:nil userInfo:@{}];
+            
             [self.navigationController popViewControllerAnimated:YES];
 
         }else{
@@ -311,11 +316,9 @@
 
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KUserLogin parameter:parm success:^(id resultCode) {
         
-        [SVProgressHUD dismiss];
-        
         NSDictionary * result = resultCode;
         WifeButlerUserParty * party = [WifeButlerUserParty UserPartyWithDictionary:result];
-        [[WifeButlerAccount sharedAccount]addUserParty:party];
+        [[WifeButlerAccount sharedAccount]loginUserParty:party];
         !finish?:finish(LoginResultReturnTypeSuccess);
         
     } failure:^(NSError *error) {

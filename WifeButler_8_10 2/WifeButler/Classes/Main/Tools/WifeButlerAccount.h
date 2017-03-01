@@ -19,7 +19,9 @@ HMSingletonH(Account);
 
 @property (nonatomic,assign,readonly) BOOL isLogin;
 
-- (void)addUserParty:(WifeButlerUserParty *)userParty;
+- (void)loginUserParty:(WifeButlerUserParty *)userParty;
+
+- (void)loginOffCurrentUser;
 
 - (void)synchronize;
 

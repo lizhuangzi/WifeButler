@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ZJLoginController.h"
+#import "WifeButlerAccount.h"
 
 /**请求数据返状态判断*/
 extern int const SUCCESS;
@@ -19,3 +21,37 @@ extern NSString * const  WifeButlerLatitudeKey;
 extern NSString * const WifeButlerisRememberPasswrod;
 
 #define WEAKSELF typeof(self) __weak weakSelf = self;
+
+
+//************** 登录失效时的代码
+#define WifeButlerLoginLosingEffection   __weak typeof(self) weakSelf = self;\
+UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"提示" message:@"您登录已经失效,请重新进行登录哦!" preferredStyle:UIAlertControllerStyleAlert];\
+UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {\
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];\
+    ZJLoginController *vc = [sb instantiateViewControllerWithIdentifier:@"ZJLoginController"];\
+    vc.isLogo = YES;\
+    [weakSelf.navigationController pushViewController:vc animated:YES];\
+}];\
+[vc addAction:otherAction];\
+[weakSelf presentViewController:vc animated:YES completion:nil];
+
+//*****************
+
+//**********没有登录时提示的代码
+
+#define  WifeButlerLetUserLoginCode  if (![WifeButlerAccount sharedAccount].isLogin) {\
+    __weak typeof(self) weakSelf = self;\
+    UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"提示" message:@"您还没有登录,请先进行登录哦!" preferredStyle:UIAlertControllerStyleAlert];\
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {\
+    }];\
+    UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {\
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];\
+        ZJLoginController *vc = [sb instantiateViewControllerWithIdentifier:@"ZJLoginController"];\
+        vc.isLogo = YES;\
+        [weakSelf.navigationController pushViewController:vc animated:YES];\
+    }];\
+    [vc addAction:action];\
+    [vc addAction:otherAction];\
+    [weakSelf presentViewController:vc animated:YES completion:nil];\
+}
+//**********没有登录时提示的代码

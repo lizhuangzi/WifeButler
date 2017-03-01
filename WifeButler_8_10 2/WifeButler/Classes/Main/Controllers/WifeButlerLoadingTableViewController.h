@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WifeButlerLoadingTableView.h"
 
-
+/**这是自带加载的tableview控制器*/
 @interface WifeButlerLoadingTableViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,WifeButlerloadingTableViewDelegate>
 
 @property (nonatomic,weak) WifeButlerLoadingTableView * tableView;

@@ -20,6 +20,11 @@
 #import "MJRefresh.h"
 #import  "MJExtension.h"
 
+#import "WifeButlerNetWorking.h"
+#import "WifeButlerLoadingTableView.h"
+
+#import "NetWorkPort.h"
+
 @interface ZTQuanZiZViewController () <UIPopoverPresentationControllerDelegate,UITableViewDataSource, UITableViewDelegate, MWPhotoBrowserDelegate>
 {
     int _pize;
@@ -29,10 +34,8 @@
 }
 
 @property (nonatomic, strong) ZTSheQuChuanZiQiPaoViewController * qiBao;
-
-@property (nonatomic, strong) NSMutableArray * dataSource;
-
-@property (nonatomic, strong) NSMutableArray * dataImageArr;
+/**数据源数组*/
+@property (nonatomic, strong) NSMutableArray * dataArray;
 
 @property (nonatomic, strong) NSMutableArray * photoesArr;
 
@@ -48,19 +51,35 @@
 
 @implementation ZTQuanZiZViewController
 
+- (NSMutableArray *)dataArray
+{
+    if(!_dataArray){
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"社区圈子";
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ZTAddPengYouQuan"] style:UIBarButtonItemStylePlain target:self action:@selector(rightItemClick)];
+    self.setupNav();
     
     [self setPram];
     
     [self shuaXinJiaZa];
     
     [self.tableView.mj_header beginRefreshing];
+}
+
+#pragma mark - navgationBar
+- (void(^)())setupNav
+{
+    return ^{
+        self.title = @"社区圈子";
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ZTAddPengYouQuan"] style:UIBarButtonItemStylePlain target:self action:@selector(rightItemClick)];
+    };
 }
 
 #pragma mark - 刷新
@@ -77,26 +96,23 @@
 {
     _pize = 1;
     
-    self.dataSource = [NSMutableArray array];
-    
-    self.dataImageArr = [NSMutableArray array];
-    
+
     self.photoesArr = [NSMutableArray array];
     
-    self.tableView.tableFooterView = [[UIView alloc] init];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataSource.count;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ZTQuanZiZTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZTQuanZiZTableViewCell" forIndexPath:indexPath];
     
-    ZTSheQuQuanZiModel *model = self.dataSource[indexPath.row];
+    ZTSheQuQuanZiModel *model = self.dataArray[indexPath.row];
     
     [cell.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
     
@@ -167,7 +183,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    ZTSheQuQuanZiModel *model = self.dataSource[indexPath.row];
+    ZTSheQuQuanZiModel *model = self.dataArray[indexPath.row];
     
     CGFloat titleHeight = [model.content getMyStringHeightWithFont:[UIFont systemFontOfSize:14] andSize:CGSizeMake(iphoneWidth - 16, 1000)];
     
@@ -210,7 +226,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ZTSheQuQuanZiModel *model = self.dataSource[indexPath.row];
+    ZTSheQuQuanZiModel *model = self.dataArray[indexPath.row];
     ZJTrendsDetailController *detailCtrl = [[ZJTrendsDetailController alloc]init];
     detailCtrl.did = model.id;
     
@@ -268,10 +284,10 @@
             
             [SVProgressHUD dismiss];
             
-            self.dataSource = [ZTSheQuQuanZiModel mj_objectArrayWithKeyValuesArray:responseObject[@"resultCode"]];
+            self.dataArray = [ZTSheQuQuanZiModel mj_objectArrayWithKeyValuesArray:responseObject[@"resultCode"]];
         
             
-            if (self.dataSource.count < 9) {
+            if (self.dataArray.count < 9) {
                 
                 self.tableView.mj_footer = nil;
             }
@@ -367,7 +383,7 @@
             
             [SVProgressHUD dismiss];
             
-            [self.dataSource addObjectsFromArray:[ZTSheQuQuanZiModel mj_objectArrayWithKeyValuesArray:responseObject[@"resultCode"]]];
+            [self.dataArray addObjectsFromArray:[ZTSheQuQuanZiModel mj_objectArrayWithKeyValuesArray:responseObject[@"resultCode"]]];
             
             [self.tableView reloadData];
 

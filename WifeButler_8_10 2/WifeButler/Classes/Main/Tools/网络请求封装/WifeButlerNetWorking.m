@@ -64,8 +64,14 @@
                 success(resultCode);
             }
         }else{
-            NSError * error = [NSError errorWithDomain:NSMachErrorDomain code:20000 userInfo:@{@"msg":response[@"message"]}];
-            failure(error);
+            if ([response[@"code"] intValue] == 20000) { //请求接口错误
+                NSError * error = [NSError errorWithDomain:NSMachErrorDomain code:20000 userInfo:@{@"msg":response[@"message"]}];
+                failure(error);
+                
+            }else if ([response[@"code"] intValue] == 40000){//登录失效
+                NSError * error = [NSError errorWithDomain:NSMachErrorDomain code:40000 userInfo:@{@"msg":response[@"message"]}];
+                failure(error);
+            }
         }
         
     } failure:failure];
@@ -84,8 +90,14 @@
                 success(resultCode);
             }
         }else{
-            NSError * error = [NSError errorWithDomain:NSMachErrorDomain code:20000 userInfo:@{@"msg":response[@"message"]}];
-            failure(error);
+            if ([response[@"code"] intValue] == 20000) { //请求接口错误
+                NSError * error = [NSError errorWithDomain:NSMachErrorDomain code:20000 userInfo:@{@"msg":response[@"message"]}];
+                failure(error);
+
+            }else if ([response[@"code"] intValue] == 40000){//登录失效
+                NSError * error = [NSError errorWithDomain:NSMachErrorDomain code:40000 userInfo:@{@"msg":response[@"message"]}];
+                failure(error);
+            }
         }
         
     } failure:failure];

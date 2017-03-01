@@ -11,6 +11,7 @@
 #import "UserGuideViewController.h"
 #import "WifeButlerAccount.h"
 #import "ZJLoginController.h"
+#import "tempLoadingViewController.h"
 
 @implementation UIWindow (existion)
 
@@ -26,21 +27,32 @@
     NSString * pwd = [WifeButlerAccount sharedAccount].userParty.userLoginPassWord;
     ZJTabBarController * tabbar = [[ZJTabBarController alloc]init];
     
+   
+    
     if (pwd.length>0 && account.length>0) {
+        
+        tempLoadingViewController * temp = [[tempLoadingViewController alloc]init];
+        self.rootViewController = temp;
         //自动登录
         [ZJLoginController autoLoginWithUserName:account Password:pwd andfinishBlock:^(LoginResultReturnType returnType) {
             
             if (returnType == LoginResultReturnTypeSuccess) {
                 self.rootViewController = tabbar;
+            }else{
+                self.rootViewController = tabbar;
+                
+                UINavigationController * nv = tabbar.viewControllers.firstObject;
+                UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];
+                ZJLoginController *vc = [sb instantiateViewControllerWithIdentifier:@"ZJLoginController"];
+                vc.isLogo = YES;
+                [nv pushViewController:vc animated:YES];
             }
         }];
         
     }else{
-        
-       
         self.rootViewController = tabbar;
-        UINavigationController * nv = tabbar.viewControllers.firstObject;
         
+        UINavigationController * nv = tabbar.viewControllers.firstObject;
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];
         ZJLoginController *vc = [sb instantiateViewControllerWithIdentifier:@"ZJLoginController"];
         vc.isLogo = YES;

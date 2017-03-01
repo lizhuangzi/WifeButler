@@ -277,6 +277,7 @@
 		C7F8EE9D1E5D6F72008C8A06 /* WifeButlerNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8EE9C1E5D6F72008C8A06 /* WifeButlerNetWorking.m */; };
 		C7FDFE861E5D8D8800BB6438 /* HomePageSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FDFE851E5D8D8800BB6438 /* HomePageSectionModel.m */; };
 		C7FDFE891E5D8DA900BB6438 /* HomePageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FDFE881E5D8DA900BB6438 /* HomePageCellModel.m */; };
+		C7FFD4B21E66AE4500754C92 /* tempLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4B11E66AE4500754C92 /* tempLoadingViewController.m */; };
 		D11D1A281D7BB95400E2A815 /* HomeNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11D1A271D7BB95400E2A815 /* HomeNavgationController.m */; };
 		DBEE1B066618603F83A88679 /* libPods-WifeButler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCE7C4784446788DC838254 /* libPods-WifeButler.a */; };
 /* End PBXBuildFile section */
@@ -799,6 +800,8 @@
 		C7FDFE871E5D8DA900BB6438 /* HomePageCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageCellModel.h; sourceTree = "<group>"; };
 		C7FDFE881E5D8DA900BB6438 /* HomePageCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageCellModel.m; sourceTree = "<group>"; };
 		C7FDFE8A1E5D8FCF00BB6438 /* NetWorkPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkPort.h; sourceTree = "<group>"; };
+		C7FFD4B01E66AE4500754C92 /* tempLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tempLoadingViewController.h; sourceTree = "<group>"; };
+		C7FFD4B11E66AE4500754C92 /* tempLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tempLoadingViewController.m; sourceTree = "<group>"; };
 		CFFCA33AEFF47FF60F105438 /* Pods-WifeButler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WifeButler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WifeButler/Pods-WifeButler.debug.xcconfig"; sourceTree = "<group>"; };
 		D11D1A261D7BB95400E2A815 /* HomeNavgationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavgationController.h; sourceTree = "<group>"; };
 		D11D1A271D7BB95400E2A815 /* HomeNavgationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavgationController.m; sourceTree = "<group>"; };
@@ -2048,6 +2051,8 @@
 				D11D1A271D7BB95400E2A815 /* HomeNavgationController.m */,
 				C710583F1E61BC3000C85CBE /* WifeButlerLoadingTableViewController.h */,
 				C71058401E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m */,
+				C7FFD4B01E66AE4500754C92 /* tempLoadingViewController.h */,
+				C7FFD4B11E66AE4500754C92 /* tempLoadingViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -3526,6 +3531,7 @@
 				7BBDB5FF1D010E730098B079 /* CAAnimation+WAnimation.m in Sources */,
 				7BAD20101D544609005798F2 /* ZTDuiHuanDingDanViewController.m in Sources */,
 				7B0536E11D0FE5AD00BE9762 /* ZJTrendsHeaderView.m in Sources */,
+				C7FFD4B21E66AE4500754C92 /* tempLoadingViewController.m in Sources */,
 				7B9B6F2D1D0D689C00CC3D09 /* ZTHeardMMCollectionReusableView.m in Sources */,
 				7B54B42E1D53607800FB2B28 /* ZTZhiHuanTiJiaoViewController.m in Sources */,
 				7BED501F1D0D09C200DB2D60 /* ZTTongLeiModel.m in Sources */,

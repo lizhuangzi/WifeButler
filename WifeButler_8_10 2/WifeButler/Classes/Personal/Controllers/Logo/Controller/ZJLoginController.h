@@ -27,4 +27,6 @@ typedef NS_ENUM(NSUInteger, LoginResultReturnType) {
 
 + (void)autoLoginWithUserName:(NSString *)userName Password:(NSString *)password andfinishBlock:(void(^)(LoginResultReturnType returnType))finish;
 
+//登陆成功的通知
+UIKIT_EXTERN NSString * const LoginViewControllerDidLoginSuccessNotification;
 @end

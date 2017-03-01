@@ -23,11 +23,16 @@ static NSString * fileName = @"userParty";
     return self;
 }
 
-- (void)addUserParty:(WifeButlerUserParty *)userParty
+- (void)loginUserParty:(WifeButlerUserParty *)userParty
 {
     _isLogin = YES;
     _userParty = userParty;
     [WifeButlerFileManager saveLoginUserInformation:userParty];
+}
+
+- (void)loginOffCurrentUser
+{
+    _isLogin = NO;
 }
 
 - (void)synchronize{

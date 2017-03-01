@@ -19,5 +19,6 @@
 /**精品请求*/
 #define KBoutiqueData [HTTP_BaseURL stringByAppendingString: @"homepage/Homepage/getJP"]
 
-
+/**社区圈子*/
+#define KSheQuQuanZi [HTTP_BaseURL stringByAppendingString: @"account/chat/index"]
 #endif /* NetWorkPort_h */

@@ -23,4 +23,5 @@
     self.navigationBar.translucent = NO;
 }
 
+
 @end
