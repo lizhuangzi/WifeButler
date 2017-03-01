@@ -11,5 +11,7 @@ pod 'SDCycleScrollView', '~> 1.64'
 pod 'MWPhotoBrowser', '~> 2.1.2'
 pod 'AlipaySDK-2.0', '~> 15.0.2'
 pod 'Masonry', '~> 1.0.2'
+pod 'AMap2DMap'
+pod 'AMapSearch'
 
 end

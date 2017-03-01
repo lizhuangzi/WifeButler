@@ -7,7 +7,7 @@
 //
 
 #import "ZJHomePageController.h"
-#import "ZJCommunityShopVC.h"
+
 #import "LoopView.h"
 //#import "ZTFuJinShangJiaViewController.h"
 //#import "ZTSheQuWuYeViewController.h"
@@ -245,7 +245,9 @@
         WifeButlerLetUserLoginCode
        
     }
-    
+    if (index == 1) {
+       
+    }
     if (index == 4) {
         EPCalendarViewController * calendar = [[EPCalendarViewController alloc]init];
         [self.navigationController pushViewController:calendar animated:YES];
@@ -425,10 +427,7 @@
 #pragma mark - 选择地址
 - (void)viewClick
 {
-    UIStoryboard * sb=[UIStoryboard storyboardWithName:@"ZJHomePageController" bundle:nil];
-    ZJCommunityShopVC * nav = [sb instantiateViewControllerWithIdentifier:@"ZJCommunityShopVC"];
-    nav.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:nav animated:YES];
+   
 }
 
 

@@ -17,6 +17,11 @@ PODS:
   - AlipaySDK-2.0 (15.0.2):
     - AlipaySDK-2.0/Core (= 15.0.2)
   - AlipaySDK-2.0/Core (15.0.2)
+  - AMap2DMap (4.5.0):
+    - AMapFoundation (~> 1.3)
+  - AMapFoundation (1.3.3)
+  - AMapSearch (4.4.1):
+    - AMapFoundation (~> 1.2)
   - DACircularProgress (2.3.1)
   - IQKeyboardManager (3.2.4)
   - Masonry (1.0.2)
@@ -37,6 +42,8 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
   - AlipaySDK-2.0 (~> 15.0.2)
+  - AMap2DMap
+  - AMapSearch
   - IQKeyboardManager (~> 3.2.4)
   - Masonry (~> 1.0.2)
   - MJExtension (~> 3.0.10)
@@ -49,6 +56,9 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   AlipaySDK-2.0: 346e006fd2999d5ca5dd8869d03bc0a260fc48e0
+  AMap2DMap: 6033c7c75c0157e8701bed57fa4f05e5e45c9f91
+  AMapFoundation: c086329a1f19afec00e4c197863665235eb43dc2
+  AMapSearch: 16a50b493ad419e8b6b81bafdeca7570db52f28e
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   IQKeyboardManager: 555b1231fefafb21b19278d7cca72986a27b748b
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -60,6 +70,6 @@ SPEC CHECKSUMS:
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: eac6b9ebb7abfa7901db3e14d4b5140588257c54
+PODFILE CHECKSUM: 4b5dc0360a5d3705a6e2591bd4ed8dbb0da76b07
 
 COCOAPODS: 1.1.1

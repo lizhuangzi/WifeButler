@@ -174,8 +174,6 @@
 		7BE4204A1D13A6BB009A8FAB /* LoopSmallButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE420451D13A6BB009A8FAB /* LoopSmallButton.m */; };
 		7BE4204D1D13A6C8009A8FAB /* LoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE4204C1D13A6C8009A8FAB /* LoopView.m */; };
 		7BE420601D13A730009A8FAB /* ZJCommunityShopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE4204F1D13A730009A8FAB /* ZJCommunityShopCell.m */; };
-		7BE420611D13A730009A8FAB /* ZJCommunityShopFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE420511D13A730009A8FAB /* ZJCommunityShopFooterView.m */; };
-		7BE420621D13A730009A8FAB /* ZJCommunityShopHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE420531D13A730009A8FAB /* ZJCommunityShopHeaderView.m */; };
 		7BE420631D13A730009A8FAB /* ZJGoodsDetailCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE420551D13A730009A8FAB /* ZJGoodsDetailCell1.m */; };
 		7BE420641D13A730009A8FAB /* ZJGoodsDetailCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE420571D13A730009A8FAB /* ZJGoodsDetailCell2.m */; };
 		7BE420651D13A730009A8FAB /* ZJGoodsDetailCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE420591D13A730009A8FAB /* ZJGoodsDetailCell3.m */; };
@@ -201,7 +199,6 @@
 		7BF9ACAE1D12CCF600F0D000 /* ZTXiaoQuXuanZe.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF9ACAD1D12CCF600F0D000 /* ZTXiaoQuXuanZe.m */; };
 		7BFBA6BC1CFE80EC00D4E07C /* ZJHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA67F1CFE80EC00D4E07C /* ZJHomePageController.m */; };
 		7BFBA6BD1CFE80EC00D4E07C /* ZJHomePageController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BFBA6801CFE80EC00D4E07C /* ZJHomePageController.storyboard */; };
-		7BFBA6BE1CFE80EC00D4E07C /* ZJCommunityShopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA6841CFE80EC00D4E07C /* ZJCommunityShopVC.m */; };
 		7BFBA6BF1CFE80EC00D4E07C /* ZJGoodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA6861CFE80EC00D4E07C /* ZJGoodsDetailVC.m */; };
 		7BFBA6C01CFE80EC00D4E07C /* ZJShopClassVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA6881CFE80EC00D4E07C /* ZJShopClassVC.m */; };
 		7BFBA6E31CFE848600D4E07C /* ZTFuJinShangJiaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA6DC1CFE848600D4E07C /* ZTFuJinShangJiaViewController.m */; };
@@ -571,10 +568,6 @@
 		7BE4204C1D13A6C8009A8FAB /* LoopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopView.m; sourceTree = "<group>"; };
 		7BE4204E1D13A730009A8FAB /* ZJCommunityShopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCommunityShopCell.h; sourceTree = "<group>"; };
 		7BE4204F1D13A730009A8FAB /* ZJCommunityShopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCommunityShopCell.m; sourceTree = "<group>"; };
-		7BE420501D13A730009A8FAB /* ZJCommunityShopFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCommunityShopFooterView.h; sourceTree = "<group>"; };
-		7BE420511D13A730009A8FAB /* ZJCommunityShopFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCommunityShopFooterView.m; sourceTree = "<group>"; };
-		7BE420521D13A730009A8FAB /* ZJCommunityShopHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCommunityShopHeaderView.h; sourceTree = "<group>"; };
-		7BE420531D13A730009A8FAB /* ZJCommunityShopHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCommunityShopHeaderView.m; sourceTree = "<group>"; };
 		7BE420541D13A730009A8FAB /* ZJGoodsDetailCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJGoodsDetailCell1.h; sourceTree = "<group>"; };
 		7BE420551D13A730009A8FAB /* ZJGoodsDetailCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJGoodsDetailCell1.m; sourceTree = "<group>"; };
 		7BE420561D13A730009A8FAB /* ZJGoodsDetailCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJGoodsDetailCell2.h; sourceTree = "<group>"; };
@@ -623,8 +616,6 @@
 		7BFBA67E1CFE80EC00D4E07C /* ZJHomePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJHomePageController.h; sourceTree = "<group>"; };
 		7BFBA67F1CFE80EC00D4E07C /* ZJHomePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJHomePageController.m; sourceTree = "<group>"; };
 		7BFBA6801CFE80EC00D4E07C /* ZJHomePageController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZJHomePageController.storyboard; sourceTree = "<group>"; };
-		7BFBA6831CFE80EC00D4E07C /* ZJCommunityShopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCommunityShopVC.h; sourceTree = "<group>"; };
-		7BFBA6841CFE80EC00D4E07C /* ZJCommunityShopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCommunityShopVC.m; sourceTree = "<group>"; };
 		7BFBA6851CFE80EC00D4E07C /* ZJGoodsDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJGoodsDetailVC.h; sourceTree = "<group>"; };
 		7BFBA6861CFE80EC00D4E07C /* ZJGoodsDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJGoodsDetailVC.m; sourceTree = "<group>"; };
 		7BFBA6871CFE80EC00D4E07C /* ZJShopClassVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJShopClassVC.h; sourceTree = "<group>"; };
@@ -2713,8 +2704,6 @@
 		7BFBA6821CFE80EC00D4E07C /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7BFBA6831CFE80EC00D4E07C /* ZJCommunityShopVC.h */,
-				7BFBA6841CFE80EC00D4E07C /* ZJCommunityShopVC.m */,
 				7B087C641D26417B00F940E7 /* 同类商品 */,
 				7B087C631D26414D00F940E7 /* 商品详情 */,
 			);
@@ -2734,10 +2723,6 @@
 			children = (
 				7BE4204E1D13A730009A8FAB /* ZJCommunityShopCell.h */,
 				7BE4204F1D13A730009A8FAB /* ZJCommunityShopCell.m */,
-				7BE420501D13A730009A8FAB /* ZJCommunityShopFooterView.h */,
-				7BE420511D13A730009A8FAB /* ZJCommunityShopFooterView.m */,
-				7BE420521D13A730009A8FAB /* ZJCommunityShopHeaderView.h */,
-				7BE420531D13A730009A8FAB /* ZJCommunityShopHeaderView.m */,
 				7BE420541D13A730009A8FAB /* ZJGoodsDetailCell1.h */,
 				7BE420551D13A730009A8FAB /* ZJGoodsDetailCell1.m */,
 				7BE420561D13A730009A8FAB /* ZJGoodsDetailCell2.h */,
@@ -3206,7 +3191,6 @@
 				7B392D461D14E7D700A182BC /* ZTKaiDianTableViewController.m in Sources */,
 				7B2366BA1D028105003BC590 /* ZTSheQuWuYeCollectionViewCell.m in Sources */,
 				7BF9ACAE1D12CCF600F0D000 /* ZTXiaoQuXuanZe.m in Sources */,
-				7BE420621D13A730009A8FAB /* ZJCommunityShopHeaderView.m in Sources */,
 				7B392D541D151ED600A182BC /* ZTDianPuAddressTableViewController.m in Sources */,
 				C7A191D01E606CF700FEDFD1 /* EPCalendarViewController.m in Sources */,
 				7B5B07C01D0EAA9700D0246A /* ZTSheQuZhenWuViewController.m in Sources */,
@@ -3235,7 +3219,6 @@
 				7BC580511CF6C81C00FD157A /* ZJProcessorDetailTableVC.m in Sources */,
 				7B2366BD1D02811D003BC590 /* ZTSheQuWuYeFuJinCollectionViewCell.m in Sources */,
 				7B9D39A21CF9725100F6359D /* ZTjieSuanModel.m in Sources */,
-				7BFBA6BE1CFE80EC00D4E07C /* ZJCommunityShopVC.m in Sources */,
 				C7C4A49A1E5EBE5600075A27 /* HomePageCommodityView.m in Sources */,
 				7B8D04BB1CEAB21B0024B812 /* NSString+ZJMyJudgeString.m in Sources */,
 				7BE3C65F1CF19C8300851512 /* ZTNeiBuGongGao1ViewController.m in Sources */,
@@ -3288,7 +3271,6 @@
 				7BB43FB71CE9C57F007D722A /* AppDelegate.m in Sources */,
 				7B2366B51D026FEE003BC590 /* ZTSheQuWuYeViewController.m in Sources */,
 				7BE3C63C1CF1888F00851512 /* ZTBianJiDiZhiTableViewController.m in Sources */,
-				7BE420611D13A730009A8FAB /* ZJCommunityShopFooterView.m in Sources */,
 				C7A191C21E60337E00FEDFD1 /* exchangeStationModel.m in Sources */,
 				7B8D04C51CEAB3380024B812 /* ZJSeakPassWordVC.m in Sources */,
 				7B9D39A51CF9A95500F6359D /* ZTGouWuCheFooterVIew.m in Sources */,
