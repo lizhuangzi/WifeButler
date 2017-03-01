@@ -86,11 +86,7 @@ static NSString *ID = @"social";
     } failure:^(NSError *error) {
         
         self.page = 1;
-        if (error.code == 20000) {
-            [SVProgressHUD showErrorWithStatus:@"数据请求发生错误"];
-        }else{
-            [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
-        }
+        SVDCommonErrorDeal
         [self.tableView endRefreshing];
     }];
     

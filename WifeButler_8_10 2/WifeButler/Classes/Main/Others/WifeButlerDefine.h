@@ -55,3 +55,15 @@ UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAl
     [weakSelf presentViewController:vc animated:YES completion:nil];\
 }
 //**********没有登录时提示的代码
+
+//**** 网络请求失败时候svd的代码
+#define SVDCommonErrorDeal   if (error.code == 40000) {\
+                                WifeButlerLoginLosingEffection\
+                                }\
+                                else if (error.code == 20000) {\
+                                    [SVProgressHUD showErrorWithStatus:@"数据请求发生错误"];\
+                                }else{\
+                                    [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];\
+                                }
+//**** 网络请求失败时候svd的代码
+

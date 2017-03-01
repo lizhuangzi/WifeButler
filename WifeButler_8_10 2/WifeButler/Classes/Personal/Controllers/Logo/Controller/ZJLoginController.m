@@ -318,6 +318,9 @@ NSString * const LoginViewControllerDidLoginSuccessNotification = @"LoginViewCon
         
         NSDictionary * result = resultCode;
         WifeButlerUserParty * party = [WifeButlerUserParty UserPartyWithDictionary:result];
+        party.userLoginAccount = [userName copy];
+        party.userLoginPassWord = [password copy];
+        
         [[WifeButlerAccount sharedAccount]loginUserParty:party];
         !finish?:finish(LoginResultReturnTypeSuccess);
         

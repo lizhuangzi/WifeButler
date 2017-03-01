@@ -20,6 +20,7 @@ static NSString * _name = @"userParty";
 + (void)saveLoginUserInformation:(id<NSCoding>)user
 {
     NSString * userPath = [F_UserPath stringByAppendingPathComponent:_name];
+    NSLog(@"%@",userPath);
     [NSKeyedArchiver archiveRootObject:user toFile:userPath];
 }
 

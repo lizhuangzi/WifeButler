@@ -12,27 +12,6 @@
 		7B01CA3C1CFDB37B008BF259 /* ZTJieSuang11Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B01CA3B1CFDB37B008BF259 /* ZTJieSuang11Model.m */; };
 		7B01CA3F1CFDB477008BF259 /* ZTJieShuan2Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B01CA3E1CFDB477008BF259 /* ZTJieShuan2Model.m */; };
 		7B03BF4F1D0E49CD00DAF357 /* NSString+ZJMyString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B03BF4E1D0E49CD00DAF357 /* NSString+ZJMyString.m */; };
-		7B0536CF1D0FE5AD00BE9762 /* ZJTrendsDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536A71D0FE5AD00BE9762 /* ZJTrendsDetailController.m */; };
-		7B0536D01D0FE5AD00BE9762 /* ZJCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536AA1D0FE5AD00BE9762 /* ZJCommentModel.m */; };
-		7B0536D11D0FE5AD00BE9762 /* ZJDetailViewFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536AC1D0FE5AD00BE9762 /* ZJDetailViewFrameModel.m */; };
-		7B0536D21D0FE5AD00BE9762 /* ZJTrendsCommentViewFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536AE1D0FE5AD00BE9762 /* ZJTrendsCommentViewFrameModel.m */; };
-		7B0536D31D0FE5AD00BE9762 /* ZJTrendsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536B01D0FE5AD00BE9762 /* ZJTrendsDetailModel.m */; };
-		7B0536D41D0FE5AD00BE9762 /* ZJTrendsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536B21D0FE5AD00BE9762 /* ZJTrendsModel.m */; };
-		7B0536D51D0FE5AD00BE9762 /* ZJTrendsCellFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536B51D0FE5AD00BE9762 /* ZJTrendsCellFrameModel.m */; };
-		7B0536D61D0FE5AD00BE9762 /* ZJTrendsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536B71D0FE5AD00BE9762 /* ZJTrendsListModel.m */; };
-		7B0536D71D0FE5AD00BE9762 /* ZJTrendsDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536BA1D0FE5AD00BE9762 /* ZJTrendsDetailHeaderView.m */; };
-		7B0536D81D0FE5AD00BE9762 /* ZJTrendsDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B0536BB1D0FE5AD00BE9762 /* ZJTrendsDetailHeaderView.xib */; };
-		7B0536D91D0FE5AD00BE9762 /* ZJTrendsDetailReplyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536BD1D0FE5AD00BE9762 /* ZJTrendsDetailReplyView.m */; };
-		7B0536DA1D0FE5AD00BE9762 /* ZJTrendsDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536BF1D0FE5AD00BE9762 /* ZJTrendsDetailView.m */; };
-		7B0536DB1D0FE5AD00BE9762 /* ZJFriendsCircleNavgationbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536C21D0FE5AD00BE9762 /* ZJFriendsCircleNavgationbar.m */; };
-		7B0536DC1D0FE5AD00BE9762 /* ZJFriendsCircleNavgationbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B0536C31D0FE5AD00BE9762 /* ZJFriendsCircleNavgationbar.xib */; };
-		7B0536DD1D0FE5AD00BE9762 /* ZJSheQuanZiHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536C51D0FE5AD00BE9762 /* ZJSheQuanZiHeaderView.m */; };
-		7B0536DE1D0FE5AD00BE9762 /* ZJSheQuanZiHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B0536C61D0FE5AD00BE9762 /* ZJSheQuanZiHeaderView.xib */; };
-		7B0536DF1D0FE5AD00BE9762 /* ZJTrendsFunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536C81D0FE5AD00BE9762 /* ZJTrendsFunctionView.m */; };
-		7B0536E01D0FE5AD00BE9762 /* ZJTrendsFunctionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B0536C91D0FE5AD00BE9762 /* ZJTrendsFunctionView.xib */; };
-		7B0536E11D0FE5AD00BE9762 /* ZJTrendsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536CB1D0FE5AD00BE9762 /* ZJTrendsHeaderView.m */; };
-		7B0536E21D0FE5AD00BE9762 /* ZJTrendsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B0536CC1D0FE5AD00BE9762 /* ZJTrendsHeaderView.xib */; };
-		7B0536E31D0FE5AD00BE9762 /* ZTSheQuQuanZiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536CE1D0FE5AD00BE9762 /* ZTSheQuQuanZiTableViewCell.m */; };
 		7B0536FD1D0FE5E400BE9762 /* NSMutableAttributedString+TY.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536E91D0FE5E400BE9762 /* NSMutableAttributedString+TY.m */; };
 		7B0536FE1D0FE5E400BE9762 /* TYAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536EB1D0FE5E400BE9762 /* TYAttributedLabel.m */; };
 		7B0536FF1D0FE5E400BE9762 /* TYDrawStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536ED1D0FE5E400BE9762 /* TYDrawStorage.m */; };
@@ -43,17 +22,6 @@
 		7B0537041D0FE5E400BE9762 /* TYTextContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536F61D0FE5E400BE9762 /* TYTextContainer.m */; };
 		7B0537051D0FE5E400BE9762 /* TYTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536F81D0FE5E400BE9762 /* TYTextStorage.m */; };
 		7B0537061D0FE5E400BE9762 /* TYViewStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0536FB1D0FE5E400BE9762 /* TYViewStorage.m */; };
-		7B0537091D0FE72A00BE9762 /* ZTSheQuQuanZiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0537081D0FE72A00BE9762 /* ZTSheQuQuanZiViewController.m */; };
-		7B0537111D0FE85C00BE9762 /* ZTQiPaoCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B05370F1D0FE85C00BE9762 /* ZTQiPaoCellTableViewCell.m */; };
-		7B0537121D0FE85C00BE9762 /* ZTQiPaoCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B0537101D0FE85C00BE9762 /* ZTQiPaoCellTableViewCell.xib */; };
-		7B0537161D0FE88000BE9762 /* ZTSheQuChuanZiQiPaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0537151D0FE88000BE9762 /* ZTSheQuChuanZiQiPaoViewController.m */; };
-		7B0537211D0FF02700BE9762 /* ZTFaBuDongTaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B05371F1D0FF02700BE9762 /* ZTFaBuDongTaiViewController.m */; };
-		7B0537221D0FF02700BE9762 /* ZTFaBuDongTaiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B0537201D0FF02700BE9762 /* ZTFaBuDongTaiViewController.xib */; };
-		7B0537291D102B8200BE9762 /* ZTQuanZiZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0537281D102B8200BE9762 /* ZTQuanZiZViewController.m */; };
-		7B05372B1D102BB500BE9762 /* ZTSheQuQuanZi.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B05372A1D102BB500BE9762 /* ZTSheQuQuanZi.storyboard */; };
-		7B05372E1D102C2500BE9762 /* ZTSheQuQuanZiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B05372D1D102C2500BE9762 /* ZTSheQuQuanZiModel.m */; };
-		7B0537341D102E2700BE9762 /* ZTQuanZiZTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0537331D102E2700BE9762 /* ZTQuanZiZTableViewCell.m */; };
-		7B0537371D102E7F00BE9762 /* ZTSheQuQuanZiIconCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0537361D102E7F00BE9762 /* ZTSheQuQuanZiIconCollectionViewCell.m */; };
 		7B110A651D17B82F0098E899 /* ZTKaiDianAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B110A641D17B82F0098E899 /* ZTKaiDianAddressViewController.m */; };
 		7B1B278E1D0EB2C100601393 /* ZTSheQuZhenWuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B278D1D0EB2C100601393 /* ZTSheQuZhenWuTableViewCell.m */; };
 		7B2366AC1D026449003BC590 /* ZTWoYaoKaiDianTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2366AB1D026449003BC590 /* ZTWoYaoKaiDianTableViewController.m */; };
@@ -99,8 +67,6 @@
 		7B63EACC1CFC6E7B004F9DA7 /* ZTHuanMiXQModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63EACB1CFC6E7B004F9DA7 /* ZTHuanMiXQModel.m */; };
 		7B86D80D1CF86C9400AB1E05 /* ZTLaJiHuanMiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B86D80C1CF86C9400AB1E05 /* ZTLaJiHuanMiModel.m */; };
 		7B86D8101CF874E100AB1E05 /* ZTChuLiQiXQModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B86D80F1CF874E100AB1E05 /* ZTChuLiQiXQModel.m */; };
-		7B8A60C61D10F1BD004B2C16 /* ZTJianPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8A60C51D10F1BD004B2C16 /* ZTJianPanView.m */; };
-		7B8A60C81D10F1CB004B2C16 /* ZTJianPangView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B8A60C71D10F1CB004B2C16 /* ZTJianPangView.xib */; };
 		7B8D04BB1CEAB21B0024B812 /* NSString+ZJMyJudgeString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D04BA1CEAB21B0024B812 /* NSString+ZJMyJudgeString.m */; };
 		7B8D04C31CEAB3380024B812 /* ZJLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B8D04BC1CEAB3380024B812 /* ZJLogin.storyboard */; };
 		7B8D04C41CEAB3380024B812 /* ZJLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D04BE1CEAB3380024B812 /* ZJLoginController.m */; };
@@ -219,8 +185,6 @@
 		7BED50191D0CF6D800DB2D60 /* ZTLeiXinShangPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BED50181D0CF6D800DB2D60 /* ZTLeiXinShangPinViewController.m */; };
 		7BED501C1D0CF9EB00DB2D60 /* ZTTongLeiShangPinCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BED501B1D0CF9EB00DB2D60 /* ZTTongLeiShangPinCollectionViewCell.m */; };
 		7BED501F1D0D09C200DB2D60 /* ZTTongLeiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BED501E1D0D09C200DB2D60 /* ZTTongLeiModel.m */; };
-		7BEFB6691D1924B500AE8791 /* ZTQuanZiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEFB6681D1924B500AE8791 /* ZTQuanZiView.m */; };
-		7BEFB66B1D1924C600AE8791 /* ZTQuanZiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BEFB66A1D1924C600AE8791 /* ZTQuanZiView.xib */; };
 		7BF1DC3A1CFAB0DD001C1E54 /* ZTDingDanXiangQingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF1DC391CFAB0DD001C1E54 /* ZTDingDanXiangQingViewController.m */; };
 		7BF1DC3D1CFAD636001C1E54 /* ZTDingDanXiangQinTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF1DC3C1CFAD636001C1E54 /* ZTDingDanXiangQinTableViewCell.m */; };
 		7BF1DC441CFB0F0B001C1E54 /* ZTZhiFuFangShiTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF1DC431CFB0F0B001C1E54 /* ZTZhiFuFangShiTableViewController.m */; };
@@ -310,43 +274,6 @@
 		7B01CA3E1CFDB477008BF259 /* ZTJieShuan2Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTJieShuan2Model.m; sourceTree = "<group>"; };
 		7B03BF4D1D0E49CD00DAF357 /* NSString+ZJMyString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZJMyString.h"; sourceTree = "<group>"; };
 		7B03BF4E1D0E49CD00DAF357 /* NSString+ZJMyString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZJMyString.m"; sourceTree = "<group>"; };
-		7B0536A61D0FE5AD00BE9762 /* ZJTrendsDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJTrendsDetailController.h; sourceTree = "<group>"; };
-		7B0536A71D0FE5AD00BE9762 /* ZJTrendsDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJTrendsDetailController.m; sourceTree = "<group>"; };
-		7B0536A91D0FE5AD00BE9762 /* ZJCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCommentModel.h; sourceTree = "<group>"; };
-		7B0536AA1D0FE5AD00BE9762 /* ZJCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCommentModel.m; sourceTree = "<group>"; };
-		7B0536AB1D0FE5AD00BE9762 /* ZJDetailViewFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJDetailViewFrameModel.h; sourceTree = "<group>"; };
-		7B0536AC1D0FE5AD00BE9762 /* ZJDetailViewFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJDetailViewFrameModel.m; sourceTree = "<group>"; };
-		7B0536AD1D0FE5AD00BE9762 /* ZJTrendsCommentViewFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJTrendsCommentViewFrameModel.h; sourceTree = "<group>"; };
-		7B0536AE1D0FE5AD00BE9762 /* ZJTrendsCommentViewFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJTrendsCommentViewFrameModel.m; sourceTree = "<group>"; };
-		7B0536AF1D0FE5AD00BE9762 /* ZJTrendsDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJTrendsDetailModel.h; sourceTree = "<group>"; };
-		7B0536B01D0FE5AD00BE9762 /* ZJTrendsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJTrendsDetailModel.m; sourceTree = "<group>"; };
-		7B0536B11D0FE5AD00BE9762 /* ZJTrendsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJTrendsModel.h; sourceTree = "<group>"; };
-		7B0536B21D0FE5AD00BE9762 /* ZJTrendsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJTrendsModel.m; sourceTree = "<group>"; };
-		7B0536B41D0FE5AD00BE9762 /* ZJTrendsCellFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJTrendsCellFrameModel.h; sourceTree = "<group>"; };
-		7B0536B51D0FE5AD00BE9762 /* ZJTrendsCellFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJTrendsCellFrameModel.m; sourceTree = "<group>"; };
-		7B0536B61D0FE5AD00BE9762 /* ZJTrendsListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJTrendsListModel.h; sourceTree = "<group>"; };
-		7B0536B71D0FE5AD00BE9762 /* ZJTrendsListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJTrendsListModel.m; sourceTree = "<group>"; };
-		7B0536B91D0FE5AD00BE9762 /* ZJTrendsDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJTrendsDetailHeaderView.h; sourceTree = "<group>"; };
-		7B0536BA1D0FE5AD00BE9762 /* ZJTrendsDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJTrendsDetailHeaderView.m; sourceTree = "<group>"; };
-		7B0536BB1D0FE5AD00BE9762 /* ZJTrendsDetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZJTrendsDetailHeaderView.xib; sourceTree = "<group>"; };
-		7B0536BC1D0FE5AD00BE9762 /* ZJTrendsDetailReplyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJTrendsDetailReplyView.h; sourceTree = "<group>"; };
-		7B0536BD1D0FE5AD00BE9762 /* ZJTrendsDetailReplyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJTrendsDetailReplyView.m; sourceTree = "<group>"; };
-		7B0536BE1D0FE5AD00BE9762 /* ZJTrendsDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJTrendsDetailView.h; sourceTree = "<group>"; };
-		7B0536BF1D0FE5AD00BE9762 /* ZJTrendsDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJTrendsDetailView.m; sourceTree = "<group>"; };
-		7B0536C11D0FE5AD00BE9762 /* ZJFriendsCircleNavgationbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJFriendsCircleNavgationbar.h; sourceTree = "<group>"; };
-		7B0536C21D0FE5AD00BE9762 /* ZJFriendsCircleNavgationbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJFriendsCircleNavgationbar.m; sourceTree = "<group>"; };
-		7B0536C31D0FE5AD00BE9762 /* ZJFriendsCircleNavgationbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZJFriendsCircleNavgationbar.xib; sourceTree = "<group>"; };
-		7B0536C41D0FE5AD00BE9762 /* ZJSheQuanZiHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJSheQuanZiHeaderView.h; sourceTree = "<group>"; };
-		7B0536C51D0FE5AD00BE9762 /* ZJSheQuanZiHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJSheQuanZiHeaderView.m; sourceTree = "<group>"; };
-		7B0536C61D0FE5AD00BE9762 /* ZJSheQuanZiHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZJSheQuanZiHeaderView.xib; sourceTree = "<group>"; };
-		7B0536C71D0FE5AD00BE9762 /* ZJTrendsFunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJTrendsFunctionView.h; sourceTree = "<group>"; };
-		7B0536C81D0FE5AD00BE9762 /* ZJTrendsFunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJTrendsFunctionView.m; sourceTree = "<group>"; };
-		7B0536C91D0FE5AD00BE9762 /* ZJTrendsFunctionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZJTrendsFunctionView.xib; sourceTree = "<group>"; };
-		7B0536CA1D0FE5AD00BE9762 /* ZJTrendsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJTrendsHeaderView.h; sourceTree = "<group>"; };
-		7B0536CB1D0FE5AD00BE9762 /* ZJTrendsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJTrendsHeaderView.m; sourceTree = "<group>"; };
-		7B0536CC1D0FE5AD00BE9762 /* ZJTrendsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZJTrendsHeaderView.xib; sourceTree = "<group>"; };
-		7B0536CD1D0FE5AD00BE9762 /* ZTSheQuQuanZiTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTSheQuQuanZiTableViewCell.h; sourceTree = "<group>"; };
-		7B0536CE1D0FE5AD00BE9762 /* ZTSheQuQuanZiTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTSheQuQuanZiTableViewCell.m; sourceTree = "<group>"; };
 		7B0536E81D0FE5E400BE9762 /* NSMutableAttributedString+TY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+TY.h"; sourceTree = "<group>"; };
 		7B0536E91D0FE5E400BE9762 /* NSMutableAttributedString+TY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+TY.m"; sourceTree = "<group>"; };
 		7B0536EA1D0FE5E400BE9762 /* TYAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAttributedLabel.h; sourceTree = "<group>"; };
@@ -367,25 +294,6 @@
 		7B0536F91D0FE5E400BE9762 /* TYTextStorageProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTextStorageProtocol.h; sourceTree = "<group>"; };
 		7B0536FA1D0FE5E400BE9762 /* TYViewStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYViewStorage.h; sourceTree = "<group>"; };
 		7B0536FB1D0FE5E400BE9762 /* TYViewStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYViewStorage.m; sourceTree = "<group>"; };
-		7B0537071D0FE72A00BE9762 /* ZTSheQuQuanZiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTSheQuQuanZiViewController.h; sourceTree = "<group>"; };
-		7B0537081D0FE72A00BE9762 /* ZTSheQuQuanZiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTSheQuQuanZiViewController.m; sourceTree = "<group>"; };
-		7B05370E1D0FE85C00BE9762 /* ZTQiPaoCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTQiPaoCellTableViewCell.h; sourceTree = "<group>"; };
-		7B05370F1D0FE85C00BE9762 /* ZTQiPaoCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTQiPaoCellTableViewCell.m; sourceTree = "<group>"; };
-		7B0537101D0FE85C00BE9762 /* ZTQiPaoCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZTQiPaoCellTableViewCell.xib; sourceTree = "<group>"; };
-		7B0537141D0FE88000BE9762 /* ZTSheQuChuanZiQiPaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTSheQuChuanZiQiPaoViewController.h; sourceTree = "<group>"; };
-		7B0537151D0FE88000BE9762 /* ZTSheQuChuanZiQiPaoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTSheQuChuanZiQiPaoViewController.m; sourceTree = "<group>"; };
-		7B05371E1D0FF02700BE9762 /* ZTFaBuDongTaiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTFaBuDongTaiViewController.h; sourceTree = "<group>"; };
-		7B05371F1D0FF02700BE9762 /* ZTFaBuDongTaiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTFaBuDongTaiViewController.m; sourceTree = "<group>"; };
-		7B0537201D0FF02700BE9762 /* ZTFaBuDongTaiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZTFaBuDongTaiViewController.xib; sourceTree = "<group>"; };
-		7B0537271D102B8200BE9762 /* ZTQuanZiZViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTQuanZiZViewController.h; sourceTree = "<group>"; };
-		7B0537281D102B8200BE9762 /* ZTQuanZiZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTQuanZiZViewController.m; sourceTree = "<group>"; };
-		7B05372A1D102BB500BE9762 /* ZTSheQuQuanZi.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZTSheQuQuanZi.storyboard; sourceTree = "<group>"; };
-		7B05372C1D102C2500BE9762 /* ZTSheQuQuanZiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTSheQuQuanZiModel.h; sourceTree = "<group>"; };
-		7B05372D1D102C2500BE9762 /* ZTSheQuQuanZiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTSheQuQuanZiModel.m; sourceTree = "<group>"; };
-		7B0537321D102E2700BE9762 /* ZTQuanZiZTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTQuanZiZTableViewCell.h; sourceTree = "<group>"; };
-		7B0537331D102E2700BE9762 /* ZTQuanZiZTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTQuanZiZTableViewCell.m; sourceTree = "<group>"; };
-		7B0537351D102E7F00BE9762 /* ZTSheQuQuanZiIconCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTSheQuQuanZiIconCollectionViewCell.h; sourceTree = "<group>"; };
-		7B0537361D102E7F00BE9762 /* ZTSheQuQuanZiIconCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTSheQuQuanZiIconCollectionViewCell.m; sourceTree = "<group>"; };
 		7B110A631D17B82F0098E899 /* ZTKaiDianAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTKaiDianAddressViewController.h; sourceTree = "<group>"; };
 		7B110A641D17B82F0098E899 /* ZTKaiDianAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTKaiDianAddressViewController.m; sourceTree = "<group>"; };
 		7B1B278C1D0EB2C100601393 /* ZTSheQuZhenWuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTSheQuZhenWuTableViewCell.h; sourceTree = "<group>"; };
@@ -466,9 +374,6 @@
 		7B86D80C1CF86C9400AB1E05 /* ZTLaJiHuanMiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTLaJiHuanMiModel.m; sourceTree = "<group>"; };
 		7B86D80E1CF874E100AB1E05 /* ZTChuLiQiXQModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTChuLiQiXQModel.h; sourceTree = "<group>"; };
 		7B86D80F1CF874E100AB1E05 /* ZTChuLiQiXQModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTChuLiQiXQModel.m; sourceTree = "<group>"; };
-		7B8A60C41D10F1BD004B2C16 /* ZTJianPanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTJianPanView.h; sourceTree = "<group>"; };
-		7B8A60C51D10F1BD004B2C16 /* ZTJianPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTJianPanView.m; sourceTree = "<group>"; };
-		7B8A60C71D10F1CB004B2C16 /* ZTJianPangView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZTJianPangView.xib; sourceTree = "<group>"; };
 		7B8D04B91CEAB21B0024B812 /* NSString+ZJMyJudgeString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZJMyJudgeString.h"; sourceTree = "<group>"; };
 		7B8D04BA1CEAB21B0024B812 /* NSString+ZJMyJudgeString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZJMyJudgeString.m"; sourceTree = "<group>"; };
 		7B8D04BC1CEAB3380024B812 /* ZJLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZJLogin.storyboard; sourceTree = "<group>"; };
@@ -688,9 +593,6 @@
 		7BED501B1D0CF9EB00DB2D60 /* ZTTongLeiShangPinCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTTongLeiShangPinCollectionViewCell.m; sourceTree = "<group>"; };
 		7BED501D1D0D09C200DB2D60 /* ZTTongLeiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTTongLeiModel.h; sourceTree = "<group>"; };
 		7BED501E1D0D09C200DB2D60 /* ZTTongLeiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTTongLeiModel.m; sourceTree = "<group>"; };
-		7BEFB6671D1924B500AE8791 /* ZTQuanZiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTQuanZiView.h; sourceTree = "<group>"; };
-		7BEFB6681D1924B500AE8791 /* ZTQuanZiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTQuanZiView.m; sourceTree = "<group>"; };
-		7BEFB66A1D1924C600AE8791 /* ZTQuanZiView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZTQuanZiView.xib; sourceTree = "<group>"; };
 		7BF1DC381CFAB0DD001C1E54 /* ZTDingDanXiangQingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTDingDanXiangQingViewController.h; sourceTree = "<group>"; };
 		7BF1DC391CFAB0DD001C1E54 /* ZTDingDanXiangQingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTDingDanXiangQingViewController.m; sourceTree = "<group>"; };
 		7BF1DC3B1CFAD636001C1E54 /* ZTDingDanXiangQinTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTDingDanXiangQinTableViewCell.h; sourceTree = "<group>"; };
@@ -871,92 +773,8 @@
 		7B0536A41D0FE5AD00BE9762 /* 社区圈子 */ = {
 			isa = PBXGroup;
 			children = (
-				7B0537231D102B5C00BE9762 /* 圈子 */,
-				7B0537171D0FEF7A00BE9762 /* 发布动态 */,
-				7B0536A51D0FE5AD00BE9762 /* Contorller */,
-				7B0536A81D0FE5AD00BE9762 /* Model */,
-				7B0536B81D0FE5AD00BE9762 /* View */,
 			);
 			path = "社区圈子";
-			sourceTree = "<group>";
-		};
-		7B0536A51D0FE5AD00BE9762 /* Contorller */ = {
-			isa = PBXGroup;
-			children = (
-				7B0537071D0FE72A00BE9762 /* ZTSheQuQuanZiViewController.h */,
-				7B0537081D0FE72A00BE9762 /* ZTSheQuQuanZiViewController.m */,
-				7B0536A61D0FE5AD00BE9762 /* ZJTrendsDetailController.h */,
-				7B0536A71D0FE5AD00BE9762 /* ZJTrendsDetailController.m */,
-				7B0537131D0FE88000BE9762 /* 气泡效果 */,
-			);
-			path = Contorller;
-			sourceTree = "<group>";
-		};
-		7B0536A81D0FE5AD00BE9762 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7B0536A91D0FE5AD00BE9762 /* ZJCommentModel.h */,
-				7B0536AA1D0FE5AD00BE9762 /* ZJCommentModel.m */,
-				7B0536AB1D0FE5AD00BE9762 /* ZJDetailViewFrameModel.h */,
-				7B0536AC1D0FE5AD00BE9762 /* ZJDetailViewFrameModel.m */,
-				7B0536AD1D0FE5AD00BE9762 /* ZJTrendsCommentViewFrameModel.h */,
-				7B0536AE1D0FE5AD00BE9762 /* ZJTrendsCommentViewFrameModel.m */,
-				7B0536AF1D0FE5AD00BE9762 /* ZJTrendsDetailModel.h */,
-				7B0536B01D0FE5AD00BE9762 /* ZJTrendsDetailModel.m */,
-				7B0536B11D0FE5AD00BE9762 /* ZJTrendsModel.h */,
-				7B0536B21D0FE5AD00BE9762 /* ZJTrendsModel.m */,
-				7B0536B31D0FE5AD00BE9762 /* 圈子动态列表 */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7B0536B31D0FE5AD00BE9762 /* 圈子动态列表 */ = {
-			isa = PBXGroup;
-			children = (
-				7B0536B41D0FE5AD00BE9762 /* ZJTrendsCellFrameModel.h */,
-				7B0536B51D0FE5AD00BE9762 /* ZJTrendsCellFrameModel.m */,
-				7B0536B61D0FE5AD00BE9762 /* ZJTrendsListModel.h */,
-				7B0536B71D0FE5AD00BE9762 /* ZJTrendsListModel.m */,
-			);
-			path = "圈子动态列表";
-			sourceTree = "<group>";
-		};
-		7B0536B81D0FE5AD00BE9762 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7B05370D1D0FE85C00BE9762 /* 气泡效果 */,
-				7B0536C01D0FE5AD00BE9762 /* 圈子动态列表 */,
-				7B8A60C31D10F189004B2C16 /* 键盘弹出 */,
-				7B0536B91D0FE5AD00BE9762 /* ZJTrendsDetailHeaderView.h */,
-				7B0536BA1D0FE5AD00BE9762 /* ZJTrendsDetailHeaderView.m */,
-				7B0536BB1D0FE5AD00BE9762 /* ZJTrendsDetailHeaderView.xib */,
-				7B0536BC1D0FE5AD00BE9762 /* ZJTrendsDetailReplyView.h */,
-				7B0536BD1D0FE5AD00BE9762 /* ZJTrendsDetailReplyView.m */,
-				7B0536BE1D0FE5AD00BE9762 /* ZJTrendsDetailView.h */,
-				7B0536BF1D0FE5AD00BE9762 /* ZJTrendsDetailView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7B0536C01D0FE5AD00BE9762 /* 圈子动态列表 */ = {
-			isa = PBXGroup;
-			children = (
-				7B0536C11D0FE5AD00BE9762 /* ZJFriendsCircleNavgationbar.h */,
-				7B0536C21D0FE5AD00BE9762 /* ZJFriendsCircleNavgationbar.m */,
-				7B0536C31D0FE5AD00BE9762 /* ZJFriendsCircleNavgationbar.xib */,
-				7B0536C41D0FE5AD00BE9762 /* ZJSheQuanZiHeaderView.h */,
-				7B0536C51D0FE5AD00BE9762 /* ZJSheQuanZiHeaderView.m */,
-				7B0536C61D0FE5AD00BE9762 /* ZJSheQuanZiHeaderView.xib */,
-				7B0536C71D0FE5AD00BE9762 /* ZJTrendsFunctionView.h */,
-				7B0536C81D0FE5AD00BE9762 /* ZJTrendsFunctionView.m */,
-				7B0536C91D0FE5AD00BE9762 /* ZJTrendsFunctionView.xib */,
-				7B0536CA1D0FE5AD00BE9762 /* ZJTrendsHeaderView.h */,
-				7B0536CB1D0FE5AD00BE9762 /* ZJTrendsHeaderView.m */,
-				7B0536CC1D0FE5AD00BE9762 /* ZJTrendsHeaderView.xib */,
-				7B0536CD1D0FE5AD00BE9762 /* ZTSheQuQuanZiTableViewCell.h */,
-				7B0536CE1D0FE5AD00BE9762 /* ZTSheQuQuanZiTableViewCell.m */,
-			);
-			path = "圈子动态列表";
 			sourceTree = "<group>";
 		};
 		7B0536E71D0FE5E400BE9762 /* TYAttributedLabel */ = {
@@ -984,102 +802,6 @@
 				7B0536FB1D0FE5E400BE9762 /* TYViewStorage.m */,
 			);
 			path = TYAttributedLabel;
-			sourceTree = "<group>";
-		};
-		7B05370D1D0FE85C00BE9762 /* 气泡效果 */ = {
-			isa = PBXGroup;
-			children = (
-				7B05370E1D0FE85C00BE9762 /* ZTQiPaoCellTableViewCell.h */,
-				7B05370F1D0FE85C00BE9762 /* ZTQiPaoCellTableViewCell.m */,
-				7B0537101D0FE85C00BE9762 /* ZTQiPaoCellTableViewCell.xib */,
-			);
-			path = "气泡效果";
-			sourceTree = "<group>";
-		};
-		7B0537131D0FE88000BE9762 /* 气泡效果 */ = {
-			isa = PBXGroup;
-			children = (
-				7B0537141D0FE88000BE9762 /* ZTSheQuChuanZiQiPaoViewController.h */,
-				7B0537151D0FE88000BE9762 /* ZTSheQuChuanZiQiPaoViewController.m */,
-			);
-			path = "气泡效果";
-			sourceTree = "<group>";
-		};
-		7B0537171D0FEF7A00BE9762 /* 发布动态 */ = {
-			isa = PBXGroup;
-			children = (
-				7B0537181D0FEF7A00BE9762 /* Contorller */,
-				7B0537191D0FEF7A00BE9762 /* Model */,
-				7B05371A1D0FEF7A00BE9762 /* View */,
-			);
-			path = "发布动态";
-			sourceTree = "<group>";
-		};
-		7B0537181D0FEF7A00BE9762 /* Contorller */ = {
-			isa = PBXGroup;
-			children = (
-				7B05371E1D0FF02700BE9762 /* ZTFaBuDongTaiViewController.h */,
-				7B05371F1D0FF02700BE9762 /* ZTFaBuDongTaiViewController.m */,
-				7B0537201D0FF02700BE9762 /* ZTFaBuDongTaiViewController.xib */,
-			);
-			path = Contorller;
-			sourceTree = "<group>";
-		};
-		7B0537191D0FEF7A00BE9762 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7B05371A1D0FEF7A00BE9762 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7B0537231D102B5C00BE9762 /* 圈子 */ = {
-			isa = PBXGroup;
-			children = (
-				7B0537241D102B5C00BE9762 /* Contorller */,
-				7B0537251D102B5C00BE9762 /* Model */,
-				7B0537261D102B5C00BE9762 /* View */,
-			);
-			path = "圈子";
-			sourceTree = "<group>";
-		};
-		7B0537241D102B5C00BE9762 /* Contorller */ = {
-			isa = PBXGroup;
-			children = (
-				7B0537271D102B8200BE9762 /* ZTQuanZiZViewController.h */,
-				7B0537281D102B8200BE9762 /* ZTQuanZiZViewController.m */,
-				7B05372A1D102BB500BE9762 /* ZTSheQuQuanZi.storyboard */,
-			);
-			path = Contorller;
-			sourceTree = "<group>";
-		};
-		7B0537251D102B5C00BE9762 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7B05372C1D102C2500BE9762 /* ZTSheQuQuanZiModel.h */,
-				7B05372D1D102C2500BE9762 /* ZTSheQuQuanZiModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7B0537261D102B5C00BE9762 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7B0537351D102E7F00BE9762 /* ZTSheQuQuanZiIconCollectionViewCell.h */,
-				7B0537361D102E7F00BE9762 /* ZTSheQuQuanZiIconCollectionViewCell.m */,
-				7B0537321D102E2700BE9762 /* ZTQuanZiZTableViewCell.h */,
-				7B0537331D102E2700BE9762 /* ZTQuanZiZTableViewCell.m */,
-				7BEFB6671D1924B500AE8791 /* ZTQuanZiView.h */,
-				7BEFB6681D1924B500AE8791 /* ZTQuanZiView.m */,
-				7BEFB66A1D1924C600AE8791 /* ZTQuanZiView.xib */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		7B0537381D10419100BE9762 /* 图片查看器 */ = {
@@ -1636,16 +1358,6 @@
 			children = (
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		7B8A60C31D10F189004B2C16 /* 键盘弹出 */ = {
-			isa = PBXGroup;
-			children = (
-				7B8A60C41D10F1BD004B2C16 /* ZTJianPanView.h */,
-				7B8A60C51D10F1BD004B2C16 /* ZTJianPanView.m */,
-				7B8A60C71D10F1CB004B2C16 /* ZTJianPangView.xib */,
-			);
-			path = "键盘弹出";
 			sourceTree = "<group>";
 		};
 		7B8D04AC1CEAAF980024B812 /* Logo */ = {
@@ -3279,14 +2991,10 @@
 			files = (
 				7BAD20121D544617005798F2 /* ZTDuiHuanDingDan.storyboard in Resources */,
 				7BE3C64C1CF1938800851512 /* ZTYiJianFanKuiViewController.xib in Resources */,
-				7B0537121D0FE85C00BE9762 /* ZTQiPaoCellTableViewCell.xib in Resources */,
 				7BE3C6611CF19C8300851512 /* ZTNeiBuGongGaoTableViewCell.xib in Resources */,
-				7BEFB66B1D1924C600AE8791 /* ZTQuanZiView.xib in Resources */,
 				7BE3C6521CF1996600851512 /* ZTGuangYuMyViewController.xib in Resources */,
-				7B8A60C81D10F1CB004B2C16 /* ZTJianPangView.xib in Resources */,
 				7BE3C6461CF18BAF00851512 /* citydata.plist in Resources */,
 				7B9B6F201D0D4D6E00CC3D09 /* ZTTimeXuanZe.storyboard in Resources */,
-				7B0536E01D0FE5AD00BE9762 /* ZJTrendsFunctionView.xib in Resources */,
 				7B288D391D582C9A000A19AF /* README.txt in Resources */,
 				7BE3C6421CF188DF00851512 /* ZTAddressPickView.xib in Resources */,
 				7BE3C6AE1CF1A05F00851512 /* ZTHuiZhuanDingDan.storyboard in Resources */,
@@ -3299,23 +3007,17 @@
 				7BB43FB91CE9C57F007D722A /* ZJMineController.storyboard in Resources */,
 				7BE3C63D1CF1888F00851512 /* ZTBianJiShouHuoDiZhi.storyboard in Resources */,
 				7BE3C6BE1CF1A54C00851512 /* ZYQAssetPicker.Bundle in Resources */,
-				7B0536DC1D0FE5AD00BE9762 /* ZJFriendsCircleNavgationbar.xib in Resources */,
 				7BC580661CF6DE9400FD157A /* ZTLaJiaJieShuan.storyboard in Resources */,
 				7BFBA6ED1CFF032A00D4E07C /* ZTAddAddress.storyboard in Resources */,
 				7B2366AE1D026466003BC590 /* ZTWoYaoKaiDian.storyboard in Resources */,
 				7B5B07BD1D0EAA8600D0246A /* ZTSheQuZhenWu.storyboard in Resources */,
 				7BD04B2B1CF820FE00D431D5 /* ZTBianJiInfo.storyboard in Resources */,
-				7B0536D81D0FE5AD00BE9762 /* ZJTrendsDetailHeaderView.xib in Resources */,
 				7B2366C61D0285CA003BC590 /* ZTHeard1.xib in Resources */,
 				7B019D811D52CB120073506E /* ZTBackImageView.xib in Resources */,
-				7B0536DE1D0FE5AD00BE9762 /* ZJSheQuanZiHeaderView.xib in Resources */,
 				7BC5804B1CF6C81C00FD157A /* ZTGarbageOfRice.storyboard in Resources */,
-				7B0536E21D0FE5AD00BE9762 /* ZJTrendsHeaderView.xib in Resources */,
 				7B63EAB51CFBCE85004F9DA7 /* ZTHuiZhuanPingJia.storyboard in Resources */,
 				7B9B6F171D0D3DB300CC3D09 /* ZTYuYueViewController.xib in Resources */,
 				C7C4A4921E5EB22500075A27 /* HomePageSectionHeaderView.xib in Resources */,
-				7B0537221D0FF02700BE9762 /* ZTFaBuDongTaiViewController.xib in Resources */,
-				7B05372B1D102BB500BE9762 /* ZTSheQuQuanZi.storyboard in Resources */,
 				7BF499761CFD87C800CCEB45 /* ZTJieSuanGouWuChe.storyboard in Resources */,
 				7BD5B7E11D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.xib in Resources */,
 				7B2366B71D026FFF003BC590 /* ZTSheQuWuYe.storyboard in Resources */,
@@ -3420,16 +3122,12 @@
 				7BE3C6381CF1888F00851512 /* ZJGuangLiShouHuoDiZhiViewController.m in Sources */,
 				C7E4E1441E657B8A00169897 /* UIWindow+existion.m in Sources */,
 				7B63EAB91CFBE910004F9DA7 /* ZTYouHuiJuanModel.m in Sources */,
-				7B0537291D102B8200BE9762 /* ZTQuanZiZViewController.m in Sources */,
 				C7F8EE9D1E5D6F72008C8A06 /* WifeButlerNetWorking.m in Sources */,
-				7B0536DF1D0FE5AD00BE9762 /* ZJTrendsFunctionView.m in Sources */,
 				7BA606601D055F9F00148007 /* ZTSheQuFuWuViewController.m in Sources */,
 				7BBDB5FE1D010E730098B079 /* UITabBarItem+WZLBadge.m in Sources */,
 				7B0537041D0FE5E400BE9762 /* TYTextContainer.m in Sources */,
 				C7A191CA1E603BB700FEDFD1 /* WifeButlerDefine.m in Sources */,
 				7BE4204A1D13A6BB009A8FAB /* LoopSmallButton.m in Sources */,
-				7B0536D31D0FE5AD00BE9762 /* ZJTrendsDetailModel.m in Sources */,
-				7B0536DA1D0FE5AD00BE9762 /* ZJTrendsDetailView.m in Sources */,
 				7BFBA6E31CFE848600D4E07C /* ZTFuJinShangJiaViewController.m in Sources */,
 				C710583E1E61B58600C85CBE /* WifeButlerLoadingTableView.m in Sources */,
 				7B63EAC31CFC6735004F9DA7 /* ZTHuanMiTuPianTableViewCell.m in Sources */,
@@ -3437,7 +3135,6 @@
 				7B4F39771CF295CD00D427CD /* ZTPersonGouWuCheViewController.m in Sources */,
 				7BC580571CF6C81C00FD157A /* ZJProcessorDetailTableCell5.m in Sources */,
 				7B0537061D0FE5E400BE9762 /* TYViewStorage.m in Sources */,
-				7B0536D61D0FE5AD00BE9762 /* ZJTrendsListModel.m in Sources */,
 				7BE420471D13A6BB009A8FAB /* LoopButtonManager.m in Sources */,
 				7BA606561D051FD700148007 /* ZTWuYeShopsModel.m in Sources */,
 				7BED501C1D0CF9EB00DB2D60 /* ZTTongLeiShangPinCollectionViewCell.m in Sources */,
@@ -3445,7 +3142,6 @@
 				C781A9191E5FFCF900E3D325 /* XMGHomeViewController.m in Sources */,
 				7BFBA6EB1CFF030600D4E07C /* ZTAddAddressTableViewController.m in Sources */,
 				7BBDB5FD1D010E730098B079 /* UIBarButtonItem+WZLBadge.m in Sources */,
-				7B0537371D102E7F00BE9762 /* ZTSheQuQuanZiIconCollectionViewCell.m in Sources */,
 				7BE3C6B61CF1A05F00851512 /* Order3TableViewCell.m in Sources */,
 				7BE3C6AF1CF1A05F00851512 /* ZTHuiZhuanDingDan1ViewController.m in Sources */,
 				7BC580551CF6C81C00FD157A /* ZJProcessorDetailTableCell3.m in Sources */,
@@ -3456,13 +3152,11 @@
 				7B63EAC01CFC6348004F9DA7 /* ZTLaJiHuanMiViewController.m in Sources */,
 				7BE3C6601CF19C8300851512 /* ZTNeiBuGongGaoTableViewCell.m in Sources */,
 				7BBE4D401D069FB800DBF00F /* ZTXiangQinHealthyLifeViewController.m in Sources */,
-				7B0537211D0FF02700BE9762 /* ZTFaBuDongTaiViewController.m in Sources */,
 				7BB43FB31CE9C57F007D722A /* UIBarButtonItem+Extension.m in Sources */,
 				7B9B6F291D0D5EA100CC3D09 /* ZTTime3CollectionViewCell.m in Sources */,
 				C7E4E13D1E65705700169897 /* WifeButlerFileManager.m in Sources */,
 				7B5B07B71D0E9FBA00D0246A /* ZTJianKangShenHuoBottomModel.m in Sources */,
 				7B2366CF1D02A010003BC590 /* ZTZiOneWuYeCollectionViewCell.m in Sources */,
-				7B0536D91D0FE5AD00BE9762 /* ZJTrendsDetailReplyView.m in Sources */,
 				7BE3C6B41CF1A05F00851512 /* Order1TableViewCell.m in Sources */,
 				7BE420641D13A730009A8FAB /* ZJGoodsDetailCell2.m in Sources */,
 				7B288D411D582DCF000A19AF /* ApiXml.mm in Sources */,
@@ -3470,18 +3164,15 @@
 				C71365321E350BEB00C89CB5 /* UIColor+EasyExistion.m in Sources */,
 				7B86D80D1CF86C9400AB1E05 /* ZTLaJiHuanMiModel.m in Sources */,
 				7B0537051D0FE5E400BE9762 /* TYTextStorage.m in Sources */,
-				7B0537341D102E2700BE9762 /* ZTQuanZiZTableViewCell.m in Sources */,
 				7B0537011D0FE5E400BE9762 /* TYImageStorage.m in Sources */,
 				7BC580561CF6C81C00FD157A /* ZJProcessorDetailTableCell4.m in Sources */,
 				7BC5805A1CF6C81C00FD157A /* ZTLaJiHuanMiTableViewCell.m in Sources */,
 				7B0537021D0FE5E400BE9762 /* TYLinkTextStorage.m in Sources */,
 				7BBDB6041D011C680098B079 /* UserGuideViewController.m in Sources */,
 				7B2366C11D028520003BC590 /* ZTHeard1CollectionReusableView.m in Sources */,
-				7B0537111D0FE85C00BE9762 /* ZTQiPaoCellTableViewCell.m in Sources */,
 				7BE3C6511CF1996600851512 /* ZTGuangYuMyViewController.m in Sources */,
 				7B8D04C41CEAB3380024B812 /* ZJLoginController.m in Sources */,
 				7BC5805D1CF6D86600FD157A /* ZTShangPinPingJiaTableViewCell.m in Sources */,
-				7B0536D11D0FE5AD00BE9762 /* ZJDetailViewFrameModel.m in Sources */,
 				7BF9ACA81D12B2FD00F0D000 /* ZTXiaoQuXuanZeTableViewCell.m in Sources */,
 				7BC580641CF6DE7400FD157A /* ZTLaJiJieShuanTableViewController.m in Sources */,
 				7B2366C41D02852A003BC590 /* ZTHeard2CollectionReusableView.m in Sources */,
@@ -3491,9 +3182,7 @@
 				7BE420461D13A6BB009A8FAB /* LoopButton.m in Sources */,
 				7BED50191D0CF6D800DB2D60 /* ZTLeiXinShangPinViewController.m in Sources */,
 				7BAD20251D5495D8005798F2 /* ZTOrderXiangQinModel.m in Sources */,
-				7B0536D51D0FE5AD00BE9762 /* ZJTrendsCellFrameModel.m in Sources */,
 				7BAD20181D546867005798F2 /* ZTDuiHuanOrder2TableViewCell.m in Sources */,
-				7B0536D21D0FE5AD00BE9762 /* ZJTrendsCommentViewFrameModel.m in Sources */,
 				7B0536FE1D0FE5E400BE9762 /* TYAttributedLabel.m in Sources */,
 				7BE420671D13A730009A8FAB /* ZJShopClassCell.m in Sources */,
 				7B8D04C61CEAB3380024B812 /* ZJUserProtocalVC.m in Sources */,
@@ -3512,7 +3201,6 @@
 				7BF4996D1CFD6E9000CCEB45 /* ZTGouWuCheModel.m in Sources */,
 				C7BA19CB1E26778F00405816 /* UIColor+HexColor.m in Sources */,
 				7BC580B11CF720C300FD157A /* ZTGouWuCheTableViewCell.m in Sources */,
-				7B0536CF1D0FE5AD00BE9762 /* ZJTrendsDetailController.m in Sources */,
 				7BF1DC3A1CFAB0DD001C1E54 /* ZTDingDanXiangQingViewController.m in Sources */,
 				7BFBA6BF1CFE80EC00D4E07C /* ZJGoodsDetailVC.m in Sources */,
 				7B392D461D14E7D700A182BC /* ZTKaiDianTableViewController.m in Sources */,
@@ -3530,25 +3218,20 @@
 				7BBDB6001D010E730098B079 /* UIView+WZLBadge.m in Sources */,
 				7BBDB5FF1D010E730098B079 /* CAAnimation+WAnimation.m in Sources */,
 				7BAD20101D544609005798F2 /* ZTDuiHuanDingDanViewController.m in Sources */,
-				7B0536E11D0FE5AD00BE9762 /* ZJTrendsHeaderView.m in Sources */,
 				C7FFD4B21E66AE4500754C92 /* tempLoadingViewController.m in Sources */,
 				7B9B6F2D1D0D689C00CC3D09 /* ZTHeardMMCollectionReusableView.m in Sources */,
 				7B54B42E1D53607800FB2B28 /* ZTZhiHuanTiJiaoViewController.m in Sources */,
 				7BED501F1D0D09C200DB2D60 /* ZTTongLeiModel.m in Sources */,
 				7B0537001D0FE5E400BE9762 /* TYImageCache.m in Sources */,
 				7BFBA6E51CFE848600D4E07C /* ZTFuJinShangJiaTableViewCell.m in Sources */,
-				7B0537161D0FE88000BE9762 /* ZTSheQuChuanZiQiPaoViewController.m in Sources */,
 				C7C4A4961E5EB81E00075A27 /* HomePageCommodityCell.m in Sources */,
 				7B01CA3F1CFDB477008BF259 /* ZTJieShuan2Model.m in Sources */,
 				7B8D04CA1CEB079D0024B812 /* ZTLogoModel.m in Sources */,
-				7B0536D71D0FE5AD00BE9762 /* ZJTrendsDetailHeaderView.m in Sources */,
 				7B03BF4F1D0E49CD00DAF357 /* NSString+ZJMyString.m in Sources */,
 				7B8D04D11CEB22DB0024B812 /* ZTBianJiZiliaoTableViewController.m in Sources */,
 				7BE3C6391CF1888F00851512 /* ZTShouHuoAddressModel.m in Sources */,
 				C781A9171E5FFCF900E3D325 /* XMGConst.m in Sources */,
-				7B0536DD1D0FE5AD00BE9762 /* ZJSheQuanZiHeaderView.m in Sources */,
 				7B2366AC1D026449003BC590 /* ZTWoYaoKaiDianTableViewController.m in Sources */,
-				7B0536D41D0FE5AD00BE9762 /* ZJTrendsModel.m in Sources */,
 				7BC580511CF6C81C00FD157A /* ZJProcessorDetailTableVC.m in Sources */,
 				7B2366BD1D02811D003BC590 /* ZTSheQuWuYeFuJinCollectionViewCell.m in Sources */,
 				7B9D39A21CF9725100F6359D /* ZTjieSuanModel.m in Sources */,
@@ -3567,8 +3250,6 @@
 				7B9B6F231D0D5A5700CC3D09 /* ZTTime1CollectionViewCell.m in Sources */,
 				C7A191D31E606DA400FEDFD1 /* CustomCalendarViewController.m in Sources */,
 				C7A191BC1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.m in Sources */,
-				7B8A60C61D10F1BD004B2C16 /* ZTJianPanView.m in Sources */,
-				7B0536D01D0FE5AD00BE9762 /* ZJCommentModel.m in Sources */,
 				7B9B6F261D0D5A6200CC3D09 /* ZTTime2CollectionViewCell.m in Sources */,
 				7B019D7F1D52CAFF0073506E /* ZTBackImageView.m in Sources */,
 				7B0536FF1D0FE5E400BE9762 /* TYDrawStorage.m in Sources */,
@@ -3578,10 +3259,8 @@
 				C7FDFE891E5D8DA900BB6438 /* HomePageCellModel.m in Sources */,
 				7B288D421D582DCF000A19AF /* payRequsestHandler.mm in Sources */,
 				7BAD201F1D547970005798F2 /* ZTDingDanXiangQinDuiHuanViewController.m in Sources */,
-				7B0536DB1D0FE5AD00BE9762 /* ZJFriendsCircleNavgationbar.m in Sources */,
 				7B2366CB1D0298BA003BC590 /* ZTOneSheQuWuYeCollectionViewCell.m in Sources */,
 				7BFBA6E41CFE848600D4E07C /* ZTFuJinShangJiaCollectionViewCell.m in Sources */,
-				7BEFB6691D1924B500AE8791 /* ZTQuanZiView.m in Sources */,
 				7B4F39731CF2906800D427CD /* ZTXiaoXiXiangQinViewController.m in Sources */,
 				C7C4A4901E5EB20A00075A27 /* HomePageSectionHeaderView.m in Sources */,
 				7BC5806D1CF6F91F00FD157A /* ZTYouHuiJuanViewController.m in Sources */,
@@ -3603,7 +3282,6 @@
 				7BAD20221D547FA2005798F2 /* ZTDuiHuanOederModel.m in Sources */,
 				7B9B6F161D0D3DB300CC3D09 /* ZTYuYueViewController.m in Sources */,
 				7BE420601D13A730009A8FAB /* ZJCommunityShopCell.m in Sources */,
-				7B05372E1D102C2500BE9762 /* ZTSheQuQuanZiModel.m in Sources */,
 				C71058391E615ED700C85CBE /* WifeButlerUserParty.m in Sources */,
 				7BF499791CFD8EFD00CCEB45 /* ZTJieSuan11TableViewCell.m in Sources */,
 				7BB43FB81CE9C57F007D722A /* ZJMineController.m in Sources */,
@@ -3619,13 +3297,11 @@
 				7BC580521CF6C81C00FD157A /* ZJProcessorCollectionViewCell.m in Sources */,
 				7BE420631D13A730009A8FAB /* ZJGoodsDetailCell1.m in Sources */,
 				7BBE4D5B1D06C37A00DBF00F /* ZTSheQuWuYeFuWuXiangQinViewController.m in Sources */,
-				7B0537091D0FE72A00BE9762 /* ZTSheQuQuanZiViewController.m in Sources */,
 				7BFBA6E81CFEC2B700D4E07C /* ZTLeiBieaaModel.m in Sources */,
 				7BF9AC9B1D1244AF00F0D000 /* ZTTimeBottonModel.m in Sources */,
 				7BE420491D13A6BB009A8FAB /* LoopMiddleButton.m in Sources */,
 				7B0536FD1D0FE5E400BE9762 /* NSMutableAttributedString+TY.m in Sources */,
 				7BE420651D13A730009A8FAB /* ZJGoodsDetailCell3.m in Sources */,
-				7B0536E31D0FE5AD00BE9762 /* ZTSheQuQuanZiTableViewCell.m in Sources */,
 				7BFBA6BC1CFE80EC00D4E07C /* ZJHomePageController.m in Sources */,
 				7B392D621D152B7100A182BC /* ZTKaiDianChengGongViewController.m in Sources */,
 			);

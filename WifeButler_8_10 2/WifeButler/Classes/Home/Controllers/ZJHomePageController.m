@@ -11,9 +11,7 @@
 #import "LoopView.h"
 //#import "ZTFuJinShangJiaViewController.h"
 //#import "ZTSheQuWuYeViewController.h"
-//#import "ZTSheQuQuanZiViewController.h"
 //#import "ZTSheQuZhenWuViewController.h"
-#import "ZTQuanZiZViewController.h"
 //#import "ZJGuangLiShouHuoDiZhiViewController.h"
 //#import "ZTXiangQinHealthyLifeViewController.h"
 #import "ZJGuangLiShouHuoDiZhiViewController.h"
@@ -245,9 +243,7 @@
     
     if (index == 0) { //社区圈子
         WifeButlerLetUserLoginCode
-        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuQuanZi" bundle:nil];
-        ZTQuanZiZViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTQuanZiZViewController"];
-        [self.navigationController pushViewController:nav animated:YES];
+      
     }
     
     if (index == 4) {

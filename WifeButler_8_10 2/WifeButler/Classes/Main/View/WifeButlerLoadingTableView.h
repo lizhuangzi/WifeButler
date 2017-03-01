@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJRefresh.h"
 @class WifeButlerLoadingTableView;
 
 @protocol WifeButlerloadingTableViewDelegate <NSObject>

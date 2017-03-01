@@ -248,14 +248,10 @@
 // 首页轮播图
 #define   KHomeLunBoTu          @"goods/goods/index1"
 
-// 社区圈子点赞
-#define   KSheQuQuanZiDianZhan  @"account/chat/support"
 
 // 圈子详情
 #define   TRENDSDETAIL          @"account/chat/detail"
 
-// 我的圈子
-#define TRENDSLIST              @"account/chat/myindex"
 
 // 发布动态
 #define ZTFaBuDongTai           @"account/chat/say"
