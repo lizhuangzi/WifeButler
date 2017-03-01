@@ -22,6 +22,26 @@ extern NSString * const WifeButlerisRememberPasswrod;
 
 #define WEAKSELF typeof(self) __weak weakSelf = self;
 
+#define DISPATCH_GLOBAL_QUEUE  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+
+#define tableViewEdgeInsetsLeft 10.0f
+#define tableViewEdgeInsetsLeftNew 10.0f
+
+
+#define systembigfont      15.0f
+
+#define systemheaderfont   14.0f
+
+#define systemcontentfont   13.0f
+
+#define systemlittlefont    12.0f
+
+#define systemNumfont 10.0f
+
+#define ThinFont(font)  [UIFont systemFontOfSize:font weight:UIFontWeightLight]
+
+#define MoreThaniOS7 ([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+#define MoreThaniOS8 ([[[UIDevice currentDevice]systemVersion]floatValue]>=8.0)
 
 //************** 登录失效时的代码
 #define WifeButlerLoginLosingEffection   __weak typeof(self) weakSelf = self;\

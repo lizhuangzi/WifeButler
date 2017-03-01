@@ -14,6 +14,7 @@
 #import "ZJLoginController.h"
 #import "WifeButlerAccount.h"
 #import "UIWindow+existion.h"
+#import <AMapFoundationKit/AMapFoundationKit.h>
 
 @interface AppDelegate ()
 
@@ -24,7 +25,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
   
@@ -35,14 +35,11 @@
         [self.window switchRootViewController];
     }
     [self.window makeKeyAndVisible];
-//    else
-//    {
-//       UIStoryboard * loginVc = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];
-//    }
 
     
     //向微信注册wxd930ea5d5a258f4f
     [WXApi registerApp:@"wx4fe9cfcc13e33a10" withDescription:@"weiXinWifeButler"];
+    [AMapServices sharedServices].apiKey = @"f7ecc75a1f94250a64b6a81b70c60914";
     
     return YES;
 }

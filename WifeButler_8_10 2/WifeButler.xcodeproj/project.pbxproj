@@ -239,6 +239,33 @@
 		C7FDFE861E5D8D8800BB6438 /* HomePageSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FDFE851E5D8D8800BB6438 /* HomePageSectionModel.m */; };
 		C7FDFE891E5D8DA900BB6438 /* HomePageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FDFE881E5D8DA900BB6438 /* HomePageCellModel.m */; };
 		C7FFD4B21E66AE4500754C92 /* tempLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4B11E66AE4500754C92 /* tempLoadingViewController.m */; };
+		C7FFD4C21E6714E700754C92 /* MedRefFriendCircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4C01E6714E700754C92 /* MedRefFriendCircleViewController.m */; };
+		C7FFD4C31E6714E700754C92 /* MedRefFriendCircleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7FFD4C11E6714E700754C92 /* MedRefFriendCircleViewController.xib */; };
+		C7FFD4CB1E6716E400754C92 /* MedRefFriendCircleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4C71E6716E400754C92 /* MedRefFriendCircleTableCell.m */; };
+		C7FFD4CC1E6716E400754C92 /* MedRefFriendCircleTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4C91E6716E400754C92 /* MedRefFriendCircleTableHeader.m */; };
+		C7FFD4CD1E6716E400754C92 /* MedRefFriendCircleTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7FFD4CA1E6716E400754C92 /* MedRefFriendCircleTableHeader.xib */; };
+		C7FFD4D01E67173C00754C92 /* DocFriendHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4CF1E67173C00754C92 /* DocFriendHeaderView.m */; };
+		C7FFD4D31E6717DB00754C92 /* FriendCircleMarkPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4D21E6717DB00754C92 /* FriendCircleMarkPopView.m */; };
+		C7FFD4D71E6717E700754C92 /* CommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4D51E6717E700754C92 /* CommentView.m */; };
+		C7FFD4D81E6717E700754C92 /* CommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7FFD4D61E6717E700754C92 /* CommentView.xib */; };
+		C7FFD4DB1E67183C00754C92 /* RightBarMorePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4DA1E67183C00754C92 /* RightBarMorePopView.m */; };
+		C7FFD4E11E6719DF00754C92 /* CSActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4DE1E6719DF00754C92 /* CSActionSheet.m */; };
+		C7FFD4E21E6719DF00754C92 /* CSActionSheetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4E01E6719DF00754C92 /* CSActionSheetCell.m */; };
+		C7FFD4E51E671A5800754C92 /* ImagePickerUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4E41E671A5800754C92 /* ImagePickerUtils.m */; };
+		C7FFD4E81E671DDB00754C92 /* ImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4E71E671DDB00754C92 /* ImageUtils.m */; };
+		C7FFD4EB1E6721E700754C92 /* DocFriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4EA1E6721E700754C92 /* DocFriendModel.m */; };
+		C7FFD4F01E6721F800754C92 /* DocFriendPraiseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4ED1E6721F800754C92 /* DocFriendPraiseModel.m */; };
+		C7FFD4F11E6721F800754C92 /* DocFriendReviewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4EF1E6721F800754C92 /* DocFriendReviewModel.m */; };
+		C7FFD4F41E67220A00754C92 /* DocFriendHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4F31E67220A00754C92 /* DocFriendHeaderModel.m */; };
+		C7FFD4F71E67262600754C92 /* FontUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4F61E67262600754C92 /* FontUtils.m */; };
+		C7FFD4FA1E67284000754C92 /* UIView+RedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4F91E67284000754C92 /* UIView+RedView.m */; };
+		C7FFD4FD1E6728AF00754C92 /* CommonCoreTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4FC1E6728AF00754C92 /* CommonCoreTextView.m */; };
+		C7FFD5001E6728D200754C92 /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4FF1E6728D200754C92 /* NSString+Size.m */; };
+		C7FFD5031E67293200754C92 /* CommonEmojiKeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD5021E67293200754C92 /* CommonEmojiKeyBoardView.m */; };
+		C7FFD5071E67295F00754C92 /* CommonEmojiPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD5061E67295F00754C92 /* CommonEmojiPageCell.m */; };
+		C7FFD50A1E67297B00754C92 /* CommonEmojiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD5091E67297B00754C92 /* CommonEmojiCell.m */; };
+		C7FFD50D1E67298400754C92 /* CommonEmojiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD50C1E67298400754C92 /* CommonEmojiManager.m */; };
+		C7FFD50F1E67299A00754C92 /* CommonEmojiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7FFD50E1E67299A00754C92 /* CommonEmojiCell.xib */; };
 		D11D1A281D7BB95400E2A815 /* HomeNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11D1A271D7BB95400E2A815 /* HomeNavgationController.m */; };
 		DBEE1B066618603F83A88679 /* libPods-WifeButler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCE7C4784446788DC838254 /* libPods-WifeButler.a */; };
 /* End PBXBuildFile section */
@@ -695,6 +722,56 @@
 		C7FDFE8A1E5D8FCF00BB6438 /* NetWorkPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkPort.h; sourceTree = "<group>"; };
 		C7FFD4B01E66AE4500754C92 /* tempLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tempLoadingViewController.h; sourceTree = "<group>"; };
 		C7FFD4B11E66AE4500754C92 /* tempLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tempLoadingViewController.m; sourceTree = "<group>"; };
+		C7FFD4BF1E6714E700754C92 /* MedRefFriendCircleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedRefFriendCircleViewController.h; sourceTree = "<group>"; };
+		C7FFD4C01E6714E700754C92 /* MedRefFriendCircleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedRefFriendCircleViewController.m; sourceTree = "<group>"; };
+		C7FFD4C11E6714E700754C92 /* MedRefFriendCircleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MedRefFriendCircleViewController.xib; sourceTree = "<group>"; };
+		C7FFD4C61E6716E400754C92 /* MedRefFriendCircleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedRefFriendCircleTableCell.h; sourceTree = "<group>"; };
+		C7FFD4C71E6716E400754C92 /* MedRefFriendCircleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedRefFriendCircleTableCell.m; sourceTree = "<group>"; };
+		C7FFD4C81E6716E400754C92 /* MedRefFriendCircleTableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedRefFriendCircleTableHeader.h; sourceTree = "<group>"; };
+		C7FFD4C91E6716E400754C92 /* MedRefFriendCircleTableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedRefFriendCircleTableHeader.m; sourceTree = "<group>"; };
+		C7FFD4CA1E6716E400754C92 /* MedRefFriendCircleTableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MedRefFriendCircleTableHeader.xib; sourceTree = "<group>"; };
+		C7FFD4CE1E67173C00754C92 /* DocFriendHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocFriendHeaderView.h; sourceTree = "<group>"; };
+		C7FFD4CF1E67173C00754C92 /* DocFriendHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocFriendHeaderView.m; sourceTree = "<group>"; };
+		C7FFD4D11E6717DB00754C92 /* FriendCircleMarkPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCircleMarkPopView.h; sourceTree = "<group>"; };
+		C7FFD4D21E6717DB00754C92 /* FriendCircleMarkPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCircleMarkPopView.m; sourceTree = "<group>"; };
+		C7FFD4D41E6717E700754C92 /* CommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentView.h; sourceTree = "<group>"; };
+		C7FFD4D51E6717E700754C92 /* CommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentView.m; sourceTree = "<group>"; };
+		C7FFD4D61E6717E700754C92 /* CommentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentView.xib; sourceTree = "<group>"; };
+		C7FFD4D91E67183C00754C92 /* RightBarMorePopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightBarMorePopView.h; sourceTree = "<group>"; };
+		C7FFD4DA1E67183C00754C92 /* RightBarMorePopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightBarMorePopView.m; sourceTree = "<group>"; };
+		C7FFD4DD1E6719DF00754C92 /* CSActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSActionSheet.h; sourceTree = "<group>"; };
+		C7FFD4DE1E6719DF00754C92 /* CSActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSActionSheet.m; sourceTree = "<group>"; };
+		C7FFD4DF1E6719DF00754C92 /* CSActionSheetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSActionSheetCell.h; sourceTree = "<group>"; };
+		C7FFD4E01E6719DF00754C92 /* CSActionSheetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSActionSheetCell.m; sourceTree = "<group>"; };
+		C7FFD4E31E671A5800754C92 /* ImagePickerUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerUtils.h; sourceTree = "<group>"; };
+		C7FFD4E41E671A5800754C92 /* ImagePickerUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerUtils.m; sourceTree = "<group>"; };
+		C7FFD4E61E671DDB00754C92 /* ImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtils.h; sourceTree = "<group>"; };
+		C7FFD4E71E671DDB00754C92 /* ImageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUtils.m; sourceTree = "<group>"; };
+		C7FFD4E91E6721E700754C92 /* DocFriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocFriendModel.h; sourceTree = "<group>"; };
+		C7FFD4EA1E6721E700754C92 /* DocFriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocFriendModel.m; sourceTree = "<group>"; };
+		C7FFD4EC1E6721F800754C92 /* DocFriendPraiseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocFriendPraiseModel.h; sourceTree = "<group>"; };
+		C7FFD4ED1E6721F800754C92 /* DocFriendPraiseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocFriendPraiseModel.m; sourceTree = "<group>"; };
+		C7FFD4EE1E6721F800754C92 /* DocFriendReviewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocFriendReviewModel.h; sourceTree = "<group>"; };
+		C7FFD4EF1E6721F800754C92 /* DocFriendReviewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocFriendReviewModel.m; sourceTree = "<group>"; };
+		C7FFD4F21E67220A00754C92 /* DocFriendHeaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocFriendHeaderModel.h; sourceTree = "<group>"; };
+		C7FFD4F31E67220A00754C92 /* DocFriendHeaderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocFriendHeaderModel.m; sourceTree = "<group>"; };
+		C7FFD4F51E67262600754C92 /* FontUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontUtils.h; sourceTree = "<group>"; };
+		C7FFD4F61E67262600754C92 /* FontUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontUtils.m; sourceTree = "<group>"; };
+		C7FFD4F81E67284000754C92 /* UIView+RedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RedView.h"; sourceTree = "<group>"; };
+		C7FFD4F91E67284000754C92 /* UIView+RedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RedView.m"; sourceTree = "<group>"; };
+		C7FFD4FB1E6728AF00754C92 /* CommonCoreTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonCoreTextView.h; sourceTree = "<group>"; };
+		C7FFD4FC1E6728AF00754C92 /* CommonCoreTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonCoreTextView.m; sourceTree = "<group>"; };
+		C7FFD4FE1E6728D200754C92 /* NSString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
+		C7FFD4FF1E6728D200754C92 /* NSString+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Size.m"; sourceTree = "<group>"; };
+		C7FFD5011E67293200754C92 /* CommonEmojiKeyBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonEmojiKeyBoardView.h; sourceTree = "<group>"; };
+		C7FFD5021E67293200754C92 /* CommonEmojiKeyBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonEmojiKeyBoardView.m; sourceTree = "<group>"; };
+		C7FFD5051E67295F00754C92 /* CommonEmojiPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonEmojiPageCell.h; sourceTree = "<group>"; };
+		C7FFD5061E67295F00754C92 /* CommonEmojiPageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonEmojiPageCell.m; sourceTree = "<group>"; };
+		C7FFD5081E67297B00754C92 /* CommonEmojiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonEmojiCell.h; sourceTree = "<group>"; };
+		C7FFD5091E67297B00754C92 /* CommonEmojiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonEmojiCell.m; sourceTree = "<group>"; };
+		C7FFD50B1E67298400754C92 /* CommonEmojiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonEmojiManager.h; sourceTree = "<group>"; };
+		C7FFD50C1E67298400754C92 /* CommonEmojiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonEmojiManager.m; sourceTree = "<group>"; };
+		C7FFD50E1E67299A00754C92 /* CommonEmojiCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonEmojiCell.xib; sourceTree = "<group>"; };
 		CFFCA33AEFF47FF60F105438 /* Pods-WifeButler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WifeButler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WifeButler/Pods-WifeButler.debug.xcconfig"; sourceTree = "<group>"; };
 		D11D1A261D7BB95400E2A815 /* HomeNavgationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavgationController.h; sourceTree = "<group>"; };
 		D11D1A271D7BB95400E2A815 /* HomeNavgationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavgationController.m; sourceTree = "<group>"; };
@@ -764,6 +841,9 @@
 		7B0536A41D0FE5AD00BE9762 /* 社区圈子 */ = {
 			isa = PBXGroup;
 			children = (
+				C7FFD4C51E6716C500754C92 /* View */,
+				C7FFD4C41E67166100754C92 /* Model */,
+				C7FFD4BE1E6714AF00754C92 /* Controller */,
 			);
 			path = "社区圈子";
 			sourceTree = "<group>";
@@ -1717,6 +1797,8 @@
 		7BB43F951CE9C57F007D722A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C7FFD4FE1E6728D200754C92 /* NSString+Size.h */,
+				C7FFD4FF1E6728D200754C92 /* NSString+Size.m */,
 				C71365301E350BEB00C89CB5 /* UIColor+EasyExistion.h */,
 				C71365311E350BEB00C89CB5 /* UIColor+EasyExistion.m */,
 				C7BA19C91E26778F00405816 /* UIColor+HexColor.h */,
@@ -1725,6 +1807,8 @@
 				C7D52FA01E5F38AC00D98448 /* UIImage+ColorExistion.m */,
 				C7E4E1421E657B8A00169897 /* UIWindow+existion.h */,
 				C7E4E1431E657B8A00169897 /* UIWindow+existion.m */,
+				C7FFD4F81E67284000754C92 /* UIView+RedView.h */,
+				C7FFD4F91E67284000754C92 /* UIView+RedView.m */,
 				7B288D321D582C9A000A19AF /* 微信sdk */,
 				7B019D7C1D52CAE90073506E /* 背景图片 */,
 				7B03BF4D1D0E49CD00DAF357 /* NSString+ZJMyString.h */,
@@ -1784,6 +1868,12 @@
 		7BB43FA21CE9C57F007D722A /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				C7FFD4F51E67262600754C92 /* FontUtils.h */,
+				C7FFD4F61E67262600754C92 /* FontUtils.m */,
+				C7FFD4E61E671DDB00754C92 /* ImageUtils.h */,
+				C7FFD4E71E671DDB00754C92 /* ImageUtils.m */,
+				C7FFD4E31E671A5800754C92 /* ImagePickerUtils.h */,
+				C7FFD4E41E671A5800754C92 /* ImagePickerUtils.m */,
 				C7E4E13E1E65705E00169897 /* 文件管理 */,
 				C7F8EE9A1E5D6F3A008C8A06 /* 网络请求封装 */,
 				7B0537381D10419100BE9762 /* 图片查看器 */,
@@ -1795,6 +1885,7 @@
 		7BB43FA31CE9C57F007D722A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C7FFD4DC1E6719DF00754C92 /* CSActionSheet */,
 				C710583C1E61B58600C85CBE /* WifeButlerLoadingTableView.h */,
 				C710583D1E61B58600C85CBE /* WifeButlerLoadingTableView.m */,
 			);
@@ -2864,6 +2955,82 @@
 			path = "网络请求封装";
 			sourceTree = "<group>";
 		};
+		C7FFD4BE1E6714AF00754C92 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C7FFD4BF1E6714E700754C92 /* MedRefFriendCircleViewController.h */,
+				C7FFD4C01E6714E700754C92 /* MedRefFriendCircleViewController.m */,
+				C7FFD4C11E6714E700754C92 /* MedRefFriendCircleViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C7FFD4C41E67166100754C92 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C7FFD4F21E67220A00754C92 /* DocFriendHeaderModel.h */,
+				C7FFD4F31E67220A00754C92 /* DocFriendHeaderModel.m */,
+				C7FFD4EC1E6721F800754C92 /* DocFriendPraiseModel.h */,
+				C7FFD4ED1E6721F800754C92 /* DocFriendPraiseModel.m */,
+				C7FFD4EE1E6721F800754C92 /* DocFriendReviewModel.h */,
+				C7FFD4EF1E6721F800754C92 /* DocFriendReviewModel.m */,
+				C7FFD4E91E6721E700754C92 /* DocFriendModel.h */,
+				C7FFD4EA1E6721E700754C92 /* DocFriendModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C7FFD4C51E6716C500754C92 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C7FFD5041E67293D00754C92 /* CommonEmoji */,
+				C7FFD4FB1E6728AF00754C92 /* CommonCoreTextView.h */,
+				C7FFD4FC1E6728AF00754C92 /* CommonCoreTextView.m */,
+				C7FFD4D91E67183C00754C92 /* RightBarMorePopView.h */,
+				C7FFD4DA1E67183C00754C92 /* RightBarMorePopView.m */,
+				C7FFD4D41E6717E700754C92 /* CommentView.h */,
+				C7FFD4D51E6717E700754C92 /* CommentView.m */,
+				C7FFD4D61E6717E700754C92 /* CommentView.xib */,
+				C7FFD4D11E6717DB00754C92 /* FriendCircleMarkPopView.h */,
+				C7FFD4D21E6717DB00754C92 /* FriendCircleMarkPopView.m */,
+				C7FFD4CE1E67173C00754C92 /* DocFriendHeaderView.h */,
+				C7FFD4CF1E67173C00754C92 /* DocFriendHeaderView.m */,
+				C7FFD4C61E6716E400754C92 /* MedRefFriendCircleTableCell.h */,
+				C7FFD4C71E6716E400754C92 /* MedRefFriendCircleTableCell.m */,
+				C7FFD4C81E6716E400754C92 /* MedRefFriendCircleTableHeader.h */,
+				C7FFD4C91E6716E400754C92 /* MedRefFriendCircleTableHeader.m */,
+				C7FFD4CA1E6716E400754C92 /* MedRefFriendCircleTableHeader.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C7FFD4DC1E6719DF00754C92 /* CSActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				C7FFD4DD1E6719DF00754C92 /* CSActionSheet.h */,
+				C7FFD4DE1E6719DF00754C92 /* CSActionSheet.m */,
+				C7FFD4DF1E6719DF00754C92 /* CSActionSheetCell.h */,
+				C7FFD4E01E6719DF00754C92 /* CSActionSheetCell.m */,
+			);
+			path = CSActionSheet;
+			sourceTree = "<group>";
+		};
+		C7FFD5041E67293D00754C92 /* CommonEmoji */ = {
+			isa = PBXGroup;
+			children = (
+				C7FFD50B1E67298400754C92 /* CommonEmojiManager.h */,
+				C7FFD50C1E67298400754C92 /* CommonEmojiManager.m */,
+				C7FFD5081E67297B00754C92 /* CommonEmojiCell.h */,
+				C7FFD5091E67297B00754C92 /* CommonEmojiCell.m */,
+				C7FFD50E1E67299A00754C92 /* CommonEmojiCell.xib */,
+				C7FFD5051E67295F00754C92 /* CommonEmojiPageCell.h */,
+				C7FFD5061E67295F00754C92 /* CommonEmojiPageCell.m */,
+				C7FFD5011E67293200754C92 /* CommonEmojiKeyBoardView.h */,
+				C7FFD5021E67293200754C92 /* CommonEmojiKeyBoardView.m */,
+			);
+			name = CommonEmoji;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2979,6 +3146,7 @@
 				7BE3C6611CF19C8300851512 /* ZTNeiBuGongGaoTableViewCell.xib in Resources */,
 				7BE3C6521CF1996600851512 /* ZTGuangYuMyViewController.xib in Resources */,
 				7BE3C6461CF18BAF00851512 /* citydata.plist in Resources */,
+				C7FFD4C31E6714E700754C92 /* MedRefFriendCircleViewController.xib in Resources */,
 				7B9B6F201D0D4D6E00CC3D09 /* ZTTimeXuanZe.storyboard in Resources */,
 				7B288D391D582C9A000A19AF /* README.txt in Resources */,
 				7BE3C6421CF188DF00851512 /* ZTAddressPickView.xib in Resources */,
@@ -2989,10 +3157,12 @@
 				C7A191BE1E60263800FEDFD1 /* WifebutlerRCRHomeHeaderView.xib in Resources */,
 				7B2366C81D0285D8003BC590 /* ZTheard2.xib in Resources */,
 				7BE3C63B1CF1888F00851512 /* ZJGuangLiShouHuoDiZhiTableViewCell.xib in Resources */,
+				C7FFD4D81E6717E700754C92 /* CommentView.xib in Resources */,
 				7BB43FB91CE9C57F007D722A /* ZJMineController.storyboard in Resources */,
 				7BE3C63D1CF1888F00851512 /* ZTBianJiShouHuoDiZhi.storyboard in Resources */,
 				7BE3C6BE1CF1A54C00851512 /* ZYQAssetPicker.Bundle in Resources */,
 				7BC580661CF6DE9400FD157A /* ZTLaJiaJieShuan.storyboard in Resources */,
+				C7FFD4CD1E6716E400754C92 /* MedRefFriendCircleTableHeader.xib in Resources */,
 				7BFBA6ED1CFF032A00D4E07C /* ZTAddAddress.storyboard in Resources */,
 				7B2366AE1D026466003BC590 /* ZTWoYaoKaiDian.storyboard in Resources */,
 				7B5B07BD1D0EAA8600D0246A /* ZTSheQuZhenWu.storyboard in Resources */,
@@ -3000,6 +3170,7 @@
 				7B2366C61D0285CA003BC590 /* ZTHeard1.xib in Resources */,
 				7B019D811D52CB120073506E /* ZTBackImageView.xib in Resources */,
 				7BC5804B1CF6C81C00FD157A /* ZTGarbageOfRice.storyboard in Resources */,
+				C7FFD50F1E67299A00754C92 /* CommonEmojiCell.xib in Resources */,
 				7B63EAB51CFBCE85004F9DA7 /* ZTHuiZhuanPingJia.storyboard in Resources */,
 				7B9B6F171D0D3DB300CC3D09 /* ZTYuYueViewController.xib in Resources */,
 				C7C4A4921E5EB22500075A27 /* HomePageSectionHeaderView.xib in Resources */,
@@ -3114,6 +3285,7 @@
 				C7A191CA1E603BB700FEDFD1 /* WifeButlerDefine.m in Sources */,
 				7BE4204A1D13A6BB009A8FAB /* LoopSmallButton.m in Sources */,
 				7BFBA6E31CFE848600D4E07C /* ZTFuJinShangJiaViewController.m in Sources */,
+				C7FFD4D31E6717DB00754C92 /* FriendCircleMarkPopView.m in Sources */,
 				C710583E1E61B58600C85CBE /* WifeButlerLoadingTableView.m in Sources */,
 				7B63EAC31CFC6735004F9DA7 /* ZTHuanMiTuPianTableViewCell.m in Sources */,
 				7B9B6F1E1D0D4D4F00CC3D09 /* ZTXuanZeTimeViewController.m in Sources */,
@@ -3126,6 +3298,7 @@
 				7BCAA4581D40AEAA00F46C33 /* ZTTiShiKuanView.m in Sources */,
 				C781A9191E5FFCF900E3D325 /* XMGHomeViewController.m in Sources */,
 				7BFBA6EB1CFF030600D4E07C /* ZTAddAddressTableViewController.m in Sources */,
+				C7FFD4C21E6714E700754C92 /* MedRefFriendCircleViewController.m in Sources */,
 				7BBDB5FD1D010E730098B079 /* UIBarButtonItem+WZLBadge.m in Sources */,
 				7BE3C6B61CF1A05F00851512 /* Order3TableViewCell.m in Sources */,
 				7BE3C6AF1CF1A05F00851512 /* ZTHuiZhuanDingDan1ViewController.m in Sources */,
@@ -3154,6 +3327,8 @@
 				7BC5805A1CF6C81C00FD157A /* ZTLaJiHuanMiTableViewCell.m in Sources */,
 				7B0537021D0FE5E400BE9762 /* TYLinkTextStorage.m in Sources */,
 				7BBDB6041D011C680098B079 /* UserGuideViewController.m in Sources */,
+				C7FFD4E81E671DDB00754C92 /* ImageUtils.m in Sources */,
+				C7FFD4F71E67262600754C92 /* FontUtils.m in Sources */,
 				7B2366C11D028520003BC590 /* ZTHeard1CollectionReusableView.m in Sources */,
 				7BE3C6511CF1996600851512 /* ZTGuangYuMyViewController.m in Sources */,
 				7B8D04C41CEAB3380024B812 /* ZJLoginController.m in Sources */,
@@ -3166,6 +3341,8 @@
 				7B9D39B01CF9B8B200F6359D /* ZTShangPingModel.m in Sources */,
 				7BE420461D13A6BB009A8FAB /* LoopButton.m in Sources */,
 				7BED50191D0CF6D800DB2D60 /* ZTLeiXinShangPinViewController.m in Sources */,
+				C7FFD4D01E67173C00754C92 /* DocFriendHeaderView.m in Sources */,
+				C7FFD4F11E6721F800754C92 /* DocFriendReviewModel.m in Sources */,
 				7BAD20251D5495D8005798F2 /* ZTOrderXiangQinModel.m in Sources */,
 				7BAD20181D546867005798F2 /* ZTDuiHuanOrder2TableViewCell.m in Sources */,
 				7B0536FE1D0FE5E400BE9762 /* TYAttributedLabel.m in Sources */,
@@ -3185,6 +3362,7 @@
 				7B63EAC61CFC6742004F9DA7 /* ZTHuanMiCanShuTableViewCell.m in Sources */,
 				7BF4996D1CFD6E9000CCEB45 /* ZTGouWuCheModel.m in Sources */,
 				C7BA19CB1E26778F00405816 /* UIColor+HexColor.m in Sources */,
+				C7FFD4F41E67220A00754C92 /* DocFriendHeaderModel.m in Sources */,
 				7BC580B11CF720C300FD157A /* ZTGouWuCheTableViewCell.m in Sources */,
 				7BF1DC3A1CFAB0DD001C1E54 /* ZTDingDanXiangQingViewController.m in Sources */,
 				7BFBA6BF1CFE80EC00D4E07C /* ZJGoodsDetailVC.m in Sources */,
@@ -3194,6 +3372,7 @@
 				7B392D541D151ED600A182BC /* ZTDianPuAddressTableViewController.m in Sources */,
 				C7A191D01E606CF700FEDFD1 /* EPCalendarViewController.m in Sources */,
 				7B5B07C01D0EAA9700D0246A /* ZTSheQuZhenWuViewController.m in Sources */,
+				C7FFD4DB1E67183C00754C92 /* RightBarMorePopView.m in Sources */,
 				7BD5B7E01D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.m in Sources */,
 				7BC5804C1CF6C81C00FD157A /* ZTGarbageOfRiceViewController.m in Sources */,
 				7BE4204D1D13A6C8009A8FAB /* LoopView.m in Sources */,
@@ -3205,6 +3384,7 @@
 				C7FFD4B21E66AE4500754C92 /* tempLoadingViewController.m in Sources */,
 				7B9B6F2D1D0D689C00CC3D09 /* ZTHeardMMCollectionReusableView.m in Sources */,
 				7B54B42E1D53607800FB2B28 /* ZTZhiHuanTiJiaoViewController.m in Sources */,
+				C7FFD5001E6728D200754C92 /* NSString+Size.m in Sources */,
 				7BED501F1D0D09C200DB2D60 /* ZTTongLeiModel.m in Sources */,
 				7B0537001D0FE5E400BE9762 /* TYImageCache.m in Sources */,
 				7BFBA6E51CFE848600D4E07C /* ZTFuJinShangJiaTableViewCell.m in Sources */,
@@ -3222,14 +3402,18 @@
 				C7C4A49A1E5EBE5600075A27 /* HomePageCommodityView.m in Sources */,
 				7B8D04BB1CEAB21B0024B812 /* NSString+ZJMyJudgeString.m in Sources */,
 				7BE3C65F1CF19C8300851512 /* ZTNeiBuGongGao1ViewController.m in Sources */,
+				C7FFD4F01E6721F800754C92 /* DocFriendPraiseModel.m in Sources */,
 				C7E4E1411E657AC900169897 /* WifeButlerAccount.m in Sources */,
 				7BA7EA951D24CD0000ECA67E /* ZTJianJieH5TableViewCell.m in Sources */,
+				C7FFD4CB1E6716E400754C92 /* MedRefFriendCircleTableCell.m in Sources */,
 				C7457CE71E63011C0039CF5B /* WifeButlerInfoTableViewCell.m in Sources */,
 				7BC580701CF6FB6D00FD157A /* ZTYouHuiJuanTableViewCell.m in Sources */,
 				7B0537031D0FE5E400BE9762 /* TYTextContainer+Extended.m in Sources */,
+				C7FFD50A1E67297B00754C92 /* CommonEmojiCell.m in Sources */,
 				7B01CA3C1CFDB37B008BF259 /* ZTJieSuang11Model.m in Sources */,
 				7BF1DC3D1CFAD636001C1E54 /* ZTDingDanXiangQinTableViewCell.m in Sources */,
 				D11D1A281D7BB95400E2A815 /* HomeNavgationController.m in Sources */,
+				C7FFD4D71E6717E700754C92 /* CommentView.m in Sources */,
 				7B9B6F231D0D5A5700CC3D09 /* ZTTime1CollectionViewCell.m in Sources */,
 				C7A191D31E606DA400FEDFD1 /* CustomCalendarViewController.m in Sources */,
 				C7A191BC1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.m in Sources */,
@@ -3243,6 +3427,7 @@
 				7B288D421D582DCF000A19AF /* payRequsestHandler.mm in Sources */,
 				7BAD201F1D547970005798F2 /* ZTDingDanXiangQinDuiHuanViewController.m in Sources */,
 				7B2366CB1D0298BA003BC590 /* ZTOneSheQuWuYeCollectionViewCell.m in Sources */,
+				C7FFD4CC1E6716E400754C92 /* MedRefFriendCircleTableHeader.m in Sources */,
 				7BFBA6E41CFE848600D4E07C /* ZTFuJinShangJiaCollectionViewCell.m in Sources */,
 				7B4F39731CF2906800D427CD /* ZTXiaoXiXiangQinViewController.m in Sources */,
 				C7C4A4901E5EB20A00075A27 /* HomePageSectionHeaderView.m in Sources */,
@@ -3250,11 +3435,16 @@
 				C71058411E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m in Sources */,
 				C7FDFE861E5D8D8800BB6438 /* HomePageSectionModel.m in Sources */,
 				7B63EACC1CFC6E7B004F9DA7 /* ZTHuanMiXQModel.m in Sources */,
+				C7FFD5071E67295F00754C92 /* CommonEmojiPageCell.m in Sources */,
 				C781A91A1E5FFCF900E3D325 /* XMGSocialViewController.m in Sources */,
+				C7FFD4E21E6719DF00754C92 /* CSActionSheetCell.m in Sources */,
 				7BE3C64B1CF1938800851512 /* ZTYiJianFanKuiViewController.m in Sources */,
+				C7FFD50D1E67298400754C92 /* CommonEmojiManager.m in Sources */,
 				7BE420481D13A6BB009A8FAB /* LoopLargeButton.m in Sources */,
+				C7FFD4E11E6719DF00754C92 /* CSActionSheet.m in Sources */,
 				7BE3C6C21CF1A55300851512 /* UIImageView+Del.m in Sources */,
 				7BAF05001D37886800011945 /* ZTShenShiQuModel.m in Sources */,
+				C7FFD4FD1E6728AF00754C92 /* CommonCoreTextView.m in Sources */,
 				7BF1DC441CFB0F0B001C1E54 /* ZTZhiFuFangShiTableViewController.m in Sources */,
 				7B1B278E1D0EB2C100601393 /* ZTSheQuZhenWuTableViewCell.m in Sources */,
 				7BE3C63A1CF1888F00851512 /* ZJGuangLiShouHuoDiZhiTableViewCell.m in Sources */,
@@ -3267,11 +3457,14 @@
 				7BE420601D13A730009A8FAB /* ZJCommunityShopCell.m in Sources */,
 				C71058391E615ED700C85CBE /* WifeButlerUserParty.m in Sources */,
 				7BF499791CFD8EFD00CCEB45 /* ZTJieSuan11TableViewCell.m in Sources */,
+				C7FFD4EB1E6721E700754C92 /* DocFriendModel.m in Sources */,
 				7BB43FB81CE9C57F007D722A /* ZJMineController.m in Sources */,
 				7BB43FB71CE9C57F007D722A /* AppDelegate.m in Sources */,
+				C7FFD4FA1E67284000754C92 /* UIView+RedView.m in Sources */,
 				7B2366B51D026FEE003BC590 /* ZTSheQuWuYeViewController.m in Sources */,
 				7BE3C63C1CF1888F00851512 /* ZTBianJiDiZhiTableViewController.m in Sources */,
 				C7A191C21E60337E00FEDFD1 /* exchangeStationModel.m in Sources */,
+				C7FFD4E51E671A5800754C92 /* ImagePickerUtils.m in Sources */,
 				7B8D04C51CEAB3380024B812 /* ZJSeakPassWordVC.m in Sources */,
 				7B9D39A51CF9A95500F6359D /* ZTGouWuCheFooterVIew.m in Sources */,
 				7BE420681D13A730009A8FAB /* ZJShopClassCell1.m in Sources */,
@@ -3284,6 +3477,7 @@
 				7BE420491D13A6BB009A8FAB /* LoopMiddleButton.m in Sources */,
 				7B0536FD1D0FE5E400BE9762 /* NSMutableAttributedString+TY.m in Sources */,
 				7BE420651D13A730009A8FAB /* ZJGoodsDetailCell3.m in Sources */,
+				C7FFD5031E67293200754C92 /* CommonEmojiKeyBoardView.m in Sources */,
 				7BFBA6BC1CFE80EC00D4E07C /* ZJHomePageController.m in Sources */,
 				7B392D621D152B7100A182BC /* ZTKaiDianChengGongViewController.m in Sources */,
 			);

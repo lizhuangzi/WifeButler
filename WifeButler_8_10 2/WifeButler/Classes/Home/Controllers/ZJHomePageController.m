@@ -240,17 +240,23 @@
 #pragma mark - push控制器操作
 - (void)delalPushViewControllerWithClickIndex:(NSInteger)index
 {
-    
-    if (index == 0) { //社区圈子
-        WifeButlerLetUserLoginCode
-       
-    }
-    if (index == 1) {
-       
-    }
-    if (index == 4) {
-        EPCalendarViewController * calendar = [[EPCalendarViewController alloc]init];
-        [self.navigationController pushViewController:calendar animated:YES];
+    switch (index) {
+        case 0:{ //社区圈子
+            [SVProgressHUD showInfoWithStatus:@"功能暂未开放"];
+            //     WifeButlerLetUserLoginCode
+        }
+            break;
+        case 1:{ //社区购物
+            
+        }
+            break;
+        case 4:{ //环保日历
+            EPCalendarViewController * calendar = [[EPCalendarViewController alloc]init];
+            [self.navigationController pushViewController:calendar animated:YES];
+        }
+            break;
+        default:
+            break;
     }
 }
 
