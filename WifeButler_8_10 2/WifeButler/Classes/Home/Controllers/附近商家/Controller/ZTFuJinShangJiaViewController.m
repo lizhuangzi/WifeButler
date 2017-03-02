@@ -103,7 +103,7 @@ typedef enum {
     [dic setObject:self.shop_id forKey:@"shop_id"];
     [dic setObject:self.serve_idType forKey:@"serve_id"];
     
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KSheQuGouWuZuo];
+    NSString *url = @"";
     
     ZJLog(@"%@", dic);
     
@@ -168,7 +168,7 @@ typedef enum {
     [dic setObject:@(_pize) forKey:@"pageindex"];
     [dic setObject:self.serve_idType forKey:@"serve_id"];
 
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KSheQuGouWuYou];
+    NSString *url = @"";
     
     if (self.paiXu == PaiXuMoRen) { // 换米
         
@@ -242,7 +242,7 @@ typedef enum {
     
     [dic setObject:@(_pize) forKey:@"pageindex"];
 
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KSheQuGouWuYou];
+    NSString *url = @"";
     
     if (self.paiXu == PaiXuMoRen) { // 换米
         
@@ -461,7 +461,7 @@ typedef enum {
     [dic setObject:@(fenLie_id) forKey:@"cat_id"];
     [dic setObject:self.serve_idType forKey:@"serve_id"];
     
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KSheQuGouWuYou];
+    NSString *url = @"";
 
     
     ZJLog(@"%@", dic);

@@ -7,8 +7,7 @@
 //
 
 #import "ZJHomePageController.h"
-
-#import "LoopView.h"
+#import <AMapLocationKit/AMapLocationKit.h>
 //#import "ZTFuJinShangJiaViewController.h"
 //#import "ZTSheQuWuYeViewController.h"
 //#import "ZTSheQuZhenWuViewController.h"
@@ -16,6 +15,7 @@
 //#import "ZTXiangQinHealthyLifeViewController.h"
 #import "ZJGuangLiShouHuoDiZhiViewController.h"
 #import "EPCalendarViewController.h"
+#import "ZJShopClassVC.h"
 
 #import "ZTJianKangShenHuoBottomModel.h"
 #import "ZTLunBoToModel.h"
@@ -33,13 +33,14 @@
 #import "HomePageCellModel.h"
 #import "WifeButlerDefine.h"
 
-@interface ZJHomePageController ()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface ZJHomePageController ()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,AMapLocationManagerDelegate>
 {
     NSArray *_dataSource;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *addressLab;
 
+@property (nonatomic,strong) AMapLocationManager * locationManager;
 
 @property (nonatomic, assign) CGSize cardSize;
 
@@ -77,6 +78,7 @@
     
     [self requestBannerData];
     
+    
     // 如果用户没有设置经纬度, 设置默认经纬度, 防止社区购物的时候没有物品
     if ([NSGetUserDefaults(@"jing") length] == 0) {
         
@@ -92,6 +94,13 @@
     //    });
     
 }
+
+- (void)initLocationManager
+{
+    self.locationManager = [[AMapLocationManager alloc]init];
+    self.locationManager.delegate = self;
+}
+
 
 /**轮播图请求*/
 - (void)requestBannerData
@@ -247,7 +256,8 @@
         }
             break;
         case 1:{ //社区购物
-            
+            ZJShopClassVC * shop = [[ZJShopClassVC alloc]init];
+            [self.navigationController pushViewController:shop animated:YES];
         }
             break;
         case 4:{ //环保日历
@@ -363,29 +373,6 @@
 //    }
 //}
 
-// 缩放大小
-- (CGFloat)scaleByOffset:(CGFloat)offset
-{
-    
-    if (offset > 0) {
-        
-        return 1.1 - (offset * 0.18);
-    }
-    
-    else
-    {
-        return 1.1 + (offset * 0.18);
-    }
-    
-}
-
-// 抛物线程度
-- (CGFloat)translationByOffset:(CGFloat)offset
-{
-    return (offset * offset) * 0.14;
-}
-
-
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -408,7 +395,7 @@
         
         UIAlertAction *otherAction = [UIAlertAction actionWithTitle:otherButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             
-            [self addressClick:nil];
+            [self titleButtonClick];
         }];
         
         [vc addAction:action];
@@ -416,24 +403,6 @@
         
         [self presentViewController:vc animated:YES completion:nil];
     }
-}
-
-#pragma mark - 地址选择
-- (IBAction)addressClick:(id)sender {
-    
-    //    ZJGuangLiShouHuoDiZhiViewController *vc = [[ZJGuangLiShouHuoDiZhiViewController alloc] init];
-    //    [vc setReturnBackBlock:^{
-    //        [self createNav];
-    //    }];
-    //    vc.hidesBottomBarWhenPushed = YES;
-    //    [self.navigationController pushViewController:vc animated:YES];
-    
-}
-
-#pragma mark - 选择地址
-- (void)viewClick
-{
-   
 }
 
 
@@ -454,58 +423,6 @@
 }
 
 
-#pragma mark - 请求数据
-- (void)netWorking
-{
-    // 本地存放
-    //    NSString *directory = NSHomeDirectory();
-    //    NSData *dataPath = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@/LunBoTu", directory]];
-    //    _dataSource = [NSKeyedUnarchiver unarchiveObjectWithData:dataPath];
-    //
-    //    if (_dataSource.count != 0) {
-    //
-    //        [self createScorllView1:_dataSource];
-    //    }
-    
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KHomeLunBoTu];
-    
-    [WifeButlerNetWorking getHttpRequestWithURLsite:url parameter:nil success:^(NSDictionary *response) {
-        
-        NSString *message = [NSString stringWithFormat:@"%@", response[@"message"]];
-        
-        ZJLog(@"%@", response);
-        
-        // 登录成功
-        if ([response[@"code"] intValue] == 10000) {
-            
-            [SVProgressHUD dismiss];
-            
-            _dataSource = [ZTLunBoToModel mj_objectArrayWithKeyValuesArray:response[@"resultCode"]];
-            
-            // 轮播图
-            [self createScorllView1:_dataSource];
-            
-            // 获取沙盒根目录
-            NSString *directory = NSHomeDirectory();
-            
-            NSLog(@"directory:%@", directory);
-            
-            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_dataSource];
-            
-            [data writeToFile:[NSString stringWithFormat:@"%@/LunBoTu", directory] atomically:YES];
-        }
-        else
-        {
-            
-            [SVProgressHUD showErrorWithStatus:message];
-        }
-        
-        
-    } failure:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
-    }];
-    
-}
 
 #pragma mark - 默认经纬度请求
 - (void)netWorkingJinWeiDu
@@ -563,17 +480,6 @@
     self.tableHeader.bannerImageURLStrings = imageArrMutTemp;
 }
 
-/** 点击图片回调 */
-//- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
-//{
-//
-//    ZTLunBoToModel *model = _dataSource[index];
-//
-//    ZTXiangQinHealthyLifeViewController *vc = [[ZTXiangQinHealthyLifeViewController alloc] init];
-//    vc.id_temp = model.goods_id;
-//    vc.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:vc animated:YES];
-//}
 
 
 

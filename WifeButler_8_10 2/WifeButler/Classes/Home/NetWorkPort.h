@@ -28,4 +28,10 @@
 /**我的圈子*/
 #define TRENDSLIST [HTTP_BaseURL stringByAppendingString: @"account/chat/myindex"]
 
+/**社区购物左侧选择列表 1.jing 2.wei 3.cat_id 4.serve_id 5.pagesize 6.pageindex*/
+#define KCommunityShopLeftList [HTTP_BaseURL stringByAppendingString:@"goods/goods/goods_index"]
+
+/**社区购物右侧展示列表*/
+#define KCommunityShopRightList [HTTP_BaseURL stringByAppendingString:@"goods/goods/cat_goods"]
+
 #endif /* NetWorkPort_h */

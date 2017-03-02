@@ -136,11 +136,6 @@
 //商品详情webView
 #define  KGoodDetailWebViewURL        @"goods/goods/goods_desc/"
 
-// 社区购物 店铺商品左侧分类
-#define  KSheQuGouWuZuo         @"goods/goods/shop_cats/"
-
-// 社区购物 店铺商品右侧分类
-#define  KSheQuGouWuYou         @"goods/goods/shop_goods/"
 
 // 社区服务和社区物业列表
 #define   KSheQuFuWuList        @"goods/goods/serve_index/"

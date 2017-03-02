@@ -167,18 +167,10 @@
 		7BE3C6BE1CF1A54C00851512 /* ZYQAssetPicker.Bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7BE3C6BB1CF1A54C00851512 /* ZYQAssetPicker.Bundle */; };
 		7BE3C6BF1CF1A54C00851512 /* ZYQAssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE3C6BD1CF1A54C00851512 /* ZYQAssetPickerController.m */; };
 		7BE3C6C21CF1A55300851512 /* UIImageView+Del.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE3C6C11CF1A55300851512 /* UIImageView+Del.m */; };
-		7BE420461D13A6BB009A8FAB /* LoopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE4203D1D13A6BB009A8FAB /* LoopButton.m */; };
-		7BE420471D13A6BB009A8FAB /* LoopButtonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE4203F1D13A6BB009A8FAB /* LoopButtonManager.m */; };
-		7BE420481D13A6BB009A8FAB /* LoopLargeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE420411D13A6BB009A8FAB /* LoopLargeButton.m */; };
-		7BE420491D13A6BB009A8FAB /* LoopMiddleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE420431D13A6BB009A8FAB /* LoopMiddleButton.m */; };
-		7BE4204A1D13A6BB009A8FAB /* LoopSmallButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE420451D13A6BB009A8FAB /* LoopSmallButton.m */; };
-		7BE4204D1D13A6C8009A8FAB /* LoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE4204C1D13A6C8009A8FAB /* LoopView.m */; };
-		7BE420601D13A730009A8FAB /* ZJCommunityShopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE4204F1D13A730009A8FAB /* ZJCommunityShopCell.m */; };
 		7BE420631D13A730009A8FAB /* ZJGoodsDetailCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE420551D13A730009A8FAB /* ZJGoodsDetailCell1.m */; };
 		7BE420641D13A730009A8FAB /* ZJGoodsDetailCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE420571D13A730009A8FAB /* ZJGoodsDetailCell2.m */; };
 		7BE420651D13A730009A8FAB /* ZJGoodsDetailCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE420591D13A730009A8FAB /* ZJGoodsDetailCell3.m */; };
 		7BE420661D13A730009A8FAB /* ZJGoodsDetailCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE4205B1D13A730009A8FAB /* ZJGoodsDetailCell4.m */; };
-		7BE420671D13A730009A8FAB /* ZJShopClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE4205D1D13A730009A8FAB /* ZJShopClassCell.m */; };
 		7BE420681D13A730009A8FAB /* ZJShopClassCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE4205F1D13A730009A8FAB /* ZJShopClassCell1.m */; };
 		7BED50191D0CF6D800DB2D60 /* ZTLeiXinShangPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BED50181D0CF6D800DB2D60 /* ZTLeiXinShangPinViewController.m */; };
 		7BED501C1D0CF9EB00DB2D60 /* ZTTongLeiShangPinCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BED501B1D0CF9EB00DB2D60 /* ZTTongLeiShangPinCollectionViewCell.m */; };
@@ -207,6 +199,11 @@
 		7BFBA6E81CFEC2B700D4E07C /* ZTLeiBieaaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA6E71CFEC2B700D4E07C /* ZTLeiBieaaModel.m */; };
 		7BFBA6EB1CFF030600D4E07C /* ZTAddAddressTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFBA6EA1CFF030600D4E07C /* ZTAddAddressTableViewController.m */; };
 		7BFBA6ED1CFF032A00D4E07C /* ZTAddAddress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BFBA6EC1CFF032A00D4E07C /* ZTAddAddress.storyboard */; };
+		C70734951E680FF10043CB3E /* CommonShopLeftSelectTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C70734941E680FF10043CB3E /* CommonShopLeftSelectTypeView.m */; };
+		C70734981E6818780043CB3E /* WifeButlerLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C70734971E6818780043CB3E /* WifeButlerLocationManager.m */; };
+		C707349C1E681AE70043CB3E /* CommunityShopMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C707349A1E681AE70043CB3E /* CommunityShopMainViewCell.m */; };
+		C707349D1E681AE70043CB3E /* CommunityShopMainViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C707349B1E681AE70043CB3E /* CommunityShopMainViewCell.xib */; };
+		C70734A01E6828C10043CB3E /* CommunityShopMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C707349F1E6828C10043CB3E /* CommunityShopMainModel.m */; };
 		C71058391E615ED700C85CBE /* WifeButlerUserParty.m in Sources */ = {isa = PBXBuildFile; fileRef = C71058381E615ED700C85CBE /* WifeButlerUserParty.m */; };
 		C710583E1E61B58600C85CBE /* WifeButlerLoadingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C710583D1E61B58600C85CBE /* WifeButlerLoadingTableView.m */; };
 		C71058411E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71058401E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m */; };
@@ -581,20 +578,6 @@
 		7BE3C6BD1CF1A54C00851512 /* ZYQAssetPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYQAssetPickerController.m; sourceTree = "<group>"; };
 		7BE3C6C01CF1A55300851512 /* UIImageView+Del.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Del.h"; sourceTree = "<group>"; };
 		7BE3C6C11CF1A55300851512 /* UIImageView+Del.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Del.m"; sourceTree = "<group>"; };
-		7BE4203C1D13A6BB009A8FAB /* LoopButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopButton.h; sourceTree = "<group>"; };
-		7BE4203D1D13A6BB009A8FAB /* LoopButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopButton.m; sourceTree = "<group>"; };
-		7BE4203E1D13A6BB009A8FAB /* LoopButtonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopButtonManager.h; sourceTree = "<group>"; };
-		7BE4203F1D13A6BB009A8FAB /* LoopButtonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopButtonManager.m; sourceTree = "<group>"; };
-		7BE420401D13A6BB009A8FAB /* LoopLargeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopLargeButton.h; sourceTree = "<group>"; };
-		7BE420411D13A6BB009A8FAB /* LoopLargeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopLargeButton.m; sourceTree = "<group>"; };
-		7BE420421D13A6BB009A8FAB /* LoopMiddleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopMiddleButton.h; sourceTree = "<group>"; };
-		7BE420431D13A6BB009A8FAB /* LoopMiddleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopMiddleButton.m; sourceTree = "<group>"; };
-		7BE420441D13A6BB009A8FAB /* LoopSmallButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopSmallButton.h; sourceTree = "<group>"; };
-		7BE420451D13A6BB009A8FAB /* LoopSmallButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopSmallButton.m; sourceTree = "<group>"; };
-		7BE4204B1D13A6C8009A8FAB /* LoopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopView.h; sourceTree = "<group>"; };
-		7BE4204C1D13A6C8009A8FAB /* LoopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopView.m; sourceTree = "<group>"; };
-		7BE4204E1D13A730009A8FAB /* ZJCommunityShopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCommunityShopCell.h; sourceTree = "<group>"; };
-		7BE4204F1D13A730009A8FAB /* ZJCommunityShopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCommunityShopCell.m; sourceTree = "<group>"; };
 		7BE420541D13A730009A8FAB /* ZJGoodsDetailCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJGoodsDetailCell1.h; sourceTree = "<group>"; };
 		7BE420551D13A730009A8FAB /* ZJGoodsDetailCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJGoodsDetailCell1.m; sourceTree = "<group>"; };
 		7BE420561D13A730009A8FAB /* ZJGoodsDetailCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJGoodsDetailCell2.h; sourceTree = "<group>"; };
@@ -603,8 +586,6 @@
 		7BE420591D13A730009A8FAB /* ZJGoodsDetailCell3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJGoodsDetailCell3.m; sourceTree = "<group>"; };
 		7BE4205A1D13A730009A8FAB /* ZJGoodsDetailCell4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJGoodsDetailCell4.h; sourceTree = "<group>"; };
 		7BE4205B1D13A730009A8FAB /* ZJGoodsDetailCell4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJGoodsDetailCell4.m; sourceTree = "<group>"; };
-		7BE4205C1D13A730009A8FAB /* ZJShopClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJShopClassCell.h; sourceTree = "<group>"; };
-		7BE4205D1D13A730009A8FAB /* ZJShopClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJShopClassCell.m; sourceTree = "<group>"; };
 		7BE4205E1D13A730009A8FAB /* ZJShopClassCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJShopClassCell1.h; sourceTree = "<group>"; };
 		7BE4205F1D13A730009A8FAB /* ZJShopClassCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJShopClassCell1.m; sourceTree = "<group>"; };
 		7BED50171D0CF6D800DB2D60 /* ZTLeiXinShangPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTLeiXinShangPinViewController.h; sourceTree = "<group>"; };
@@ -658,6 +639,15 @@
 		7BFBA6E91CFF030600D4E07C /* ZTAddAddressTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTAddAddressTableViewController.h; sourceTree = "<group>"; };
 		7BFBA6EA1CFF030600D4E07C /* ZTAddAddressTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTAddAddressTableViewController.m; sourceTree = "<group>"; };
 		7BFBA6EC1CFF032A00D4E07C /* ZTAddAddress.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZTAddAddress.storyboard; sourceTree = "<group>"; };
+		C70734931E680FF10043CB3E /* CommonShopLeftSelectTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonShopLeftSelectTypeView.h; sourceTree = "<group>"; };
+		C70734941E680FF10043CB3E /* CommonShopLeftSelectTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonShopLeftSelectTypeView.m; sourceTree = "<group>"; };
+		C70734961E6818780043CB3E /* WifeButlerLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerLocationManager.h; sourceTree = "<group>"; };
+		C70734971E6818780043CB3E /* WifeButlerLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerLocationManager.m; sourceTree = "<group>"; };
+		C70734991E681AE70043CB3E /* CommunityShopMainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityShopMainViewCell.h; sourceTree = "<group>"; };
+		C707349A1E681AE70043CB3E /* CommunityShopMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityShopMainViewCell.m; sourceTree = "<group>"; };
+		C707349B1E681AE70043CB3E /* CommunityShopMainViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityShopMainViewCell.xib; sourceTree = "<group>"; };
+		C707349E1E6828C10043CB3E /* CommunityShopMainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityShopMainModel.h; sourceTree = "<group>"; };
+		C707349F1E6828C10043CB3E /* CommunityShopMainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityShopMainModel.m; sourceTree = "<group>"; };
 		C71058371E615ED700C85CBE /* WifeButlerUserParty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerUserParty.h; sourceTree = "<group>"; };
 		C71058381E615ED700C85CBE /* WifeButlerUserParty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerUserParty.m; sourceTree = "<group>"; };
 		C710583A1E615F0F00C85CBE /* HMSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSingleton.h; sourceTree = "<group>"; };
@@ -1878,6 +1868,8 @@
 				C7F8EE9A1E5D6F3A008C8A06 /* 网络请求封装 */,
 				7B0537381D10419100BE9762 /* 图片查看器 */,
 				7B0536E71D0FE5E400BE9762 /* TYAttributedLabel */,
+				C70734961E6818780043CB3E /* WifeButlerLocationManager.h */,
+				C70734971E6818780043CB3E /* WifeButlerLocationManager.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -2535,41 +2527,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		7BE420391D13A6AE009A8FAB /* 自定制动画 */ = {
-			isa = PBXGroup;
-			children = (
-				7BE4203A1D13A6AE009A8FAB /* Cycle */,
-				7BE4203B1D13A6AE009A8FAB /* LoopButton */,
-			);
-			path = "自定制动画";
-			sourceTree = "<group>";
-		};
-		7BE4203A1D13A6AE009A8FAB /* Cycle */ = {
-			isa = PBXGroup;
-			children = (
-				7BE4204B1D13A6C8009A8FAB /* LoopView.h */,
-				7BE4204C1D13A6C8009A8FAB /* LoopView.m */,
-			);
-			path = Cycle;
-			sourceTree = "<group>";
-		};
-		7BE4203B1D13A6AE009A8FAB /* LoopButton */ = {
-			isa = PBXGroup;
-			children = (
-				7BE4203C1D13A6BB009A8FAB /* LoopButton.h */,
-				7BE4203D1D13A6BB009A8FAB /* LoopButton.m */,
-				7BE4203E1D13A6BB009A8FAB /* LoopButtonManager.h */,
-				7BE4203F1D13A6BB009A8FAB /* LoopButtonManager.m */,
-				7BE420401D13A6BB009A8FAB /* LoopLargeButton.h */,
-				7BE420411D13A6BB009A8FAB /* LoopLargeButton.m */,
-				7BE420421D13A6BB009A8FAB /* LoopMiddleButton.h */,
-				7BE420431D13A6BB009A8FAB /* LoopMiddleButton.m */,
-				7BE420441D13A6BB009A8FAB /* LoopSmallButton.h */,
-				7BE420451D13A6BB009A8FAB /* LoopSmallButton.m */,
-			);
-			path = LoopButton;
-			sourceTree = "<group>";
-		};
 		7BED50131D0CF6BB00DB2D60 /* 同类商品 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2804,6 +2761,8 @@
 		7BFBA6891CFE80EC00D4E07C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C707349E1E6828C10043CB3E /* CommunityShopMainModel.h */,
+				C707349F1E6828C10043CB3E /* CommunityShopMainModel.m */,
 			);
 			name = Models;
 			path = models;
@@ -2812,8 +2771,6 @@
 		7BFBA68A1CFE80EC00D4E07C /* views */ = {
 			isa = PBXGroup;
 			children = (
-				7BE4204E1D13A730009A8FAB /* ZJCommunityShopCell.h */,
-				7BE4204F1D13A730009A8FAB /* ZJCommunityShopCell.m */,
 				7BE420541D13A730009A8FAB /* ZJGoodsDetailCell1.h */,
 				7BE420551D13A730009A8FAB /* ZJGoodsDetailCell1.m */,
 				7BE420561D13A730009A8FAB /* ZJGoodsDetailCell2.h */,
@@ -2822,10 +2779,11 @@
 				7BE420591D13A730009A8FAB /* ZJGoodsDetailCell3.m */,
 				7BE4205A1D13A730009A8FAB /* ZJGoodsDetailCell4.h */,
 				7BE4205B1D13A730009A8FAB /* ZJGoodsDetailCell4.m */,
-				7BE4205C1D13A730009A8FAB /* ZJShopClassCell.h */,
-				7BE4205D1D13A730009A8FAB /* ZJShopClassCell.m */,
 				7BE4205E1D13A730009A8FAB /* ZJShopClassCell1.h */,
 				7BE4205F1D13A730009A8FAB /* ZJShopClassCell1.m */,
+				C70734991E681AE70043CB3E /* CommunityShopMainViewCell.h */,
+				C707349A1E681AE70043CB3E /* CommunityShopMainViewCell.m */,
+				C707349B1E681AE70043CB3E /* CommunityShopMainViewCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -2847,7 +2805,8 @@
 			isa = PBXGroup;
 			children = (
 				C7F8EE961E5D6CB9008C8A06 /* 首页视图 */,
-				7BE420391D13A6AE009A8FAB /* 自定制动画 */,
+				C70734931E680FF10043CB3E /* CommonShopLeftSelectTypeView.h */,
+				C70734941E680FF10043CB3E /* CommonShopLeftSelectTypeView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3179,6 +3138,7 @@
 				7B2366B71D026FFF003BC590 /* ZTSheQuWuYe.storyboard in Resources */,
 				7B4F39791CF295DE00D427CD /* ZTGouWuChe.storyboard in Resources */,
 				7BCAA45A1D40AEBE00F46C33 /* ZTTiShiView.xib in Resources */,
+				C707349D1E681AE70043CB3E /* CommunityShopMainViewCell.xib in Resources */,
 				7B8D04C31CEAB3380024B812 /* ZJLogin.storyboard in Resources */,
 				C7A191B91E6021DD00FEDFD1 /* ZTLaJiHuanMiTableViewCell.xib in Resources */,
 				7BFBA6BD1CFE80EC00D4E07C /* ZJHomePageController.storyboard in Resources */,
@@ -3283,7 +3243,7 @@
 				7BBDB5FE1D010E730098B079 /* UITabBarItem+WZLBadge.m in Sources */,
 				7B0537041D0FE5E400BE9762 /* TYTextContainer.m in Sources */,
 				C7A191CA1E603BB700FEDFD1 /* WifeButlerDefine.m in Sources */,
-				7BE4204A1D13A6BB009A8FAB /* LoopSmallButton.m in Sources */,
+				C70734951E680FF10043CB3E /* CommonShopLeftSelectTypeView.m in Sources */,
 				7BFBA6E31CFE848600D4E07C /* ZTFuJinShangJiaViewController.m in Sources */,
 				C7FFD4D31E6717DB00754C92 /* FriendCircleMarkPopView.m in Sources */,
 				C710583E1E61B58600C85CBE /* WifeButlerLoadingTableView.m in Sources */,
@@ -3292,7 +3252,6 @@
 				7B4F39771CF295CD00D427CD /* ZTPersonGouWuCheViewController.m in Sources */,
 				7BC580571CF6C81C00FD157A /* ZJProcessorDetailTableCell5.m in Sources */,
 				7B0537061D0FE5E400BE9762 /* TYViewStorage.m in Sources */,
-				7BE420471D13A6BB009A8FAB /* LoopButtonManager.m in Sources */,
 				7BA606561D051FD700148007 /* ZTWuYeShopsModel.m in Sources */,
 				7BED501C1D0CF9EB00DB2D60 /* ZTTongLeiShangPinCollectionViewCell.m in Sources */,
 				7BCAA4581D40AEAA00F46C33 /* ZTTiShiKuanView.m in Sources */,
@@ -3326,6 +3285,7 @@
 				7BC580561CF6C81C00FD157A /* ZJProcessorDetailTableCell4.m in Sources */,
 				7BC5805A1CF6C81C00FD157A /* ZTLaJiHuanMiTableViewCell.m in Sources */,
 				7B0537021D0FE5E400BE9762 /* TYLinkTextStorage.m in Sources */,
+				C70734981E6818780043CB3E /* WifeButlerLocationManager.m in Sources */,
 				7BBDB6041D011C680098B079 /* UserGuideViewController.m in Sources */,
 				C7FFD4E81E671DDB00754C92 /* ImageUtils.m in Sources */,
 				C7FFD4F71E67262600754C92 /* FontUtils.m in Sources */,
@@ -3339,14 +3299,13 @@
 				7BF9ACAB1D12B37E00F0D000 /* ZTXiaoQuXuanZeViewController.m in Sources */,
 				7BB43F501CE9C3BC007D722A /* main.m in Sources */,
 				7B9D39B01CF9B8B200F6359D /* ZTShangPingModel.m in Sources */,
-				7BE420461D13A6BB009A8FAB /* LoopButton.m in Sources */,
 				7BED50191D0CF6D800DB2D60 /* ZTLeiXinShangPinViewController.m in Sources */,
 				C7FFD4D01E67173C00754C92 /* DocFriendHeaderView.m in Sources */,
 				C7FFD4F11E6721F800754C92 /* DocFriendReviewModel.m in Sources */,
 				7BAD20251D5495D8005798F2 /* ZTOrderXiangQinModel.m in Sources */,
 				7BAD20181D546867005798F2 /* ZTDuiHuanOrder2TableViewCell.m in Sources */,
+				C70734A01E6828C10043CB3E /* CommunityShopMainModel.m in Sources */,
 				7B0536FE1D0FE5E400BE9762 /* TYAttributedLabel.m in Sources */,
-				7BE420671D13A730009A8FAB /* ZJShopClassCell.m in Sources */,
 				7B8D04C61CEAB3380024B812 /* ZJUserProtocalVC.m in Sources */,
 				7BE420661D13A730009A8FAB /* ZJGoodsDetailCell4.m in Sources */,
 				7BC580581CF6C81C00FD157A /* ZTShangPingGuiGeTableViewCell.m in Sources */,
@@ -3360,6 +3319,7 @@
 				7B9D399F1CF9393C00F6359D /* ZTPingLunModel.m in Sources */,
 				7B86D8101CF874E100AB1E05 /* ZTChuLiQiXQModel.m in Sources */,
 				7B63EAC61CFC6742004F9DA7 /* ZTHuanMiCanShuTableViewCell.m in Sources */,
+				C707349C1E681AE70043CB3E /* CommunityShopMainViewCell.m in Sources */,
 				7BF4996D1CFD6E9000CCEB45 /* ZTGouWuCheModel.m in Sources */,
 				C7BA19CB1E26778F00405816 /* UIColor+HexColor.m in Sources */,
 				C7FFD4F41E67220A00754C92 /* DocFriendHeaderModel.m in Sources */,
@@ -3375,7 +3335,6 @@
 				C7FFD4DB1E67183C00754C92 /* RightBarMorePopView.m in Sources */,
 				7BD5B7E01D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.m in Sources */,
 				7BC5804C1CF6C81C00FD157A /* ZTGarbageOfRiceViewController.m in Sources */,
-				7BE4204D1D13A6C8009A8FAB /* LoopView.m in Sources */,
 				7B9D39AD1CF9B6AF00F6359D /* ZTWoDeDingDanModel.m in Sources */,
 				7BFBA6C01CFE80EC00D4E07C /* ZJShopClassVC.m in Sources */,
 				7BBDB6001D010E730098B079 /* UIView+WZLBadge.m in Sources */,
@@ -3440,7 +3399,6 @@
 				C7FFD4E21E6719DF00754C92 /* CSActionSheetCell.m in Sources */,
 				7BE3C64B1CF1938800851512 /* ZTYiJianFanKuiViewController.m in Sources */,
 				C7FFD50D1E67298400754C92 /* CommonEmojiManager.m in Sources */,
-				7BE420481D13A6BB009A8FAB /* LoopLargeButton.m in Sources */,
 				C7FFD4E11E6719DF00754C92 /* CSActionSheet.m in Sources */,
 				7BE3C6C21CF1A55300851512 /* UIImageView+Del.m in Sources */,
 				7BAF05001D37886800011945 /* ZTShenShiQuModel.m in Sources */,
@@ -3454,7 +3412,6 @@
 				7B392D5B1D152ADB00A182BC /* ZTShenPiDianPuViewController.m in Sources */,
 				7BAD20221D547FA2005798F2 /* ZTDuiHuanOederModel.m in Sources */,
 				7B9B6F161D0D3DB300CC3D09 /* ZTYuYueViewController.m in Sources */,
-				7BE420601D13A730009A8FAB /* ZJCommunityShopCell.m in Sources */,
 				C71058391E615ED700C85CBE /* WifeButlerUserParty.m in Sources */,
 				7BF499791CFD8EFD00CCEB45 /* ZTJieSuan11TableViewCell.m in Sources */,
 				C7FFD4EB1E6721E700754C92 /* DocFriendModel.m in Sources */,
@@ -3474,7 +3431,6 @@
 				7BBE4D5B1D06C37A00DBF00F /* ZTSheQuWuYeFuWuXiangQinViewController.m in Sources */,
 				7BFBA6E81CFEC2B700D4E07C /* ZTLeiBieaaModel.m in Sources */,
 				7BF9AC9B1D1244AF00F0D000 /* ZTTimeBottonModel.m in Sources */,
-				7BE420491D13A6BB009A8FAB /* LoopMiddleButton.m in Sources */,
 				7B0536FD1D0FE5E400BE9762 /* NSMutableAttributedString+TY.m in Sources */,
 				7BE420651D13A730009A8FAB /* ZJGoodsDetailCell3.m in Sources */,
 				C7FFD5031E67293200754C92 /* CommonEmojiKeyBoardView.m in Sources */,
