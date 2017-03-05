@@ -1,10 +1,4 @@
-//
-//  XMGSocialViewController.m
-//  02-网易新闻首页
-//
-//  Created by xiaomage on 15/7/6.
-//  Copyright (c) 2015年 小码哥. All rights reserved.
-//
+
 
 #import "XMGSocialViewController.h"
 #import "XMGConst.h"
@@ -16,6 +10,7 @@
 #import "MJExtension.h"
 #import "ZTJianKangShenHuoBottomModel.h"
 #import "WifeButlerInfoTableViewCell.h"
+#import "WifeButlerWebViewController.h"
 
 @interface XMGSocialViewController ()
 
@@ -126,4 +121,18 @@ static NSString *ID = @"social";
     ZTJianKangShenHuoBottomModel * model = self.dataArray[indexPath.row];
     return model.cellHeigh;
 }
+
+#pragma mark - 跳转详情
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    ZTJianKangShenHuoBottomModel * model = self.dataArray[indexPath.row];
+    NSString * urlStr = [NSString stringWithFormat:KinformationDetial,model.Id];
+    
+    WifeButlerWebViewController * web = [[WifeButlerWebViewController alloc]initWithUrlStr:urlStr];
+    web.title = @"咨询详情";
+    [self.navigationController pushViewController:web animated:YES];
+}
+
 @end

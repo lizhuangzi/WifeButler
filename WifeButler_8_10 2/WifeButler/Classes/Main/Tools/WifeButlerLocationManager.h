@@ -8,14 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "HMSingleton.h"
+#import <CoreLocation/CoreLocation.h>
+
+struct MainLocationInfoStuct{
+    CLLocationCoordinate2D location2D;
+    char * village;
+};
 
 @interface WifeButlerLocationManager : NSObject
 
 HMSingletonH(Manager);
 
 
-@property (nonatomic,assign) CGFloat longtitude;
 
-@property (nonatomic,assign) CGFloat latitude;
+- (void)startLocationAndFinishBlock:(void(^)(NSString * village,CLLocationCoordinate2D  location))returnInformation;
 
 @end

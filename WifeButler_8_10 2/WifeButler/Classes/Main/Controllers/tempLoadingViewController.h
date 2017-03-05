@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+/**这是启动页*/
 @interface tempLoadingViewController : UIViewController
 
 @end

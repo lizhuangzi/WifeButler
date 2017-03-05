@@ -15,6 +15,7 @@
 #import "PersonalPort.h"
 #import "WifeButlerUserParty.h"
 #import "WifeButlerAccount.h"
+#import "WifeButlerLocationManager.h"
 
 @interface ZJLoginController () <UITextFieldDelegate>
 
@@ -293,7 +294,7 @@ NSString * const LoginViewControllerDidLoginSuccessNotification = @"LoginViewCon
                 
                 self.shuaiXinShuJu();
             }
-            
+
             [[NSNotificationCenter defaultCenter]postNotificationName:LoginViewControllerDidLoginSuccessNotification object:nil userInfo:@{}];
             
             [self.navigationController popViewControllerAnimated:YES];
@@ -320,6 +321,7 @@ NSString * const LoginViewControllerDidLoginSuccessNotification = @"LoginViewCon
         WifeButlerUserParty * party = [WifeButlerUserParty UserPartyWithDictionary:result];
         party.userLoginAccount = [userName copy];
         party.userLoginPassWord = [password copy];
+        
         
         [[WifeButlerAccount sharedAccount]loginUserParty:party];
         !finish?:finish(LoginResultReturnTypeSuccess);

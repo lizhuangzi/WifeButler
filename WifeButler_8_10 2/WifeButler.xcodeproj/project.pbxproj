@@ -213,6 +213,8 @@
 		C781A9181E5FFCF900E3D325 /* XMGHomeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9121E5FFCF900E3D325 /* XMGHomeLabel.m */; };
 		C781A9191E5FFCF900E3D325 /* XMGHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9141E5FFCF900E3D325 /* XMGHomeViewController.m */; };
 		C781A91A1E5FFCF900E3D325 /* XMGSocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9161E5FFCF900E3D325 /* XMGSocialViewController.m */; };
+		C78973981E6BF1CD00BFF404 /* WifeButlerWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C78973971E6BF1CD00BFF404 /* WifeButlerWebViewController.m */; };
+		C789739A1E6C0F0900BFF404 /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C78973991E6C0F0900BFF404 /* Location.gpx */; };
 		C7A191B91E6021DD00FEDFD1 /* ZTLaJiHuanMiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A191B81E6021DD00FEDFD1 /* ZTLaJiHuanMiTableViewCell.xib */; };
 		C7A191BC1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A191BB1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.m */; };
 		C7A191BE1E60263800FEDFD1 /* WifebutlerRCRHomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A191BD1E60263800FEDFD1 /* WifebutlerRCRHomeHeaderView.xib */; };
@@ -668,6 +670,9 @@
 		C781A9141E5FFCF900E3D325 /* XMGHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGHomeViewController.m; sourceTree = "<group>"; };
 		C781A9151E5FFCF900E3D325 /* XMGSocialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGSocialViewController.h; sourceTree = "<group>"; };
 		C781A9161E5FFCF900E3D325 /* XMGSocialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGSocialViewController.m; sourceTree = "<group>"; };
+		C78973961E6BF1CD00BFF404 /* WifeButlerWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerWebViewController.h; sourceTree = "<group>"; };
+		C78973971E6BF1CD00BFF404 /* WifeButlerWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerWebViewController.m; sourceTree = "<group>"; };
+		C78973991E6C0F0900BFF404 /* Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		C7A191B81E6021DD00FEDFD1 /* ZTLaJiHuanMiTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZTLaJiHuanMiTableViewCell.xib; sourceTree = "<group>"; };
 		C7A191BA1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifebutlerRCRHomeHeaderView.h; sourceTree = "<group>"; };
 		C7A191BB1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifebutlerRCRHomeHeaderView.m; sourceTree = "<group>"; };
@@ -1736,6 +1741,7 @@
 				7BB43F5F1CE9C3BC007D722A /* Info.plist */,
 				7BB43F4F1CE9C3BC007D722A /* main.m */,
 				7BB43FBB1CE9C880007D722A /* ZTWifeButle_Prefix.pch */,
+				C78973991E6C0F0900BFF404 /* Location.gpx */,
 				7B8D04C71CEB01F80024B812 /* NSURL.h */,
 			);
 			name = "Supporting Files";
@@ -1830,6 +1836,8 @@
 				C71058401E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m */,
 				C7FFD4B01E66AE4500754C92 /* tempLoadingViewController.h */,
 				C7FFD4B11E66AE4500754C92 /* tempLoadingViewController.m */,
+				C78973961E6BF1CD00BFF404 /* WifeButlerWebViewController.h */,
+				C78973971E6BF1CD00BFF404 /* WifeButlerWebViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -3061,7 +3069,7 @@
 				TargetAttributes = {
 					7BB43F4A1CE9C3BC007D722A = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 55KVZ9FZ2F;
+						ProvisioningStyle = Manual;
 					};
 					7BB43F631CE9C3BC007D722A = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -3134,6 +3142,7 @@
 				7B9B6F171D0D3DB300CC3D09 /* ZTYuYueViewController.xib in Resources */,
 				C7C4A4921E5EB22500075A27 /* HomePageSectionHeaderView.xib in Resources */,
 				7BF499761CFD87C800CCEB45 /* ZTJieSuanGouWuChe.storyboard in Resources */,
+				C789739A1E6C0F0900BFF404 /* Location.gpx in Resources */,
 				7BD5B7E11D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.xib in Resources */,
 				7B2366B71D026FFF003BC590 /* ZTSheQuWuYe.storyboard in Resources */,
 				7B4F39791CF295DE00D427CD /* ZTGouWuChe.storyboard in Resources */,
@@ -3338,6 +3347,7 @@
 				7B9D39AD1CF9B6AF00F6359D /* ZTWoDeDingDanModel.m in Sources */,
 				7BFBA6C01CFE80EC00D4E07C /* ZJShopClassVC.m in Sources */,
 				7BBDB6001D010E730098B079 /* UIView+WZLBadge.m in Sources */,
+				C78973981E6BF1CD00BFF404 /* WifeButlerWebViewController.m in Sources */,
 				7BBDB5FF1D010E730098B079 /* CAAnimation+WAnimation.m in Sources */,
 				7BAD20101D544609005798F2 /* ZTDuiHuanDingDanViewController.m in Sources */,
 				C7FFD4B21E66AE4500754C92 /* tempLoadingViewController.m in Sources */,
@@ -3575,7 +3585,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: hongcheng jiang (9878SZ9237)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WifeButler/ZTWifeButle_Prefix.pch";
@@ -3601,7 +3612,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: hongcheng jiang (55KVZ9FZ2F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WifeButler/ZTWifeButle_Prefix.pch";

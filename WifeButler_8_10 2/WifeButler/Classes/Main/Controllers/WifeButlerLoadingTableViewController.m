@@ -24,7 +24,6 @@
     table.dataSource = self;
     table.delegate = self;
     table.loadingDelegate = self;
-    table.allowsSelection = NO;
     [self.view addSubview:table];
     table.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     [table mas_makeConstraints:^(MASConstraintMaker *make) {

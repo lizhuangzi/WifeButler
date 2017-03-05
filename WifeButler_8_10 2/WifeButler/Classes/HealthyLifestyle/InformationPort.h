@@ -20,6 +20,7 @@
 /**资讯内容*/
 #define  KinformationContent [HTTP_BaseURL stringByAppendingString:@"goods/article/health_list"]
 
-
+/**资讯详情*/
+#define KinformationDetial [HTTP_BaseURL stringByAppendingString:@"goods/article/health_detail?article_id=%@"]
 
 #endif /* InformationPort_h */

@@ -23,6 +23,7 @@
 #import "MJExtension.h"
 #import "CommunityShopMainViewCell.h"
 
+
 @interface ZJShopClassVC ()<CommonShopLeftSelectTypeViewSelectDelegate>
 /**数据源*/
 @property (nonatomic,strong) NSMutableArray * dataArray;
@@ -59,6 +60,21 @@
 {
     self.page = 1;
     self.title = @"社区购物";
+    
+    UIButton * rightBtnOrder = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightBtnOrder.frame = CGRectMake(0, 0, 22, 22);
+    [rightBtnOrder setBackgroundImage:[UIImage imageNamed:@"tab_btn_more"] forState:UIControlStateNormal];
+    [rightBtnOrder addTarget:self action:@selector(orderClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton * btnSearch = [UIButton buttonWithType:UIButtonTypeCustom];
+    btnSearch.frame = CGRectMake(0, 0, 22, 22);
+    [btnSearch setBackgroundImage:[UIImage imageNamed:@"ic_Search"] forState:UIControlStateNormal];
+    
+    UIBarButtonItem * item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBtnOrder];
+    UIBarButtonItem * item2 = [[UIBarButtonItem alloc]initWithCustomView:btnSearch];
+    self.navigationItem.rightBarButtonItems = @[item1,item2];
+    
+    
     CommonShopLeftSelectTypeView * selectView = [CommonShopLeftSelectTypeView AddIntoFatherView:self.view];
     selectView.selectDelegate = self;
     self.selectTypeView = selectView;
@@ -180,6 +196,15 @@
     return 90;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CommunityShopMainModel * model = self.dataArray[indexPath.row];
+    UIStoryboard * story = [UIStoryboard storyboardWithName:@"ZJHomePageController" bundle:nil];
+    ZJGoodsDetailVC * vc = [story instantiateViewControllerWithIdentifier:@"ZJGoodsDetailVC"];
+    vc.goodId = model.Id;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 #pragma mark loading refresh
 - (void)WifeButlerLoadingTableViewDidRefresh:(WifeButlerLoadingTableView *)tableView
 {
@@ -192,4 +217,12 @@
     self.page ++;
     [self requestMainHttpData];
 }
+
+- (void)orderClick
+{
+    UIStoryboard * story = [UIStoryboard storyboardWithName:@"ZTHuiZhuanDingDan" bundle:nil];
+    ZTHuiZhuanDingDan1ViewController * vc = [story instantiateViewControllerWithIdentifier:@"ZTHuiZhuanDingDan1ViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 @end

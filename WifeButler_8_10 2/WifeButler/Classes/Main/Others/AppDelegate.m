@@ -15,6 +15,7 @@
 #import "WifeButlerAccount.h"
 #import "UIWindow+existion.h"
 #import <AMapFoundationKit/AMapFoundationKit.h>
+#import "WifeButlerLocationManager.h"
 
 @interface AppDelegate ()
 
@@ -40,7 +41,11 @@
     //向微信注册wxd930ea5d5a258f4f
     [WXApi registerApp:@"wx4fe9cfcc13e33a10" withDescription:@"weiXinWifeButler"];
     [AMapServices sharedServices].apiKey = @"f7ecc75a1f94250a64b6a81b70c60914";
-    
+    //开启定位
+//    [[WifeButlerLocationManager sharedManager]startLocationAndFinishBlock:^(NSString *village, CLLocationCoordinate2D location) {
+//        ZJLog(@"这里会和平的:%@",village);
+//    }];
+
     return YES;
 }
 

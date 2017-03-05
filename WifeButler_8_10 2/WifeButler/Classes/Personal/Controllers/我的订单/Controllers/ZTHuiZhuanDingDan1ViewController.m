@@ -21,6 +21,7 @@
 #import "ZJLoginController.h"
 #import "MJRefresh.h"
 #import  "MJExtension.h"
+#import "WifeButlerDefine.h"
 
 typedef enum {
 
@@ -567,7 +568,9 @@ typedef enum {
     
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
 
-    [dic setObject:KToken forKey:@"token"];
+    NSString * token = [WifeButlerAccount sharedAccount].userParty.token_app;
+    [dic setObject:token forKey:@"token"];
+    
     [dic setObject:@(_prize) forKey:@"pageindex"];
     
     if (self.orderType == orderTypeQuanBu) {
@@ -703,7 +706,9 @@ typedef enum {
     
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
     
-    [dic setObject:KToken forKey:@"token"];
+    NSString * token = [WifeButlerAccount sharedAccount].userParty.token_app;
+    
+    [dic setObject:token forKey:@"token"];
     [dic setObject:@(_prize) forKey:@"pageindex"];
     
     if (self.orderType == orderTypeQuanBu) {

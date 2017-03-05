@@ -78,7 +78,7 @@
 
 - (BOOL)isFirstLaunch
 {
-    return  [[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"];
+    return  ![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"];
 }
 
 
