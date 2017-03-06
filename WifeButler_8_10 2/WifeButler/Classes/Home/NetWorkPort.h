@@ -34,4 +34,6 @@
 /**社区购物右侧展示列表*/
 #define KCommunityShopRightList [HTTP_BaseURL stringByAppendingString:@"goods/goods/cat_goods"]
 
+/**环保日历  userid */
+#define KEPCalenderRequest [HTTP_BaseURL stringByAppendingString:@"integrals/Garbagecollection/usergarbagelist"]
 #endif /* NetWorkPort_h */

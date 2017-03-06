@@ -41,13 +41,15 @@
     
     UIView * dateView = [[UIView alloc]init];
     [self.view addSubview:dateView];
-    dateView.frame = CGRectMake(0, weekBg.height, self.view.width, 200);
+    dateView.frame = CGRectMake(0, weekBg.height, self.view.width, 210);
     dateView.backgroundColor = [UIColor whiteColor];
     self.dateBackView = dateView;
     
     NSDate * date = [NSDate date];
     self.currentShowingDate = date;
     [self createDateButtonWithDate:date];
+    
+    !self.swipCalenderBlock?:self.swipCalenderBlock(date);
     
     UISwipeGestureRecognizer * swip1 = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(panCalender:)];
     [swip1 setDirection:UISwipeGestureRecognizerDirectionLeft];
@@ -83,6 +85,7 @@
         self.currentShowingDate = [self nextMonth:self.currentShowingDate];
         [self createDateButtonWithDate:self.currentShowingDate];
     }
+    !self.swipCalenderBlock?:self.swipCalenderBlock(self.currentShowingDate);
 }
 
 - (void)createDateButtonWithDate:(NSDate *)date
@@ -91,6 +94,7 @@
     if (self.dateBackView.subviews.count>0) {
         needCreate = NO;
     }
+    CGFloat marginH = 5;
     CGFloat itemH = 30;
     CGFloat itemW = self.view.width/7;
     // 1.分析这个月的第一天是第一周的星期几
@@ -100,22 +104,24 @@
     NSInteger dayInThisMonth = [self totaldaysInMonth:date];
     
     for (int i = 0; i < 42; i ++) {
-        UIButton *button = nil;
+        CustomredPointButton *button = nil;
         if (needCreate) {
             
-            button = [[UIButton alloc] init];
-            button.titleLabel.font = [UIFont systemFontOfSize:14];
+            button = [[CustomredPointButton alloc] init];
+            button.titleLabel.font = [UIFont systemFontOfSize:16];
             
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 
             int x = (i % 7) * itemW ;
-            int y = (i / 7) * itemH ;
+            int y = marginH + (i / 7) * (itemH + marginH) ;
             
             button.frame = CGRectMake(x, y, itemW, itemH);
 
             [self.dateBackView addSubview:button];
         }else{
             button = self.dateBackView.subviews[i];
+            button.showRedPoint = NO;
+            button.day = 0;
             [button setTitle:@"" forState:UIControlStateNormal];
             [button removeTarget:self action:@selector(dateBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         }
@@ -130,6 +136,7 @@
             continue;
         }else{
             day = i - firstWeekday + 1;
+            button.day = day;
         }
         
         [button setTitle:[NSString stringWithFormat:@"%d",(int)day] forState:UIControlStateNormal];
@@ -137,10 +144,15 @@
     }
 }
 
-
-- (void)dateBtnClick:(UIButton *)button
+- (void)setCurrentRedday:(NSUInteger)currentRedday
 {
-    NSLog(@"点击了");
+    _currentRedday = currentRedday;
+    CustomredPointButton * btn = [self getButtonByDay:currentRedday];
+    btn.showRedPoint = YES;
+}
+- (void)dateBtnClick:(CustomredPointButton *)button
+{
+    !self.selectDayblock?:self.selectDayblock(self.currentShowingDate,button.day);
 }
 
 - (NSInteger)firstWeekdayInThisMotnth:(NSDate *)date{
@@ -199,4 +211,50 @@
     return [components day];
 }
 
+/**根据当前的日获取对应UI按钮*/
+- (CustomredPointButton *)getButtonByDay:(NSUInteger)day{
+    
+    NSInteger firstWeekday = [self firstWeekdayInThisMotnth:self.currentShowingDate];
+    CustomredPointButton * btn = self.dateBackView.subviews[firstWeekday + day - 1];
+    return btn;
+}
+
 @end
+
+@interface CustomredPointButton ()
+
+@property (nonatomic,weak) CALayer * redLayer;
+
+@end
+
+@implementation CustomredPointButton
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        
+        CALayer * redLayer = [CALayer layer];
+        redLayer.backgroundColor = WifeButlerCommonRedColor.CGColor;
+        redLayer.bounds = CGRectMake(0, 0, 5, 5);
+        redLayer.cornerRadius = 2.5;
+        redLayer.hidden = YES;
+        [self.layer addSublayer:redLayer];
+        self.redLayer = redLayer;
+        self.day = 0;
+    }
+    return self;
+}
+
+- (void)setShowRedPoint:(BOOL)showRedPoint
+{
+    _showRedPoint = showRedPoint;
+    if (_showRedPoint) {
+        self.redLayer.hidden = NO;
+        self.redLayer.position = CGPointMake(self.width-8, 4);
+    }else{
+        self.redLayer.hidden = YES;
+    }
+}
+
+@end
+

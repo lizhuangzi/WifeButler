@@ -20,7 +20,7 @@
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName
 {
-    return @{};
+    return @{@"Id":@"id"};
 }
 
 MJCodingImplementation

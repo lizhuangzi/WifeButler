@@ -12,5 +12,9 @@
 
 #define  KUserLogin  [HTTP_BaseURL stringByAppendingString:@"member/login/subs"]
 
+/**获取用户积分信息*/
+#define  KUserPocket [HTTP_BaseURL stringByAppendingString:@"e_wallet/E_wallet/myasset"]
 
+/**获取用户二维码*/
+#define KUserGetQRCode [HTTP_BaseURL stringByAppendingString:@"integrals/Exchange/getuserqr"]
 #endif /* PersonalPort_h */

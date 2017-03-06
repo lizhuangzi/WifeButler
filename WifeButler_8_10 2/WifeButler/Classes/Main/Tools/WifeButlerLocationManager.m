@@ -19,12 +19,19 @@
 
 HMSingletonM(Manager);
 
-- (void)startLocationAndFinishBlock:(void (^)(NSString * village, CLLocationCoordinate2D location))returnInformation
+- (void)startLocationAndFinishBlock:(void (^)(LocationInfoStuct locationInfo))returnInformation
 {
+   
     self.locationManager = [[AMapLocationManager alloc]init];
+    
     [self.locationManager requestLocationWithReGeocode:YES completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
         
-        !returnInformation?:returnInformation(regeocode.formattedAddress,location.coordinate);
+        LocationInfoStuct lf = {};
+        lf.POIName = regeocode.POIName.UTF8String;
+        lf.location2D = location.coordinate;
+        lf.formateAddress = regeocode.formattedAddress.UTF8String;
+
+        !returnInformation?:returnInformation(lf);
     }];
 }
 

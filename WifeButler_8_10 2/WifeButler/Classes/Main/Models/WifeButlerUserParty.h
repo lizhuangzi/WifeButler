@@ -14,12 +14,12 @@
 @property (nonatomic,copy)NSString * userLoginAccount;
 /**密码*/
 @property (nonatomic,copy)NSString * userLoginPassWord;
-
+/**头像*/
 @property (nonatomic, copy) NSString * avatar;
-
+/**性别*/
 @property (nonatomic, copy) NSString * gender;
 
-@property (nonatomic, copy) NSString * id;
+@property (nonatomic, copy) NSString * Id;
 
 @property (nonatomic, copy) NSString * last_ip;
 
@@ -30,9 +30,9 @@
 @property (nonatomic, copy) NSString * login_time;
 
 @property (nonatomic, copy) NSString * mechine;
-
+/**手机号*/
 @property (nonatomic, copy) NSString * mobile;
-
+/**昵称*/
 @property (nonatomic, copy) NSString * nickname;
 
 @property (nonatomic, copy) NSString * passwd;

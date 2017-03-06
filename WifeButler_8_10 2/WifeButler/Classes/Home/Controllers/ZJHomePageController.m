@@ -7,7 +7,6 @@
 //
 
 #import "ZJHomePageController.h"
-#import <AMapLocationKit/AMapLocationKit.h>
 //#import "ZTFuJinShangJiaViewController.h"
 //#import "ZTSheQuWuYeViewController.h"
 //#import "ZTSheQuZhenWuViewController.h"
@@ -32,15 +31,15 @@
 #import "HomePageSectionModel.h"
 #import "HomePageCellModel.h"
 #import "WifeButlerDefine.h"
+#import "WifeButlerLocationManager.h"
 
-@interface ZJHomePageController ()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,AMapLocationManagerDelegate>
+@interface ZJHomePageController ()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     NSArray *_dataSource;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *addressLab;
 
-@property (nonatomic,strong) AMapLocationManager * locationManager;
 
 @property (nonatomic, assign) CGSize cardSize;
 
@@ -78,27 +77,32 @@
     
     [self requestBannerData];
     
-    
-    // 如果用户没有设置经纬度, 设置默认经纬度, 防止社区购物的时候没有物品
-    if ([NSGetUserDefaults(@"jing") length] == 0) {
-        
-        [self netWorkingJinWeiDu];
+    if ([WifeButlerAccount sharedAccount].isLogin) { //如果用户登录了
+        if ([WifeButlerAccount sharedAccount].userParty.village.length == 0) {//用户没设置默认地址
+             [self netWorkingJinWeiDu];
+        }else{
+            WifeButlerUserParty * party = [WifeButlerAccount sharedAccount].userParty;
+            self.title = party.village;
+            [self requestBoutiqueDataWithLongitude:party.jing latitude:party.wei];
+        }
     }else{
-        [self requestBoutiqueDataWithLongitude:NSGetUserDefaults(@"jing") latitude:NSGetUserDefaults(@"wei")];
+        [self netWorkingJinWeiDu];
     }
-    
-    // 延迟加载, 等候storyboard 加载完成
-    //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    //
-    //        [self netWorking];
-    //    });
-    
 }
 
-- (void)initLocationManager
+/**请求当前地理位置*/
+- (void)requestCurrentLocation
 {
-    self.locationManager = [[AMapLocationManager alloc]init];
-    self.locationManager.delegate = self;
+    WEAKSELF
+    [[WifeButlerLocationManager sharedManager]startLocationAndFinishBlock:^(LocationInfoStuct locationInfo) {
+       
+        NSString * PoiName = [NSString stringWithCString:locationInfo.POIName encoding:NSUTF8StringEncoding];
+        weakSelf.addressLab.text = PoiName;
+        
+        NSString * longt = [NSString stringWithFormat:@"%lf",locationInfo.location2D.longitude];
+        NSString * lant = [NSString stringWithFormat:@"%lf",locationInfo.location2D.latitude];
+        [weakSelf requestBoutiqueDataWithLongitude:longt latitude:lant];
+    }];
 }
 
 
@@ -261,6 +265,7 @@
         }
             break;
         case 4:{ //环保日历
+            WifeButlerLetUserLoginCode
             EPCalendarViewController * calendar = [[EPCalendarViewController alloc]init];
             [self.navigationController pushViewController:calendar animated:YES];
         }
@@ -378,31 +383,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    self.addressLab.text = NSGetUserDefaults(@"xiaoQu");
-    
-    if (self.addressLab.text.length == 0) {
-        
-        NSString *cancelButtonTitle = NSLocalizedString(@"取消", nil);
-        NSString *otherButtonTitle = NSLocalizedString(@"确认", nil);
-        
-        UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"提示" message:@"为了方便为您服务,请先添加小区地址" preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *action = [UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            
-            
-        }];
-        
-        UIAlertAction *otherAction = [UIAlertAction actionWithTitle:otherButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            
-            [self titleButtonClick];
-        }];
-        
-        [vc addAction:action];
-        [vc addAction:otherAction];
-        
-        [self presentViewController:vc animated:YES completion:nil];
-    }
 }
 
 

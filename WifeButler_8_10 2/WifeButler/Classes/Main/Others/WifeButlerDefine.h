@@ -73,6 +73,7 @@ UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAl
     [vc addAction:action];\
     [vc addAction:otherAction];\
     [weakSelf presentViewController:vc animated:YES completion:nil];\
+    return;\
 }
 //**********没有登录时提示的代码
 

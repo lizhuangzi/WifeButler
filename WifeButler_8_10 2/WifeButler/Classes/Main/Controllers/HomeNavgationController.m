@@ -23,5 +23,10 @@
     self.navigationBar.translucent = NO;
 }
 
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    viewController.hidesBottomBarWhenPushed = YES;
+    [super pushViewController:viewController animated:YES];
+}
 
 @end

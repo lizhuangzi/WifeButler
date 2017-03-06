@@ -220,6 +220,7 @@
 
 - (void)orderClick
 {
+    WifeButlerLetUserLoginCode
     UIStoryboard * story = [UIStoryboard storyboardWithName:@"ZTHuiZhuanDingDan" bundle:nil];
     ZTHuiZhuanDingDan1ViewController * vc = [story instantiateViewControllerWithIdentifier:@"ZTHuiZhuanDingDan1ViewController"];
     [self.navigationController pushViewController:vc animated:YES];

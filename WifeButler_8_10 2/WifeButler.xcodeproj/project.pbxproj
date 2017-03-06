@@ -204,6 +204,9 @@
 		C707349C1E681AE70043CB3E /* CommunityShopMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C707349A1E681AE70043CB3E /* CommunityShopMainViewCell.m */; };
 		C707349D1E681AE70043CB3E /* CommunityShopMainViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C707349B1E681AE70043CB3E /* CommunityShopMainViewCell.xib */; };
 		C70734A01E6828C10043CB3E /* CommunityShopMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C707349F1E6828C10043CB3E /* CommunityShopMainModel.m */; };
+		C70CDB131E6D911F0004CA4E /* EPCalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C70CDB121E6D911F0004CA4E /* EPCalendarModel.m */; };
+		C70CDB171E6DAE390004CA4E /* EPCalenderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C70CDB151E6DAE390004CA4E /* EPCalenderTableViewCell.m */; };
+		C70CDB181E6DAE390004CA4E /* EPCalenderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C70CDB161E6DAE390004CA4E /* EPCalenderTableViewCell.xib */; };
 		C71058391E615ED700C85CBE /* WifeButlerUserParty.m in Sources */ = {isa = PBXBuildFile; fileRef = C71058381E615ED700C85CBE /* WifeButlerUserParty.m */; };
 		C710583E1E61B58600C85CBE /* WifeButlerLoadingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C710583D1E61B58600C85CBE /* WifeButlerLoadingTableView.m */; };
 		C71058411E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71058401E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m */; };
@@ -650,6 +653,11 @@
 		C707349B1E681AE70043CB3E /* CommunityShopMainViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityShopMainViewCell.xib; sourceTree = "<group>"; };
 		C707349E1E6828C10043CB3E /* CommunityShopMainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityShopMainModel.h; sourceTree = "<group>"; };
 		C707349F1E6828C10043CB3E /* CommunityShopMainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityShopMainModel.m; sourceTree = "<group>"; };
+		C70CDB111E6D911F0004CA4E /* EPCalendarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPCalendarModel.h; sourceTree = "<group>"; };
+		C70CDB121E6D911F0004CA4E /* EPCalendarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPCalendarModel.m; sourceTree = "<group>"; };
+		C70CDB141E6DAE390004CA4E /* EPCalenderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPCalenderTableViewCell.h; sourceTree = "<group>"; };
+		C70CDB151E6DAE390004CA4E /* EPCalenderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPCalenderTableViewCell.m; sourceTree = "<group>"; };
+		C70CDB161E6DAE390004CA4E /* EPCalenderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EPCalenderTableViewCell.xib; sourceTree = "<group>"; };
 		C71058371E615ED700C85CBE /* WifeButlerUserParty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerUserParty.h; sourceTree = "<group>"; };
 		C71058381E615ED700C85CBE /* WifeButlerUserParty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerUserParty.m; sourceTree = "<group>"; };
 		C710583A1E615F0F00C85CBE /* HMSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSingleton.h; sourceTree = "<group>"; };
@@ -2880,6 +2888,11 @@
 				C7A191CF1E606CF700FEDFD1 /* EPCalendarViewController.m */,
 				C7A191D11E606DA400FEDFD1 /* CustomCalendarViewController.h */,
 				C7A191D21E606DA400FEDFD1 /* CustomCalendarViewController.m */,
+				C70CDB111E6D911F0004CA4E /* EPCalendarModel.h */,
+				C70CDB121E6D911F0004CA4E /* EPCalendarModel.m */,
+				C70CDB141E6DAE390004CA4E /* EPCalenderTableViewCell.h */,
+				C70CDB151E6DAE390004CA4E /* EPCalenderTableViewCell.m */,
+				C70CDB161E6DAE390004CA4E /* EPCalenderTableViewCell.xib */,
 			);
 			path = "环保日历";
 			sourceTree = "<group>";
@@ -3135,6 +3148,7 @@
 				7B5B07BD1D0EAA8600D0246A /* ZTSheQuZhenWu.storyboard in Resources */,
 				7BD04B2B1CF820FE00D431D5 /* ZTBianJiInfo.storyboard in Resources */,
 				7B2366C61D0285CA003BC590 /* ZTHeard1.xib in Resources */,
+				C70CDB181E6DAE390004CA4E /* EPCalenderTableViewCell.xib in Resources */,
 				7B019D811D52CB120073506E /* ZTBackImageView.xib in Resources */,
 				7BC5804B1CF6C81C00FD157A /* ZTGarbageOfRice.storyboard in Resources */,
 				C7FFD50F1E67299A00754C92 /* CommonEmojiCell.xib in Resources */,
@@ -3396,11 +3410,13 @@
 				7B288D421D582DCF000A19AF /* payRequsestHandler.mm in Sources */,
 				7BAD201F1D547970005798F2 /* ZTDingDanXiangQinDuiHuanViewController.m in Sources */,
 				7B2366CB1D0298BA003BC590 /* ZTOneSheQuWuYeCollectionViewCell.m in Sources */,
+				C70CDB171E6DAE390004CA4E /* EPCalenderTableViewCell.m in Sources */,
 				C7FFD4CC1E6716E400754C92 /* MedRefFriendCircleTableHeader.m in Sources */,
 				7BFBA6E41CFE848600D4E07C /* ZTFuJinShangJiaCollectionViewCell.m in Sources */,
 				7B4F39731CF2906800D427CD /* ZTXiaoXiXiangQinViewController.m in Sources */,
 				C7C4A4901E5EB20A00075A27 /* HomePageSectionHeaderView.m in Sources */,
 				7BC5806D1CF6F91F00FD157A /* ZTYouHuiJuanViewController.m in Sources */,
+				C70CDB131E6D911F0004CA4E /* EPCalendarModel.m in Sources */,
 				C71058411E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m in Sources */,
 				C7FDFE861E5D8D8800BB6438 /* HomePageSectionModel.m in Sources */,
 				7B63EACC1CFC6E7B004F9DA7 /* ZTHuanMiXQModel.m in Sources */,

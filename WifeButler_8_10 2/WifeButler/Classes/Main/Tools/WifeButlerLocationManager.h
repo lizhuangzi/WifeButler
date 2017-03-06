@@ -10,17 +10,18 @@
 #import "HMSingleton.h"
 #import <CoreLocation/CoreLocation.h>
 
-struct MainLocationInfoStuct{
+typedef  struct MainLocationInfoStuct{
     CLLocationCoordinate2D location2D;
-    char * village;
-};
+    const char * POIName;
+    const char * formateAddress;
+}LocationInfoStuct;
 
 @interface WifeButlerLocationManager : NSObject
 
 HMSingletonH(Manager);
 
+@property (nonatomic,assign) LocationInfoStuct currentlocationInfo;
 
-
-- (void)startLocationAndFinishBlock:(void(^)(NSString * village,CLLocationCoordinate2D  location))returnInformation;
+- (void)startLocationAndFinishBlock:(void(^)(LocationInfoStuct locationInfo))returnInformation;
 
 @end

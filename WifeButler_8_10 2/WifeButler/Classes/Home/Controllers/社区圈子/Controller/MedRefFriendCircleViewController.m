@@ -409,7 +409,7 @@ static NSString * repeatDynamic = @"转发";
             DocFriendReviewModel *model = [currentModel.reviewArray objectAtIndex:indexPath.row];
             weakSelf.currentOpIndexPath = indexPath;
             weakSelf.currentOpSection = indexPath.section - 1;
-            if ([model.partyId isEqualToString:[WifeButlerAccount sharedAccount].userParty.id]) { // 点击自己的评论
+            if ([model.partyId isEqualToString:[WifeButlerAccount sharedAccount].userParty.Id]) { // 点击自己的评论
                 CSActionSheet *action = [[CSActionSheet alloc] initWithNewTitle:nil delegate:weakSelf cancelButtonTitle:@"取消" destructiveButtonTitle:@"删除" otherButtonTitles:nil, nil];
                 action.tag = 1;
                 [action show];
