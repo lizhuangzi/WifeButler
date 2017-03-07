@@ -12,3 +12,10 @@
 @interface EPCalendarViewController : UIViewController
 
 @end
+
+
+@interface EPCalendarNoDataView : UIView
+
+@property (nonatomic,copy)void(^clickBlock)();
+
+@end

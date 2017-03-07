@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EPCalendarModel.h"
 
 @interface EPCalenderTableViewCell : UITableViewCell
+
++ (instancetype)calenderTableViewCellWithTableView:(UITableView *)tableView;
+
+@property (nonatomic,strong) EPCalendarModel * model;
 
 @end

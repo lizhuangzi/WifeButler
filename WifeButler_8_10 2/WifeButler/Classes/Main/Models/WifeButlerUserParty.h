@@ -16,6 +16,8 @@
 @property (nonatomic,copy)NSString * userLoginPassWord;
 /**头像*/
 @property (nonatomic, copy) NSString * avatar;
+/**头像URL全路径*/
+@property (nonatomic,strong,readonly) NSURL * iconFullPath;
 /**性别*/
 @property (nonatomic, copy) NSString * gender;
 

@@ -23,6 +23,13 @@
     return @{@"Id":@"id"};
 }
 
+
+- (void)mj_keyValuesDidFinishConvertingToObject
+{
+    NSString * str = [KImageUrl stringByAppendingString:self.avatar];
+    NSString * utf8Str =  [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    _iconFullPath = [NSURL URLWithString:utf8Str];
+}
 MJCodingImplementation
 
 @end

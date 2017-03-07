@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Jvl-Px-18l" customClass="EPCalendarNoDataView">
+            <rect key="frame" x="0.0" y="0.0" width="179" height="158"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="communityPolitic" translatesAutoresizingMaskIntoConstraints="NO" id="sXh-bn-hBd">
+                    <rect key="frame" x="50" y="10" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="7pi-zI-KTs"/>
+                        <constraint firstAttribute="height" constant="80" id="Uqp-mx-x7x"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当天还没有环保记录哟~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-l3-g67">
+                    <rect key="frame" x="19" y="105" width="141" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6r-5r-9io">
+                    <rect key="frame" x="42.5" y="128" width="93" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="如何垃圾分类?">
+                        <color key="titleColor" red="1" green="0.34274346290000002" blue="0.21479166390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="HowToClassify" destination="Jvl-Px-18l" eventType="touchUpInside" id="xu9-C8-m6h"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="M6r-5r-9io" firstAttribute="top" secondItem="gaH-l3-g67" secondAttribute="bottom" constant="7" id="801-rG-nMg"/>
+                <constraint firstItem="gaH-l3-g67" firstAttribute="top" secondItem="sXh-bn-hBd" secondAttribute="bottom" constant="15" id="9Oa-BQ-2Xa"/>
+                <constraint firstItem="M6r-5r-9io" firstAttribute="centerX" secondItem="Jvl-Px-18l" secondAttribute="centerX" id="NRt-K6-yII"/>
+                <constraint firstItem="gaH-l3-g67" firstAttribute="centerX" secondItem="Jvl-Px-18l" secondAttribute="centerX" id="VSA-bR-Fja"/>
+                <constraint firstItem="sXh-bn-hBd" firstAttribute="centerX" secondItem="Jvl-Px-18l" secondAttribute="centerX" id="cQp-35-rlh"/>
+                <constraint firstItem="sXh-bn-hBd" firstAttribute="top" secondItem="Jvl-Px-18l" secondAttribute="top" constant="10" id="y43-Ns-GXL"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-118.5" y="263"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="communityPolitic" width="50" height="50"/>
+    </resources>
+</document>

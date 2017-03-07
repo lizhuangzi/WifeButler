@@ -191,7 +191,7 @@
     
     }
     
-    if (indexPath.section == 1) {
+    if (indexPath.section == 1) { //评论
 //        [UIImage imageNamed:@""]
         ZJGoodsDetailCell4 *cell = [tableView dequeueReusableCellWithIdentifier:@"good4"];
         [cell.imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",KImageUrl,[[self.dataAry objectAtIndex:indexPath.row] objectForKey:@"avatar"]]] placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];

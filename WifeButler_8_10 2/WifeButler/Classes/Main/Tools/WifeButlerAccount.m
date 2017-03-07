@@ -33,6 +33,8 @@ static NSString * fileName = @"userParty";
 - (void)loginOffCurrentUser
 {
     _isLogin = NO;
+    _userParty = nil;
+    [WifeButlerFileManager removeLoginUserInformation];
 }
 
 - (void)synchronize{

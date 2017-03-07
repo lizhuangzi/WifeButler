@@ -10,11 +10,16 @@
 
 @interface EPCalendarModel : NSObject
 
+
 @property (nonatomic,copy)NSString * ctime;
 
 @property (nonatomic,copy)NSString * Id;
-
+/**标题*/
 @property (nonatomic,copy)NSString * title;
+/**分数*/
+@property (nonatomic,copy)NSString * num;
+/**标记*/
+@property (nonatomic,copy)NSString * flag;
 
 @property (nonatomic,assign,readonly)NSUInteger day;
 

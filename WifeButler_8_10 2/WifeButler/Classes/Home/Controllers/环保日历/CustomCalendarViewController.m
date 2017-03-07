@@ -68,7 +68,7 @@
     if (swip.direction == UISwipeGestureRecognizerDirectionRight) {
         
         CATransition * ani = [CATransition animation];
-        ani.duration = 0.75;
+        ani.duration = 0.5;
         ani.type = @"pageUnCurl";
         [self.dateBackView.layer addAnimation:ani forKey:nil];
         
@@ -78,7 +78,7 @@
     }else if (swip.direction == UISwipeGestureRecognizerDirectionLeft){
         
         CATransition * ani = [CATransition animation];
-        ani.duration = 0.75;
+        ani.duration = 0.5;
         ani.type = @"pageCurl";
         [self.dateBackView.layer addAnimation:ani forKey:nil];
 

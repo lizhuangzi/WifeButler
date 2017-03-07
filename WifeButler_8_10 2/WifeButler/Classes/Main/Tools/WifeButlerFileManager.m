@@ -24,10 +24,18 @@ static NSString * _name = @"userParty";
     [NSKeyedArchiver archiveRootObject:user toFile:userPath];
 }
 
+
+
 + (id<NSCoding>)getLoginUserInformation
 {
     NSString * userPath = [F_UserPath stringByAppendingPathComponent:_name];
     return  [NSKeyedUnarchiver unarchiveObjectWithFile:userPath];
+}
+
++ (void)removeLoginUserInformation
+{
+    NSString * userPath = [F_UserPath stringByAppendingPathComponent:_name];
+    [[NSFileManager defaultManager]removeItemAtPath:userPath error:nil];
 }
 
 + (void)createPath

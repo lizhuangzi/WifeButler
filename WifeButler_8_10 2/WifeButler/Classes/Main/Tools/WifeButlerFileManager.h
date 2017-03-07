@@ -21,7 +21,9 @@
 
 /**保存登录用户模型*/
 + (void)saveLoginUserInformation:(id<NSCoding>)user;
+
 /**获取用户模型*/
 + (id<NSCoding>)getLoginUserInformation;
 
++ (void)removeLoginUserInformation;
 @end

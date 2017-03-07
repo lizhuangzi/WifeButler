@@ -15,6 +15,7 @@
 #import "ZJLoginController.h"
 #import "MJRefresh.h"
 #import  "MJExtension.h"
+#import "WifeButlerAccount.h"
 
 typedef enum {
     
@@ -78,7 +79,9 @@ typedef enum {
     // Do any additional setup after loading the view.
     
     self.title = @"订单详情";
-    
+    self.view.backgroundColor = WifeButlerTableBackGaryColor;
+    self.zhuangTaiView.backgroundColor = WifeButlerTableBackGaryColor;
+    self.tableView.backgroundColor = WifeButlerTableBackGaryColor;
     self.zhuangTaiView.hidden = YES;
     
     [self setPram];
@@ -95,7 +98,7 @@ typedef enum {
     self.quXiaoDingDanBtn.layer.cornerRadius = 3;
     
     self.fuKuanBtn.layer.borderWidth =  1;
-    self.fuKuanBtn.layer.borderColor = [[UIColor colorWithRed:0.133 green:0.714 blue:0.620 alpha:1.000] CGColor];
+    self.fuKuanBtn.layer.borderColor = WifeButlerCommonRedColor.CGColor;
     self.fuKuanBtn.layer.cornerRadius = 3;
     
     self.zhuanTai1 = 0;
@@ -131,7 +134,8 @@ typedef enum {
     
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
     
-    [dic setObject:KToken forKey:@"token"];
+    NSString * token = [WifeButlerAccount sharedAccount].userParty.token_app;
+    [dic setObject:token forKey:@"token"];
     [dic setObject:self.order_id forKey:@"order_id"];
     
     NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KDingDanXiangQing];

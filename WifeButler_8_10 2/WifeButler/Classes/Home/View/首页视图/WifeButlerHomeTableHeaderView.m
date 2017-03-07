@@ -118,6 +118,7 @@
         imageView.image = [UIImage imageNamed:imageName];
         
         UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
+        label.textColor = WifeButlerGaryTextColor4;
         [self addSubview:label];
         label.font = [UIFont systemFontOfSize:11];
         label.text = title;
