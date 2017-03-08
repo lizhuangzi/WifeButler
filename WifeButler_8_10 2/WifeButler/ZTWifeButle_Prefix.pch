@@ -15,7 +15,7 @@
 #import <UIImageView+WebCache.h>
 #import "UIView+Extension.h"
 #import "UIColor+HexColor.h"
-
+#import "WifeButlerDefine2.h"
 // 接口
 #import "NSURL.h"
 

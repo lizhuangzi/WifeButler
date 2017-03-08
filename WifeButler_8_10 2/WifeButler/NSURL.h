@@ -25,8 +25,7 @@
  *
  */
 
-// 唯一标示
-#define KToken  NSGetUserDefaults(@"token_app")
+
 
 #define KID     NSGetUserDefaults(@"id")
 

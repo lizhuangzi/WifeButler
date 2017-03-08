@@ -19,6 +19,7 @@
     UIButton * joinShoppingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     joinShoppingBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [joinShoppingBtn setTitle:@"加入购物车" forState:UIControlStateNormal];
+    [joinShoppingBtn addTarget:self action:@selector(joinShop) forControlEvents:UIControlEventTouchUpInside];
     [joinShoppingBtn setBackgroundColor:WifeButlerCommonRedColor];
     [self addSubview:joinShoppingBtn];
     [joinShoppingBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -30,21 +31,41 @@
     }];
     
     [self layoutIfNeeded];
-    CGFloat btnW = 55;
+    
+    NSArray * array = @[@"客服",@"店铺",@"购物车"];
+    CGFloat btnW = 50;
     CGFloat btnH = 55;
-    CGFloat margin = ((iphoneWidth - joinShoppingBtn.x)-3*btnW)/4;
+    CGFloat margin = ((iphoneWidth - joinShoppingBtn.width)-3*btnW)/4;
     for (int i = 0; i<3; i++) {
-        titleBottomButton * button = [[titleBottomButton alloc]init];
+        titleBottomButton * button = [[titleBottomButton alloc]initWithImageWidth:25 andHeight:25];
+        button.titleLabel.font = [UIFont systemFontOfSize:14];
+        button.tag = i;
         [button setImage:[UIImage imageNamed:@"ZTIphoneRed"] forState:UIControlStateNormal];
-        [button setTitle: @"客服" forState:UIControlStateNormal];
+        [button setTitle: array[i] forState:UIControlStateNormal];
         [button setTitleColor:WifeButlerGaryTextColor1 forState:UIControlStateNormal];
         button.frame = CGRectMake(margin + (btnW + margin)*i, 5, btnW, btnH);
         [self addSubview:button];
+        
+        [button addTarget:self action:@selector(ohtersClick:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+}
+
+- (void)joinShop
+{
+    if ([self.delegate respondsToSelector:@selector(GoodDetilBottomViewDidClickShopping:)]) {
+        [self.delegate GoodDetilBottomViewDidClickShopping:self];
+    }
+}
+
+- (void)ohtersClick:(UIButton *)btn
+{
+    if ([self.delegate respondsToSelector:@selector(GoodDetilBottomViewDidClickOthers:andIndex:)]) {
+        [self.delegate GoodDetilBottomViewDidClickOthers:self andIndex:btn.tag];
+    }
 }
 
 @end

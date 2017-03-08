@@ -11,5 +11,4 @@
 @interface ZJGoodsDetailVC : UIViewController
 @property (nonatomic,copy)NSString*goodId;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-- (IBAction)addToBuyBus:(id)sender;
 @end

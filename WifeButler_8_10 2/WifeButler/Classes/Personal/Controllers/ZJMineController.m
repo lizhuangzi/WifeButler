@@ -9,6 +9,8 @@
 #import "UserQRViewController.h"
 #import "WifeButlerSettingViewController.h"
 #import "ZTPersonGouWuCheViewController.h"
+#import "ZTGuangYuMyViewController.h"
+#import "ZTYiJianFanKuiViewController.h"
 
 @class WifeButlerHomeCircleButton;
 
@@ -82,6 +84,7 @@
 - (void)roundButtonClick:(UIButton *)button
 {
     NSUInteger index = button.tag - 2017;
+    WifeButlerLetUserLoginCode
     switch (index) {
             
         case 1:{ //购物车
@@ -91,7 +94,17 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
+        case 4:{
             
+            ZTYiJianFanKuiViewController * fankui = [[ZTYiJianFanKuiViewController alloc]init];
+            [self.navigationController pushViewController:fankui animated:YES];
+        }
+            break;
+        case 6:{
+            ZTGuangYuMyViewController * guanYU = [[ZTGuangYuMyViewController alloc]init];
+            [self.navigationController pushViewController:guanYU animated:YES];
+        }
+            break;
         case 7:{ //设置
             WifeButlerSettingViewController * setting = [WifeButlerSettingViewController new];
             [self.navigationController pushViewController:setting animated:YES];

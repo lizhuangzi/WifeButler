@@ -47,8 +47,10 @@
     _showType = showType;
     if (_showType == GoodsDetailRemarFooterShowTypeFindMoreReview) {
         self.button.enabled = YES;
+        self.backgroundColor = [UIColor whiteColor];
     }else{
         self.button.enabled = NO;
+        self.backgroundColor = [UIColor clearColor];
     }
 }
 

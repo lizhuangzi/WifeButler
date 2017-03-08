@@ -12,4 +12,8 @@
 #define PlaceHolderImage_Person [UIImage imageNamed:@"placeHolderIcon"]
 #define PlaceHolderImage_Other [UIImage imageNamed:@"ZTZhanWeiTu11"]
 
+// 唯一标示
+#import "WifeButlerAccount.h"
+#define KToken  [WifeButlerAccount sharedAccount].userParty.token_app
+
 #endif /* WifeButlerDefine2_h */

@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class GoodDetilBottomView;
+
+@protocol GoodDetilBottomViewprotocol <NSObject>
+
+- (void)GoodDetilBottomViewDidClickShopping:(GoodDetilBottomView *)view;
+- (void)GoodDetilBottomViewDidClickOthers:(GoodDetilBottomView *)view andIndex:(NSUInteger)index;
+@end
+
+
 @interface GoodDetilBottomView : UIView
+
+@property (nonatomic,assign) id<GoodDetilBottomViewprotocol> delegate;
 
 @end

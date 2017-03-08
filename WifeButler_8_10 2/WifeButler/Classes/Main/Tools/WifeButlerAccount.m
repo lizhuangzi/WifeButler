@@ -18,6 +18,7 @@ static NSString * fileName = @"userParty";
 - (instancetype)init
 {
     if (self = [super init]) {
+        _isLogin = NO;
        _userParty =(WifeButlerUserParty *)[WifeButlerFileManager getLoginUserInformation];
     }
     return self;

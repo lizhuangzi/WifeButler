@@ -12,12 +12,14 @@
 #import "ZJGoodsDetailCell4.h"
 #import "GoodsDetailRemarFooter.h"
 #import "GoodsDetailRemarkSectionHeader.h"
-#import "SDCycleScrollView.h"
+#import "PhotosScrollView.h"
 #import "ZTPersonGouWuCheViewController.h"
 #import "ZJLoginController.h"
 #import "MJRefresh.h"
+#import "GoodDetilBottomView.h"
+#import "WifeButlerDefine.h"
 
-@interface ZJGoodsDetailVC ()<UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate, SDCycleScrollViewDelegate>
+@interface ZJGoodsDetailVC ()<UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate,GoodDetilBottomViewprotocol>
 
 
 @property (nonatomic, strong)NSMutableDictionary*dataDic;//商品详情
@@ -30,19 +32,22 @@
 @property (nonatomic, assign) BOOL Flag;
 
 @property (nonatomic, assign) CGFloat  heightFlag;
-
-
+@property (weak, nonatomic) IBOutlet GoodDetilBottomView *bottomView;
+//评价次数和平均评分
+@property (nonatomic,assign) NSInteger reviewCount;
+@property (nonatomic,assign) CGFloat averageScore;
 @end
 
 @implementation ZJGoodsDetailVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self ZJNetWorking];
+
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
     self.tableView.backgroundColor = WifeButlerTableBackGaryColor;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.bottomView.delegate = self;
     self.title = @"商品详情";
     
     self.goodNum = @"1";
@@ -74,18 +79,20 @@
     self.tableView.tableHeaderView = headerView;
     
     // 网络加载 --- 创建带标题的图片轮播器
-    SDCycleScrollView *cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height) delegate:nil placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
-    cycleScrollView2.delegate = self;
-    cycleScrollView2.tag = 1;
-    cycleScrollView2.pageControlAliment  = SDCycleScrollViewPageContolAlimentCenter;
-    cycleScrollView2.currentPageDotColor = [UIColor whiteColor]; // 自定义分页控件小圆标颜色
-    cycleScrollView2.backgroundColor = [UIColor whiteColor];
-    [view addSubview:cycleScrollView2];
+//    SDCycleScrollView *cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height) delegate:nil placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
+//    cycleScrollView2.delegate = self;
+//    cycleScrollView2.tag = 1;
+//    cycleScrollView2.pageControlAliment  = SDCycleScrollViewPageContolAlimentCenter;
+//    cycleScrollView2.currentPageDotColor = [UIColor whiteColor]; // 自定义分页控件小圆标颜色
+//    cycleScrollView2.backgroundColor = [UIColor whiteColor];
+    PhotosScrollView * photoScro = [[PhotosScrollView alloc]initWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
     
+    [view addSubview:photoScro];
+    photoScro.imageUrlStrings = imageArr;
     // --- 模拟加载延迟
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // 图片
-        cycleScrollView2.imageURLStringsGroup = imageArr;
+      //  cycleScrollView2.imageURLStringsGroup = imageArr;
     });
 }
 
@@ -147,17 +154,9 @@
             
             cell.nameLabel.text=[self.dataDic objectForKey:@"title"];
             cell.moneyLabel.text=[NSString stringWithFormat:@"¥%@",[self.dataDic objectForKey:@"money"]];
-            cell.saleLabel.text=[NSString stringWithFormat:@"%@",[self.dataDic objectForKey:@"sales"]];
-            if ([[self.dataDic objectForKey:@"ship_time"] intValue]==1) {
-                cell.titleLabel.text=@"45分钟到达";
-            }
-            if ([[self.dataDic objectForKey:@"ship_time"] intValue]==2) {
-                cell.titleLabel.text=@"90分钟到达";
-            }
-            if ([[self.dataDic objectForKey:@"ship_time"] intValue]==3) {
-                cell.titleLabel.text=@"超过90分钟到达";
-            }
-            
+            cell.saleLabel.text=[NSString stringWithFormat:@"已有%@人付款",[self.dataDic objectForKey:@"sales"]];
+            cell.oldPriceLabel.text = [NSString stringWithFormat:@"¥%@",self.dataDic[@"oldprice"]];
+            cell.inventoryLabel.text = [NSString stringWithFormat:@"库存:%@",self.dataDic[@"store"]];
             return cell;
         }
         
@@ -212,7 +211,7 @@
     
     if (indexPath.section == 1) {
             
-        return 129;
+        return 100;
         
     }else if (indexPath.section == 2){
         
@@ -232,6 +231,10 @@
 {
     if (section == 1) {
         GoodsDetailRemarkSectionHeader * header = [GoodsDetailRemarkSectionHeader DetailRemarkSectionHeader];
+        
+        header.reViewLabel.text = [NSString stringWithFormat:@"%zd人评价",self.reviewCount];
+        header.scoreLabel.text = [NSString stringWithFormat:@"%.1f",self.averageScore];
+        
         return header;
     }
     return nil;
@@ -365,7 +368,8 @@
             
             [SVProgressHUD dismiss];
             self.dataAry.array = [responseObject objectForKey:@"resultCode"][@"arr"];
-            
+            self.reviewCount = [[responseObject objectForKey:@"resultCode"][@"count"] integerValue];
+            self.averageScore = [[responseObject objectForKey:@"resultCode"][@"mean"] floatValue];
             if (self.dataAry.count < 9) {
                 
                 self.tableView.mj_footer.hidden = YES;
@@ -429,23 +433,26 @@
     return _imgAry;
 }
 
-//加入购物车
-- (IBAction)addToBuyBus:(id)sender {
-    
-    if (KToken == nil) {
-        
-        [SVProgressHUD showErrorWithStatus:@"您还没有登录,请先进行登录"];
-        return;
-    }
+
+- (NSString *)time :(NSString*)timeStr
+{
+    NSDate * createdDate =[NSDate dateWithTimeIntervalSince1970:[timeStr doubleValue]];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US"];
+    formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    return  [formatter stringFromDate:createdDate];
+}
+
+#pragma mark - BottomDelegate
+- (void)GoodDetilBottomViewDidClickShopping:(GoodDetilBottomView *)view
+{
+    WifeButlerLetUserLoginCode
     
     if ([self.dataDic[@"store"] intValue] < [self.goodNum intValue]) {
         
         [SVProgressHUD showErrorWithStatus:@"您选择的数量大于库存"];
         return;
-        
     }
-    
-    
     
     NSMutableDictionary*dic=[NSMutableDictionary dictionary];
     [dic setObject:self.goodId forKey:@"goods_id"];
@@ -509,85 +516,22 @@
                 
                 [SVProgressHUD showErrorWithStatus:message];
             }
-
-        }
-
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
-    }];
-}
-
--(void)getWebViewUrl
-{
-    NSMutableDictionary*dic=[NSMutableDictionary dictionary];
-    [dic setObject:self.goodId forKey:@"goods_id"];
-    [dic setObject:KToken forKey:@"token"];
-    [dic setObject:self.goodNum forKey:@"num"];
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];/*添加接可收数据的数据可行*/
-    
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KAddBusURL];
-    
-    [manager POST:url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-
-        ZJLog(@"%@", responseObject);
-        // 登录成功
-        if ([[responseObject objectForKey:@"code"] intValue]==10000) {
             
-            [SVProgressHUD showSuccessWithStatus:
-             @"加入购物车成功"];
-            [self.tableView reloadData];
-            
-        }else
-        {
-            // 登录失效 进行提示登录
-            if ([[responseObject objectForKey:@"code"] intValue] == 40000) {
-                
-                [SVProgressHUD dismiss];
-                
-                __weak typeof(self) weakSelf = self;
-                
-                UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"提示" message:@"您登录已经失效,请重新进行登录哦!" preferredStyle:UIAlertControllerStyleAlert];
-                
-                
-                UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                    
-                    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];
-                    ZJLoginController *vc = [sb instantiateViewControllerWithIdentifier:@"ZJLoginController"];
-                    vc.isLogo = YES;
-                    [weakSelf.navigationController pushViewController:vc animated:YES];
-                }];
-                
-                [vc addAction:otherAction];
-                
-                [weakSelf presentViewController:vc animated:YES completion:nil];
-                
-            }
-            else
-            {
-                
-                [SVProgressHUD showErrorWithStatus:responseObject[@"message"]];
-            }
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
     }];
-}
 
-- (NSString *)time :(NSString*)timeStr
+}
+- (void)GoodDetilBottomViewDidClickOthers:(GoodDetilBottomView *)view andIndex:(NSUInteger)index
 {
-    NSDate * createdDate =[NSDate dateWithTimeIntervalSince1970:[timeStr doubleValue]];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US"];
-    formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
-    return  [formatter stringFromDate:createdDate];
+    if (index == 2) { //点击购物车
+        WifeButlerLetUserLoginCode
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZTGouWuChe" bundle:nil];
+        ZTPersonGouWuCheViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ZTPersonGouWuCheViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
-
 @end

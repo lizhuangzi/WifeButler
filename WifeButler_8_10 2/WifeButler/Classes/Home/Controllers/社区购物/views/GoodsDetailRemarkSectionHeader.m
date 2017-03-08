@@ -10,8 +10,7 @@
 
 @interface GoodsDetailRemarkSectionHeader ()
 
-@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-@property (weak, nonatomic) IBOutlet UILabel *reViewLabel;
+
 @property (weak, nonatomic) IBOutlet UIImageView *startImageView;
 
 

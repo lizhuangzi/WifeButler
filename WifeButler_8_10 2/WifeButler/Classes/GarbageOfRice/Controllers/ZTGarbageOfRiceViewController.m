@@ -64,7 +64,6 @@
     table.backgroundColor = WifeButlerTableBackGaryColor;
     table.dataSource = self;
     table.delegate = self;
-    table.allowsSelection = NO;
     [self.view addSubview:table];
     
     [table mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -138,6 +137,17 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 80;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    ZTLaJiHuanMiModel * model = self.dataArray[indexPath.row];
+    UIStoryboard * story = [UIStoryboard storyboardWithName:@"ZTGarbageOfRice" bundle:nil];
+     ZTLaJiHuanMiViewController * vc =[story instantiateViewControllerWithIdentifier:@"ZTLaJiHuanMiViewController"];
+    vc.good_id = model.commodityId;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

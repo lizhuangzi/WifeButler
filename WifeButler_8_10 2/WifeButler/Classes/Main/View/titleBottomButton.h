@@ -10,4 +10,6 @@
 
 @interface titleBottomButton : UIButton
 
+- (instancetype)initWithImageWidth:(CGFloat)imageWidth andHeight:(CGFloat)height;
+
 @end

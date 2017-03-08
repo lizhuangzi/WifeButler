@@ -12,6 +12,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *saleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *oldPriceLabel;
+/**库存*/
+@property (weak, nonatomic) IBOutlet UILabel *inventoryLabel;
 
 @end
