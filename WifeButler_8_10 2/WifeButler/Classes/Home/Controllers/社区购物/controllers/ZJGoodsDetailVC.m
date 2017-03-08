@@ -8,15 +8,17 @@
 
 #import "ZJGoodsDetailVC.h"
 #import "ZJGoodsDetailCell1.h"
-#import "ZJGoodsDetailCell2.h"
 #import "ZJGoodsDetailCell3.h"
 #import "ZJGoodsDetailCell4.h"
+#import "GoodsDetailRemarFooter.h"
+#import "GoodsDetailRemarkSectionHeader.h"
 #import "SDCycleScrollView.h"
 #import "ZTPersonGouWuCheViewController.h"
 #import "ZJLoginController.h"
 #import "MJRefresh.h"
 
-@interface ZJGoodsDetailVC ()<ZJBuyGoodsNumDelegate,UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate, SDCycleScrollViewDelegate>
+@interface ZJGoodsDetailVC ()<UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate, SDCycleScrollViewDelegate>
+
 
 @property (nonatomic, strong)NSMutableDictionary*dataDic;//商品详情
 @property (nonatomic, strong)NSMutableArray*dataAry;//商品评价列表
@@ -39,7 +41,8 @@
 //    [self ZJNetWorking];
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
-    
+    self.tableView.backgroundColor = WifeButlerTableBackGaryColor;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.title = @"商品详情";
     
     self.goodNum = @"1";
@@ -61,24 +64,12 @@
 - (void)createScorllViewWuWang:(NSArray *)imageArr
 {
     
-    UIView*headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, iphoneWidth, iphoneHeight*0.3)];
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(8, 8, 27, 18)];
-    imageView.image = [UIImage imageNamed:@"ZTShangJiaDianPu"];
-    [headerView addSubview:imageView];
-    
-    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(41, 5, 271, 21)];
-    lab.text = self.dataDic[@"shop_name"];
-    [headerView addSubview:lab];
+    UIView*headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, iphoneWidth, iphoneHeight*0.5)];
     
 //   宽 320     高: 124
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 32, iphoneWidth, iphoneHeight*0.3 - 18)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, iphoneWidth, iphoneHeight*0.5 +1)];
     [headerView addSubview:view];
-    
-    UIView *view111 = [[UIView alloc] initWithFrame:CGRectMake(0, 31, iphoneWidth, 1)];
-    view111.backgroundColor = [UIColor colorWithWhite:0.770 alpha:1.000];
-    [headerView addSubview:view111];
     
     self.tableView.tableHeaderView = headerView;
     
@@ -129,18 +120,20 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (section==0) {
         
-        return 3;
+        return 2;
     }
-    else
+    else if(section == 1)
     {
         return self.dataAry.count;
+    }else{
+        return 1;
     }
 }
 
@@ -170,47 +163,37 @@
         
         if (indexPath.row == 1) {
             
-            ZJGoodsDetailCell2 *cell=[tableView dequeueReusableCellWithIdentifier:@"good2"];
-            cell.delegate=self;
-            
-            cell.chooseLabel.text = [NSString stringWithFormat:@"%@件",self.goodNum];
-            cell.remainLabel.text = [NSString stringWithFormat:@"%@件", self.dataDic[@"store"]];
+            UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"good2"];
             return cell;
         }
-        
-        if (indexPath.row == 2) {
-        
-            ZJGoodsDetailCell3 *cell = [tableView dequeueReusableCellWithIdentifier:@"good3"];
-            cell.webView.delegate = self;
-            [cell.webView setBackgroundColor:[UIColor whiteColor]];
-            NSString *urlStr = [NSString stringWithFormat:@"%@%@?goods_id=%@",HTTP_BaseURL,KGoodDetailWebViewURL,self.goodId];
-            NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
-            [cell.webView loadRequest:request];
-            return cell;
-        }
-    
+
     }
-    
     if (indexPath.section == 1) { //评论
-//        [UIImage imageNamed:@""]
+
         ZJGoodsDetailCell4 *cell = [tableView dequeueReusableCellWithIdentifier:@"good4"];
         [cell.imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",KImageUrl,[[self.dataAry objectAtIndex:indexPath.row] objectForKey:@"avatar"]]] placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
         cell.nameLabel.text=[[self.dataAry objectAtIndex:indexPath.row] objectForKey:@"nickname"];
         cell.pingLunLabel.text=[[self.dataAry objectAtIndex:indexPath.row] objectForKey:@"content"];
         cell.timeLabel.text=[self time:[[self.dataAry objectAtIndex:indexPath.row] objectForKey:@"time"]];
         return cell;
+        
+    }else if (indexPath.section == 2){
+       
+        
+        ZJGoodsDetailCell3 *cell = [tableView dequeueReusableCellWithIdentifier:@"good3"];
+        cell.webView.delegate = self;
+        [cell.webView setBackgroundColor:[UIColor whiteColor]];
+        NSString *urlStr = [NSString stringWithFormat:@"%@%@?goods_id=%@",HTTP_BaseURL,KGoodDetailWebViewURL,self.goodId];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
+        [cell.webView loadRequest:request];
+        return cell;
+        
     }
     
     
     return nil;
 }
 
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -219,14 +202,20 @@
         
         if (indexPath.row==0) {
             
-            return 114;
+            return 94;
         }
         if (indexPath.row==1) {
             
-            return 68;
+            return 66;
         }
-        if (indexPath.row==2) {
+    }
+    
+    if (indexPath.section == 1) {
             
+        return 129;
+        
+    }else if (indexPath.section == 2){
+        
             
             if (_Flag == YES) {
                 
@@ -234,20 +223,49 @@
             }
             
             return 250;
-        }
-
-    }
-    
-    if (indexPath.section == 1) {
-            
-        return 129;
-        
     }
     
     return 0;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (section == 1) {
+        GoodsDetailRemarkSectionHeader * header = [GoodsDetailRemarkSectionHeader DetailRemarkSectionHeader];
+        return header;
+    }
+    return nil;
+}
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 1) {
+        return 120;
+    }
+    return 0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if (section == 1) {
+        GoodsDetailRemarFooter * footer = [[GoodsDetailRemarFooter alloc]init];
+        if (self.dataAry.count == 0) {
+            footer.showType = GoodsDetailRemarFooterShowTypeNoReview;
+        }else{
+            footer.showType = GoodsDetailRemarFooterShowTypeFindMoreReview;
+        }
+        return footer;
+    }
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (section == 1) {
+        return 44;
+    }
+    return 0;
+}
 
 #pragma mark - webViewDatelate
 - (void)webViewDidFinishLoad:(UIWebView *)webView
@@ -346,7 +364,7 @@
         if ([[responseObject objectForKey:@"code"] intValue]==10000) {
             
             [SVProgressHUD dismiss];
-            self.dataAry = [responseObject objectForKey:@"resultCode"];
+            self.dataAry.array = [responseObject objectForKey:@"resultCode"][@"arr"];
             
             if (self.dataAry.count < 9) {
                 

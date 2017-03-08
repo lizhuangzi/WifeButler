@@ -15,6 +15,7 @@
 #import "ZJLoginController.h"
 #import "MJRefresh.h"
 #import  "MJExtension.h"
+#import "WifeButlerDefine.h"
 
 @interface ZTPersonGouWuCheViewController ()
 {
@@ -302,7 +303,9 @@
     
     [dic setObject:@(_pize) forKey:@"pageindex"];
     [dic setObject:@(100) forKey:@"pagesize"];
-    [dic setObject:KToken forKey:@"token"];
+    
+   
+    [dic setObject: [WifeButlerAccount sharedAccount].userParty.token_app forKey:@"token"];
     
     NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KGouWuCheList];
     

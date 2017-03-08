@@ -8,6 +8,7 @@
 #import "ZTHuiZhuanDingDan1ViewController.h"
 #import "UserQRViewController.h"
 #import "WifeButlerSettingViewController.h"
+#import "ZTPersonGouWuCheViewController.h"
 
 @class WifeButlerHomeCircleButton;
 
@@ -82,7 +83,16 @@
 {
     NSUInteger index = button.tag - 2017;
     switch (index) {
-        case 7:{
+            
+        case 1:{ //购物车
+         
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZTGouWuChe" bundle:nil];
+            ZTPersonGouWuCheViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ZTPersonGouWuCheViewController"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
+        case 7:{ //设置
             WifeButlerSettingViewController * setting = [WifeButlerSettingViewController new];
             [self.navigationController pushViewController:setting animated:YES];
         }

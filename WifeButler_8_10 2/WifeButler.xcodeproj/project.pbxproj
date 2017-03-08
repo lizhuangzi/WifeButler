@@ -168,7 +168,6 @@
 		7BE3C6BF1CF1A54C00851512 /* ZYQAssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE3C6BD1CF1A54C00851512 /* ZYQAssetPickerController.m */; };
 		7BE3C6C21CF1A55300851512 /* UIImageView+Del.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE3C6C11CF1A55300851512 /* UIImageView+Del.m */; };
 		7BE420631D13A730009A8FAB /* ZJGoodsDetailCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE420551D13A730009A8FAB /* ZJGoodsDetailCell1.m */; };
-		7BE420641D13A730009A8FAB /* ZJGoodsDetailCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE420571D13A730009A8FAB /* ZJGoodsDetailCell2.m */; };
 		7BE420651D13A730009A8FAB /* ZJGoodsDetailCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE420591D13A730009A8FAB /* ZJGoodsDetailCell3.m */; };
 		7BE420661D13A730009A8FAB /* ZJGoodsDetailCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE4205B1D13A730009A8FAB /* ZJGoodsDetailCell4.m */; };
 		7BE420681D13A730009A8FAB /* ZJShopClassCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE4205F1D13A730009A8FAB /* ZJShopClassCell1.m */; };
@@ -226,6 +225,11 @@
 		C7A191D01E606CF700FEDFD1 /* EPCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A191CF1E606CF700FEDFD1 /* EPCalendarViewController.m */; };
 		C7A191D31E606DA400FEDFD1 /* CustomCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A191D21E606DA400FEDFD1 /* CustomCalendarViewController.m */; };
 		C7BA19CB1E26778F00405816 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */; };
+		C7C1626A1E6FFA900074A9D2 /* GoodsDetailRemarkSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C162691E6FFA900074A9D2 /* GoodsDetailRemarkSectionHeader.m */; };
+		C7C1626C1E6FFAA50074A9D2 /* GoodsDetailRemarkSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C1626B1E6FFAA50074A9D2 /* GoodsDetailRemarkSectionHeader.xib */; };
+		C7C1626F1E7000FA0074A9D2 /* GoodsDetailRemarFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C1626E1E7000FA0074A9D2 /* GoodsDetailRemarFooter.m */; };
+		C7C162751E7009ED0074A9D2 /* GoodDetilBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C162741E7009ED0074A9D2 /* GoodDetilBottomView.m */; };
+		C7C162781E700AB60074A9D2 /* titleBottomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C162771E700AB60074A9D2 /* titleBottomButton.m */; };
 		C7C4A4901E5EB20A00075A27 /* HomePageSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C4A48F1E5EB20A00075A27 /* HomePageSectionHeaderView.m */; };
 		C7C4A4921E5EB22500075A27 /* HomePageSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C4A4911E5EB22500075A27 /* HomePageSectionHeaderView.xib */; };
 		C7C4A4961E5EB81E00075A27 /* HomePageCommodityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C4A4941E5EB81E00075A27 /* HomePageCommodityCell.m */; };
@@ -589,8 +593,6 @@
 		7BE3C6C11CF1A55300851512 /* UIImageView+Del.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Del.m"; sourceTree = "<group>"; };
 		7BE420541D13A730009A8FAB /* ZJGoodsDetailCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJGoodsDetailCell1.h; sourceTree = "<group>"; };
 		7BE420551D13A730009A8FAB /* ZJGoodsDetailCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJGoodsDetailCell1.m; sourceTree = "<group>"; };
-		7BE420561D13A730009A8FAB /* ZJGoodsDetailCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJGoodsDetailCell2.h; sourceTree = "<group>"; };
-		7BE420571D13A730009A8FAB /* ZJGoodsDetailCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJGoodsDetailCell2.m; sourceTree = "<group>"; };
 		7BE420581D13A730009A8FAB /* ZJGoodsDetailCell3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJGoodsDetailCell3.h; sourceTree = "<group>"; };
 		7BE420591D13A730009A8FAB /* ZJGoodsDetailCell3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJGoodsDetailCell3.m; sourceTree = "<group>"; };
 		7BE4205A1D13A730009A8FAB /* ZJGoodsDetailCell4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJGoodsDetailCell4.h; sourceTree = "<group>"; };
@@ -700,6 +702,15 @@
 		C7A191D21E606DA400FEDFD1 /* CustomCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalendarViewController.m; sourceTree = "<group>"; };
 		C7BA19C91E26778F00405816 /* UIColor+HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
 		C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
+		C7C162681E6FFA900074A9D2 /* GoodsDetailRemarkSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailRemarkSectionHeader.h; sourceTree = "<group>"; };
+		C7C162691E6FFA900074A9D2 /* GoodsDetailRemarkSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailRemarkSectionHeader.m; sourceTree = "<group>"; };
+		C7C1626B1E6FFAA50074A9D2 /* GoodsDetailRemarkSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodsDetailRemarkSectionHeader.xib; sourceTree = "<group>"; };
+		C7C1626D1E7000FA0074A9D2 /* GoodsDetailRemarFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailRemarFooter.h; sourceTree = "<group>"; };
+		C7C1626E1E7000FA0074A9D2 /* GoodsDetailRemarFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailRemarFooter.m; sourceTree = "<group>"; };
+		C7C162731E7009ED0074A9D2 /* GoodDetilBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodDetilBottomView.h; sourceTree = "<group>"; };
+		C7C162741E7009ED0074A9D2 /* GoodDetilBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodDetilBottomView.m; sourceTree = "<group>"; };
+		C7C162761E700AB60074A9D2 /* titleBottomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = titleBottomButton.h; sourceTree = "<group>"; };
+		C7C162771E700AB60074A9D2 /* titleBottomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = titleBottomButton.m; sourceTree = "<group>"; };
 		C7C4A48E1E5EB20A00075A27 /* HomePageSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageSectionHeaderView.h; sourceTree = "<group>"; };
 		C7C4A48F1E5EB20A00075A27 /* HomePageSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageSectionHeaderView.m; sourceTree = "<group>"; };
 		C7C4A4911E5EB22500075A27 /* HomePageSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageSectionHeaderView.xib; sourceTree = "<group>"; };
@@ -1909,6 +1920,8 @@
 				C7FFD4DC1E6719DF00754C92 /* CSActionSheet */,
 				C710583C1E61B58600C85CBE /* WifeButlerLoadingTableView.h */,
 				C710583D1E61B58600C85CBE /* WifeButlerLoadingTableView.m */,
+				C7C162761E700AB60074A9D2 /* titleBottomButton.h */,
+				C7C162771E700AB60074A9D2 /* titleBottomButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2803,8 +2816,6 @@
 			children = (
 				7BE420541D13A730009A8FAB /* ZJGoodsDetailCell1.h */,
 				7BE420551D13A730009A8FAB /* ZJGoodsDetailCell1.m */,
-				7BE420561D13A730009A8FAB /* ZJGoodsDetailCell2.h */,
-				7BE420571D13A730009A8FAB /* ZJGoodsDetailCell2.m */,
 				7BE420581D13A730009A8FAB /* ZJGoodsDetailCell3.h */,
 				7BE420591D13A730009A8FAB /* ZJGoodsDetailCell3.m */,
 				7BE4205A1D13A730009A8FAB /* ZJGoodsDetailCell4.h */,
@@ -2814,6 +2825,13 @@
 				C70734991E681AE70043CB3E /* CommunityShopMainViewCell.h */,
 				C707349A1E681AE70043CB3E /* CommunityShopMainViewCell.m */,
 				C707349B1E681AE70043CB3E /* CommunityShopMainViewCell.xib */,
+				C7C162681E6FFA900074A9D2 /* GoodsDetailRemarkSectionHeader.h */,
+				C7C162691E6FFA900074A9D2 /* GoodsDetailRemarkSectionHeader.m */,
+				C7C1626B1E6FFAA50074A9D2 /* GoodsDetailRemarkSectionHeader.xib */,
+				C7C1626D1E7000FA0074A9D2 /* GoodsDetailRemarFooter.h */,
+				C7C1626E1E7000FA0074A9D2 /* GoodsDetailRemarFooter.m */,
+				C7C162731E7009ED0074A9D2 /* GoodDetilBottomView.h */,
+				C7C162741E7009ED0074A9D2 /* GoodDetilBottomView.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -3177,6 +3195,7 @@
 				7BE3C6BE1CF1A54C00851512 /* ZYQAssetPicker.Bundle in Resources */,
 				7BC580661CF6DE9400FD157A /* ZTLaJiaJieShuan.storyboard in Resources */,
 				C7FFD4CD1E6716E400754C92 /* MedRefFriendCircleTableHeader.xib in Resources */,
+				C7C1626C1E6FFAA50074A9D2 /* GoodsDetailRemarkSectionHeader.xib in Resources */,
 				7BFBA6ED1CFF032A00D4E07C /* ZTAddAddress.storyboard in Resources */,
 				7B2366AE1D026466003BC590 /* ZTWoYaoKaiDian.storyboard in Resources */,
 				C7C564561E6EAC5B00D15359 /* EPCalendarNoDataView.xib in Resources */,
@@ -3305,6 +3324,7 @@
 				C70734951E680FF10043CB3E /* CommonShopLeftSelectTypeView.m in Sources */,
 				7BFBA6E31CFE848600D4E07C /* ZTFuJinShangJiaViewController.m in Sources */,
 				C7FFD4D31E6717DB00754C92 /* FriendCircleMarkPopView.m in Sources */,
+				C7C1626F1E7000FA0074A9D2 /* GoodsDetailRemarFooter.m in Sources */,
 				C710583E1E61B58600C85CBE /* WifeButlerLoadingTableView.m in Sources */,
 				7B63EAC31CFC6735004F9DA7 /* ZTHuanMiTuPianTableViewCell.m in Sources */,
 				7B9B6F1E1D0D4D4F00CC3D09 /* ZTXuanZeTimeViewController.m in Sources */,
@@ -3335,7 +3355,6 @@
 				7B5B07B71D0E9FBA00D0246A /* ZTJianKangShenHuoBottomModel.m in Sources */,
 				7B2366CF1D02A010003BC590 /* ZTZiOneWuYeCollectionViewCell.m in Sources */,
 				7BE3C6B41CF1A05F00851512 /* Order1TableViewCell.m in Sources */,
-				7BE420641D13A730009A8FAB /* ZJGoodsDetailCell2.m in Sources */,
 				7B288D411D582DCF000A19AF /* ApiXml.mm in Sources */,
 				7BF4997C1CFD90A200CCEB45 /* ZTShangPingXiangQin11TableViewCell.m in Sources */,
 				C71365321E350BEB00C89CB5 /* UIColor+EasyExistion.m in Sources */,
@@ -3400,6 +3419,7 @@
 				7BBDB6001D010E730098B079 /* UIView+WZLBadge.m in Sources */,
 				C78973981E6BF1CD00BFF404 /* WifeButlerWebViewController.m in Sources */,
 				7BBDB5FF1D010E730098B079 /* CAAnimation+WAnimation.m in Sources */,
+				C7C162781E700AB60074A9D2 /* titleBottomButton.m in Sources */,
 				7BAD20101D544609005798F2 /* ZTDuiHuanDingDanViewController.m in Sources */,
 				C7FFD4B21E66AE4500754C92 /* tempLoadingViewController.m in Sources */,
 				7B9B6F2D1D0D689C00CC3D09 /* ZTHeardMMCollectionReusableView.m in Sources */,
@@ -3409,6 +3429,7 @@
 				7B0537001D0FE5E400BE9762 /* TYImageCache.m in Sources */,
 				7BFBA6E51CFE848600D4E07C /* ZTFuJinShangJiaTableViewCell.m in Sources */,
 				C7C4A4961E5EB81E00075A27 /* HomePageCommodityCell.m in Sources */,
+				C7C162751E7009ED0074A9D2 /* GoodDetilBottomView.m in Sources */,
 				7B01CA3F1CFDB477008BF259 /* ZTJieShuan2Model.m in Sources */,
 				7B8D04CA1CEB079D0024B812 /* ZTLogoModel.m in Sources */,
 				7B03BF4F1D0E49CD00DAF357 /* NSString+ZJMyString.m in Sources */,
@@ -3450,6 +3471,7 @@
 				C70CDB171E6DAE390004CA4E /* EPCalenderTableViewCell.m in Sources */,
 				C7FFD4CC1E6716E400754C92 /* MedRefFriendCircleTableHeader.m in Sources */,
 				7BFBA6E41CFE848600D4E07C /* ZTFuJinShangJiaCollectionViewCell.m in Sources */,
+				C7C1626A1E6FFA900074A9D2 /* GoodsDetailRemarkSectionHeader.m in Sources */,
 				7B4F39731CF2906800D427CD /* ZTXiaoXiXiangQinViewController.m in Sources */,
 				C7C4A4901E5EB20A00075A27 /* HomePageSectionHeaderView.m in Sources */,
 				7BC5806D1CF6F91F00FD157A /* ZTYouHuiJuanViewController.m in Sources */,
