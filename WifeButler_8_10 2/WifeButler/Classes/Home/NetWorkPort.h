@@ -40,4 +40,6 @@
 /**社区服务 社区物流*/
 #define KCommunityService [HTTP_BaseURL stringByAppendingString:@"goods/goods/serve_index"]
 
+/**服务分类*/
+#define ServiceCategory [HTTP_BaseURL stringByAppendingString:@"goods/goods/cat_goods"]
 #endif /* NetWorkPort_h */

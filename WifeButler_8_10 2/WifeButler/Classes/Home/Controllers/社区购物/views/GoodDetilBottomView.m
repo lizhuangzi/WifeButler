@@ -33,6 +33,7 @@
     [self layoutIfNeeded];
     
     NSArray * array = @[@"客服",@"店铺",@"购物车"];
+    NSArray * imageArray = @[@"kefu",@"dian_pu",@"caar"];
     CGFloat btnW = 50;
     CGFloat btnH = 55;
     CGFloat margin = ((iphoneWidth - joinShoppingBtn.width)-3*btnW)/4;
@@ -40,7 +41,7 @@
         titleBottomButton * button = [[titleBottomButton alloc]initWithImageWidth:25 andHeight:25];
         button.titleLabel.font = [UIFont systemFontOfSize:14];
         button.tag = i;
-        [button setImage:[UIImage imageNamed:@"ZTIphoneRed"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:imageArray[i]] forState:UIControlStateNormal];
         [button setTitle: array[i] forState:UIControlStateNormal];
         [button setTitleColor:WifeButlerGaryTextColor1 forState:UIControlStateNormal];
         button.frame = CGRectMake(margin + (btnW + margin)*i, 5, btnW, btnH);

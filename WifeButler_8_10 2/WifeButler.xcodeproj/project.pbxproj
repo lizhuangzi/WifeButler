@@ -231,6 +231,12 @@
 		C7F8F20C1E718EA40039293C /* ZTTime1CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8F1FE1E718EA40039293C /* ZTTime1CollectionViewCell.m */; };
 		C7F8F20D1E718EA40039293C /* ZTTime2CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8F2001E718EA40039293C /* ZTTime2CollectionViewCell.m */; };
 		C7F8F20E1E718EA40039293C /* ZTTime3CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8F2021E718EA40039293C /* ZTTime3CollectionViewCell.m */; };
+		C7F8F2141E7190B40039293C /* CommunityRealEstateController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8F2131E7190B40039293C /* CommunityRealEstateController.m */; };
+		C7F8F2171E71955F0039293C /* ServiceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8F2161E71955F0039293C /* ServiceListViewController.m */; };
+		C7F8F21B1E7195C00039293C /* ServiceListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8F2191E7195C00039293C /* ServiceListTableViewCell.m */; };
+		C7F8F21C1E7195C00039293C /* ServiceListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F8F21A1E7195C00039293C /* ServiceListTableViewCell.xib */; };
+		C7F8F21F1E719B6B0039293C /* ServiceListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8F21E1E719B6B0039293C /* ServiceListModel.m */; };
+		C7F8F2221E719C270039293C /* WifeButlerCommonBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8F2211E719C270039293C /* WifeButlerCommonBaseModel.m */; };
 		C7FDFE861E5D8D8800BB6438 /* HomePageSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FDFE851E5D8D8800BB6438 /* HomePageSectionModel.m */; };
 		C7FDFE891E5D8DA900BB6438 /* HomePageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FDFE881E5D8DA900BB6438 /* HomePageCellModel.m */; };
 		C7FFD4B21E66AE4500754C92 /* tempLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FFD4B11E66AE4500754C92 /* tempLoadingViewController.m */; };
@@ -697,6 +703,17 @@
 		C7F8F2001E718EA40039293C /* ZTTime2CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTTime2CollectionViewCell.m; sourceTree = "<group>"; };
 		C7F8F2011E718EA40039293C /* ZTTime3CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTTime3CollectionViewCell.h; sourceTree = "<group>"; };
 		C7F8F2021E718EA40039293C /* ZTTime3CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTTime3CollectionViewCell.m; sourceTree = "<group>"; };
+		C7F8F2121E7190B40039293C /* CommunityRealEstateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityRealEstateController.h; sourceTree = "<group>"; };
+		C7F8F2131E7190B40039293C /* CommunityRealEstateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityRealEstateController.m; sourceTree = "<group>"; };
+		C7F8F2151E71955F0039293C /* ServiceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceListViewController.h; sourceTree = "<group>"; };
+		C7F8F2161E71955F0039293C /* ServiceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceListViewController.m; sourceTree = "<group>"; };
+		C7F8F2181E7195C00039293C /* ServiceListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceListTableViewCell.h; sourceTree = "<group>"; };
+		C7F8F2191E7195C00039293C /* ServiceListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceListTableViewCell.m; sourceTree = "<group>"; };
+		C7F8F21A1E7195C00039293C /* ServiceListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceListTableViewCell.xib; sourceTree = "<group>"; };
+		C7F8F21D1E719B6B0039293C /* ServiceListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceListModel.h; sourceTree = "<group>"; };
+		C7F8F21E1E719B6B0039293C /* ServiceListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceListModel.m; sourceTree = "<group>"; };
+		C7F8F2201E719C270039293C /* WifeButlerCommonBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerCommonBaseModel.h; sourceTree = "<group>"; };
+		C7F8F2211E719C270039293C /* WifeButlerCommonBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerCommonBaseModel.m; sourceTree = "<group>"; };
 		C7FDFE841E5D8D8800BB6438 /* HomePageSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageSectionModel.h; sourceTree = "<group>"; };
 		C7FDFE851E5D8D8800BB6438 /* HomePageSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageSectionModel.m; sourceTree = "<group>"; };
 		C7FDFE871E5D8DA900BB6438 /* HomePageCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageCellModel.h; sourceTree = "<group>"; };
@@ -937,6 +954,9 @@
 		7B2366AF1D026FCB003BC590 /* 社区物业 */ = {
 			isa = PBXGroup;
 			children = (
+				C7F8F2111E71903B0039293C /* View */,
+				C7F8F2101E71902D0039293C /* Model */,
+				C7F8F20F1E7190060039293C /* Controller */,
 				C7F8F1EB1E718EA40039293C /* 预约 */,
 			);
 			path = "社区物业";
@@ -1445,6 +1465,10 @@
 			children = (
 				7BA6065E1D055F9F00148007 /* ZTSheQuFuWuViewController.h */,
 				7BA6065F1D055F9F00148007 /* ZTSheQuFuWuViewController.m */,
+				C7F8F2151E71955F0039293C /* ServiceListViewController.h */,
+				C7F8F2161E71955F0039293C /* ServiceListViewController.m */,
+				C7F8F21D1E719B6B0039293C /* ServiceListModel.h */,
+				C7F8F21E1E719B6B0039293C /* ServiceListModel.m */,
 			);
 			path = Contorller;
 			sourceTree = "<group>";
@@ -1464,6 +1488,9 @@
 				C7F8F1E31E716D150039293C /* ZTSheQuFuWuCollectionViewCell.h */,
 				C7F8F1E41E716D150039293C /* ZTSheQuFuWuCollectionViewCell.m */,
 				C7F8F1E51E716D150039293C /* ZTSheQuFuWuCollectionViewCell.xib */,
+				C7F8F2181E7195C00039293C /* ServiceListTableViewCell.h */,
+				C7F8F2191E7195C00039293C /* ServiceListTableViewCell.m */,
+				C7F8F21A1E7195C00039293C /* ServiceListTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1689,6 +1716,8 @@
 			children = (
 				C71058371E615ED700C85CBE /* WifeButlerUserParty.h */,
 				C71058381E615ED700C85CBE /* WifeButlerUserParty.m */,
+				C7F8F2201E719C270039293C /* WifeButlerCommonBaseModel.h */,
+				C7F8F2211E719C270039293C /* WifeButlerCommonBaseModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2769,6 +2798,29 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C7F8F20F1E7190060039293C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C7F8F2121E7190B40039293C /* CommunityRealEstateController.h */,
+				C7F8F2131E7190B40039293C /* CommunityRealEstateController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C7F8F2101E71902D0039293C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C7F8F2111E71903B0039293C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C7FFD4BE1E6714AF00754C92 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -2956,6 +3008,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BAD20121D544617005798F2 /* ZTDuiHuanDingDan.storyboard in Resources */,
+				C7F8F21C1E7195C00039293C /* ServiceListTableViewCell.xib in Resources */,
 				7BE3C64C1CF1938800851512 /* ZTYiJianFanKuiViewController.xib in Resources */,
 				7BE3C6611CF19C8300851512 /* ZTNeiBuGongGaoTableViewCell.xib in Resources */,
 				7BE3C6521CF1996600851512 /* ZTGuangYuMyViewController.xib in Resources */,
@@ -3127,6 +3180,7 @@
 				7BE3C6601CF19C8300851512 /* ZTNeiBuGongGaoTableViewCell.m in Sources */,
 				C7F8F20E1E718EA40039293C /* ZTTime3CollectionViewCell.m in Sources */,
 				7BBE4D401D069FB800DBF00F /* ZTXiangQinHealthyLifeViewController.m in Sources */,
+				C7F8F2141E7190B40039293C /* CommunityRealEstateController.m in Sources */,
 				7BB43FB31CE9C57F007D722A /* UIBarButtonItem+Extension.m in Sources */,
 				C7E4E13D1E65705700169897 /* WifeButlerFileManager.m in Sources */,
 				7B5B07B71D0E9FBA00D0246A /* ZTJianKangShenHuoBottomModel.m in Sources */,
@@ -3167,6 +3221,7 @@
 				C7F8EE991E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m in Sources */,
 				7BCC31651D2E59AF007D930A /* ZTLunBoToModel.m in Sources */,
 				7BE3C6BF1CF1A54C00851512 /* ZYQAssetPickerController.m in Sources */,
+				C7F8F21F1E719B6B0039293C /* ServiceListModel.m in Sources */,
 				7BF9ACA11D12931100F0D000 /* ZTWoDeXiaoXiModel.m in Sources */,
 				C7D52FA11E5F38AC00D98448 /* UIImage+ColorExistion.m in Sources */,
 				7B9D399F1CF9393C00F6359D /* ZTPingLunModel.m in Sources */,
@@ -3196,6 +3251,7 @@
 				C78973981E6BF1CD00BFF404 /* WifeButlerWebViewController.m in Sources */,
 				7BBDB5FF1D010E730098B079 /* CAAnimation+WAnimation.m in Sources */,
 				C7C162781E700AB60074A9D2 /* titleBottomButton.m in Sources */,
+				C7F8F21B1E7195C00039293C /* ServiceListTableViewCell.m in Sources */,
 				7BAD20101D544609005798F2 /* ZTDuiHuanDingDanViewController.m in Sources */,
 				C7FFD4B21E66AE4500754C92 /* tempLoadingViewController.m in Sources */,
 				7B54B42E1D53607800FB2B28 /* ZTZhiHuanTiJiaoViewController.m in Sources */,
@@ -3207,6 +3263,7 @@
 				C7C162751E7009ED0074A9D2 /* GoodDetilBottomView.m in Sources */,
 				7B01CA3F1CFDB477008BF259 /* ZTJieShuan2Model.m in Sources */,
 				7B8D04CA1CEB079D0024B812 /* ZTLogoModel.m in Sources */,
+				C7F8F2171E71955F0039293C /* ServiceListViewController.m in Sources */,
 				7B03BF4F1D0E49CD00DAF357 /* NSString+ZJMyString.m in Sources */,
 				7B8D04D11CEB22DB0024B812 /* ZTBianJiZiliaoTableViewController.m in Sources */,
 				7BE3C6391CF1888F00851512 /* ZTShouHuoAddressModel.m in Sources */,
@@ -3254,6 +3311,7 @@
 				C7FFD5071E67295F00754C92 /* CommonEmojiPageCell.m in Sources */,
 				C781A91A1E5FFCF900E3D325 /* XMGSocialViewController.m in Sources */,
 				C7FFD4E21E6719DF00754C92 /* CSActionSheetCell.m in Sources */,
+				C7F8F2221E719C270039293C /* WifeButlerCommonBaseModel.m in Sources */,
 				7BE3C64B1CF1938800851512 /* ZTYiJianFanKuiViewController.m in Sources */,
 				C7FFD50D1E67298400754C92 /* CommonEmojiManager.m in Sources */,
 				C7FFD4E11E6719DF00754C92 /* CSActionSheet.m in Sources */,

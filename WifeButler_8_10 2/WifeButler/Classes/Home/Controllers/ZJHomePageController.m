@@ -16,6 +16,7 @@
 #import "EPCalendarViewController.h"
 #import "ZJShopClassVC.h"
 #import "ZTSheQuFuWuViewController.h"
+#import "CommunityRealEstateController.h"
 
 #import "ZTJianKangShenHuoBottomModel.h"
 #import "ZTLunBoToModel.h"
@@ -268,6 +269,11 @@
         case 2:{ //社区服务
             ZTSheQuFuWuViewController * ser = [[ZTSheQuFuWuViewController alloc]init];
             [self.navigationController pushViewController:ser animated:YES];
+        }
+            break;
+        case 3:{
+            CommunityRealEstateController * realEstate = [[CommunityRealEstateController alloc]init];
+            [self.navigationController pushViewController:realEstate animated:YES];
         }
             break;
         case 4:{ //环保日历

@@ -16,6 +16,8 @@
 #import "ZTSheQuFuWuCollectionViewCell.h"
 #import "ZTSheQuFuWuCollectionViewCellModel.h"
 
+#import "ServiceListViewController.h"
+
 @interface ZTSheQuFuWuViewController ()<CommonShopLeftSelectTypeViewSelectDelegate,UICollectionViewDelegateFlowLayout>
 /**数据源*/
 @property (nonatomic,strong) NSMutableArray * dataArray;
@@ -75,12 +77,15 @@
         make.right.mas_equalTo(self.view);
         make.bottom.mas_equalTo(self.view);
     }];
-    
+    [self requestDataWithServiceID:@"2"];
+}
+
+- (void)requestDataWithServiceID:(NSString *)Id
+{
     NSMutableDictionary * parm = [NSMutableDictionary dictionary];
     parm[@"jing"] = NSGetUserDefaults(@"jing");
     parm[@"wei"] = NSGetUserDefaults(@"wei");
-    parm[@"serve_id"] = @"2";
-    
+    parm[@"serve_id"] = Id;
     [SVProgressHUD showWithStatus:@""];
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KCommunityService parameter:parm success:^(NSDictionary * resultCode) {
         
@@ -105,9 +110,9 @@
             self.dataDict[typeModel.Id] = tempModelArray;
         }
         
-      
+        
         [self.selectTypeView defaultSelect];
-
+        
     } failure:^(NSError *error) {
         SVDCommonErrorDeal
     }];
@@ -137,20 +142,34 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (iPhone5 || iPhone4) {
-        return CGSizeMake(65, 85);
+        return CGSizeMake(50, 70);
     }
     else if(iPhone6P){
-        return CGSizeMake(95, 115);
-    }else{
         return CGSizeMake(85, 105);
+    }else{
+        return CGSizeMake(75, 95);
     }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [self pushServiceListViewWithServiceID:@"2" IndexPath:indexPath];
+}
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(0, 10, 0, 10);
 }
 
 
+- (void)pushServiceListViewWithServiceID:(NSString *)Id IndexPath:(NSIndexPath *)indexPath
+{
+    ZTSheQuFuWuCollectionViewCellModel * model = self.dataArray[indexPath.item];
+    
+    ServiceListViewController * list = [[ServiceListViewController alloc]initWithServiceId:Id];
+    list.catId = model.Id;
+    list.title = model.name;
+    [self.navigationController pushViewController :list animated:YES];
+
+}
 
 @end

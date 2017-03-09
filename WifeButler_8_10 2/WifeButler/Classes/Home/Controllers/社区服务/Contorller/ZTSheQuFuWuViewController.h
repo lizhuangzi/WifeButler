@@ -11,4 +11,8 @@
 
 @interface ZTSheQuFuWuViewController : UICollectionViewController
 
+- (void)requestDataWithServiceID:(NSString *)Id;
+
+- (void)pushServiceListViewWithServiceID:(NSString *)Id IndexPath:(NSIndexPath *)indexPath;
+
 @end
