@@ -15,6 +15,7 @@
 #import "ZJGuangLiShouHuoDiZhiViewController.h"
 #import "EPCalendarViewController.h"
 #import "ZJShopClassVC.h"
+#import "ZTSheQuFuWuViewController.h"
 
 #import "ZTJianKangShenHuoBottomModel.h"
 #import "ZTLunBoToModel.h"
@@ -262,6 +263,11 @@
         case 1:{ //社区购物
             ZJShopClassVC * shop = [[ZJShopClassVC alloc]init];
             [self.navigationController pushViewController:shop animated:YES];
+        }
+            break;
+        case 2:{ //社区服务
+            ZTSheQuFuWuViewController * ser = [[ZTSheQuFuWuViewController alloc]init];
+            [self.navigationController pushViewController:ser animated:YES];
         }
             break;
         case 4:{ //环保日历

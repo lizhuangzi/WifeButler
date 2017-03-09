@@ -36,4 +36,8 @@
 
 /**环保日历  userid */
 #define KEPCalenderRequest [HTTP_BaseURL stringByAppendingString:@"integrals/Garbagecollection/usergarbagelist"]
+
+/**社区服务 社区物流*/
+#define KCommunityService [HTTP_BaseURL stringByAppendingString:@"goods/goods/serve_index"]
+
 #endif /* NetWorkPort_h */

@@ -12,11 +12,13 @@
 
 @property (nonatomic,strong) NSArray * imageUrlStrings;
 
+@property (nonatomic,copy)void(^tapImageBlock)(NSUInteger curentIndex,NSArray * allImageUrlStrs);
 @end
 
 
 @interface PhotosCollectionCell : UICollectionViewCell
 
 @property (nonatomic,weak) UIImageView * imageView;
+
 
 @end

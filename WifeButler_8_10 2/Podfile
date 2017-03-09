@@ -15,5 +15,6 @@ pod 'AMap2DMap'
 pod 'AMapSearch'
 pod 'AMapLocation'
 pod 'QBImagePickerController'
+pod 'MWPhotoBrowser'
 
 end

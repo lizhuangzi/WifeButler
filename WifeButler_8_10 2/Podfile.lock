@@ -52,6 +52,7 @@ DEPENDENCIES:
   - Masonry (~> 1.0.2)
   - MJExtension (~> 3.0.10)
   - MJRefresh (~> 3.1.0)
+  - MWPhotoBrowser
   - MWPhotoBrowser (~> 2.1.2)
   - QBImagePickerController
   - SDCycleScrollView (~> 1.64)
@@ -77,6 +78,6 @@ SPEC CHECKSUMS:
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: e9f63433810735a3df32342589dc134901f98dfa
+PODFILE CHECKSUM: 192923c10e6d1779b09117f5f8bd7ed6efbacea2
 
 COCOAPODS: 1.1.1

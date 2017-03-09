@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZTSheQuFuWuViewController : UIViewController
+
+@interface ZTSheQuFuWuViewController : UICollectionViewController
 
 @end

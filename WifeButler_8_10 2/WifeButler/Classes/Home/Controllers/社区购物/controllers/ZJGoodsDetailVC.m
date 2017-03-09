@@ -18,6 +18,7 @@
 #import "MJRefresh.h"
 #import "GoodDetilBottomView.h"
 #import "WifeButlerDefine.h"
+#import "PhotoBrowserGetter.h"
 
 @interface ZJGoodsDetailVC ()<UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate,GoodDetilBottomViewprotocol>
 
@@ -28,6 +29,7 @@
 @property (nonatomic, assign)NSInteger pageSize;
 @property (nonatomic, strong)NSMutableArray*imgAry;
 
+@property (nonatomic,strong) PhotoBrowserGetter * browserGetter;
 // 表示符号
 @property (nonatomic, assign) BOOL Flag;
 
@@ -43,6 +45,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self SettingDefaultData];
+     // 评价数据请求
+    [self ZJNetWorkingJiaZa];
+    
+    [self creteaReJres];
+    
+    [self.tableView.mj_header beginRefreshing];
+}
+#pragma mark - 设置默认数据
+- (void)SettingDefaultData
+{
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
     self.tableView.backgroundColor = WifeButlerTableBackGaryColor;
@@ -57,12 +70,7 @@
     // 默认设置no
     self.Flag = NO;
     
-    // 评价数据请求
-    [self ZJNetWorkingJiaZa];
-    
-    [self creteaReJres];
-    
-    [self.tableView.mj_header beginRefreshing];
+
 }
 
 //设置头部滚动视图
@@ -71,44 +79,37 @@
     
     UIView*headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, iphoneWidth, iphoneHeight*0.5)];
     
-//   宽 320     高: 124
-    
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, iphoneWidth, iphoneHeight*0.5 +1)];
     [headerView addSubview:view];
-    
     self.tableView.tableHeaderView = headerView;
-    
-    // 网络加载 --- 创建带标题的图片轮播器
-//    SDCycleScrollView *cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height) delegate:nil placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
-//    cycleScrollView2.delegate = self;
-//    cycleScrollView2.tag = 1;
-//    cycleScrollView2.pageControlAliment  = SDCycleScrollViewPageContolAlimentCenter;
-//    cycleScrollView2.currentPageDotColor = [UIColor whiteColor]; // 自定义分页控件小圆标颜色
-//    cycleScrollView2.backgroundColor = [UIColor whiteColor];
+    //顶部滑动浏览视图
     PhotosScrollView * photoScro = [[PhotosScrollView alloc]initWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
-    
     [view addSubview:photoScro];
     photoScro.imageUrlStrings = imageArr;
-    // --- 模拟加载延迟
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 图片
-      //  cycleScrollView2.imageURLStringsGroup = imageArr;
-    });
+  
+    WEAKSELF
+    [photoScro setTapImageBlock:^(NSUInteger   currentIndex, NSArray * imageUrls) {
+        weakSelf.browserGetter = [PhotoBrowserGetter browserGetter];
+        UIViewController * vc = [weakSelf.browserGetter getBrowserWithCurrentIndex:currentIndex andimageURLStrings:imageUrls];
+        
+        [weakSelf.navigationController pushViewController:vc animated:YES];
+    }];
 }
 
 - (void)creteaReJres
 {
+    WEAKSELF
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
-        self.pageSize = 1;
-        [self ZJNetWorking];
+        weakSelf.pageSize = 1;
+        [weakSelf ZJNetWorking];
     }];
     
     // 上拉加载
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         
-        self.pageSize ++;
-        [self ZJNetWorkingJiaZa];
+        weakSelf.pageSize ++;
+        [weakSelf ZJNetWorkingJiaZa];
     }];
 }
 
@@ -408,7 +409,7 @@
 }
 
 
-
+#pragma mark - 懒加载
 -(NSMutableDictionary*)dataDic
 {
     if (!_dataDic) {
@@ -443,7 +444,7 @@
     return  [formatter stringFromDate:createdDate];
 }
 
-#pragma mark - BottomDelegate
+#pragma mark - 底部视图回调BottomDelegate
 - (void)GoodDetilBottomViewDidClickShopping:(GoodDetilBottomView *)view
 {
     WifeButlerLetUserLoginCode
@@ -525,6 +526,7 @@
     }];
 
 }
+
 - (void)GoodDetilBottomViewDidClickOthers:(GoodDetilBottomView *)view andIndex:(NSUInteger)index
 {
     if (index == 2) { //点击购物车
@@ -534,4 +536,10 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
+- (void)dealloc
+{
+    ZJLog(@"商品详情dealloc*****");
+}
+
 @end

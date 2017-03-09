@@ -84,6 +84,11 @@
     return CGSizeMake(self.width, self.height);
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString * currentStr = self.imageUrlStrings[indexPath.item];
+    !self.tapImageBlock?:self.tapImageBlock(indexPath.item,self.imageUrlStrings);
+}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -105,6 +110,7 @@
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(self);
         }];
+        
         self.imageView = imageView;
     }
     return self;
