@@ -26,4 +26,8 @@
 + (id<NSCoding>)getLoginUserInformation;
 
 + (void)removeLoginUserInformation;
+
+
++ (NSString *)getCacheSize;
++ (void)cleanCache;
 @end

@@ -17,7 +17,7 @@
 #import  "MJExtension.h"
 #import "WifeButlerDefine.h"
 
-@interface ZTPersonGouWuCheViewController ()
+@interface ZTPersonGouWuCheViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray *_dataSource;
     
@@ -45,6 +45,7 @@
     _pize = 1;
     
     self.tableView.tableFooterView = [[UIView alloc] init];
+    self.tableView.backgroundColor = WifeButlerTableBackGaryColor;
     
     _dataSource = [NSMutableArray array];
     
@@ -114,8 +115,6 @@
     
     __weak typeof(cell) weakCell = cell;
     
-    __weak typeof(self) weakSelf = self;
-    
     // 增加
     [cell setAddBlack:^{
         
@@ -137,32 +136,6 @@
         
         [self netWorkingXuanZhongShuLiangModel:model andNum:strNum];
 
-    }];
-
-    // 删除
-    [cell setDeleteBlack:^{
-        
-        NSString *cancelButtonTitle = NSLocalizedString(@"取消", nil);
-        NSString *otherButtonTitle = NSLocalizedString(@"确认", nil);
-        
-        UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"将要删除该商品" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *action = [UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            
-            
-        }];
-        
-        UIAlertAction *otherAction = [UIAlertAction actionWithTitle:otherButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            
-            [weakSelf netWorkingDelete:model];
-            
-        }];
-        
-        [vc addAction:action];
-        [vc addAction:otherAction];
-        
-        [self presentViewController:vc animated:YES completion:nil];
-        
     }];
 
     return cell;
@@ -189,6 +162,38 @@
     
 }
 
+/**删除*/
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    WEAKSELF;
+     ZTGouWuCheModel *model = _dataSource[indexPath.row];
+    NSString *cancelButtonTitle = NSLocalizedString(@"取消", nil);
+    NSString *otherButtonTitle = NSLocalizedString(@"确认", nil);
+    
+    UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"将要删除该商品" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *action = [UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+        
+    }];
+    
+    UIAlertAction *otherAction = [UIAlertAction actionWithTitle:otherButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        [weakSelf netWorkingDelete:model];
+        
+    }];
+    
+    [vc addAction:action];
+    [vc addAction:otherAction];
+    
+    [self presentViewController:vc animated:YES completion:nil];
+
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
 #pragma mark -  判断是否全选
 - (void)panDuanisQuanXuan
 {

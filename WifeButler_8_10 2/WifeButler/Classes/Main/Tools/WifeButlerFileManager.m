@@ -51,4 +51,44 @@ static NSString * _name = @"userParty";
     ZJLog(@"%@",F_DocumentPath);
 }
 
++ (NSString *)getCacheSize
+{
+    unsigned long long size = 0;
+    NSFileManager* manager = [NSFileManager defaultManager];
+    NSString * filePath = [F_LibraryPath stringByAppendingPathComponent:@"Caches"];
+    BOOL isDir = NO;
+    BOOL exist = [manager fileExistsAtPath:filePath isDirectory:&isDir];
+    
+    // 判断路径是否存在
+    if (!exist) return @"0";
+    if (isDir) { // 是文件夹
+        NSDirectoryEnumerator *enumerator = [manager enumeratorAtPath:filePath];
+        
+        for (NSString *subPath in enumerator) {
+            NSString *fullPath = [filePath stringByAppendingPathComponent:subPath];
+            size += [manager attributesOfItemAtPath:fullPath error:nil].fileSize;
+            
+        }
+    }else{ // 是文件
+        size += [manager attributesOfItemAtPath:filePath error:nil].fileSize;
+    }
+    CGFloat C = size /pow(1024, 2);
+    
+    return [NSString stringWithFormat:@"%f",C];
+
+}
+
++ (void)cleanCache
+{
+    NSFileManager* manager = [NSFileManager defaultManager];
+    NSString * filePath = [F_LibraryPath stringByAppendingPathComponent:@"Caches"];
+    NSArray * contents = [manager contentsOfDirectoryAtPath:filePath error:nil];
+    
+    NSEnumerator *e = [contents objectEnumerator];
+    NSString *filename;
+    while ((filename = [e nextObject])) {
+        [manager removeItemAtPath:[filePath stringByAppendingPathComponent:filename] error:NULL];
+    }
+}
+
 @end

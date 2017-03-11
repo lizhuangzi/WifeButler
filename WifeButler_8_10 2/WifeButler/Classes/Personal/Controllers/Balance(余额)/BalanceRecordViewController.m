@@ -31,6 +31,12 @@
     
     self.title = @"记录";
     [self.tableView registerNib:[UINib nibWithNibName:@"BalanceRecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"BalanceRecordTableViewCell"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -42,7 +48,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return 80;
 }
 
 @end

@@ -17,4 +17,23 @@
 
 /**获取用户二维码*/
 #define KUserGetQRCode [HTTP_BaseURL stringByAppendingString:@"integrals/Exchange/getuserqr"]
+
+/**银行卡列表*/
+#define KBankCardList [HTTP_BaseURL stringByAppendingString:@"e_wallet/E_wallet/bankcardlist"]
+
+/**银行卡归属*/
+#define KBankCardAffiliate [HTTP_BaseURL stringByAppendingString:@"e_wallet/E_wallet/bankname"]
+
+/**用户余额*/
+#define KUserBalance [HTTP_BaseURL stringByAppendingString:@"e_wallet/E_wallet/getbalance"]
+
+/**充值*/
+#define KRecharge [HTTP_BaseURL stringByAppendingString:@"e_wallet/Walletpay/pay"]
+
+/**充值支付订单*/
+#define KPayAndRechargeOrder [HTTP_BaseURL stringByAppendingString:@"e_wallet/Walletpay/create"]
+
+/**交易记录*/
+#define  KTransactionRecord [HTTP_BaseURL stringByAppendingString:@"e_wallet/E_wallet/walletlist"]
+
 #endif /* PersonalPort_h */

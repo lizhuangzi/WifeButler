@@ -16,9 +16,20 @@
 - (void)GoodDetilBottomViewDidClickOthers:(GoodDetilBottomView *)view andIndex:(NSUInteger)index;
 @end
 
-
+typedef NS_ENUM(NSUInteger, GoodDetilBottomViewShowType) {
+    GoodDetilBottomViewShowTypeShopDetail,
+    GoodDetilBottomViewShowTypeServiceDetail,
+};
+/**这是详情下方的选择栏*/
 @interface GoodDetilBottomView : UIView
 
-@property (nonatomic,assign) id<GoodDetilBottomViewprotocol> delegate;
++ (GoodDetilBottomView *(^)(GoodDetilBottomViewShowType type,id<GoodDetilBottomViewprotocol> delegate))n_e_w_withTypeAndDelegate;
 
++ (GoodDetilBottomView *(^)())n_e_w;
+
+- (GoodDetilBottomView *(^)(id<GoodDetilBottomViewprotocol> delegate))setDelegate;
+
+- (GoodDetilBottomView *(^)(GoodDetilBottomViewShowType type))setType;
+
+- (GoodDetilBottomView *(^)())beginCreate;
 @end

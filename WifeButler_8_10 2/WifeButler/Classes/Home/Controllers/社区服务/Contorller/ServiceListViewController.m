@@ -12,6 +12,8 @@
 #import "ServiceListTableViewCell.h"
 #import "ServiceListModel.h"
 #import "WifeButlerDefine.h"
+#import "ServiceDetailViewController.h"
+
 @interface ServiceListViewController ()
 
 @property (nonatomic,copy)NSString * serviceId;
@@ -101,6 +103,15 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 100;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    ServiceListModel * model = self.dataArray[indexPath.row];
+    ServiceDetailViewController * sv = [[ServiceDetailViewController alloc]initWithGoodId:model.Id];
+    [self.navigationController pushViewController:sv animated:YES];
 }
 
 #pragma loadingDelegate

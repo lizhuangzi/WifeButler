@@ -176,7 +176,7 @@
                                             <outlet property="saleLabel" destination="DgC-EM-gEa" id="y1w-gm-cMD"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="good2" rowHeight="66" id="TLm-2D-RbE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="good2" rowHeight="66" id="TLm-2D-RbE" customClass="ZJGoodsDetailCell2">
                                         <rect key="frame" x="0.0" y="170" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TLm-2D-RbE" id="ITR-VX-z3l">
@@ -226,6 +226,10 @@
                                                 <constraint firstItem="wES-CQ-Z7i" firstAttribute="top" secondItem="ITR-VX-z3l" secondAttribute="top" constant="1" id="Lyn-i9-ZgR"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="iconView" destination="HQV-od-7mb" id="EtL-Hd-Lxz"/>
+                                            <outlet property="shopNameLabel" destination="O4F-vA-Xcx" id="wlO-9V-Pqm"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="good4" rowHeight="129" id="D1l-Oj-U2O" customClass="ZJGoodsDetailCell4">
                                         <rect key="frame" x="0.0" y="236" width="375" height="129"/>

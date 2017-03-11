@@ -8,6 +8,8 @@
 
 #import "BalanceViewController.h"
 #import "BalanceRecordViewController.h"
+#import "inputPayMoneyView.h"
+#import "ZTZhiFuFangShiTableViewController.h"
 
 @interface BalanceViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *numLabel;
@@ -37,14 +39,59 @@
 }
 #pragma mark - 充值点击
 - (IBAction)rechargeClick {
-    
+    [self showinputPayMoneyView];
 }
+
+
 
 #pragma mark - 记录点击
 - (void)recordClick
 {
     BalanceRecordViewController * b = [[BalanceRecordViewController alloc]init];
     [self.navigationController pushViewController:b animated:YES];
+}
+
+
+/**显示支付弹出框*/
+- (void)showinputPayMoneyView
+{
+    __unsafe_unretained inputPayMoneyView * inputMoneyView = [inputPayMoneyView inputMoney];
+    MJWeakSelf
+    [inputMoneyView showFrom:self.view];
+    
+    inputMoneyView.block = ^(NSString * money){
+        
+        if (money.length == 0) {
+            [SVProgressHUD showErrorWithStatus:@"金额不能为空"];
+            return ;
+        }
+        
+        if ([self isNUMBER:money]) {
+            
+            if (money.floatValue<0.01) {
+                [SVProgressHUD showErrorWithStatus:@"金额必须一分以上"];
+                return;
+            }
+            
+            //    //进入支付界面.
+            UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTHuiZhuanDingDan" bundle:nil];
+            ZTZhiFuFangShiTableViewController * payVc =[sb instantiateViewControllerWithIdentifier:@"ZTZhiFuFangShiTableViewController"];
+            [weakSelf.navigationController pushViewController:payVc animated:YES];
+            [inputMoneyView inputViewHid];
+        }else
+        {
+            [SVProgressHUD showErrorWithStatus:@"输入金额不合法"];
+        }
+    };
+}
+/**判断是否是金钱*/
+- (BOOL)isNUMBER:(NSString *)str
+{
+    NSString * parttern = @"^(([0-9]|([1-9][0-9]{0,9}))((\\.[0-9]{1,2})?))$";
+    NSRegularExpression * ex = [NSRegularExpression regularExpressionWithPattern:parttern options:0 error:nil];
+    NSArray * array = [ex matchesInString:str options:0 range:NSMakeRange(0, str.length)];
+    
+    return array.count == 1?YES:NO;
 }
 
 

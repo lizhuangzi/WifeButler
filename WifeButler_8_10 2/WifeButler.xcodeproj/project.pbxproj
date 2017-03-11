@@ -192,6 +192,11 @@
 		C745FD351E73F0B500B01742 /* CardPocketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C745FD331E73F0B500B01742 /* CardPocketTableViewCell.xib */; };
 		C745FD391E73F32D00B01742 /* CardPocketAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C745FD371E73F32D00B01742 /* CardPocketAddViewController.m */; };
 		C745FD3A1E73F32D00B01742 /* CardPocketAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C745FD381E73F32D00B01742 /* CardPocketAddViewController.xib */; };
+		C745FD3E1E740E1F00B01742 /* inputPayMoneyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C745FD3C1E740E1F00B01742 /* inputPayMoneyView.m */; };
+		C745FD3F1E740E1F00B01742 /* inputPayMoneyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C745FD3D1E740E1F00B01742 /* inputPayMoneyView.xib */; };
+		C745FD421E740EAF00B01742 /* PlaceHoderText.m in Sources */ = {isa = PBXBuildFile; fileRef = C745FD411E740EAF00B01742 /* PlaceHoderText.m */; };
+		C745FD451E7415A200B01742 /* ServiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C745FD441E7415A200B01742 /* ServiceDetailViewController.m */; };
+		C745FD481E74190700B01742 /* ZJGoodsDetailCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = C745FD471E74190700B01742 /* ZJGoodsDetailCell2.m */; };
 		C781A9171E5FFCF900E3D325 /* XMGConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9101E5FFCF900E3D325 /* XMGConst.m */; };
 		C781A9181E5FFCF900E3D325 /* XMGHomeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9121E5FFCF900E3D325 /* XMGHomeLabel.m */; };
 		C781A9191E5FFCF900E3D325 /* XMGHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9141E5FFCF900E3D325 /* XMGHomeViewController.m */; };
@@ -641,6 +646,15 @@
 		C745FD361E73F32D00B01742 /* CardPocketAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardPocketAddViewController.h; sourceTree = "<group>"; };
 		C745FD371E73F32D00B01742 /* CardPocketAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardPocketAddViewController.m; sourceTree = "<group>"; };
 		C745FD381E73F32D00B01742 /* CardPocketAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardPocketAddViewController.xib; sourceTree = "<group>"; };
+		C745FD3B1E740E1F00B01742 /* inputPayMoneyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputPayMoneyView.h; sourceTree = "<group>"; };
+		C745FD3C1E740E1F00B01742 /* inputPayMoneyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = inputPayMoneyView.m; sourceTree = "<group>"; };
+		C745FD3D1E740E1F00B01742 /* inputPayMoneyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = inputPayMoneyView.xib; sourceTree = "<group>"; };
+		C745FD401E740EAF00B01742 /* PlaceHoderText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceHoderText.h; sourceTree = "<group>"; };
+		C745FD411E740EAF00B01742 /* PlaceHoderText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceHoderText.m; sourceTree = "<group>"; };
+		C745FD431E7415A200B01742 /* ServiceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceDetailViewController.h; sourceTree = "<group>"; };
+		C745FD441E7415A200B01742 /* ServiceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceDetailViewController.m; sourceTree = "<group>"; };
+		C745FD461E74190700B01742 /* ZJGoodsDetailCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJGoodsDetailCell2.h; sourceTree = "<group>"; };
+		C745FD471E74190700B01742 /* ZJGoodsDetailCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJGoodsDetailCell2.m; sourceTree = "<group>"; };
 		C781A90F1E5FFCF900E3D325 /* XMGConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGConst.h; sourceTree = "<group>"; };
 		C781A9101E5FFCF900E3D325 /* XMGConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGConst.m; sourceTree = "<group>"; };
 		C781A9111E5FFCF900E3D325 /* XMGHomeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGHomeLabel.h; sourceTree = "<group>"; };
@@ -1494,6 +1508,8 @@
 			children = (
 				7BA6065E1D055F9F00148007 /* ZTSheQuFuWuViewController.h */,
 				7BA6065F1D055F9F00148007 /* ZTSheQuFuWuViewController.m */,
+				C745FD431E7415A200B01742 /* ServiceDetailViewController.h */,
+				C745FD441E7415A200B01742 /* ServiceDetailViewController.m */,
 				C7F8F2151E71955F0039293C /* ServiceListViewController.h */,
 				C7F8F2161E71955F0039293C /* ServiceListViewController.m */,
 				C7F8F21D1E719B6B0039293C /* ServiceListModel.h */,
@@ -1793,6 +1809,8 @@
 				C7C162771E700AB60074A9D2 /* titleBottomButton.m */,
 				C7C162791E7041BA0074A9D2 /* PhotosScrollView.h */,
 				C7C1627A1E7041BA0074A9D2 /* PhotosScrollView.m */,
+				C745FD401E740EAF00B01742 /* PlaceHoderText.h */,
+				C745FD411E740EAF00B01742 /* PlaceHoderText.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2616,6 +2634,8 @@
 			children = (
 				7BE420541D13A730009A8FAB /* ZJGoodsDetailCell1.h */,
 				7BE420551D13A730009A8FAB /* ZJGoodsDetailCell1.m */,
+				C745FD461E74190700B01742 /* ZJGoodsDetailCell2.h */,
+				C745FD471E74190700B01742 /* ZJGoodsDetailCell2.m */,
 				7BE420581D13A730009A8FAB /* ZJGoodsDetailCell3.h */,
 				7BE420591D13A730009A8FAB /* ZJGoodsDetailCell3.m */,
 				7BE4205A1D13A730009A8FAB /* ZJGoodsDetailCell4.h */,
@@ -2670,6 +2690,9 @@
 				C745FD251E73E85F00B01742 /* BalanceRecordTableViewCell.h */,
 				C745FD261E73E85F00B01742 /* BalanceRecordTableViewCell.m */,
 				C745FD271E73E85F00B01742 /* BalanceRecordTableViewCell.xib */,
+				C745FD3B1E740E1F00B01742 /* inputPayMoneyView.h */,
+				C745FD3C1E740E1F00B01742 /* inputPayMoneyView.m */,
+				C745FD3D1E740E1F00B01742 /* inputPayMoneyView.xib */,
 			);
 			path = "Balance(余额)";
 			sourceTree = "<group>";
@@ -3105,6 +3128,7 @@
 				7BC5804B1CF6C81C00FD157A /* ZTGarbageOfRice.storyboard in Resources */,
 				C7FFD50F1E67299A00754C92 /* CommonEmojiCell.xib in Resources */,
 				7B63EAB51CFBCE85004F9DA7 /* ZTHuiZhuanPingJia.storyboard in Resources */,
+				C745FD3F1E740E1F00B01742 /* inputPayMoneyView.xib in Resources */,
 				C745FD291E73E85F00B01742 /* BalanceRecordTableViewCell.xib in Resources */,
 				C7C4A4921E5EB22500075A27 /* HomePageSectionHeaderView.xib in Resources */,
 				7BF499761CFD87C800CCEB45 /* ZTJieSuanGouWuChe.storyboard in Resources */,
@@ -3245,6 +3269,7 @@
 				7BC580531CF6C81C00FD157A /* ZJProcessorDetailTableCell1.m in Sources */,
 				C7F8F1E61E716D150039293C /* ZTSheQuFuWuCollectionViewCell.m in Sources */,
 				7B63EAC01CFC6348004F9DA7 /* ZTLaJiHuanMiViewController.m in Sources */,
+				C745FD3E1E740E1F00B01742 /* inputPayMoneyView.m in Sources */,
 				7BE3C6601CF19C8300851512 /* ZTNeiBuGongGaoTableViewCell.m in Sources */,
 				C7F8F20E1E718EA40039293C /* ZTTime3CollectionViewCell.m in Sources */,
 				7BBE4D401D069FB800DBF00F /* ZTXiangQinHealthyLifeViewController.m in Sources */,
@@ -3274,6 +3299,7 @@
 				7BF9ACAB1D12B37E00F0D000 /* ZTXiaoQuXuanZeViewController.m in Sources */,
 				7BB43F501CE9C3BC007D722A /* main.m in Sources */,
 				7B9D39B01CF9B8B200F6359D /* ZTShangPingModel.m in Sources */,
+				C745FD421E740EAF00B01742 /* PlaceHoderText.m in Sources */,
 				C7FFD4D01E67173C00754C92 /* DocFriendHeaderView.m in Sources */,
 				C7FFD4F11E6721F800754C92 /* DocFriendReviewModel.m in Sources */,
 				7BAD20251D5495D8005798F2 /* ZTOrderXiangQinModel.m in Sources */,
@@ -3287,6 +3313,7 @@
 				7BAD20151D54685A005798F2 /* ZTDuiHuanOrder1TableViewCell.m in Sources */,
 				7BB43FB61CE9C57F007D722A /* ZJTabBarController.m in Sources */,
 				C7F8EE991E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m in Sources */,
+				C745FD451E7415A200B01742 /* ServiceDetailViewController.m in Sources */,
 				7BCC31651D2E59AF007D930A /* ZTLunBoToModel.m in Sources */,
 				7BE3C6BF1CF1A54C00851512 /* ZYQAssetPickerController.m in Sources */,
 				C7F8F21F1E719B6B0039293C /* ServiceListModel.m in Sources */,
@@ -3340,6 +3367,7 @@
 				C781A9171E5FFCF900E3D325 /* XMGConst.m in Sources */,
 				7B2366AC1D026449003BC590 /* ZTWoYaoKaiDianTableViewController.m in Sources */,
 				7BC580511CF6C81C00FD157A /* ZJProcessorDetailTableVC.m in Sources */,
+				C745FD481E74190700B01742 /* ZJGoodsDetailCell2.m in Sources */,
 				7B9D39A21CF9725100F6359D /* ZTjieSuanModel.m in Sources */,
 				C7C4A49A1E5EBE5600075A27 /* HomePageCommodityView.m in Sources */,
 				7B8D04BB1CEAB21B0024B812 /* NSString+ZJMyJudgeString.m in Sources */,

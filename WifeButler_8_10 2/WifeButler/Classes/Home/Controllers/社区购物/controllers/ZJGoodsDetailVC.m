@@ -8,6 +8,7 @@
 
 #import "ZJGoodsDetailVC.h"
 #import "ZJGoodsDetailCell1.h"
+#import "ZJGoodsDetailCell2.h"
 #import "ZJGoodsDetailCell3.h"
 #import "ZJGoodsDetailCell4.h"
 #import "GoodsDetailRemarFooter.h"
@@ -16,7 +17,7 @@
 #import "ZTPersonGouWuCheViewController.h"
 #import "ZJLoginController.h"
 #import "MJRefresh.h"
-#import "GoodDetilBottomView.h"
+
 #import "WifeButlerDefine.h"
 #import "PhotoBrowserGetter.h"
 
@@ -34,10 +35,12 @@
 @property (nonatomic, assign) BOOL Flag;
 
 @property (nonatomic, assign) CGFloat  heightFlag;
-@property (weak, nonatomic) IBOutlet GoodDetilBottomView *bottomView;
+
 //评价次数和平均评分
 @property (nonatomic,assign) NSInteger reviewCount;
 @property (nonatomic,assign) CGFloat averageScore;
+
+@property (weak, nonatomic) IBOutlet GoodDetilBottomView *bottomView;
 @end
 
 @implementation ZJGoodsDetailVC
@@ -60,7 +63,15 @@
     self.tableView.delegate=self;
     self.tableView.backgroundColor = WifeButlerTableBackGaryColor;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.bottomView.delegate = self;
+    
+    if (self.settingBottomBlock && 1 == self.settingBottomBlock(_bottomView)) {
+       
+    }else{
+        _bottomView.setDelegate(self).setType(GoodDetilBottomViewShowTypeShopDetail);
+    }
+    
+    _bottomView.beginCreate();
+    
     self.title = @"商品详情";
     
     self.goodNum = @"1";
@@ -70,8 +81,8 @@
     // 默认设置no
     self.Flag = NO;
     
-
 }
+
 
 //设置头部滚动视图
 - (void)createScorllViewWuWang:(NSArray *)imageArr
@@ -92,8 +103,12 @@
         weakSelf.browserGetter = [PhotoBrowserGetter browserGetter];
         UIViewController * vc = [weakSelf.browserGetter getBrowserWithCurrentIndex:currentIndex andimageURLStrings:imageUrls];
         
-        [weakSelf.navigationController pushViewController:vc animated:YES];
-    }];
+        if (weakSelf.navigationController) {
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+
+        }else
+            [weakSelf.parentViewController.navigationController  pushViewController:vc animated:YES];
+}];
 }
 
 - (void)creteaReJres
@@ -163,7 +178,10 @@
         
         if (indexPath.row == 1) {
             
-            UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"good2"];
+            ZJGoodsDetailCell2 * cell = [tableView dequeueReusableCellWithIdentifier:@"good2"];
+            cell.shopNameLabel.text = self.dataDic[@"shop_name"];
+            NSString * logoUrlStr = self.dataDic[@"shop_logo"];
+            [cell.iconView sd_setImageWithURL:[NSURL URLWithString:logoUrlStr] placeholderImage:[UIImage imageNamed:@"ZTHomeLighlighted"]];
             return cell;
         }
 
@@ -317,6 +335,9 @@
             
             [SVProgressHUD dismiss];
             self.dataDic = [responseObject objectForKey:@"resultCode"];
+            //回调到需要自己数据的控制器
+            !self.usefulDataBlock?:self.usefulDataBlock(self.dataDic);
+            
             NSString *imgStr = [self.dataDic objectForKey:@"gallery"];
             NSArray *array = [imgStr componentsSeparatedByString:@","];
             for (int i = 0; i < [array count]; i ++) {
@@ -362,7 +383,6 @@
         
         NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
         
-        ZJLog(@"%@", responseObject);
         
         // 登录成功
         if ([[responseObject objectForKey:@"code"] intValue]==10000) {

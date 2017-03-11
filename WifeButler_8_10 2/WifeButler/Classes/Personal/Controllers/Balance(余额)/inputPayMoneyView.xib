@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="YU3-Tv-cRH" customClass="inputPayMoneyView">
+            <rect key="frame" x="0.0" y="0.0" width="376" height="230"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEE-RM-8uZ">
+                    <rect key="frame" x="14" y="14" width="362" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="xjt-wZ-xae"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zJP-Qm-8SN" customClass="PlaceHoderText">
+                    <rect key="frame" x="14" y="50" width="348" height="40"/>
+                    <color key="backgroundColor" red="0.94280697601010099" green="0.94280697601010099" blue="0.94280697601010099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="n1G-sV-j22"/>
+                    </constraints>
+                    <color key="textColor" red="0.85090540029999995" green="0.85090540029999995" blue="0.85090540029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="decimalPad"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67G-fh-Op8">
+                    <rect key="frame" x="88" y="113" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="F3X-65-zgN"/>
+                        <constraint firstAttribute="width" constant="20" id="YeO-6J-WRp"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="ZTFangXianJiFeng"/>
+                    <state key="selected" backgroundImage="ZTFangXianJiFengSelect"/>
+                    <connections>
+                        <action selector="agreeClick:" destination="YU3-Tv-cRH" eventType="touchUpInside" id="fEG-wt-9MW"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="同意支付条款, 查看支付协议" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQ1-Pk-s9H">
+                    <rect key="frame" x="113" y="113" width="200" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="QYZ-Dt-Ise"/>
+                        <constraint firstAttribute="width" constant="200" id="ubV-8o-u4f"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0E-ka-pSK">
+                    <rect key="frame" x="10" y="170" width="356" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="6Fq-W0-Rg7"/>
+                    </constraints>
+                    <state key="normal" title="确认充值"/>
+                    <connections>
+                        <action selector="payClick:" destination="YU3-Tv-cRH" eventType="touchUpInside" id="VuG-hk-ePq"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="mEE-RM-8uZ" secondAttribute="trailing" id="0QU-3U-lS6"/>
+                <constraint firstItem="zJP-Qm-8SN" firstAttribute="leading" secondItem="YU3-Tv-cRH" secondAttribute="leading" constant="14" id="51I-MW-8bP"/>
+                <constraint firstItem="XQ1-Pk-s9H" firstAttribute="leading" secondItem="67G-fh-Op8" secondAttribute="trailing" constant="5" id="DCd-Lm-7wy"/>
+                <constraint firstItem="XQ1-Pk-s9H" firstAttribute="top" secondItem="zJP-Qm-8SN" secondAttribute="bottom" constant="23" id="E5i-Eh-YTL"/>
+                <constraint firstItem="mEE-RM-8uZ" firstAttribute="leading" secondItem="YU3-Tv-cRH" secondAttribute="leading" constant="14" id="PHV-V0-319"/>
+                <constraint firstItem="f0E-ka-pSK" firstAttribute="leading" secondItem="YU3-Tv-cRH" secondAttribute="leading" constant="10" id="SHB-Hu-76Q"/>
+                <constraint firstItem="67G-fh-Op8" firstAttribute="top" secondItem="zJP-Qm-8SN" secondAttribute="bottom" constant="23" id="Sb2-dj-QJ7"/>
+                <constraint firstAttribute="bottom" secondItem="f0E-ka-pSK" secondAttribute="bottom" constant="20" id="TdS-GO-z0m"/>
+                <constraint firstItem="f0E-ka-pSK" firstAttribute="top" secondItem="XQ1-Pk-s9H" secondAttribute="bottom" constant="32" id="XQy-lN-gnn"/>
+                <constraint firstItem="zJP-Qm-8SN" firstAttribute="top" secondItem="mEE-RM-8uZ" secondAttribute="bottom" constant="16" id="bkD-vO-sS1"/>
+                <constraint firstAttribute="trailing" secondItem="f0E-ka-pSK" secondAttribute="trailing" constant="10" id="okv-RI-HQf"/>
+                <constraint firstItem="67G-fh-Op8" firstAttribute="centerX" secondItem="YU3-Tv-cRH" secondAttribute="centerX" constant="-90" id="pp8-Ok-2zV"/>
+                <constraint firstItem="mEE-RM-8uZ" firstAttribute="top" secondItem="YU3-Tv-cRH" secondAttribute="top" constant="14" id="prf-Wd-GAN"/>
+                <constraint firstAttribute="trailing" secondItem="zJP-Qm-8SN" secondAttribute="trailing" constant="14" id="rU4-GE-goE"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="XQy-lN-gnn"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="AgreeMentattributeText" destination="XQ1-Pk-s9H" id="OEU-R8-KQY"/>
+                <outlet property="btnAgree" destination="67G-fh-Op8" id="Oue-vF-6Pi"/>
+                <outlet property="btnPay" destination="f0E-ka-pSK" id="pKW-0f-cW6"/>
+                <outlet property="moneyTextView" destination="zJP-Qm-8SN" id="wFQ-4A-r1N"/>
+            </connections>
+            <point key="canvasLocation" x="337" y="479"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ZTFangXianJiFeng" width="19" height="18"/>
+        <image name="ZTFangXianJiFengSelect" width="35" height="35"/>
+    </resources>
+</document>
