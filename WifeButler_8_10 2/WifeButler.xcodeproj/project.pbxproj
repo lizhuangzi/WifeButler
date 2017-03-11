@@ -181,6 +181,17 @@
 		C71058411E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71058401E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m */; };
 		C71365321E350BEB00C89CB5 /* UIColor+EasyExistion.m in Sources */ = {isa = PBXBuildFile; fileRef = C71365311E350BEB00C89CB5 /* UIColor+EasyExistion.m */; };
 		C7457CE71E63011C0039CF5B /* WifeButlerInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7457CE61E63011C0039CF5B /* WifeButlerInfoTableViewCell.m */; };
+		C745FD201E73E15900B01742 /* BalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C745FD1E1E73E15900B01742 /* BalanceViewController.m */; };
+		C745FD211E73E15900B01742 /* BalanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C745FD1F1E73E15900B01742 /* BalanceViewController.xib */; };
+		C745FD241E73E79600B01742 /* BalanceRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C745FD231E73E79600B01742 /* BalanceRecordViewController.m */; };
+		C745FD281E73E85F00B01742 /* BalanceRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C745FD261E73E85F00B01742 /* BalanceRecordTableViewCell.m */; };
+		C745FD291E73E85F00B01742 /* BalanceRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C745FD271E73E85F00B01742 /* BalanceRecordTableViewCell.xib */; };
+		C745FD2C1E73EE1100B01742 /* SettingChangePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = C745FD2B1E73EE1100B01742 /* SettingChangePasswordController.m */; };
+		C745FD301E73EFC700B01742 /* CardPocketListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C745FD2F1E73EFC700B01742 /* CardPocketListViewController.m */; };
+		C745FD341E73F0B500B01742 /* CardPocketTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C745FD321E73F0B500B01742 /* CardPocketTableViewCell.m */; };
+		C745FD351E73F0B500B01742 /* CardPocketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C745FD331E73F0B500B01742 /* CardPocketTableViewCell.xib */; };
+		C745FD391E73F32D00B01742 /* CardPocketAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C745FD371E73F32D00B01742 /* CardPocketAddViewController.m */; };
+		C745FD3A1E73F32D00B01742 /* CardPocketAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C745FD381E73F32D00B01742 /* CardPocketAddViewController.xib */; };
 		C781A9171E5FFCF900E3D325 /* XMGConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9101E5FFCF900E3D325 /* XMGConst.m */; };
 		C781A9181E5FFCF900E3D325 /* XMGHomeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9121E5FFCF900E3D325 /* XMGHomeLabel.m */; };
 		C781A9191E5FFCF900E3D325 /* XMGHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9141E5FFCF900E3D325 /* XMGHomeViewController.m */; };
@@ -612,6 +623,24 @@
 		C71365311E350BEB00C89CB5 /* UIColor+EasyExistion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+EasyExistion.m"; sourceTree = "<group>"; };
 		C7457CE51E63011C0039CF5B /* WifeButlerInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerInfoTableViewCell.h; sourceTree = "<group>"; };
 		C7457CE61E63011C0039CF5B /* WifeButlerInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerInfoTableViewCell.m; sourceTree = "<group>"; };
+		C745FD1D1E73E15900B01742 /* BalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceViewController.h; sourceTree = "<group>"; };
+		C745FD1E1E73E15900B01742 /* BalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceViewController.m; sourceTree = "<group>"; };
+		C745FD1F1E73E15900B01742 /* BalanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BalanceViewController.xib; sourceTree = "<group>"; };
+		C745FD221E73E79600B01742 /* BalanceRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceRecordViewController.h; sourceTree = "<group>"; };
+		C745FD231E73E79600B01742 /* BalanceRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceRecordViewController.m; sourceTree = "<group>"; };
+		C745FD251E73E85F00B01742 /* BalanceRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceRecordTableViewCell.h; sourceTree = "<group>"; };
+		C745FD261E73E85F00B01742 /* BalanceRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceRecordTableViewCell.m; sourceTree = "<group>"; };
+		C745FD271E73E85F00B01742 /* BalanceRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BalanceRecordTableViewCell.xib; sourceTree = "<group>"; };
+		C745FD2A1E73EE1100B01742 /* SettingChangePasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingChangePasswordController.h; sourceTree = "<group>"; };
+		C745FD2B1E73EE1100B01742 /* SettingChangePasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingChangePasswordController.m; sourceTree = "<group>"; };
+		C745FD2E1E73EFC700B01742 /* CardPocketListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardPocketListViewController.h; sourceTree = "<group>"; };
+		C745FD2F1E73EFC700B01742 /* CardPocketListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardPocketListViewController.m; sourceTree = "<group>"; };
+		C745FD311E73F0B500B01742 /* CardPocketTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardPocketTableViewCell.h; sourceTree = "<group>"; };
+		C745FD321E73F0B500B01742 /* CardPocketTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardPocketTableViewCell.m; sourceTree = "<group>"; };
+		C745FD331E73F0B500B01742 /* CardPocketTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardPocketTableViewCell.xib; sourceTree = "<group>"; };
+		C745FD361E73F32D00B01742 /* CardPocketAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardPocketAddViewController.h; sourceTree = "<group>"; };
+		C745FD371E73F32D00B01742 /* CardPocketAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardPocketAddViewController.m; sourceTree = "<group>"; };
+		C745FD381E73F32D00B01742 /* CardPocketAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardPocketAddViewController.xib; sourceTree = "<group>"; };
 		C781A90F1E5FFCF900E3D325 /* XMGConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGConst.h; sourceTree = "<group>"; };
 		C781A9101E5FFCF900E3D325 /* XMGConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGConst.m; sourceTree = "<group>"; };
 		C781A9111E5FFCF900E3D325 /* XMGHomeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGHomeLabel.h; sourceTree = "<group>"; };
@@ -1782,6 +1811,8 @@
 		7BB43FA51CE9C57F007D722A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C745FD2D1E73EF7F00B01742 /* CardPocket(卡包) */,
+				C745FD1C1E73E0AE00B01742 /* Balance(余额) */,
 				C7C5645E1E6EF62E00D15359 /* setting(设置) */,
 				7B2366A61D026430003BC590 /* 我要开店 */,
 				7BC580671CF6F8EF00FD157A /* 优惠卷 */,
@@ -2628,6 +2659,36 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C745FD1C1E73E0AE00B01742 /* Balance(余额) */ = {
+			isa = PBXGroup;
+			children = (
+				C745FD1D1E73E15900B01742 /* BalanceViewController.h */,
+				C745FD1E1E73E15900B01742 /* BalanceViewController.m */,
+				C745FD1F1E73E15900B01742 /* BalanceViewController.xib */,
+				C745FD221E73E79600B01742 /* BalanceRecordViewController.h */,
+				C745FD231E73E79600B01742 /* BalanceRecordViewController.m */,
+				C745FD251E73E85F00B01742 /* BalanceRecordTableViewCell.h */,
+				C745FD261E73E85F00B01742 /* BalanceRecordTableViewCell.m */,
+				C745FD271E73E85F00B01742 /* BalanceRecordTableViewCell.xib */,
+			);
+			path = "Balance(余额)";
+			sourceTree = "<group>";
+		};
+		C745FD2D1E73EF7F00B01742 /* CardPocket(卡包) */ = {
+			isa = PBXGroup;
+			children = (
+				C745FD2E1E73EFC700B01742 /* CardPocketListViewController.h */,
+				C745FD2F1E73EFC700B01742 /* CardPocketListViewController.m */,
+				C745FD311E73F0B500B01742 /* CardPocketTableViewCell.h */,
+				C745FD321E73F0B500B01742 /* CardPocketTableViewCell.m */,
+				C745FD331E73F0B500B01742 /* CardPocketTableViewCell.xib */,
+				C745FD361E73F32D00B01742 /* CardPocketAddViewController.h */,
+				C745FD371E73F32D00B01742 /* CardPocketAddViewController.m */,
+				C745FD381E73F32D00B01742 /* CardPocketAddViewController.xib */,
+			);
+			path = "CardPocket(卡包)";
+			sourceTree = "<group>";
+		};
 		C781A9021E5FFC7400E3D325 /* ThirdSliderViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2675,6 +2736,8 @@
 			children = (
 				C7C5645F1E6EF6E900D15359 /* WifeButlerSettingViewController.h */,
 				C7C564601E6EF6E900D15359 /* WifeButlerSettingViewController.m */,
+				C745FD2A1E73EE1100B01742 /* SettingChangePasswordController.h */,
+				C745FD2B1E73EE1100B01742 /* SettingChangePasswordController.m */,
 			);
 			path = "setting(设置)";
 			sourceTree = "<group>";
@@ -3032,6 +3095,8 @@
 				C7C1626C1E6FFAA50074A9D2 /* GoodsDetailRemarkSectionHeader.xib in Resources */,
 				7BFBA6ED1CFF032A00D4E07C /* ZTAddAddress.storyboard in Resources */,
 				7B2366AE1D026466003BC590 /* ZTWoYaoKaiDian.storyboard in Resources */,
+				C745FD351E73F0B500B01742 /* CardPocketTableViewCell.xib in Resources */,
+				C745FD3A1E73F32D00B01742 /* CardPocketAddViewController.xib in Resources */,
 				C7C564561E6EAC5B00D15359 /* EPCalendarNoDataView.xib in Resources */,
 				7B5B07BD1D0EAA8600D0246A /* ZTSheQuZhenWu.storyboard in Resources */,
 				7BD04B2B1CF820FE00D431D5 /* ZTBianJiInfo.storyboard in Resources */,
@@ -3040,8 +3105,10 @@
 				7BC5804B1CF6C81C00FD157A /* ZTGarbageOfRice.storyboard in Resources */,
 				C7FFD50F1E67299A00754C92 /* CommonEmojiCell.xib in Resources */,
 				7B63EAB51CFBCE85004F9DA7 /* ZTHuiZhuanPingJia.storyboard in Resources */,
+				C745FD291E73E85F00B01742 /* BalanceRecordTableViewCell.xib in Resources */,
 				C7C4A4921E5EB22500075A27 /* HomePageSectionHeaderView.xib in Resources */,
 				7BF499761CFD87C800CCEB45 /* ZTJieSuanGouWuChe.storyboard in Resources */,
+				C745FD211E73E15900B01742 /* BalanceViewController.xib in Resources */,
 				C789739A1E6C0F0900BFF404 /* Location.gpx in Resources */,
 				7BD5B7E11D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.xib in Resources */,
 				7B4F39791CF295DE00D427CD /* ZTGouWuChe.storyboard in Resources */,
@@ -3156,6 +3223,7 @@
 				C7A191CA1E603BB700FEDFD1 /* WifeButlerDefine.m in Sources */,
 				C70734951E680FF10043CB3E /* CommonShopLeftSelectTypeView.m in Sources */,
 				C7FFD4D31E6717DB00754C92 /* FriendCircleMarkPopView.m in Sources */,
+				C745FD341E73F0B500B01742 /* CardPocketTableViewCell.m in Sources */,
 				C7C1626F1E7000FA0074A9D2 /* GoodsDetailRemarFooter.m in Sources */,
 				C710583E1E61B58600C85CBE /* WifeButlerLoadingTableView.m in Sources */,
 				7B63EAC31CFC6735004F9DA7 /* ZTHuanMiTuPianTableViewCell.m in Sources */,
@@ -3265,8 +3333,10 @@
 				7B8D04CA1CEB079D0024B812 /* ZTLogoModel.m in Sources */,
 				C7F8F2171E71955F0039293C /* ServiceListViewController.m in Sources */,
 				7B03BF4F1D0E49CD00DAF357 /* NSString+ZJMyString.m in Sources */,
+				C745FD241E73E79600B01742 /* BalanceRecordViewController.m in Sources */,
 				7B8D04D11CEB22DB0024B812 /* ZTBianJiZiliaoTableViewController.m in Sources */,
 				7BE3C6391CF1888F00851512 /* ZTShouHuoAddressModel.m in Sources */,
+				C745FD391E73F32D00B01742 /* CardPocketAddViewController.m in Sources */,
 				C781A9171E5FFCF900E3D325 /* XMGConst.m in Sources */,
 				7B2366AC1D026449003BC590 /* ZTWoYaoKaiDianTableViewController.m in Sources */,
 				7BC580511CF6C81C00FD157A /* ZJProcessorDetailTableVC.m in Sources */,
@@ -3285,10 +3355,12 @@
 				7B01CA3C1CFDB37B008BF259 /* ZTJieSuang11Model.m in Sources */,
 				7BF1DC3D1CFAD636001C1E54 /* ZTDingDanXiangQinTableViewCell.m in Sources */,
 				D11D1A281D7BB95400E2A815 /* HomeNavgationController.m in Sources */,
+				C745FD281E73E85F00B01742 /* BalanceRecordTableViewCell.m in Sources */,
 				C7FFD4D71E6717E700754C92 /* CommentView.m in Sources */,
 				C7A191D31E606DA400FEDFD1 /* CustomCalendarViewController.m in Sources */,
 				C7A191BC1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.m in Sources */,
 				7B019D7F1D52CAFF0073506E /* ZTBackImageView.m in Sources */,
+				C745FD201E73E15900B01742 /* BalanceViewController.m in Sources */,
 				7B0536FF1D0FE5E400BE9762 /* TYDrawStorage.m in Sources */,
 				7BC580541CF6C81C00FD157A /* ZJProcessorDetailTableCell2.m in Sources */,
 				C7F8F20B1E718EA40039293C /* ZTHeardMMCollectionReusableView.m in Sources */,
@@ -3321,8 +3393,10 @@
 				7BF1DC441CFB0F0B001C1E54 /* ZTZhiFuFangShiTableViewController.m in Sources */,
 				7B1B278E1D0EB2C100601393 /* ZTSheQuZhenWuTableViewCell.m in Sources */,
 				7BE3C63A1CF1888F00851512 /* ZJGuangLiShouHuoDiZhiTableViewCell.m in Sources */,
+				C745FD2C1E73EE1100B01742 /* SettingChangePasswordController.m in Sources */,
 				7B63EAB61CFBCE85004F9DA7 /* ZTHuiZhuanPingJiaTableViewController.m in Sources */,
 				C781A9181E5FFCF900E3D325 /* XMGHomeLabel.m in Sources */,
+				C745FD301E73EFC700B01742 /* CardPocketListViewController.m in Sources */,
 				7B392D5B1D152ADB00A182BC /* ZTShenPiDianPuViewController.m in Sources */,
 				7BAD20221D547FA2005798F2 /* ZTDuiHuanOederModel.m in Sources */,
 				C7F8F20D1E718EA40039293C /* ZTTime2CollectionViewCell.m in Sources */,

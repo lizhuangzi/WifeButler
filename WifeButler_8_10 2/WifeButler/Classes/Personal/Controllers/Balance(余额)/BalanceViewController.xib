@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BalanceViewController">
+            <connections>
+                <outlet property="btnRecharge" destination="kfl-9F-bnh" id="7SI-Dx-W3Y"/>
+                <outlet property="btnWithDraw" destination="ILm-eT-cGZ" id="zCN-Sx-MVw"/>
+                <outlet property="numLabel" destination="nmy-qk-xK7" id="924-YP-S8X"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PersonBalanceCoin" translatesAutoresizingMaskIntoConstraints="NO" id="FXM-n9-8Wt" customClass="PersonBalanceCoin">
+                    <rect key="frame" x="128" y="38" width="120" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="N9J-89-Zi1"/>
+                        <constraint firstAttribute="height" constant="120" id="ZBX-7p-R3S"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmy-qk-xK7">
+                    <rect key="frame" x="147" y="190" width="82" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的余额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UkT-AP-6ZB">
+                    <rect key="frame" x="153" y="264" width="70" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfl-9F-bnh">
+                    <rect key="frame" x="30" y="325" width="315" height="44"/>
+                    <color key="backgroundColor" red="1" green="0.34274346290000002" blue="0.21479166390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="ATq-Aw-KJN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="充值">
+                        <color key="titleColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="rechargeClick" destination="-1" eventType="touchUpInside" id="gVl-N4-GTR"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILm-eT-cGZ">
+                    <rect key="frame" x="30" y="395" width="315" height="44"/>
+                    <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="OMW-m0-m15"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="提现">
+                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="withdrawClick" destination="-1" eventType="touchUpInside" id="eJF-Hd-9TZ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ILm-eT-cGZ" firstAttribute="centerX" secondItem="kfl-9F-bnh" secondAttribute="centerX" id="2IB-WS-se1"/>
+                <constraint firstItem="ILm-eT-cGZ" firstAttribute="width" secondItem="kfl-9F-bnh" secondAttribute="width" id="4HT-CW-hRu"/>
+                <constraint firstItem="ILm-eT-cGZ" firstAttribute="top" secondItem="kfl-9F-bnh" secondAttribute="bottom" constant="26" id="4zi-GS-QLH"/>
+                <constraint firstAttribute="trailing" secondItem="kfl-9F-bnh" secondAttribute="trailing" constant="30" id="6qH-lV-5U8"/>
+                <constraint firstItem="kfl-9F-bnh" firstAttribute="top" secondItem="UkT-AP-6ZB" secondAttribute="bottom" constant="40" id="Kpw-4S-GKa"/>
+                <constraint firstItem="UkT-AP-6ZB" firstAttribute="top" secondItem="nmy-qk-xK7" secondAttribute="bottom" constant="38" id="L2A-6X-FJc"/>
+                <constraint firstItem="UkT-AP-6ZB" firstAttribute="centerX" secondItem="nmy-qk-xK7" secondAttribute="centerX" id="RuJ-GT-iJu"/>
+                <constraint firstItem="kfl-9F-bnh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="TNi-ni-oGY"/>
+                <constraint firstItem="FXM-n9-8Wt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UgN-df-DlP"/>
+                <constraint firstItem="nmy-qk-xK7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Umq-TT-kT2"/>
+                <constraint firstItem="nmy-qk-xK7" firstAttribute="top" secondItem="FXM-n9-8Wt" secondAttribute="bottom" constant="32" id="YD7-xQ-kM5"/>
+                <constraint firstItem="FXM-n9-8Wt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="37.5" id="vd7-Np-6tE"/>
+            </constraints>
+            <point key="canvasLocation" x="34.5" y="66.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="PersonBalanceCoin" width="106" height="106"/>
+    </resources>
+</document>

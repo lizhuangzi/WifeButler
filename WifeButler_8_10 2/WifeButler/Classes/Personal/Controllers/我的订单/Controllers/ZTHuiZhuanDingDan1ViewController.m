@@ -1120,7 +1120,7 @@ typedef enum {
     if (_backImageView == nil) {
         
         _backImageView = [[[NSBundle mainBundle] loadNibNamed:@"ZTBackImageView" owner:self options:nil] firstObject];
-        _backImageView.frame = CGRectMake(0, 104, iphoneWidth, iphoneHeight - 104);
+        _backImageView.frame = CGRectMake(0, 40, iphoneWidth, iphoneHeight - 104);
         _backImageView.backImageView.image = [UIImage imageNamed:@"ZTBackDingDan"];
         _backImageView.titleLab.text = @"您暂时没有任何订单";
     }

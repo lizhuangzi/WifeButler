@@ -11,6 +11,9 @@
 #import "ZTPersonGouWuCheViewController.h"
 #import "ZTGuangYuMyViewController.h"
 #import "ZTYiJianFanKuiViewController.h"
+#import "BalanceViewController.h"
+#import "CardPocketListViewController.h"
+#import "ZTYouHuiJuanViewController.h"
 
 @class WifeButlerHomeCircleButton;
 
@@ -80,7 +83,35 @@
         return self;
     };
 }
+#pragma mark - 资产点击事件
+/**余额点击*/
+- (IBAction)balanceClick {
+    WifeButlerLetUserLoginCode
+    
+    BalanceViewController * b = [[BalanceViewController alloc]init];
+    [self.navigationController pushViewController:b animated:YES];
+}
+/**积分点击*/
+- (IBAction)scoreClick {
+    WifeButlerLetUserLoginCode
+}
+/**卡包点击*/
+- (IBAction)cardPocketClick {
+    WifeButlerLetUserLoginCode
+    
+    CardPocketListViewController * p = [[CardPocketListViewController alloc]init];
+    [self.navigationController pushViewController:p animated:YES];
+}
+/**优惠券点击*/
+- (IBAction)couponClick {
+    WifeButlerLetUserLoginCode
+    
+    UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZJMineController" bundle:nil];
+        ZTYouHuiJuanViewController * vc = [sb instantiateViewControllerWithIdentifier:@"ZTYouHuiJuanViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
+#pragma mark - 8个圆形按钮点击事件
 - (void)roundButtonClick:(UIButton *)button
 {
     NSUInteger index = button.tag - 2017;
@@ -154,7 +185,7 @@
                 
                 [self.userCardPocket setTitle:resultCode[@"bankcardnum"]forState:UIControlStateNormal] ;
                 [self.userScore setTitle:resultCode[@"integrals"] forState:UIControlStateNormal] ;
-                [self.userMoney setTitle:[@"¥" stringByAppendingString:resultCode[@"money"]] forState:UIControlStateNormal];
+                [self.userMoney setTitle: [NSString stringWithFormat:@"¥%@",resultCode[@"money"]] forState:UIControlStateNormal];
                 [self.userDiscountCoupon setTitle:[NSString stringWithFormat:@"%@", resultCode[@"voucher"]]  forState:UIControlStateNormal] ;
             } failure:^(NSError *error) {
                 

@@ -9,6 +9,7 @@
 #import "WifeButlerSettingViewController.h"
 #import "masonry.h"
 #import "WifeButlerDefine.h"
+#import "SettingChangePasswordController.h"
 
 @interface WifeButlerSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -103,6 +104,18 @@ NSString * const WifeButlerUserDidLogOutNotification = @"WifeButlerUserDidLogOut
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+//            UIStoryboard * story = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];
+//           SettingChangePasswordController * vc = [story instantiateViewControllerWithIdentifier:@"ZJSeakPassWordVC"];
+            SettingChangePasswordController * vc = [[SettingChangePasswordController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }
+}
 
 - (void)logOut
 {

@@ -150,6 +150,9 @@
                                                 <state key="normal" title="¥0.00">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="balanceClick" destination="i4Q-ya-qAb" eventType="touchUpInside" id="HUp-CU-jmy"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNU-W6-on6">
                                                 <rect key="frame" x="200" y="58" width="62.5" height="30"/>
@@ -157,6 +160,9 @@
                                                 <state key="normal" title="0">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="cardPocketClick" destination="i4Q-ya-qAb" eventType="touchUpInside" id="cvI-YP-IGv"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxi-hL-fdy">
                                                 <rect key="frame" x="287.5" y="58" width="62.5" height="30"/>
@@ -164,6 +170,9 @@
                                                 <state key="normal" title="0">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="couponClick" destination="i4Q-ya-qAb" eventType="touchUpInside" id="i0p-gi-LVS"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="余额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMn-ia-zZM">
                                                 <rect key="frame" x="42" y="93" width="29" height="17"/>
@@ -195,6 +204,9 @@
                                                 <state key="normal" title="0">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="scoreClick" destination="i4Q-ya-qAb" eventType="touchUpInside" id="VbS-5N-cxO"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
