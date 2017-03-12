@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CardPocklistModel;
 
 @interface CardPocketTableViewCell : UITableViewCell
+
+@property (nonatomic,strong) CardPocklistModel * model;
 
 @end

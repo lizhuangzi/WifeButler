@@ -14,4 +14,7 @@
 /** 垃圾换米列表*/
 #define    KLaJiHuanMiList      [HTTP_BaseURL stringByAppendingString:@"goods/goods/goods_exchange_list"]
 
+/**兑换详情*/
+#define KexchangeDetail [HTTP_BaseURL stringByAppendingString:@"goods/goods/goods_exchange_detail"]
+
 #endif /* RCRNetWorkPort_h */

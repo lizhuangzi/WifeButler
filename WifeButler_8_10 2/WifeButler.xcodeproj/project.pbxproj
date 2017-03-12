@@ -197,6 +197,11 @@
 		C745FD421E740EAF00B01742 /* PlaceHoderText.m in Sources */ = {isa = PBXBuildFile; fileRef = C745FD411E740EAF00B01742 /* PlaceHoderText.m */; };
 		C745FD451E7415A200B01742 /* ServiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C745FD441E7415A200B01742 /* ServiceDetailViewController.m */; };
 		C745FD481E74190700B01742 /* ZJGoodsDetailCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = C745FD471E74190700B01742 /* ZJGoodsDetailCell2.m */; };
+		C75853D71E753FEA00FFE9A6 /* WifebutlerConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C75853D61E753FEA00FFE9A6 /* WifebutlerConst.m */; };
+		C75853DA1E75737100FFE9A6 /* BalanceRecordListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C75853D91E75737100FFE9A6 /* BalanceRecordListModel.m */; };
+		C75853DD1E757A2A00FFE9A6 /* CardPocklistModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C75853DC1E757A2A00FFE9A6 /* CardPocklistModel.m */; };
+		C75853E11E75932F00FFE9A6 /* ExchangeDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C75853DF1E75932F00FFE9A6 /* ExchangeDetailTableViewCell.m */; };
+		C75853E21E75932F00FFE9A6 /* ExchangeDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C75853E01E75932F00FFE9A6 /* ExchangeDetailTableViewCell.xib */; };
 		C781A9171E5FFCF900E3D325 /* XMGConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9101E5FFCF900E3D325 /* XMGConst.m */; };
 		C781A9181E5FFCF900E3D325 /* XMGHomeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9121E5FFCF900E3D325 /* XMGHomeLabel.m */; };
 		C781A9191E5FFCF900E3D325 /* XMGHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C781A9141E5FFCF900E3D325 /* XMGHomeViewController.m */; };
@@ -207,7 +212,6 @@
 		C7A191BC1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A191BB1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.m */; };
 		C7A191BE1E60263800FEDFD1 /* WifebutlerRCRHomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A191BD1E60263800FEDFD1 /* WifebutlerRCRHomeHeaderView.xib */; };
 		C7A191C21E60337E00FEDFD1 /* exchangeStationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A191C11E60337E00FEDFD1 /* exchangeStationModel.m */; };
-		C7A191CA1E603BB700FEDFD1 /* WifeButlerDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A191C91E603BB700FEDFD1 /* WifeButlerDefine.m */; };
 		C7A191D01E606CF700FEDFD1 /* EPCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A191CF1E606CF700FEDFD1 /* EPCalendarViewController.m */; };
 		C7A191D31E606DA400FEDFD1 /* CustomCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A191D21E606DA400FEDFD1 /* CustomCalendarViewController.m */; };
 		C7BA19CB1E26778F00405816 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */; };
@@ -655,6 +659,15 @@
 		C745FD441E7415A200B01742 /* ServiceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceDetailViewController.m; sourceTree = "<group>"; };
 		C745FD461E74190700B01742 /* ZJGoodsDetailCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJGoodsDetailCell2.h; sourceTree = "<group>"; };
 		C745FD471E74190700B01742 /* ZJGoodsDetailCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJGoodsDetailCell2.m; sourceTree = "<group>"; };
+		C75853D51E753FEA00FFE9A6 /* WifebutlerConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifebutlerConst.h; sourceTree = "<group>"; };
+		C75853D61E753FEA00FFE9A6 /* WifebutlerConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifebutlerConst.m; sourceTree = "<group>"; };
+		C75853D81E75737100FFE9A6 /* BalanceRecordListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceRecordListModel.h; sourceTree = "<group>"; };
+		C75853D91E75737100FFE9A6 /* BalanceRecordListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceRecordListModel.m; sourceTree = "<group>"; };
+		C75853DB1E757A2A00FFE9A6 /* CardPocklistModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardPocklistModel.h; sourceTree = "<group>"; };
+		C75853DC1E757A2A00FFE9A6 /* CardPocklistModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardPocklistModel.m; sourceTree = "<group>"; };
+		C75853DE1E75932F00FFE9A6 /* ExchangeDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeDetailTableViewCell.h; sourceTree = "<group>"; };
+		C75853DF1E75932F00FFE9A6 /* ExchangeDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeDetailTableViewCell.m; sourceTree = "<group>"; };
+		C75853E01E75932F00FFE9A6 /* ExchangeDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExchangeDetailTableViewCell.xib; sourceTree = "<group>"; };
 		C781A90F1E5FFCF900E3D325 /* XMGConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGConst.h; sourceTree = "<group>"; };
 		C781A9101E5FFCF900E3D325 /* XMGConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGConst.m; sourceTree = "<group>"; };
 		C781A9111E5FFCF900E3D325 /* XMGHomeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGHomeLabel.h; sourceTree = "<group>"; };
@@ -673,7 +686,6 @@
 		C7A191C01E60337E00FEDFD1 /* exchangeStationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exchangeStationModel.h; sourceTree = "<group>"; };
 		C7A191C11E60337E00FEDFD1 /* exchangeStationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = exchangeStationModel.m; sourceTree = "<group>"; };
 		C7A191C81E603BB700FEDFD1 /* WifeButlerDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerDefine.h; sourceTree = "<group>"; };
-		C7A191C91E603BB700FEDFD1 /* WifeButlerDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerDefine.m; sourceTree = "<group>"; };
 		C7A191CB1E603DA800FEDFD1 /* RCRNetWorkPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRNetWorkPort.h; sourceTree = "<group>"; };
 		C7A191CE1E606CF700FEDFD1 /* EPCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPCalendarViewController.h; sourceTree = "<group>"; };
 		C7A191CF1E606CF700FEDFD1 /* EPCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPCalendarViewController.m; sourceTree = "<group>"; };
@@ -1322,6 +1334,9 @@
 				7B63EACD1CFC767C004F9DA7 /* 置换 */,
 				7B63EABE1CFC6348004F9DA7 /* ZTLaJiHuanMiViewController.h */,
 				7B63EABF1CFC6348004F9DA7 /* ZTLaJiHuanMiViewController.m */,
+				C75853DE1E75932F00FFE9A6 /* ExchangeDetailTableViewCell.h */,
+				C75853DF1E75932F00FFE9A6 /* ExchangeDetailTableViewCell.m */,
+				C75853E01E75932F00FFE9A6 /* ExchangeDetailTableViewCell.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1773,8 +1788,9 @@
 				C710583A1E615F0F00C85CBE /* HMSingleton.h */,
 				7BB43FA01CE9C57F007D722A /* AppDelegate.h */,
 				7BB43FA11CE9C57F007D722A /* AppDelegate.m */,
+				C75853D51E753FEA00FFE9A6 /* WifebutlerConst.h */,
+				C75853D61E753FEA00FFE9A6 /* WifebutlerConst.m */,
 				C7A191C81E603BB700FEDFD1 /* WifeButlerDefine.h */,
-				C7A191C91E603BB700FEDFD1 /* WifeButlerDefine.m */,
 				C7C5645D1E6EF01A00D15359 /* WifeButlerDefine2.h */,
 			);
 			path = Others;
@@ -2690,6 +2706,8 @@
 				C745FD251E73E85F00B01742 /* BalanceRecordTableViewCell.h */,
 				C745FD261E73E85F00B01742 /* BalanceRecordTableViewCell.m */,
 				C745FD271E73E85F00B01742 /* BalanceRecordTableViewCell.xib */,
+				C75853D81E75737100FFE9A6 /* BalanceRecordListModel.h */,
+				C75853D91E75737100FFE9A6 /* BalanceRecordListModel.m */,
 				C745FD3B1E740E1F00B01742 /* inputPayMoneyView.h */,
 				C745FD3C1E740E1F00B01742 /* inputPayMoneyView.m */,
 				C745FD3D1E740E1F00B01742 /* inputPayMoneyView.xib */,
@@ -2702,6 +2720,8 @@
 			children = (
 				C745FD2E1E73EFC700B01742 /* CardPocketListViewController.h */,
 				C745FD2F1E73EFC700B01742 /* CardPocketListViewController.m */,
+				C75853DB1E757A2A00FFE9A6 /* CardPocklistModel.h */,
+				C75853DC1E757A2A00FFE9A6 /* CardPocklistModel.m */,
 				C745FD311E73F0B500B01742 /* CardPocketTableViewCell.h */,
 				C745FD321E73F0B500B01742 /* CardPocketTableViewCell.m */,
 				C745FD331E73F0B500B01742 /* CardPocketTableViewCell.xib */,
@@ -3140,6 +3160,7 @@
 				C707349D1E681AE70043CB3E /* CommunityShopMainViewCell.xib in Resources */,
 				C7F8F1E71E716D150039293C /* ZTSheQuFuWuCollectionViewCell.xib in Resources */,
 				7B8D04C31CEAB3380024B812 /* ZJLogin.storyboard in Resources */,
+				C75853E21E75932F00FFE9A6 /* ExchangeDetailTableViewCell.xib in Resources */,
 				C7A191B91E6021DD00FEDFD1 /* ZTLaJiHuanMiTableViewCell.xib in Resources */,
 				C7F8F2071E718EA40039293C /* ZTTimeXuanZe.storyboard in Resources */,
 				7BFBA6BD1CFE80EC00D4E07C /* ZJHomePageController.storyboard in Resources */,
@@ -3244,7 +3265,6 @@
 				7BA606601D055F9F00148007 /* ZTSheQuFuWuViewController.m in Sources */,
 				7BBDB5FE1D010E730098B079 /* UITabBarItem+WZLBadge.m in Sources */,
 				7B0537041D0FE5E400BE9762 /* TYTextContainer.m in Sources */,
-				C7A191CA1E603BB700FEDFD1 /* WifeButlerDefine.m in Sources */,
 				C70734951E680FF10043CB3E /* CommonShopLeftSelectTypeView.m in Sources */,
 				C7FFD4D31E6717DB00754C92 /* FriendCircleMarkPopView.m in Sources */,
 				C745FD341E73F0B500B01742 /* CardPocketTableViewCell.m in Sources */,
@@ -3262,6 +3282,7 @@
 				7BBDB5FD1D010E730098B079 /* UIBarButtonItem+WZLBadge.m in Sources */,
 				7BE3C6B61CF1A05F00851512 /* Order3TableViewCell.m in Sources */,
 				7BE3C6AF1CF1A05F00851512 /* ZTHuiZhuanDingDan1ViewController.m in Sources */,
+				C75853D71E753FEA00FFE9A6 /* WifebutlerConst.m in Sources */,
 				7BC580551CF6C81C00FD157A /* ZJProcessorDetailTableCell3.m in Sources */,
 				7BE3C6411CF188DF00851512 /* ZTAddressPickView.m in Sources */,
 				7BB43FB41CE9C57F007D722A /* UIView+Extension.m in Sources */,
@@ -3341,6 +3362,7 @@
 				C7F8F2051E718EA40039293C /* ZTYuYueViewController.m in Sources */,
 				7B9D39AD1CF9B6AF00F6359D /* ZTWoDeDingDanModel.m in Sources */,
 				7BFBA6C01CFE80EC00D4E07C /* ZJShopClassVC.m in Sources */,
+				C75853DD1E757A2A00FFE9A6 /* CardPocklistModel.m in Sources */,
 				7BBDB6001D010E730098B079 /* UIView+WZLBadge.m in Sources */,
 				C7F8F2091E718EA40039293C /* ZTTimeBottonModel.m in Sources */,
 				C78973981E6BF1CD00BFF404 /* WifeButlerWebViewController.m in Sources */,
@@ -3436,6 +3458,7 @@
 				C7FFD4FA1E67284000754C92 /* UIView+RedView.m in Sources */,
 				7BE3C63C1CF1888F00851512 /* ZTBianJiDiZhiTableViewController.m in Sources */,
 				C7A191C21E60337E00FEDFD1 /* exchangeStationModel.m in Sources */,
+				C75853E11E75932F00FFE9A6 /* ExchangeDetailTableViewCell.m in Sources */,
 				C7FFD4E51E671A5800754C92 /* ImagePickerUtils.m in Sources */,
 				7B8D04C51CEAB3380024B812 /* ZJSeakPassWordVC.m in Sources */,
 				7B9D39A51CF9A95500F6359D /* ZTGouWuCheFooterVIew.m in Sources */,
@@ -3447,6 +3470,7 @@
 				7B0536FD1D0FE5E400BE9762 /* NSMutableAttributedString+TY.m in Sources */,
 				7BE420651D13A730009A8FAB /* ZJGoodsDetailCell3.m in Sources */,
 				C7FFD5031E67293200754C92 /* CommonEmojiKeyBoardView.m in Sources */,
+				C75853DA1E75737100FFE9A6 /* BalanceRecordListModel.m in Sources */,
 				7BFBA6BC1CFE80EC00D4E07C /* ZJHomePageController.m in Sources */,
 				7B392D621D152B7100A182BC /* ZTKaiDianChengGongViewController.m in Sources */,
 			);

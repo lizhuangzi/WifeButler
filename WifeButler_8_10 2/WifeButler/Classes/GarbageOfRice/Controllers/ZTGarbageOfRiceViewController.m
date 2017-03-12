@@ -19,7 +19,7 @@
 #import "ZTLaJiHuanMiTableViewCell.h"
 
 //头文件
-#import "WifeButlerDefine.h"
+#import "WifebutlerConst.h"
 #import "RCRNetWorkPort.h"
 //工具
 #import "MJRefresh.h"
@@ -144,8 +144,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     ZTLaJiHuanMiModel * model = self.dataArray[indexPath.row];
-    UIStoryboard * story = [UIStoryboard storyboardWithName:@"ZTGarbageOfRice" bundle:nil];
-     ZTLaJiHuanMiViewController * vc =[story instantiateViewControllerWithIdentifier:@"ZTLaJiHuanMiViewController"];
+
+     ZTLaJiHuanMiViewController * vc =[[ZTLaJiHuanMiViewController  alloc]init];
     vc.good_id = model.commodityId;
     [self.navigationController pushViewController:vc animated:YES];
 }

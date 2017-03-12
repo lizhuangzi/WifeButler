@@ -10,17 +10,6 @@
 #import "ZJLoginController.h"
 #import "WifeButlerAccount.h"
 
-/**请求数据返状态判断*/
-extern int const SUCCESS;
-extern NSString * const CodeKey;
-
-/**经纬度*/
-extern NSString * const WifeButlerLongtitudeKey;
-extern NSString * const  WifeButlerLatitudeKey;
-/**是否记住密码*/
-extern NSString * const WifeButlerisRememberPasswrod;
-
-#define WEAKSELF typeof(self) __weak weakSelf = self;
 
 #define DISPATCH_GLOBAL_QUEUE  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
@@ -82,9 +71,55 @@ UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAl
                                 WifeButlerLoginLosingEffection\
                                 }\
                                 else if (error.code == 20000) {\
-                                    [SVProgressHUD showErrorWithStatus:@"数据请求发生错误"];\
+                                    if(error.userInfo[@"msg"]){\
+                                         [SVProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];\
+                                    }else{\
+                                       [SVProgressHUD showErrorWithStatus:@"数据请求发生错误"];\
+                                    }\
                                 }else{\
                                     [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];\
                                 }
 //**** 网络请求失败时候svd的代码
 
+//**********列表页面请求成功时的自动处理 context默认是0
+#define D_SuccessLoadingDeal(context,resultCode,block)  [SVProgressHUD dismiss];\
+    NSArray * result = resultCode;\
+    if ([result isKindOfClass:[NSArray class]]) {\
+        if (self.page == 1) {\
+            [self.dataArray removeAllObjects];\
+        }\
+        if (result.count == 0) { \
+            if (self.page == 1) {\
+                [SVProgressHUD showInfoWithStatus:@"无数据"];\
+            }else{\
+                self.page --;\
+                [SVProgressHUD showInfoWithStatus:@"没有更多了"];\
+            }\
+        }else{ \
+            !block?:block(result);\
+        }\
+        [self.tableView reloadData];\
+        [self.tableView endRefreshing];\
+    }
+//***********列表页面请求成功时的自动处理
+
+//**********列表页面请求失败时的自动处理context默认是0
+#define D_FailLoadingDeal(context)   self.page = 1;\
+    SVDCommonErrorDeal\
+    [self.tableView endRefreshing]\
+//**********列表页面请求失败时的自动处理
+
+
+//***** Alert
+#define D_CommonAlertShow(title,block)\
+NSString *cancelButtonTitle = NSLocalizedString(@"取消", nil);\
+NSString *otherButtonTitle = NSLocalizedString(@"确认", nil);\
+UIAlertController *vc = [UIAlertController alertControllerWithTitle:title message:@"" preferredStyle:UIAlertControllerStyleAlert];\
+UIAlertAction *action = [UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];\
+UIAlertAction *otherAction = [UIAlertAction actionWithTitle:otherButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {\
+block();\
+}];\
+[vc addAction:action];\
+[vc addAction:otherAction];\
+[self presentViewController:vc animated:YES completion:nil];
+//***** Alert

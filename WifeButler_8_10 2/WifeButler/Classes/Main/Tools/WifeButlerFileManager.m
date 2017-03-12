@@ -74,7 +74,7 @@ static NSString * _name = @"userParty";
     }
     CGFloat C = size /pow(1024, 2);
     
-    return [NSString stringWithFormat:@"%f",C];
+    return [NSString stringWithFormat:@"%.2fMB",C];
 
 }
 

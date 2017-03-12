@@ -7,10 +7,12 @@
 //
 
 #import "BalanceRecordTableViewCell.h"
+#import "BalanceRecordListModel.h"
 
 @interface BalanceRecordTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *numLabel;
 @end
@@ -22,10 +24,18 @@
     self.backgroundColor = [UIColor clearColor];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)setModel:(BalanceRecordListModel *)model
+{
+    _model = model;
+    if (_model.flag == 1) {
+        self.numLabel.text = [NSString stringWithFormat:@"+%@",_model.money];
+        self.numLabel.textColor = HexCOLOR(@"#328d3d");
+    }else{
+        self.numLabel.text = [NSString stringWithFormat:@"-%@",_model.money];
+        self.numLabel.textColor = WifeButlerCommonRedColor;
+    }
+    self.timeLabel.text = _model.ctime;
+    self.nameLabel.text = _model.name;
 }
 
 @end

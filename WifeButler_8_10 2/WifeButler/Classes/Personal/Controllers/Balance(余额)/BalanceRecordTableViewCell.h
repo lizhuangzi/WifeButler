@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class BalanceRecordListModel;
 @interface BalanceRecordTableViewCell : UITableViewCell
+
+@property (nonatomic,strong) BalanceRecordListModel * model;
 
 @end

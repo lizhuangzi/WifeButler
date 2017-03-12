@@ -7,12 +7,16 @@
 //
 
 #import "CardPocketAddViewController.h"
+#import "PersonalPort.h"
+#import "WifeButlerNetWorking.h"
+#import "WifeButlerDefine.h"
 
 @interface CardPocketAddViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *sureButton;
 @property (weak, nonatomic) IBOutlet UITextField *cardPersonNameFiled;
 @property (weak, nonatomic) IBOutlet UITextField *cardNumNameFiled;
 
+@property (weak, nonatomic) IBOutlet UITextField *ownerBankView;
 @end
 
 @implementation CardPocketAddViewController
@@ -21,23 +25,55 @@
     [super viewDidLoad];
    
     self.title = @"添加银行卡";
+    self.ownerBankView.enabled = NO;
     self.sureButton.layer.cornerRadius = 5;
     self.sureButton.clipsToBounds = YES;
+
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFieldDidChange) name:UITextFieldTextDidChangeNotification object:nil];
+}
+- (IBAction)sureClick {
+    
+    if (self.cardNumNameFiled.text.length < 19) {
+        [SVProgressHUD showErrorWithStatus:@"输入卡号不合法"];
+        return;
+    }
+    if (self.cardPersonNameFiled.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入持卡人身份"];
+        return;
+    }
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)textFieldDidChange
+{
+    if (self.cardNumNameFiled.isFirstResponder) {
+        if (self.cardNumNameFiled.text.length > 19) {
+            self.cardNumNameFiled.text = [self.cardNumNameFiled.text substringToIndex:19];
+        }
+        
+        if (self.cardNumNameFiled.text.length == 19) {
+            [self.cardNumNameFiled resignFirstResponder];
+            [self requestBankOwn];
+        }
+    }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)requestBankOwn
+{
+    NSDictionary * parm = @{@"bankcard":self.cardNumNameFiled.text};
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KBankCardAffiliate parameter:parm success:^(NSDictionary * resultCode) {
+        
+        NSString * bankinfo = resultCode[@"bankinfo"];
+        self.ownerBankView.text = bankinfo;
+        
+    } failure:^(NSError *error) {
+        SVDCommonErrorDeal
+    }];
 }
-*/
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
 
 @end

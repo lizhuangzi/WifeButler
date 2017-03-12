@@ -10,8 +10,11 @@
 #import "masonry.h"
 #import "WifeButlerDefine.h"
 #import "SettingChangePasswordController.h"
-
+#import "WifeButlerFileManager.h"
+#import "WifeButlerDefine.h"
 @interface WifeButlerSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic,weak) UITableView * tableView;
 
 @end
 
@@ -56,6 +59,7 @@ NSString * const WifeButlerUserDidLogOutNotification = @"WifeButlerUserDidLogOut
         make.bottom.mas_equalTo(logOutButton.mas_top);
     }];
     table.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    self.tableView = table;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -85,7 +89,7 @@ NSString * const WifeButlerUserDidLogOutNotification = @"WifeButlerUserDidLogOut
             cell.textLabel.text = @"清除缓存";
             UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 80, 18)];
             label.textAlignment = NSTextAlignmentRight;
-            label.text = @"0M";
+            label.text = [WifeButlerFileManager getCacheSize];
             cell.accessoryView =  label;
         }
     }else{
@@ -104,26 +108,42 @@ NSString * const WifeButlerUserDidLogOutNotification = @"WifeButlerUserDidLogOut
     return cell;
 }
 
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-//            UIStoryboard * story = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];
-//           SettingChangePasswordController * vc = [story instantiateViewControllerWithIdentifier:@"ZJSeakPassWordVC"];
             SettingChangePasswordController * vc = [[SettingChangePasswordController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            WEAKSELF
+            D_CommonAlertShow(@"你确定要清除缓存吗",^{
+                [SVProgressHUD showWithStatus:@""];
+                [WifeButlerFileManager cleanCache];
+                [SVProgressHUD showSuccessWithStatus:@"清除成功"];
+                [weakSelf.tableView reloadData];
+            });
+
+        }
+    }else if (indexPath.section == 1){
+        if (indexPath.row == 0) {
         }
     }
 }
 
+
 - (void)logOut
 {
-    //1.首先注销用户单利对象
-    [[WifeButlerAccount sharedAccount]loginOffCurrentUser];
-    //2.发通知
-    [[NSNotificationCenter defaultCenter]postNotificationName:WifeButlerUserDidLogOutNotification object:nil userInfo:@{}];
-    
-    [self.navigationController popViewControllerAnimated:YES];
+    WEAKSELF
+    D_CommonAlertShow(@"你确定要退出登录吗", ^{
+        //1.首先注销用户单利对象
+        [[WifeButlerAccount sharedAccount]loginOffCurrentUser];
+        //2.发通知
+        [[NSNotificationCenter defaultCenter]postNotificationName:WifeButlerUserDidLogOutNotification object:nil userInfo:@{}];
+        
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+    });
 }
 @end

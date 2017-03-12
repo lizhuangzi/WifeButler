@@ -20,6 +20,7 @@
 
 #import "WifeButlerDefine.h"
 #import "PhotoBrowserGetter.h"
+#import "NetWorkPort.h"
 
 @interface ZJGoodsDetailVC ()<UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate,GoodDetilBottomViewprotocol>
 
@@ -64,11 +65,10 @@
     self.tableView.backgroundColor = WifeButlerTableBackGaryColor;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    if (self.settingBottomBlock && 1 == self.settingBottomBlock(_bottomView)) {
-       
-    }else{
+    //如果底部的回调存在
+    if (self.settingBottomBlock && 1 == self.settingBottomBlock(_bottomView)){}
+    else
         _bottomView.setDelegate(self).setType(GoodDetilBottomViewShowTypeShopDetail);
-    }
     
     _bottomView.beginCreate();
     
@@ -204,6 +204,7 @@
         NSString *urlStr = [NSString stringWithFormat:@"%@%@?goods_id=%@",HTTP_BaseURL,KGoodDetailWebViewURL,self.goodId];
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
         [cell.webView loadRequest:request];
+        
         return cell;
         
     }

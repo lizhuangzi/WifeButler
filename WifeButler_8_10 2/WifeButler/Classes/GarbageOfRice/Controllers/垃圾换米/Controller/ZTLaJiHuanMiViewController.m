@@ -7,282 +7,198 @@
 //
 
 #import "ZTLaJiHuanMiViewController.h"
-#import "ZTHuanMiCanShuTableViewCell.h"
-#import "ZTHuanMiTuPianTableViewCell.h"
-#import "SDCycleScrollView.h"
-#import "ZTLaJiHuanMiModel.h"
-#import "ZTJianJieH5TableViewCell.h"
 #import "ZTZhiHuanTiJiaoViewController.h"
-#import "UIColor+HexColor.h"
-#import "MJRefresh.h"
-#import  "MJExtension.h"
+#import "RCRNetWorkPort.h"
+#import "PhotosScrollView.h"
+#import "PhotoBrowserGetter.h"
+#import "WifeButlerNetWorking.h"
+#import "ExchangeDetailTableViewCell.h"
+#import "Masonry.h"
+#import "NetWorkPort.h"
 
-@interface ZTLaJiHuanMiViewController () <SDCycleScrollViewDelegate, UIWebViewDelegate>
-{
-    NSMutableArray *_dataSource;
-    
-    NSMutableArray *_dataSource1;
-    
-    int _isCanShu;
-    
-    ZTLaJiHuanMiModel *_model;
-}
+@interface ZTLaJiHuanMiViewController ()<UIWebViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLab;
-@property (weak, nonatomic) IBOutlet UILabel *kekeLab;
-@property (weak, nonatomic) IBOutlet UILabel *kekeLab1;
-@property (weak, nonatomic) IBOutlet UILabel *xiaoLiangLab;
-@property (weak, nonatomic) IBOutlet UIButton *zhihuanbutton;
+@property (nonatomic,strong) PhotoBrowserGetter * browserGetter;
 
-@property (weak, nonatomic) IBOutlet UIView *gunDong;
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
-@property (weak, nonatomic) IBOutlet UISegmentedControl *selectSeg;
-
-@property(assign, nonatomic)BOOL flag;
-@property(assign, nonatomic)CGFloat cellH;
-
-
-// 线条
-@property (weak, nonatomic) IBOutlet UIView *lineView;
-
+@property (nonatomic,strong) NSMutableDictionary * dataDict;
+@property (nonatomic, strong)NSMutableArray*imgAry;
+@property (nonatomic,assign) BOOL Flag;
+@property (nonatomic,assign) CGFloat webCellH;
 @end
 
 @implementation ZTLaJiHuanMiViewController
 
-- (void)viewDidLoad {
+- (NSMutableDictionary *)dataDict
+{
+    if (!_dataDict) {
+        _dataDict = [NSMutableDictionary dictionary];
+    }
+    return _dataDict;
+}
+
+-(NSMutableArray*)imgAry
+{
+    if (!_imgAry) {
+        _imgAry=[[NSMutableArray alloc]init];
+    }
+    return _imgAry;
+}
+
+#pragma mark - 置换
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.title = @"兑换详情";
-    
-    self.lineView.hidden = YES;
-    
-    self.tableView.tableFooterView = [[UIView alloc] init];
-    
-    [self netWorking];
-    
-    [self.zhihuanbutton setBackgroundColor:WifeButlerCommonRedColor];
-    
-    [self.selectSeg setTintColor:WifeButlerCommonRedColor];
+    self.tableView.allowsSelection = NO;
+    self.webCellH = 0;
+    self.Flag = NO;
+    [self createFooterView];
+    [self requestHttpData];
 }
+- (void)requestHttpData
+{
+    NSDictionary * parm = @{@"goods_id":self.good_id};
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KexchangeDetail parameter:parm success:^(NSDictionary * resultCode) {
+        
+        self.dataDict.dictionary = resultCode;
+        NSString *imgStr = [self.dataDict objectForKey:@"gallery"];
+        NSArray *array = [imgStr componentsSeparatedByString:@","];
+        for (int i = 0; i < [array count]; i ++) {
+            
+            NSString *str = [NSString stringWithFormat:@"%@%@",KImageUrl,[array objectAtIndex:i]];
+            [self.imgAry addObject:str];
+        }
+        [self createScorllViewWuWang:self.imgAry];
+        [self.tableView reloadData];
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+- (void)createFooterView
+{
+    UIView * backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, iphoneWidth, 55)];
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.backgroundColor = WifeButlerCommonRedColor;
+    [btn setTitle:@"立即兑换" forState:UIControlStateNormal];
+    [backView addSubview:btn];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(backView.mas_left).offset(20);
+        make.right.mas_equalTo(backView.mas_right).offset(-20);
+        make.centerY.mas_equalTo(backView.mas_centerY);
+        make.height.mas_equalTo(44);
+    }];
+    
+    self.tableView.tableFooterView = backView;
+}
+
+//设置头部滚动视图
+- (void)createScorllViewWuWang:(NSArray *)imageArr
+{
+    UIView*headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, iphoneWidth, iphoneHeight*0.5)];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, iphoneWidth, iphoneHeight*0.5 +1)];
+    [headerView addSubview:view];
+    self.tableView.tableHeaderView = headerView;
+    //顶部滑动浏览视图
+    PhotosScrollView * photoScro = [[PhotosScrollView alloc]initWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
+    [view addSubview:photoScro];
+    photoScro.imageUrlStrings = imageArr;
+    
+    WEAKSELF
+    [photoScro setTapImageBlock:^(NSUInteger   currentIndex, NSArray * imageUrls) {
+        weakSelf.browserGetter = [PhotoBrowserGetter browserGetter];
+        UIViewController * vc = [weakSelf.browserGetter getBrowserWithCurrentIndex:currentIndex andimageURLStrings:imageUrls];
+        
+        if (weakSelf.navigationController) {
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+            
+        }else
+            [weakSelf.parentViewController.navigationController  pushViewController:vc animated:YES];
+    }];
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (_isCanShu == 0) {
-        
-        return 1;
-        return _dataSource.count;
-    }
-    else
-    {
-        return _dataSource1.count;
-    }
-
-    
+    return 2;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-    if (_isCanShu == 0) {
-        
-//        ZTHuanMiTuPianTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZTHuanMiTuPianTableViewCell" forIndexPath:indexPath];
-//        
-//        [cell.iconImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", KImageUrl, _dataSource[indexPath.row]]]];
-//        
-//        return cell;
-        
-        // 改为H5后使用
-        ZTJianJieH5TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZTJianJieH5TableViewCell" forIndexPath:indexPath];
-        
-        NSString *str = [NSString stringWithFormat:@"%@goods/goods/exchange_detail_h5?goods_id=%@", HTTP_BaseURL, self.good_id];
-        NSURL *loginUrl = [NSURL URLWithString:str];
-        NSURLRequest *request = [NSURLRequest requestWithURL:loginUrl];
-        [cell.jianJiewebView loadRequest:request];
-        cell.jianJiewebView.delegate = self;
+    if (indexPath.row == 0) {
+        ExchangeDetailTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ExchangeDetailTableViewCell"];
+        if (!cell) {
+            cell = [[NSBundle mainBundle]loadNibNamed:@"ExchangeDetailTableViewCell" owner:nil options:nil].lastObject;
+        }
+        cell.title.text = self.dataDict[@"title"];
+        cell.exchangeCountLabel.text = [NSString stringWithFormat:@" %@次兑换",self.dataDict[@"sales"]];
+        cell.orginnalLabel.text = [NSString stringWithFormat:@"原价：¥%@",self.dataDict[@"oldprice"]];
+        cell.nowMoneylabel.text = [NSString stringWithFormat:@"%@/%@",self.dataDict[@"scale"],self.dataDict[@"danwei"]];
+        return cell;
+    }else if(indexPath.row == 1){
+        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"abc"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"abc"];
+            UIWebView * web = [[UIWebView alloc]init];
+            web.delegate = self;
+            [cell.contentView addSubview:web];
+            [web setBackgroundColor:[UIColor whiteColor]];
+            NSString *urlStr = [NSString stringWithFormat:@"%@%@?goods_id=%@",HTTP_BaseURL,KGoodDetailWebViewURL,self.good_id];
+            NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
+            [web loadRequest:request];
+            
+            web.frame = CGRectMake(0, 0, iphoneWidth, 30);
+        }
         
         return cell;
     }
-    else
-    {
-        ZTHuanMiCanShuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZTHuanMiCanShuTableViewCell" forIndexPath:indexPath];
-        NSArray *arr = [_dataSource1[indexPath.row] componentsSeparatedByString:@"_"];
-        
-        cell.canDiLab.text = arr[0];
-        cell.desLab.text = arr[1];
-        
-        return cell;
-    }
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-//    webView.contentScaleFactor
-    CGSize size = webView.scrollView.contentSize;
-    
-   // ZJLog(@"%@", size);
-    webView.size = size;
-    if (!_flag) {
-        
-        _flag = YES;
-        _cellH = size.height;
-        [_tableView reloadData];
-    }
-    
-   // [webView layoutIfNeeded];
-    
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_isCanShu == 0) {
-        
-        if (_flag) {
-            
-            return _cellH;
+    if (indexPath.row == 0) {
+        return 110;
+    }else{
+        if (self.webCellH == 0) {
+            return 1;
         }
-        
-        return 300;
+        return self.webCellH;
     }
-    else
-    {
-        return 33;
-    }
-    
-    return 0;
 }
 
-- (IBAction)canPingSender:(id)sender {
-    
-    UISegmentedControl *seg = sender;
-    
-    _isCanShu = (int)seg.selectedSegmentIndex;
-    
-    if (_isCanShu == 0) {
-        
-        self.lineView.hidden = YES;
-    }
-    else
-    {
-        self.lineView.hidden = NO;
-    }
-    
-    
-    
-    [self.tableView reloadData];
-}
-
-- (void)netWorking
+#pragma mark - webViewDatelate
+- (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];/*添加接可收数据的数据可行*/
+    //    webView.contentScaleFactor
+    CGSize size = webView.scrollView.contentSize;
     
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+    // ZJLog(@"%@", size);
+    webView.size = size;
     
-    [dic setObject:@([self.good_id intValue]) forKey:@"goods_id"];
     
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KDuiHuanXiangQin];
-
-    ZJLog(@"%@", dic);
-    
-    [SVProgressHUD showWithStatus:@"加载中..."];
-    
-    [manager POST:url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+    if (self.Flag == NO) {
         
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.Flag = YES;
         
-        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
+        self.webCellH = size.height;
         
-        ZJLog(@"%@", responseObject);
+        [self.tableView reloadData];
         
-        // 登录成功
-        if ([responseObject[@"code"] intValue] == 10000) {
-            
-            [SVProgressHUD dismiss];
-            
-            _model = [ZTLaJiHuanMiModel mj_objectWithKeyValues:responseObject[@"resultCode"]];
-            
-            self.titleLab.text = _model.title;
-            
-//            NSArray *arr = [_model.scale componentsSeparatedByString:@"/"];
-//            
-//            self.kekeLab.text = [NSString stringWithFormat:@"%@/", arr[0]];
-//            self.kekeLab1.text = arr[1];
-//            
-//            self.xiaoLiangLab.text = [NSString stringWithFormat:@"销量%@件", _model.sales];
-//            
-//            
-//            _dataSource = (NSMutableArray *)[_model.contents componentsSeparatedByString:@","];
-//            _dataSource1 = (NSMutableArray *)[_model.goods_desc componentsSeparatedByString:@","];
-//            
-//            // 轮播图
-//            [self createScorllView1:[_model.gallery componentsSeparatedByString:@","]];
-            
-            [self.tableView reloadData];
-        }
-        else
-        {
-            
-            [SVProgressHUD showErrorWithStatus:message];
-        }
-        
-        [self.tableView.mj_header endRefreshing];
-        
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
-        
-        [self.tableView.mj_header endRefreshing];
-        
-    }];
-    
-}
-
-
-#pragma mark - 轮播图
-- (void)createScorllView1:(NSArray *)imageArr
-{
-    NSMutableArray *imageArrMutTemp = [NSMutableArray array];
-    
-    for (int i = 0; i < imageArr.count; i ++) {
-        
-        NSString *imageStr = [NSString stringWithFormat:@"%@%@", KImageUrl, imageArr[i]];
-        
-        [imageArrMutTemp addObject:imageStr];
     }
-    
-    CGRect rect = self.gunDong.frame;
-    
-    // 网络加载 --- 创建带标题的图片轮播器
-    SDCycleScrollView *cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, rect.size.width, rect.size.height) delegate:self placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
-    
-    cycleScrollView2.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
-    cycleScrollView2.currentPageDotColor = [UIColor whiteColor]; // 自定义分页控件小圆标颜色
-    cycleScrollView2.backgroundColor = [UIColor whiteColor];
-    [self.gunDong addSubview:cycleScrollView2];
-    
-    // --- 模拟加载延迟
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+
         
-        // 图片
-        cycleScrollView2.imageURLStringsGroup = imageArrMutTemp;
-        
-    });
+    // [webView layoutIfNeeded];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-#pragma mark - 置换
 - (IBAction)zhiHuanClick:(id)sender {
-
+    
     if (KToken == nil) {
         
         [SVProgressHUD showErrorWithStatus:@"请先登录"];
@@ -292,20 +208,9 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZTGarbageOfRice" bundle:nil];
     ZTZhiHuanTiJiaoViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ZTZhiHuanTiJiaoViewController"];
     vc.good_id = self.good_id;
-    vc.pname = _model.title;
+    //  vc.pname = _model.title;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

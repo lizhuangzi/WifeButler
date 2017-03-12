@@ -7,6 +7,7 @@
 //
 
 #import "CardPocketTableViewCell.h"
+#import "CardPocklistModel.h"
 
 @interface CardPocketTableViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *cardBankName;
@@ -14,19 +15,25 @@
 @property (weak, nonatomic) IBOutlet UILabel *cardNumLabel;
 @property (weak, nonatomic) IBOutlet UIView *colorfulBackGroundView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *backImageView;
 @end
 
 @implementation CardPocketTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.colorfulBackGroundView.layer.cornerRadius = 7;
+    
+    int x = arc4random() % 4;
+    self.backImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"cardPocket%d",x]];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)setModel:(CardPocklistModel *)model
+{
+    _model  = model;
+    self.cardTypeLabel.text = _model.type;
+    self.cardBankName.text = _model.bankname;
+    self.cardNumLabel.text = _model.cardNum;
+    
+   
 }
-
 @end

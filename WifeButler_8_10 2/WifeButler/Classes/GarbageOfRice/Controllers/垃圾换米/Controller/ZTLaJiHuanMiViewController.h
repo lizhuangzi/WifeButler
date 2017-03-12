@@ -6,9 +6,9 @@
 //  Copyright © 2016年 zjtd. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "WifeButlerLoadingTableViewController.h"
 
-@interface ZTLaJiHuanMiViewController : UIViewController
+@interface ZTLaJiHuanMiViewController : WifeButlerLoadingTableViewController
 
 @property (nonatomic, copy) NSString * good_id;
 

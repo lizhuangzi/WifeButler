@@ -11,11 +11,14 @@
 
 //#define HTTP_BaseURL @"http://192.168.1.183:8080/index.php/"
 //#define HTTP_BaseURL @"http://101.201.78.49:10085/index.php/"
-#define HTTP_BaseURL @"http://101.201.115.59/index.php/"
+//#define HTTP_BaseURL @"http://101.201.115.59/index.php/"
+#define HTTP_BaseURL @"http://app.icanchubao.com/index.php/"
 
 //#define KImageUrl    @"http://192.168.1.183:8080/"
 //#define KImageUrl    @"http://101.201.78.49:10085/"
-#define KImageUrl    @"http://101.201.115.59/"
+//#define KImageUrl    @"http://101.201.115.59/"
+#define KImageUrl    @"http://app.icanchubao.com/"
+
 
 /**
  *
@@ -117,27 +120,8 @@
  */
 
 
-//社区购物  类别下的物品
-#define  KSheQuGouWuGoods        @"goods/goods/cat_goods/"
-
-//社区购物搜索
-#define  KSheQuGouWuSearch        @"goods/goods/search/"
-
-//物品详情
-#define  KSheQuGouWuGoodDetail        @"goods/goods/goods_detail/"
-
-//商品详情评价列表
-#define  KGoodEvaluationList        @"goods/goods/goods_comment/"
-
-//加入购物车
-#define  KAddBusURL        @"account/cart/add_cart/"
-
-//商品详情webView
-#define  KGoodDetailWebViewURL        @"goods/goods/goods_desc/"
 
 
-// 社区服务和社区物业列表
-#define   KSheQuFuWuList        @"goods/goods/serve_index/"
 
 // 预约时间
 #define     KYuYueTime          @"goods/goods/serve_time/"
@@ -183,8 +167,6 @@
 // 订单商品垃圾处理器评价
 #define    KLaJiChuLiQiPingJiaDingDan    @"account/order/comment_rubbish/"
 
-// 兑换详情
-#define    KDuiHuanXiangQin   @"goods/goods/goods_exchange_detail"
 
 // 垃圾换米置换接口
 #define   KLaJiHuanMiZhiHuan   @"account/order/order_exchange_commit/"

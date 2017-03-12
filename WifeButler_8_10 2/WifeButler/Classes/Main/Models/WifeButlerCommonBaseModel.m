@@ -7,7 +7,7 @@
 //
 
 #import "WifeButlerCommonBaseModel.h"
-#import "MJExtension.h"
+
 
 @implementation WifeButlerCommonBaseModel
 

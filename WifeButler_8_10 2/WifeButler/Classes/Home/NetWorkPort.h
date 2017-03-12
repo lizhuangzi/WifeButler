@@ -42,4 +42,21 @@
 
 /**服务分类*/
 #define ServiceCategory [HTTP_BaseURL stringByAppendingString:@"goods/goods/cat_goods"]
+
+
+//社区购物搜索
+#define  KSheQuGouWuSearch        @"goods/goods/search/"
+
+//物品详情
+#define  KSheQuGouWuGoodDetail        @"goods/goods/goods_detail/"
+
+//商品详情评价列表
+#define  KGoodEvaluationList        @"goods/goods/goods_comment/"
+
+//加入购物车
+#define  KAddBusURL        @"account/cart/add_cart/"
+
+//商品详情webView
+#define  KGoodDetailWebViewURL        @"goods/goods/goods_desc/"
+
 #endif /* NetWorkPort_h */

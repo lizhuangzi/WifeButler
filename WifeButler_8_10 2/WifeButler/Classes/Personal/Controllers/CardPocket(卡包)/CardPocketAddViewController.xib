@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="cardNumNameFiled" destination="3Uk-tX-BhH" id="WU7-9q-eZ3"/>
                 <outlet property="cardPersonNameFiled" destination="UqK-mg-XL6" id="Nuj-5Z-ND2"/>
+                <outlet property="ownerBankView" destination="qoq-aF-H0X" id="fH6-JI-f3e"/>
                 <outlet property="sureButton" destination="J1w-lu-6SE" id="4z1-0J-5bU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -31,7 +32,7 @@
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UqK-mg-XL6">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入持卡人姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UqK-mg-XL6">
                             <rect key="frame" x="74" y="11" width="200" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="200" id="YxU-mJ-a2r"/>
@@ -60,14 +61,14 @@
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Uk-tX-BhH">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入卡号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Uk-tX-BhH">
                             <rect key="frame" x="58" y="11" width="252" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="Gcr-SG-cyW"/>
                             </constraints>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPE-C3-9Ic">
                             <rect key="frame" x="325" y="14" width="35" height="25"/>
@@ -100,12 +101,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qoq-aF-H0X">
-                            <rect key="frame" x="74" y="11" width="200" height="30"/>
+                            <rect key="frame" x="74" y="11" width="291" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="200" id="3UD-2j-U1a"/>
                                 <constraint firstAttribute="height" constant="30" id="riB-zj-XaM"/>
                             </constraints>
-                            <nil key="textColor"/>
+                            <color key="textColor" red="0.54901960780000003" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
@@ -115,6 +115,7 @@
                         <constraint firstItem="qoq-aF-H0X" firstAttribute="leading" secondItem="eYB-tn-d1n" secondAttribute="trailing" constant="10" id="YxK-QX-OOZ"/>
                         <constraint firstItem="eYB-tn-d1n" firstAttribute="centerY" secondItem="AaC-tj-ZNJ" secondAttribute="centerY" id="kFB-PI-gaj"/>
                         <constraint firstItem="qoq-aF-H0X" firstAttribute="centerY" secondItem="eYB-tn-d1n" secondAttribute="centerY" id="luk-IK-pBZ"/>
+                        <constraint firstAttribute="trailing" secondItem="qoq-aF-H0X" secondAttribute="trailing" constant="10" id="njS-Tf-1d9"/>
                         <constraint firstAttribute="height" constant="52" id="qCJ-qg-WpR"/>
                         <constraint firstItem="eYB-tn-d1n" firstAttribute="leading" secondItem="AaC-tj-ZNJ" secondAttribute="leading" constant="15" id="vP6-Iv-bYL"/>
                     </constraints>
@@ -126,6 +127,9 @@
                         <constraint firstAttribute="height" constant="44" id="9Ka-Lr-0mq"/>
                     </constraints>
                     <state key="normal" title="确定"/>
+                    <connections>
+                        <action selector="sureClick" destination="-1" eventType="touchUpInside" id="kf1-tx-6YX"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.95236545139999995" alpha="1" colorSpace="calibratedWhite"/>

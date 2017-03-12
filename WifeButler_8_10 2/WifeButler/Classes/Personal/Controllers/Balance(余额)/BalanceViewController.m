@@ -10,6 +10,8 @@
 #import "BalanceRecordViewController.h"
 #import "inputPayMoneyView.h"
 #import "ZTZhiFuFangShiTableViewController.h"
+#import "WifeButlerNetWorking.h"
+#import "PersonalPort.h"
 
 @interface BalanceViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *numLabel;
@@ -32,7 +34,23 @@
     self.btnRecharge.clipsToBounds = YES;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"记录" style:UIBarButtonItemStylePlain target:self action:@selector(recordClick)];
+    
+    [self requestData];
 }
+
+- (void)requestData
+{
+    NSDictionary * parm = @{@"userid":KUserId,@"token":KToken};
+    
+    [WifeButlerNetWorking getPackagingHttpRequestWithURLsite:KUserBalance parameter:parm success:^(NSDictionary * resultCode) {
+        
+         self.numLabel.text = resultCode[@"money"];
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
 #pragma mark - 提现点击
 - (IBAction)withdrawClick {
     
