@@ -4,9 +4,9 @@
     <!--
      Provide one or more waypoints containing a latitude/longitude pair. If you provide one
      waypoint, Xcode will simulate that specific location. If you provide multiple waypoints,
-     Xcode will simulate a route visiting each waypoint.
+     Xcode will simulate a route visiting each waypoint.39.914934,116.303418
      -->
-    <wpt lat="39.95555554" lon="116.33134576">
+    <wpt lat="39.9149345" lon="116.3034185">
         <name>Cupertino</name>
         
         <!--

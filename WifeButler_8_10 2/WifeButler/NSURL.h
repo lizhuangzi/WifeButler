@@ -55,8 +55,6 @@
 // 资料修改
 #define KPersonInfoXiuGai  @"account/other/uinfo_update"
 
-// 收货地址
-#define KShouHuoAddress @"account/address/myaddress"
 
 // 添加收货地址
 #define KAddShouHuoAddress @"account/address/addaddress"
@@ -126,8 +124,6 @@
 // 预约时间
 #define     KYuYueTime          @"goods/goods/serve_time/"
 
-// 小区列表
-#define     KXiaoQuList         @"account/address/village"
 
 
 /**

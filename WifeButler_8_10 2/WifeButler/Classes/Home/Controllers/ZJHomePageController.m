@@ -17,6 +17,7 @@
 #import "ZJShopClassVC.h"
 #import "ZTSheQuFuWuViewController.h"
 #import "CommunityRealEstateController.h"
+#import "ChooseLocationViewController.h"
 
 #import "ZTJianKangShenHuoBottomModel.h"
 #import "ZTLunBoToModel.h"
@@ -480,7 +481,7 @@
 
 - (IBAction)titleButtonClick {
     
-    ZJGuangLiShouHuoDiZhiViewController * dizhi = [[ZJGuangLiShouHuoDiZhiViewController alloc]init];
-    [self.navigationController pushViewController:dizhi animated:YES];
+    ChooseLocationViewController * vc = [[ChooseLocationViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

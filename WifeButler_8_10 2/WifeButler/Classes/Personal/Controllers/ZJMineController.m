@@ -14,6 +14,9 @@
 #import "BalanceViewController.h"
 #import "CardPocketListViewController.h"
 #import "ZTYouHuiJuanViewController.h"
+#import "ScoreViewController.h"
+#import "ZJGuangLiShouHuoDiZhiViewController.h"
+#import "ZTDuiHuanDingDanViewController.h"
 
 @class WifeButlerHomeCircleButton;
 
@@ -94,6 +97,10 @@
 /**积分点击*/
 - (IBAction)scoreClick {
     WifeButlerLetUserLoginCode
+    
+    ScoreViewController *vc = [[ScoreViewController alloc]init];
+    vc.scoreTxt = self.userScore.titleLabel.text;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 /**卡包点击*/
 - (IBAction)cardPocketClick {
@@ -118,6 +125,12 @@
     WifeButlerLetUserLoginCode
     switch (index) {
             
+        case 0:{ //兑换订单
+            UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTDuiHuanDingDan" bundle:nil];
+            ZTDuiHuanDingDanViewController * vc = [sb instantiateViewControllerWithIdentifier:@"ZTDuiHuanDingDanViewController"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
         case 1:{ //购物车
          
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZTGouWuChe" bundle:nil];
@@ -125,10 +138,24 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
-        case 4:{
-            
+        case 2:{ //地址管理
+            ZJGuangLiShouHuoDiZhiViewController * dizhi = [[ZJGuangLiShouHuoDiZhiViewController alloc]init];
+            [self.navigationController pushViewController:dizhi animated:YES];
+        }
+            break;
+        case 3:{ //我要开店
+            [SVProgressHUD showInfoWithStatus:@"该功能暂未开通，敬请期待"];
+        }
+            break;
+        case 4:{//意见反馈
             ZTYiJianFanKuiViewController * fankui = [[ZTYiJianFanKuiViewController alloc]init];
             [self.navigationController pushViewController:fankui animated:YES];
+        }
+            break;
+        case 5:{ //打电话给客服
+            D_CommonAlertShow(@"确定要拨打客服电话吗",^{
+                
+            });
         }
             break;
         case 6:{
@@ -174,7 +201,7 @@
 {
     return ^{
         if ([WifeButlerAccount sharedAccount].isLogin) {
-            
+           
             WifeButlerUserParty * party = [WifeButlerAccount sharedAccount].userParty;
             NSMutableDictionary * parm = [NSMutableDictionary dictionary];
             parm[@"userid"] = party.Id;

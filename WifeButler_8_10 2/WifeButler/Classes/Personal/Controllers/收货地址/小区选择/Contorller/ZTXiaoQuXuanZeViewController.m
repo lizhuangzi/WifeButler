@@ -10,6 +10,7 @@
 #import "ZTXiaoQuXuanZeTableViewCell.h"
 #import "MJRefresh.h"
 #import  "MJExtension.h"
+#import "NetWorkPort.h"
 
 @interface ZTXiaoQuXuanZeViewController () <UISearchBarDelegate>
 {
@@ -90,7 +91,7 @@
     [dic setObject:KToken forKey:@"token"];
     [dic setObject:self.address_id forKey:@"zoneid"];
     
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KXiaoQuList];
+    NSString *url = KvillageList;
     
     ZJLog(@"%@", dic);
     
@@ -151,7 +152,7 @@
     [dic setObject:self.address_id forKey:@"zoneid"];
     [dic setObject:word forKey:@"word"];
     
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KXiaoQuList];
+    NSString *url = KvillageList;
     
     ZJLog(@"%@", dic);
     

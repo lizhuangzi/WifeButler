@@ -43,6 +43,13 @@
 /**服务分类*/
 #define ServiceCategory [HTTP_BaseURL stringByAppendingString:@"goods/goods/cat_goods"]
 
+/**我的收获地址*/
+#define KMyDeliveryLocation [HTTP_BaseURL stringByAppendingString:@"account/address/myaddress"]
+
+/**小区列表*/
+#define KvillageList [HTTP_BaseURL stringByAppendingString:@"account/address/village"]
+
+
 
 //社区购物搜索
 #define  KSheQuGouWuSearch        @"goods/goods/search/"

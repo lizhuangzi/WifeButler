@@ -26,8 +26,15 @@ HMSingletonM(Manager);
     
     [self.locationManager requestLocationWithReGeocode:YES completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
         
+        NSString * formatteAddress;
+        if (!regeocode.formattedAddress) {
+             formatteAddress = [NSString stringWithFormat:@"%@%@%@",regeocode.city,regeocode.district,regeocode.POIName];
+        }else{
+            formatteAddress  = regeocode.formattedAddress;
+        }
+       
         LocationInfoStuct lf = {};
-        lf.POIName = regeocode.POIName.UTF8String;
+        lf.POIName = formatteAddress.UTF8String;
         lf.location2D = location.coordinate;
         lf.formateAddress = regeocode.formattedAddress.UTF8String;
 

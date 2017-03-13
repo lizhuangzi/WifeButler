@@ -231,6 +231,15 @@
 		C7C5645A1E6EEB7D00D15359 /* UserQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C564591E6EEB7D00D15359 /* UserQRViewController.m */; };
 		C7C5645C1E6EEBA600D15359 /* UserQRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C5645B1E6EEBA600D15359 /* UserQRViewController.xib */; };
 		C7C564611E6EF6E900D15359 /* WifeButlerSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C564601E6EF6E900D15359 /* WifeButlerSettingViewController.m */; };
+		C7CCF4991E76C4B4009A0ED5 /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CCF4971E76C4B4009A0ED5 /* ScoreViewController.m */; };
+		C7CCF49A1E76C4B4009A0ED5 /* ScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7CCF4981E76C4B4009A0ED5 /* ScoreViewController.xib */; };
+		C7CCF49E1E76CDD0009A0ED5 /* ChooseLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CCF49D1E76CDD0009A0ED5 /* ChooseLocationViewController.m */; };
+		C7CCF4A21E76CEEA009A0ED5 /* CurrentLocationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CCF4A01E76CEEA009A0ED5 /* CurrentLocationTableViewCell.m */; };
+		C7CCF4A31E76CEEA009A0ED5 /* CurrentLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7CCF4A11E76CEEA009A0ED5 /* CurrentLocationTableViewCell.xib */; };
+		C7CCF4A71E76D07D009A0ED5 /* DeliveryLocationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CCF4A51E76D07D009A0ED5 /* DeliveryLocationTableViewCell.m */; };
+		C7CCF4A81E76D07D009A0ED5 /* DeliveryLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7CCF4A61E76D07D009A0ED5 /* DeliveryLocationTableViewCell.xib */; };
+		C7CCF4AC1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CCF4AA1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.m */; };
+		C7CCF4AD1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7CCF4AB1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.xib */; };
 		C7D52FA11E5F38AC00D98448 /* UIImage+ColorExistion.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D52FA01E5F38AC00D98448 /* UIImage+ColorExistion.m */; };
 		C7E4E13D1E65705700169897 /* WifeButlerFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E4E13C1E65705700169897 /* WifeButlerFileManager.m */; };
 		C7E4E1411E657AC900169897 /* WifeButlerAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E4E1401E657AC900169897 /* WifeButlerAccount.m */; };
@@ -720,6 +729,20 @@
 		C7C5645D1E6EF01A00D15359 /* WifeButlerDefine2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerDefine2.h; sourceTree = "<group>"; };
 		C7C5645F1E6EF6E900D15359 /* WifeButlerSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerSettingViewController.h; sourceTree = "<group>"; };
 		C7C564601E6EF6E900D15359 /* WifeButlerSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerSettingViewController.m; sourceTree = "<group>"; };
+		C7CCF4961E76C4B4009A0ED5 /* ScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreViewController.h; sourceTree = "<group>"; };
+		C7CCF4971E76C4B4009A0ED5 /* ScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreViewController.m; sourceTree = "<group>"; };
+		C7CCF4981E76C4B4009A0ED5 /* ScoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreViewController.xib; sourceTree = "<group>"; };
+		C7CCF49C1E76CDD0009A0ED5 /* ChooseLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseLocationViewController.h; sourceTree = "<group>"; };
+		C7CCF49D1E76CDD0009A0ED5 /* ChooseLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseLocationViewController.m; sourceTree = "<group>"; };
+		C7CCF49F1E76CEEA009A0ED5 /* CurrentLocationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentLocationTableViewCell.h; sourceTree = "<group>"; };
+		C7CCF4A01E76CEEA009A0ED5 /* CurrentLocationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentLocationTableViewCell.m; sourceTree = "<group>"; };
+		C7CCF4A11E76CEEA009A0ED5 /* CurrentLocationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentLocationTableViewCell.xib; sourceTree = "<group>"; };
+		C7CCF4A41E76D07D009A0ED5 /* DeliveryLocationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryLocationTableViewCell.h; sourceTree = "<group>"; };
+		C7CCF4A51E76D07D009A0ED5 /* DeliveryLocationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryLocationTableViewCell.m; sourceTree = "<group>"; };
+		C7CCF4A61E76D07D009A0ED5 /* DeliveryLocationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliveryLocationTableViewCell.xib; sourceTree = "<group>"; };
+		C7CCF4A91E76D2C3009A0ED5 /* NearbyVillageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyVillageTableViewCell.h; sourceTree = "<group>"; };
+		C7CCF4AA1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyVillageTableViewCell.m; sourceTree = "<group>"; };
+		C7CCF4AB1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearbyVillageTableViewCell.xib; sourceTree = "<group>"; };
 		C7D52F9F1E5F38AC00D98448 /* UIImage+ColorExistion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorExistion.h"; sourceTree = "<group>"; };
 		C7D52FA01E5F38AC00D98448 /* UIImage+ColorExistion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorExistion.m"; sourceTree = "<group>"; };
 		C7E4E13B1E65705700169897 /* WifeButlerFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerFileManager.h; sourceTree = "<group>"; };
@@ -1845,6 +1868,7 @@
 		7BB43FA51CE9C57F007D722A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C7CCF4951E76C3E5009A0ED5 /* Score(积分) */,
 				C745FD2D1E73EF7F00B01742 /* CardPocket(卡包) */,
 				C745FD1C1E73E0AE00B01742 /* Balance(余额) */,
 				C7C5645E1E6EF62E00D15359 /* setting(设置) */,
@@ -2606,6 +2630,8 @@
 				7BFBA67E1CFE80EC00D4E07C /* ZJHomePageController.h */,
 				7BFBA67F1CFE80EC00D4E07C /* ZJHomePageController.m */,
 				7BFBA6801CFE80EC00D4E07C /* ZJHomePageController.storyboard */,
+				C7CCF4AE1E76D562009A0ED5 /* 爱心捐赠 */,
+				C7CCF49B1E76CD48009A0ED5 /* 选择地址 */,
 				C7A191CD1E606C7400FEDFD1 /* 环保日历 */,
 				7B5B07B81D0EAA4D00D0246A /* 社区政务 */,
 				7BA6065A1D055F7700148007 /* 社区服务 */,
@@ -2783,6 +2809,41 @@
 				C745FD2B1E73EE1100B01742 /* SettingChangePasswordController.m */,
 			);
 			path = "setting(设置)";
+			sourceTree = "<group>";
+		};
+		C7CCF4951E76C3E5009A0ED5 /* Score(积分) */ = {
+			isa = PBXGroup;
+			children = (
+				C7CCF4961E76C4B4009A0ED5 /* ScoreViewController.h */,
+				C7CCF4971E76C4B4009A0ED5 /* ScoreViewController.m */,
+				C7CCF4981E76C4B4009A0ED5 /* ScoreViewController.xib */,
+			);
+			path = "Score(积分)";
+			sourceTree = "<group>";
+		};
+		C7CCF49B1E76CD48009A0ED5 /* 选择地址 */ = {
+			isa = PBXGroup;
+			children = (
+				C7CCF49C1E76CDD0009A0ED5 /* ChooseLocationViewController.h */,
+				C7CCF49D1E76CDD0009A0ED5 /* ChooseLocationViewController.m */,
+				C7CCF49F1E76CEEA009A0ED5 /* CurrentLocationTableViewCell.h */,
+				C7CCF4A01E76CEEA009A0ED5 /* CurrentLocationTableViewCell.m */,
+				C7CCF4A11E76CEEA009A0ED5 /* CurrentLocationTableViewCell.xib */,
+				C7CCF4A41E76D07D009A0ED5 /* DeliveryLocationTableViewCell.h */,
+				C7CCF4A51E76D07D009A0ED5 /* DeliveryLocationTableViewCell.m */,
+				C7CCF4A61E76D07D009A0ED5 /* DeliveryLocationTableViewCell.xib */,
+				C7CCF4A91E76D2C3009A0ED5 /* NearbyVillageTableViewCell.h */,
+				C7CCF4AA1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.m */,
+				C7CCF4AB1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.xib */,
+			);
+			path = "选择地址";
+			sourceTree = "<group>";
+		};
+		C7CCF4AE1E76D562009A0ED5 /* 爱心捐赠 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "爱心捐赠";
 			sourceTree = "<group>";
 		};
 		C7E4E13E1E65705E00169897 /* 文件管理 */ = {
@@ -3124,6 +3185,7 @@
 				7BE3C6421CF188DF00851512 /* ZTAddressPickView.xib in Resources */,
 				7BE3C6AE1CF1A05F00851512 /* ZTHuiZhuanDingDan.storyboard in Resources */,
 				C7C4A4971E5EB81E00075A27 /* HomePageCommodityCell.xib in Resources */,
+				C7CCF49A1E76C4B4009A0ED5 /* ScoreViewController.xib in Resources */,
 				7B4F39741CF2906800D427CD /* ZTXiaoXiXiangQinViewController.xib in Resources */,
 				C7C4A49C1E5EBE6B00075A27 /* HomePageCommodityView.xib in Resources */,
 				C7A191BE1E60263800FEDFD1 /* WifebutlerRCRHomeHeaderView.xib in Resources */,
@@ -3136,11 +3198,13 @@
 				7BC580661CF6DE9400FD157A /* ZTLaJiaJieShuan.storyboard in Resources */,
 				C7FFD4CD1E6716E400754C92 /* MedRefFriendCircleTableHeader.xib in Resources */,
 				C7C1626C1E6FFAA50074A9D2 /* GoodsDetailRemarkSectionHeader.xib in Resources */,
+				C7CCF4AD1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.xib in Resources */,
 				7BFBA6ED1CFF032A00D4E07C /* ZTAddAddress.storyboard in Resources */,
 				7B2366AE1D026466003BC590 /* ZTWoYaoKaiDian.storyboard in Resources */,
 				C745FD351E73F0B500B01742 /* CardPocketTableViewCell.xib in Resources */,
 				C745FD3A1E73F32D00B01742 /* CardPocketAddViewController.xib in Resources */,
 				C7C564561E6EAC5B00D15359 /* EPCalendarNoDataView.xib in Resources */,
+				C7CCF4A31E76CEEA009A0ED5 /* CurrentLocationTableViewCell.xib in Resources */,
 				7B5B07BD1D0EAA8600D0246A /* ZTSheQuZhenWu.storyboard in Resources */,
 				7BD04B2B1CF820FE00D431D5 /* ZTBianJiInfo.storyboard in Resources */,
 				C70CDB181E6DAE390004CA4E /* EPCalenderTableViewCell.xib in Resources */,
@@ -3169,6 +3233,7 @@
 				7BB43F5B1CE9C3BC007D722A /* Assets.xcassets in Resources */,
 				7BBE4D411D069FB800DBF00F /* ZTXiangQinHealthyLifeViewController.xib in Resources */,
 				7BB43FCB1CE9C96A007D722A /* ZTHealthyLifestyle.storyboard in Resources */,
+				C7CCF4A81E76D07D009A0ED5 /* DeliveryLocationTableViewCell.xib in Resources */,
 				7B9D39A71CF9A97300F6359D /* ZTGouWuChe.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3349,6 +3414,7 @@
 				C7BA19CB1E26778F00405816 /* UIColor+HexColor.m in Sources */,
 				C7FFD4F41E67220A00754C92 /* DocFriendHeaderModel.m in Sources */,
 				7BC580B11CF720C300FD157A /* ZTGouWuCheTableViewCell.m in Sources */,
+				C7CCF4A71E76D07D009A0ED5 /* DeliveryLocationTableViewCell.m in Sources */,
 				7BF1DC3A1CFAB0DD001C1E54 /* ZTDingDanXiangQingViewController.m in Sources */,
 				7BFBA6BF1CFE80EC00D4E07C /* ZJGoodsDetailVC.m in Sources */,
 				7B392D461D14E7D700A182BC /* ZTKaiDianTableViewController.m in Sources */,
@@ -3389,6 +3455,7 @@
 				C781A9171E5FFCF900E3D325 /* XMGConst.m in Sources */,
 				7B2366AC1D026449003BC590 /* ZTWoYaoKaiDianTableViewController.m in Sources */,
 				7BC580511CF6C81C00FD157A /* ZJProcessorDetailTableVC.m in Sources */,
+				C7CCF49E1E76CDD0009A0ED5 /* ChooseLocationViewController.m in Sources */,
 				C745FD481E74190700B01742 /* ZJGoodsDetailCell2.m in Sources */,
 				7B9D39A21CF9725100F6359D /* ZTjieSuanModel.m in Sources */,
 				C7C4A49A1E5EBE5600075A27 /* HomePageCommodityView.m in Sources */,
@@ -3406,6 +3473,7 @@
 				7BF1DC3D1CFAD636001C1E54 /* ZTDingDanXiangQinTableViewCell.m in Sources */,
 				D11D1A281D7BB95400E2A815 /* HomeNavgationController.m in Sources */,
 				C745FD281E73E85F00B01742 /* BalanceRecordTableViewCell.m in Sources */,
+				C7CCF4A21E76CEEA009A0ED5 /* CurrentLocationTableViewCell.m in Sources */,
 				C7FFD4D71E6717E700754C92 /* CommentView.m in Sources */,
 				C7A191D31E606DA400FEDFD1 /* CustomCalendarViewController.m in Sources */,
 				C7A191BC1E60262600FEDFD1 /* WifebutlerRCRHomeHeaderView.m in Sources */,
@@ -3462,6 +3530,7 @@
 				C7FFD4E51E671A5800754C92 /* ImagePickerUtils.m in Sources */,
 				7B8D04C51CEAB3380024B812 /* ZJSeakPassWordVC.m in Sources */,
 				7B9D39A51CF9A95500F6359D /* ZTGouWuCheFooterVIew.m in Sources */,
+				C7CCF4991E76C4B4009A0ED5 /* ScoreViewController.m in Sources */,
 				C7C564611E6EF6E900D15359 /* WifeButlerSettingViewController.m in Sources */,
 				7BE420681D13A730009A8FAB /* ZJShopClassCell1.m in Sources */,
 				7B5B07B41D0E95F900D0246A /* ZTJianKangShenHuoTopModel.m in Sources */,
@@ -3473,6 +3542,7 @@
 				C75853DA1E75737100FFE9A6 /* BalanceRecordListModel.m in Sources */,
 				7BFBA6BC1CFE80EC00D4E07C /* ZJHomePageController.m in Sources */,
 				7B392D621D152B7100A182BC /* ZTKaiDianChengGongViewController.m in Sources */,
+				C7CCF4AC1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

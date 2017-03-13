@@ -15,6 +15,7 @@
 #import "UIColor+HexColor.h"
 #import "MJRefresh.h"
 #import  "MJExtension.h"
+#import "NetWorkPort.h"
 
 @interface ZJGuangLiShouHuoDiZhiViewController ()<UITableViewDelegate, UITableViewDataSource>
 {
@@ -151,7 +152,7 @@
     [dic setObject:KToken forKey:@"token"];
     [dic setObject:@(50) forKey:@"pagesize"];
     
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KShouHuoAddress];
+    NSString *url = KMyDeliveryLocation;
     
     ZJLog(@"%@", dic);
     [SVProgressHUD showWithStatus:@"加载中..."];
@@ -545,7 +546,7 @@
     [dic setObject:KToken forKey:@"token"];
     [dic setObject:@(50) forKey:@"pagesize"];
     
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KShouHuoAddress];
+    NSString *url = KMyDeliveryLocation;
     
     ZJLog(@"%@", dic);
     

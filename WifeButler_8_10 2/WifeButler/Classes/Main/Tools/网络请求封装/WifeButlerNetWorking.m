@@ -94,7 +94,11 @@
                 NSError * error = [NSError errorWithDomain:NSMachErrorDomain code:20000 userInfo:@{@"msg":response[@"message"]}];
                 failure(error);
 
-            }else if ([response[@"code"] intValue] == 40000){//登录失效
+            }else if ([response[@"code"] intValue] == 30000){
+                NSError * error = [NSError errorWithDomain:NSMachErrorDomain code:30000 userInfo:@{@"msg":response[@"message"]}];
+                failure(error);
+            }
+            else if ([response[@"code"] intValue] == 40000){//登录失效
                 NSError * error = [NSError errorWithDomain:NSMachErrorDomain code:40000 userInfo:@{@"msg":response[@"message"]}];
                 failure(error);
             }
