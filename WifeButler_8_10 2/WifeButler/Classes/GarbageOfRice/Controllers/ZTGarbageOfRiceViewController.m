@@ -25,7 +25,7 @@
 #import "MJRefresh.h"
 #import "Masonry.h"
 #import "WifeButlerNetWorking.h"
-
+#import "WifeButlerLocationManager.h"
 
 /** 兑换点接口 */
 
@@ -54,6 +54,8 @@
     
     [self createTableViewUI];
     
+    [self listenNotify];
+    
     [self requestData];
 }
 
@@ -78,6 +80,12 @@
     self.tableHeaderView = headerView;
 }
 
+/**监听通知*/
+- (void)listenNotify
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(locatedChange) name:WifebutlerLocationDidChangeNotification object:nil];
+}
+
 - (void)requestData{
     
     [WifeButlerNetWorking getHttpRequestWithURLsite:KexchangeStation parameter:nil success:^(NSDictionary *response) {
@@ -95,11 +103,9 @@
     }];
     
     NSMutableDictionary * parm = [NSMutableDictionary dictionary];
-    NSString * lok = NSGetUserDefaults(WifeButlerLongtitudeKey);
-    NSString * lak = NSGetUserDefaults(WifeButlerLatitudeKey);
-    parm[@"jing"] = lok;
-    parm[@"wei"] = lak;
-    
+    parm[WifeButlerLongtitudeKey] = @([WifeButlerLocationManager sharedManager].longitude);
+    parm[WifeButlerLatitudeKey] = @([WifeButlerLocationManager sharedManager].latitude);
+
     [WifeButlerNetWorking postHttpRequestWithURLsite:KLaJiHuanMiList parameter:parm success:^(NSDictionary *response) {
         
         if ([response[CodeKey] intValue]==SUCCESS) {
@@ -145,9 +151,16 @@
     
     ZTLaJiHuanMiModel * model = self.dataArray[indexPath.row];
 
-     ZTLaJiHuanMiViewController * vc =[[ZTLaJiHuanMiViewController  alloc]init];
+    ZTLaJiHuanMiViewController * vc =[[ZTLaJiHuanMiViewController  alloc]init];
     vc.good_id = model.commodityId;
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+#pragma mark - 经纬度改变通知刷新页面
+- (void)locatedChange
+{
+    [self requestData];
+}
+
 
 @end

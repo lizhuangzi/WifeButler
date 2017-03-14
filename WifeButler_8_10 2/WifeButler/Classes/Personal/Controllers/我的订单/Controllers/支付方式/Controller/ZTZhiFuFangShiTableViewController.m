@@ -11,13 +11,8 @@
 #import "ZTTiShiKuanView.h"
 #import "payRequsestHandler.h"
 #import "WXApi.h"
-
-typedef enum {
-
-    zhifuBaoZhiFuFangShi,   // 支付宝
-    weiXinZhiFuFangShi,     // 微信
-    
-}ZhiFuFangShi;
+#import "WifeButlerNetWorking.h"
+#import "WifeButlerDefine.h"
 
 @interface ZTZhiFuFangShiTableViewController ()
 
@@ -116,172 +111,39 @@ typedef enum {
 
 - (IBAction)queRenClick:(id)sender {
     
-    ZJLog(@"确认支付");
-    
     // 支付宝
     if (self.fangShiPay == zhifuBaoZhiFuFangShi) {
         
-        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
-        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];/*添加接可收数据的数据可行*/
-        
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-        
-        [dic setObject:KToken forKey:@"token"];
-        [dic setObject:self.order_id forKey:@"order_id"];
-        
-        NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KZhiFuBaoZhiFu];
-        
-        ZJLog(@"%@", dic);
-        
-        [SVProgressHUD showWithStatus:@"加载中..."];
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
-        
-        [manager POST:url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
-            
-        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            
-            [SVProgressHUD dismiss];
-            
-            NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
-            
-            ZJLog(@"%@", responseObject);
-            
-            NSString *mesage = [responseObject objectForKey:@"resultCode"];
-            NSString *appScheme = @"laoBaoGuanJiaAlipay";
-
-            // 成功
-            if ([responseObject[@"code"] intValue] == 10000) {
-                
-                [[AlipaySDK defaultService] payOrder:mesage fromScheme:appScheme callback:^(NSDictionary *resultDic) {
-                    
-                    NSLog(@"reslut = %@",resultDic);
-                    
-                    int code = [[resultDic objectForKey:@"resultStatus"] intValue];
-                    
-                    if(code == 9000){
-                        
-//                        [SVProgressHUD showSuccessWithStatus:@"支付成功"];
-                        if (self.shuaiXinBlack) {
-                            
-                            self.shuaiXinBlack();
-                        }
-                        
-                        // 自定制弹窗
-                        [self createrCang];
-                        
-                    }else if (code == 8000){
-                        
-                        [SVProgressHUD showInfoWithStatus:@"正在处理中"];
-                        
-                    }else if (code == 4000){
-                        
-                        [SVProgressHUD showInfoWithStatus:@"订单支付失败"];
-                        
-                    }else if (code==6001){
-                        
-                        [SVProgressHUD showInfoWithStatus:@"用户中途取消"];
-                        
-                    }else if (code==6002){
-                        
-                        [SVProgressHUD showInfoWithStatus:@"网络连接出错"];
-                    }
-                
-                }];
-
-            }
-            else
-            {
-                
-                [SVProgressHUD showErrorWithStatus:message];
-        
-            }
-            
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            
-            [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
-            
-        }];
+        [self beginAliPay];
 
     }
     else // 微信
     {
-        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
-        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];/*添加接可收数据的数据可行*/
-        
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-        
-        [dic setObject:KToken forKey:@"token"];
-        [dic setObject:self.order_id forKey:@"order_id"];
-        
-        NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KWeiXinZhiFu];
-        
-        ZJLog(@"%@", dic);
-        
-        [SVProgressHUD showWithStatus:@"加载中..."];
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
-        
-        [manager POST:url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
-            
-        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            
-            [SVProgressHUD dismiss];
-            
-            NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
-            
-            ZJLog(@"%@", responseObject);
-            
-        
-            // 成功
-            if ([responseObject[@"code"] intValue] == 10000) {
-                
-                [SVProgressHUD dismiss];
-                
-                NSDictionary *result = responseObject;
-                
-                time_t now;
-                time(&now);
-                NSString * time_stamp  = [NSString stringWithFormat:@"%ld", now];
-                PayReq* req             = [[PayReq alloc] init];
-                NSMutableDictionary *dict=[result objectForKey:@"resultCode"];
-                
-                req.openID              = [dict objectForKey:@"appid"];
-                req.partnerId           = [dict objectForKey:@"mch_id"];
-                req.prepayId            = [dict objectForKey:@"prepay_id"];
-                req.nonceStr            = [self md5:time_stamp];
-                req.timeStamp           = [time_stamp intValue];
-                req.package             = @"Sign=WXpay";
-                
-                NSMutableDictionary *signParams=[[NSMutableDictionary alloc] init];
-                [signParams setObject: req.openID        forKey:@"appid"];
-                [signParams setObject: req.nonceStr    forKey:@"noncestr"];
-                [signParams setObject: req.package      forKey:@"package"];
-                [signParams setObject: req.partnerId        forKey:@"partnerid"];
-                [signParams setObject: time_stamp   forKey:@"timestamp"];
-                [signParams setObject: req.prepayId     forKey:@"prepayid"];
-                req.sign                = [self createMd5Sign:signParams];
-            
-                [WXApi sendReq:req];
-            
-            }
-            else
-            {
-                
-                [SVProgressHUD showErrorWithStatus:message];
-                
-            }
-            
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            
-            [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
-            
-        }];
-
+        [self beginWXinPay];
     }
+}
+
+- (void)beginAliPay
+{
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     
+    [dic setObject:KToken forKey:@"token"];
+    [dic setObject:self.order_id forKey:@"order_id"];
     
+    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KZhiFuBaoZhiFu];
+    [self RequestAliencryptionStrWithRequestUrlStr:url andParmDict:dic];
+}
+
+- (void)beginWXinPay
+{
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     
+    [dic setObject:KToken forKey:@"token"];
+    [dic setObject:self.order_id forKey:@"order_id"];
+    
+    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KWeiXinZhiFu];
+    
+    [self RequestWXinencryptionStrWithRequestUrlStr:url andParmDict:dic];
 }
 
 - (void)createrCang
@@ -348,13 +210,110 @@ typedef enum {
 }
 
 
+- (void)RequestAliencryptionStrWithRequestUrlStr:(NSString *)urlStr andParmDict:(NSDictionary *)parm
+{
+    
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:urlStr parameter:parm success:^(NSString * resultCode) {
+        
+        [SVProgressHUD dismiss];
+        
+        NSString *mesage = resultCode;
+        NSString *appScheme = @"laoBaoGuanJiaAlipay";
+        
+        [self AliPayFuncationWithMessage:mesage AppSchem:appScheme];
+        
+    } failure:^(NSError *error) {
+        SVDCommonErrorDeal
+    }];
 }
 
 
+- (void)RequestWXinencryptionStrWithRequestUrlStr:(NSString *)urlStr andParmDict:(NSDictionary *)parm
+{
+    
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+    
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:urlStr parameter:parm success:^(NSDictionary * resultCode) {
+        
+        [SVProgressHUD dismiss];
+       
+        [self WXPayFuncationWithResponseResultCode:resultCode];
+        
+    } failure:^(NSError *error) {
+        SVDCommonErrorDeal
+    }];
+}
+
+- (void)AliPayFuncationWithMessage:(NSString *)message AppSchem:(NSString *)appScheme
+{
+    [[AlipaySDK defaultService] payOrder:message fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+        
+        NSLog(@"reslut = %@",resultDic);
+        
+        int code = [[resultDic objectForKey:@"resultStatus"] intValue];
+        
+        if(code == 9000){
+            
+            //                        [SVProgressHUD showSuccessWithStatus:@"支付成功"];
+            if (self.shuaiXinBlack) {
+                
+                self.shuaiXinBlack();
+            }
+            
+            // 自定制弹窗
+            [self createrCang];
+            
+        }else if (code == 8000){
+            
+            [SVProgressHUD showInfoWithStatus:@"正在处理中"];
+            
+        }else if (code == 4000){
+            
+            [SVProgressHUD showInfoWithStatus:@"订单支付失败"];
+            
+        }else if (code==6001){
+            
+            [SVProgressHUD showInfoWithStatus:@"用户中途取消"];
+            
+        }else if (code==6002){
+            
+            [SVProgressHUD showInfoWithStatus:@"网络连接出错"];
+        }
+        
+    }];
+
+}
+
+- (void)WXPayFuncationWithResponseResultCode:(NSDictionary *)dict
+{
+    time_t now;
+    time(&now);
+    NSString * time_stamp  = [NSString stringWithFormat:@"%ld", now];
+    PayReq* req             = [[PayReq alloc] init];
+    
+    req.openID              = [dict objectForKey:@"appid"];
+    req.partnerId           = [dict objectForKey:@"mch_id"];
+    req.prepayId            = [dict objectForKey:@"prepay_id"];
+    req.nonceStr            = [self md5:time_stamp];
+    req.timeStamp           = [time_stamp intValue];
+    req.package             = @"Sign=WXpay";
+    
+    NSMutableDictionary *signParams=[[NSMutableDictionary alloc] init];
+    [signParams setObject: req.openID        forKey:@"appid"];
+    [signParams setObject: req.nonceStr    forKey:@"noncestr"];
+    [signParams setObject: req.package      forKey:@"package"];
+    [signParams setObject: req.partnerId        forKey:@"partnerid"];
+    [signParams setObject: time_stamp   forKey:@"timestamp"];
+    [signParams setObject: req.prepayId     forKey:@"prepayid"];
+    req.sign                = [self createMd5Sign:signParams];
+    
+    [WXApi sendReq:req];
+
+}
 
 @end

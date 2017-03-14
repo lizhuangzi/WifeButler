@@ -70,7 +70,7 @@ UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAl
 #define SVDCommonErrorDeal   if (error.code == 40000) {\
                                 WifeButlerLoginLosingEffection\
                                 }\
-                                else if (error.code == 20000) {\
+                                else if (error.code == 20000 || error.code == 30000) {\
                                     if(error.userInfo[@"msg"]){\
                                          [SVProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];\
                                     }else{\

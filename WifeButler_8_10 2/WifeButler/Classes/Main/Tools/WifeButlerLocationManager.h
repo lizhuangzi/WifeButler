@@ -8,20 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import "HMSingleton.h"
-#import <CoreLocation/CoreLocation.h>
+#import "WifeButlerLocationModel.h"
 
-typedef  struct MainLocationInfoStuct{
-    CLLocationCoordinate2D location2D;
-    const char * POIName;
-    const char * formateAddress;
-}LocationInfoStuct;
 
 @interface WifeButlerLocationManager : NSObject
 
 HMSingletonH(Manager);
 
-@property (nonatomic,assign) LocationInfoStuct currentlocationInfo;
+/**用于存放当前用户选择的的经度*/
+@property (nonatomic,assign) CLLocationDegrees longitude;
+/**用于存放当前用户选择的纬度*/
+@property (nonatomic,assign) CLLocationDegrees latitude;
+/**用于存放当前用户选择的小区*/
+@property (nonatomic,copy)NSString * village;
 
-- (void)startLocationAndFinishBlock:(void(^)(LocationInfoStuct locationInfo))returnInformation;
-
+/**请求高德定位信息*/
+- (void)startLocationAndFinishBlock:(void(^)(WifeButlerLocationModel * locationInfo))returnInformation;
+/**是否完成定位*/
+@property (nonatomic,assign,getter=isFinishLocated , readonly) BOOL finishLocated;
 @end

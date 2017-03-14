@@ -17,6 +17,7 @@
 #import "ScoreViewController.h"
 #import "ZJGuangLiShouHuoDiZhiViewController.h"
 #import "ZTDuiHuanDingDanViewController.h"
+#import "ZTBianJiZiliaoTableViewController.h"
 
 @class WifeButlerHomeCircleButton;
 
@@ -45,6 +46,7 @@
 
 @implementation ZJMineController
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -55,8 +57,12 @@
 - (ZJMineController * (^)())initBottomUI{
     
     return ^{
+        //头像处理
         self.userIconView.layer.cornerRadius = 30;
         self.userIconView.clipsToBounds = YES;
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headerClick)];
+        [self.userIconView addGestureRecognizer:tap];
+        
         NSArray * titleArray = @[@"积分兑换",@"购物车",@"地址管理",@"我要开店",@"意见反馈",@"我的客服",@"关于我们",@"设置"];
         NSArray * imageNameArray = @[@"numberConversion",@"shopingCart",@"locationManage",@"setupShop",@"PersonFeedBack",@"MyService",@"aboutUs",@"personSetting"];
         
@@ -173,6 +179,7 @@
             break;
     }
 }
+#pragma mark - 头部点击
 /**姓名点击*/
 - (IBAction)nameClick:(UIButton *)sender {
     
@@ -183,6 +190,16 @@
     vc.isLogo = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
+/**点击头像*/
+- (void)headerClick
+{
+    if(![WifeButlerAccount sharedAccount].isLogin) return; //没有登录不处理
+    UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTBianJiInfo" bundle:nil];
+    ZTBianJiZiliaoTableViewController * vc = [sb instantiateViewControllerWithIdentifier:@"ZTBianJiZiliaoTableViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
 
 #pragma mark - 获取个人数据
 - (ZJMineController * (^)())GetLocalData

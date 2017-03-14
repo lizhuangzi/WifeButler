@@ -66,4 +66,19 @@
 //商品详情webView
 #define  KGoodDetailWebViewURL        @"goods/goods/goods_desc/"
 
-#endif /* NetWorkPort_h */
+/**获取爱心个数*/
+#define  KLoveDonateCount [HTTP_BaseURL stringByAppendingString:@"loveproject/Loveproject/getcount"]
+
+/**爱心项目列表*/
+#define KLoveDonateProjectList [HTTP_BaseURL stringByAppendingString:@"loveproject/Loveproject/getlist"]
+
+/**爱心捐赠详情*/
+#define KLoveDonateProjectDetail [HTTP_BaseURL stringByAppendingString:@"loveproject/Loveproject/details?id=%@"]
+
+/**生成爱心捐赠订单*/
+#define KLoveDonateGenerateOrder [HTTP_BaseURL stringByAppendingString:@"loveproject/Loveproject/createorder"]
+
+/**请求后台支付加密字符串*/
+#define KLoveDonatePayment [HTTP_BaseURL stringByAppendingString:@"loveproject/Loveproject/pay"]
+
+#endif/* NetWorkPort_h */

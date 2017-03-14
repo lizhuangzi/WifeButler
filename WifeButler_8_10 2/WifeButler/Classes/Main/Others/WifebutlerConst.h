@@ -15,3 +15,7 @@ extern NSString * const WifeButlerLongtitudeKey;
 extern NSString * const  WifeButlerLatitudeKey;
 /**是否记住密码*/
 extern NSString * const WifeButlerisRememberPasswrod;
+
+
+/**老伴管家全局地址改变时发的通知*/
+extern NSString * const WifebutlerLocationDidChangeNotification;

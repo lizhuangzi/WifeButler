@@ -19,9 +19,10 @@
 
 HMSingletonM(Manager);
 
-- (void)startLocationAndFinishBlock:(void (^)(LocationInfoStuct locationInfo))returnInformation
+- (void)startLocationAndFinishBlock:(void (^)(WifeButlerLocationModel * locationInfo))returnInformation
 {
-   
+ 
+    _finishLocated = NO;
     self.locationManager = [[AMapLocationManager alloc]init];
     
     [self.locationManager requestLocationWithReGeocode:YES completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
@@ -33,13 +34,22 @@ HMSingletonM(Manager);
             formatteAddress  = regeocode.formattedAddress;
         }
        
-        LocationInfoStuct lf = {};
-        lf.POIName = formatteAddress.UTF8String;
+        WifeButlerLocationModel * lf = [WifeButlerLocationModel new];
+        lf.POIName = regeocode.POIName;
         lf.location2D = location.coordinate;
-        lf.formateAddress = regeocode.formattedAddress.UTF8String;
-
+        lf.formateAddress = formatteAddress;
+        
+        _finishLocated = YES;
+        
         !returnInformation?:returnInformation(lf);
     }];
 }
 
+- (NSString *)village
+{
+    if (!_village) {
+        return @"";
+    }
+    return _village;
+}
 @end

@@ -7,7 +7,10 @@
 //
 
 #import "WifeButlerLoadingTableViewController.h"
+#import "CardPocklistModel.h"
 
 @interface CardPocketListViewController : WifeButlerLoadingTableViewController
+
+@property (nonatomic,strong) NSMutableArray * dataArray;
 
 @end

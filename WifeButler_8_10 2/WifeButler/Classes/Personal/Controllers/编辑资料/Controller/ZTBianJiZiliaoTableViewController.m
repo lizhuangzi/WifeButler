@@ -12,6 +12,7 @@
 #import "UIBarButtonItem+Extension.h"
 #import  "MJExtension.h"
 #import "PersonalPort.h"
+#import "WifeButlerAccount.h"
 
 @interface ZTBianJiZiliaoTableViewController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -137,60 +138,25 @@
 
 - (void)downInfo
 {
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];/*添加接可收数据的数据可行*/
-    
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
-    
-    [dic setObject:NSGetUserDefaults(@"mobile") forKey:@"mobile"];
-    [dic setObject:NSGetUserDefaults(@"password") forKey:@"passwd"];
-    
-    
-    ZJLog(@"%@", dic);
-    
-    [manager POST:KUserLogin parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
-        
-        ZJLog(@"%@", responseObject);
-        
-        // 登录成功
-        if ([responseObject[@"code"] intValue] == 10000) {
-            
-            [SVProgressHUD showSuccessWithStatus:@"保存成功"];
-            
-            ZTLogoModel *model = [ZTLogoModel mj_objectWithKeyValues:responseObject[@"resultCode"]];
-            
-            NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-            
-            [ud setObject:model.token_app forKey:@"token_app"];
-            [ud setObject:model.avatar forKey:@"avatar"];
-            [ud setObject:model.gender forKey:@"gender"];
-            [ud setObject:model.nickname forKey:@"nickname"];
-            
-            [ud synchronize];
-            
-            
-            [self.navigationController popViewControllerAnimated:YES];
-            
-        }
-        else
-        {
-            
-            [SVProgressHUD showErrorWithStatus:message];
-        }
-        
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
-        
-    }];
-    
+    WifeButlerUserParty * party = [WifeButlerAccount sharedAccount].userParty;
+   [ZJLoginController autoLoginWithUserName:party.userLoginAccount Password:party.userLoginPassWord andfinishBlock:^(LoginResultReturnType returnType) {
+       
+       if (returnType == LoginResultReturnTypeSuccess) {
+           [SVProgressHUD showSuccessWithStatus:@"用户数据更新成功"];
+           
+           dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+               [self.navigationController popViewControllerAnimated:YES];
+
+           });
+        }else{
+             [SVProgressHUD showErrorWithStatus:@"用户数据更新失败"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.navigationController popViewControllerAnimated:YES];
+                
+            });
+       }
+       
+   }];
 }
 
 
@@ -202,11 +168,12 @@
     
     [self.niChenTF addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
 
+    WifeButlerUserParty * party = [WifeButlerAccount sharedAccount].userParty;
+    self.niChenTF.text = party.nickname;
     
-    self.niChenTF.text = NSGetUserDefaults(@"nickname");
-    [self.iconImageV sd_setImageWithURL:[NSURL URLWithString:NSGetUserDefaults(@"avatar")] placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
-    self.iphoneLab.text = NSGetUserDefaults(@"mobile");
-    self.sexTF.text = NSGetUserDefaults(@"gender");
+    [self.iconImageV sd_setImageWithURL:party.iconFullPath  placeholderImage:PlaceHolderImage_Person];
+    self.iphoneLab.text = party.mobile;
+    self.sexTF.text = party.gender;
 }
 
 

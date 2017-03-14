@@ -12,4 +12,9 @@ NSString * const WifeButlerLongtitudeKey = @"jing";
 NSString * const  WifeButlerLatitudeKey = @"wei";
 NSString * const WifeButlerisRememberPasswrod = @"isRememberPasswrod";
 
+
+
 int const SUCCESS = 10000;
+
+
+NSString * const WifebutlerLocationDidChangeNotification = @"WifebutlerLocationDidChangeNotification";

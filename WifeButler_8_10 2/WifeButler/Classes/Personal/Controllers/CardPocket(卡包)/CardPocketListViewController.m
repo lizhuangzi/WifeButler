@@ -12,11 +12,11 @@
 #import "WifeButlerNetWorking.h"
 #import "PersonalPort.h"
 #import "WifeButlerDefine.h"
-#import "CardPocklistModel.h"
+
 
 @interface CardPocketListViewController ()
 
-@property (nonatomic,strong) NSMutableArray * dataArray;
+
 @property (nonatomic,assign) NSUInteger page;
 @end
 
@@ -45,7 +45,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"CardPocketTableViewCell" bundle:nil] forCellReuseIdentifier:@"CardPocketTableViewCell"];
     self.tableView.rowHeight = 105;
     self.tableView.footerRefreshEnable = NO;
-
+    
 }
 
 - (void)requestHttpData
@@ -92,8 +92,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CardPocketTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CardPocketTableViewCell" forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.model = self.dataArray[indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 @end

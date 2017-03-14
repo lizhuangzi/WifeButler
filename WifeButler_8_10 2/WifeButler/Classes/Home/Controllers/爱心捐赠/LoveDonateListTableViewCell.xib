@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoveDonateListTableViewCell" rowHeight="114" id="KGk-i7-Jjw" customClass="LoveDonateListTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="114"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="390" height="113.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MEo-oU-NGd">
+                        <rect key="frame" x="23" y="18" width="95" height="69"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="69" id="0nU-r3-96N"/>
+                            <constraint firstAttribute="width" constant="95" id="CCg-Or-wYy"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目一" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRY-tt-yfU">
+                        <rect key="frame" x="126" y="12" width="251" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本次项目...." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjH-GV-WP7">
+                        <rect key="frame" x="126" y="38" width="251" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uCb-NO-fQD">
+                        <rect key="frame" x="126" y="62" width="206" height="2"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="ohM-0z-N72"/>
+                        </constraints>
+                        <color key="progressTintColor" red="1" green="0.7532168389407472" blue="0.52426029241319516" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="trackTintColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
+                    </progressView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共0分爱心" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0P-Wl-8e2">
+                        <rect key="frame" x="126" y="74" width="62" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目标0元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fA-xC-PCv">
+                        <rect key="frame" x="329" y="74" width="48" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVd-yo-Ifp">
+                        <rect key="frame" x="296" y="56" width="25" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="1" green="0.75321683890000002" blue="0.52426029240000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="NjH-GV-WP7" firstAttribute="leading" secondItem="ZRY-tt-yfU" secondAttribute="leading" id="2kn-gY-a3Y"/>
+                    <constraint firstItem="uCb-NO-fQD" firstAttribute="top" secondItem="NjH-GV-WP7" secondAttribute="bottom" constant="8" id="3rf-m5-Yj9"/>
+                    <constraint firstItem="ZRY-tt-yfU" firstAttribute="top" secondItem="MEo-oU-NGd" secondAttribute="top" constant="-6" id="433-3V-5Ml"/>
+                    <constraint firstItem="ZRY-tt-yfU" firstAttribute="leading" secondItem="MEo-oU-NGd" secondAttribute="trailing" constant="8" id="6Lu-2d-1Vx"/>
+                    <constraint firstItem="F0P-Wl-8e2" firstAttribute="leading" secondItem="ZRY-tt-yfU" secondAttribute="leading" id="9Ak-rn-Wm9"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ZRY-tt-yfU" secondAttribute="trailing" constant="5" id="9B3-EX-tc9"/>
+                    <constraint firstItem="uCb-NO-fQD" firstAttribute="leading" secondItem="ZRY-tt-yfU" secondAttribute="leading" id="FkR-mE-Zll"/>
+                    <constraint firstItem="F0P-Wl-8e2" firstAttribute="top" secondItem="NjH-GV-WP7" secondAttribute="bottom" constant="20" id="XPx-wm-LpU"/>
+                    <constraint firstItem="NjH-GV-WP7" firstAttribute="top" secondItem="ZRY-tt-yfU" secondAttribute="bottom" constant="8" id="XwQ-Bv-bvn"/>
+                    <constraint firstItem="3fA-xC-PCv" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-5" id="YUV-Us-qGW"/>
+                    <constraint firstItem="SVd-yo-Ifp" firstAttribute="trailing" secondItem="3fA-xC-PCv" secondAttribute="trailing" constant="-10" id="ZCK-4p-M6C"/>
+                    <constraint firstItem="MEo-oU-NGd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="ZVe-ZA-MGA"/>
+                    <constraint firstItem="MEo-oU-NGd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="hdw-hW-01U"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="uCb-NO-fQD" secondAttribute="trailing" constant="50" id="owR-pw-5Aq"/>
+                    <constraint firstItem="SVd-yo-Ifp" firstAttribute="centerY" secondItem="uCb-NO-fQD" secondAttribute="centerY" id="vxy-0R-BEN"/>
+                    <constraint firstItem="3fA-xC-PCv" firstAttribute="bottom" secondItem="F0P-Wl-8e2" secondAttribute="bottom" id="wvy-nJ-mZa"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="NjH-GV-WP7" secondAttribute="trailing" constant="5" id="xud-79-JIL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="LCountLabel" destination="F0P-Wl-8e2" id="hSq-eh-HM9"/>
+                <outlet property="LDetailLabel" destination="NjH-GV-WP7" id="pZP-jw-TCI"/>
+                <outlet property="LImageView" destination="MEo-oU-NGd" id="8Sy-4j-AbC"/>
+                <outlet property="LTargetLabel" destination="3fA-xC-PCv" id="XFw-xs-71Z"/>
+                <outlet property="LTitleLabel" destination="ZRY-tt-yfU" id="xTg-SE-8dx"/>
+                <outlet property="countLabelTopCos" destination="XPx-wm-LpU" id="eL1-Sz-P4K"/>
+                <outlet property="imageTopCos" destination="ZVe-ZA-MGA" id="bzN-I3-ZTn"/>
+                <outlet property="processNumLabel" destination="SVd-yo-Ifp" id="Ggi-eb-iuU"/>
+                <outlet property="processView" destination="uCb-NO-fQD" id="gax-r6-9x6"/>
+                <outlet property="titleLabelToImageTopCos" destination="433-3V-5Ml" id="Gvv-PH-SUk"/>
+            </connections>
+            <point key="canvasLocation" x="-492" y="83"/>
+        </tableViewCell>
+    </objects>
+</document>

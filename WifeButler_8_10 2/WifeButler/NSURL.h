@@ -29,9 +29,6 @@
  */
 
 
-
-#define KID     NSGetUserDefaults(@"id")
-
 // 注册获取验证码
 #define KHuoYanZhenMa @"member/register/captcha"
 

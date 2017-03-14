@@ -221,6 +221,22 @@
 		C7C162751E7009ED0074A9D2 /* GoodDetilBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C162741E7009ED0074A9D2 /* GoodDetilBottomView.m */; };
 		C7C162781E700AB60074A9D2 /* titleBottomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C162771E700AB60074A9D2 /* titleBottomButton.m */; };
 		C7C1627B1E7041BA0074A9D2 /* PhotosScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C1627A1E7041BA0074A9D2 /* PhotosScrollView.m */; };
+		C7C2D8BC1E77EF2A00765473 /* WifeButlerLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C2D8BB1E77EF2A00765473 /* WifeButlerLocationModel.m */; };
+		C7C2D8BF1E781E7F00765473 /* RechargePayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C2D8BE1E781E7F00765473 /* RechargePayViewController.m */; };
+		C7C2D8C21E78240000765473 /* SelectCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C2D8C11E78240000765473 /* SelectCardViewController.m */; };
+		C7C2D8C51E782AE100765473 /* LoveDonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C2D8C41E782AE100765473 /* LoveDonateViewController.m */; };
+		C7C2D8C81E782DC800765473 /* LoveDonateListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C2D8C71E782DC800765473 /* LoveDonateListHeaderView.m */; };
+		C7C2D8CA1E782DDE00765473 /* LoveDonateListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C2D8C91E782DDE00765473 /* LoveDonateListHeaderView.xib */; };
+		C7C2D8CD1E7831EB00765473 /* LoveDonateListSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C2D8CC1E7831EB00765473 /* LoveDonateListSectionView.m */; };
+		C7C2D8CF1E7831F400765473 /* LoveDonateListSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C2D8CE1E7831F400765473 /* LoveDonateListSectionView.xib */; };
+		C7C2D8D31E78330000765473 /* LoveDonateListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C2D8D11E78330000765473 /* LoveDonateListTableViewCell.m */; };
+		C7C2D8D41E78330000765473 /* LoveDonateListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C2D8D21E78330000765473 /* LoveDonateListTableViewCell.xib */; };
+		C7C2D8D71E783F4E00765473 /* LoveDonateListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C2D8D61E783F4E00765473 /* LoveDonateListModel.m */; };
+		C7C2D8DF1E784E0700765473 /* LoveDonateDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C2D8DE1E784E0700765473 /* LoveDonateDetailViewController.m */; };
+		C7C2D8E21E784E4D00765473 /* LoveDonateDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C2D8E11E784E4D00765473 /* LoveDonateDetailHeaderView.m */; };
+		C7C2D8E61E78540200765473 /* LoveDonateDetailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C2D8E41E78540200765473 /* LoveDonateDetailViewCell.m */; };
+		C7C2D8E71E78540200765473 /* LoveDonateDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C2D8E51E78540200765473 /* LoveDonateDetailViewCell.xib */; };
+		C7C2D8EA1E78553F00765473 /* LoveDonateDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C2D8E91E78553F00765473 /* LoveDonateDetailModel.m */; };
 		C7C4A4901E5EB20A00075A27 /* HomePageSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C4A48F1E5EB20A00075A27 /* HomePageSectionHeaderView.m */; };
 		C7C4A4921E5EB22500075A27 /* HomePageSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C4A4911E5EB22500075A27 /* HomePageSectionHeaderView.xib */; };
 		C7C4A4961E5EB81E00075A27 /* HomePageCommodityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C4A4941E5EB81E00075A27 /* HomePageCommodityCell.m */; };
@@ -713,6 +729,34 @@
 		C7C162771E700AB60074A9D2 /* titleBottomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = titleBottomButton.m; sourceTree = "<group>"; };
 		C7C162791E7041BA0074A9D2 /* PhotosScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosScrollView.h; sourceTree = "<group>"; };
 		C7C1627A1E7041BA0074A9D2 /* PhotosScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosScrollView.m; sourceTree = "<group>"; };
+		C7C2D8BA1E77EF2A00765473 /* WifeButlerLocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerLocationModel.h; sourceTree = "<group>"; };
+		C7C2D8BB1E77EF2A00765473 /* WifeButlerLocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerLocationModel.m; sourceTree = "<group>"; };
+		C7C2D8BD1E781E7F00765473 /* RechargePayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargePayViewController.h; sourceTree = "<group>"; };
+		C7C2D8BE1E781E7F00765473 /* RechargePayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargePayViewController.m; sourceTree = "<group>"; };
+		C7C2D8C01E78240000765473 /* SelectCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCardViewController.h; sourceTree = "<group>"; };
+		C7C2D8C11E78240000765473 /* SelectCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCardViewController.m; sourceTree = "<group>"; };
+		C7C2D8C31E782AE100765473 /* LoveDonateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveDonateViewController.h; sourceTree = "<group>"; };
+		C7C2D8C41E782AE100765473 /* LoveDonateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveDonateViewController.m; sourceTree = "<group>"; };
+		C7C2D8C61E782DC800765473 /* LoveDonateListHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveDonateListHeaderView.h; sourceTree = "<group>"; };
+		C7C2D8C71E782DC800765473 /* LoveDonateListHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveDonateListHeaderView.m; sourceTree = "<group>"; };
+		C7C2D8C91E782DDE00765473 /* LoveDonateListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoveDonateListHeaderView.xib; sourceTree = "<group>"; };
+		C7C2D8CB1E7831EB00765473 /* LoveDonateListSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveDonateListSectionView.h; sourceTree = "<group>"; };
+		C7C2D8CC1E7831EB00765473 /* LoveDonateListSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveDonateListSectionView.m; sourceTree = "<group>"; };
+		C7C2D8CE1E7831F400765473 /* LoveDonateListSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoveDonateListSectionView.xib; sourceTree = "<group>"; };
+		C7C2D8D01E78330000765473 /* LoveDonateListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveDonateListTableViewCell.h; sourceTree = "<group>"; };
+		C7C2D8D11E78330000765473 /* LoveDonateListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveDonateListTableViewCell.m; sourceTree = "<group>"; };
+		C7C2D8D21E78330000765473 /* LoveDonateListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoveDonateListTableViewCell.xib; sourceTree = "<group>"; };
+		C7C2D8D51E783F4E00765473 /* LoveDonateListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveDonateListModel.h; sourceTree = "<group>"; };
+		C7C2D8D61E783F4E00765473 /* LoveDonateListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveDonateListModel.m; sourceTree = "<group>"; };
+		C7C2D8DD1E784E0700765473 /* LoveDonateDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveDonateDetailViewController.h; sourceTree = "<group>"; };
+		C7C2D8DE1E784E0700765473 /* LoveDonateDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveDonateDetailViewController.m; sourceTree = "<group>"; };
+		C7C2D8E01E784E4D00765473 /* LoveDonateDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveDonateDetailHeaderView.h; sourceTree = "<group>"; };
+		C7C2D8E11E784E4D00765473 /* LoveDonateDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveDonateDetailHeaderView.m; sourceTree = "<group>"; };
+		C7C2D8E31E78540200765473 /* LoveDonateDetailViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveDonateDetailViewCell.h; sourceTree = "<group>"; };
+		C7C2D8E41E78540200765473 /* LoveDonateDetailViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveDonateDetailViewCell.m; sourceTree = "<group>"; };
+		C7C2D8E51E78540200765473 /* LoveDonateDetailViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoveDonateDetailViewCell.xib; sourceTree = "<group>"; };
+		C7C2D8E81E78553F00765473 /* LoveDonateDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveDonateDetailModel.h; sourceTree = "<group>"; };
+		C7C2D8E91E78553F00765473 /* LoveDonateDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveDonateDetailModel.m; sourceTree = "<group>"; };
 		C7C4A48E1E5EB20A00075A27 /* HomePageSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageSectionHeaderView.h; sourceTree = "<group>"; };
 		C7C4A48F1E5EB20A00075A27 /* HomePageSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageSectionHeaderView.m; sourceTree = "<group>"; };
 		C7C4A4911E5EB22500075A27 /* HomePageSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageSectionHeaderView.xib; sourceTree = "<group>"; };
@@ -1801,6 +1845,8 @@
 				C71058381E615ED700C85CBE /* WifeButlerUserParty.m */,
 				C7F8F2201E719C270039293C /* WifeButlerCommonBaseModel.h */,
 				C7F8F2211E719C270039293C /* WifeButlerCommonBaseModel.m */,
+				C7C2D8BA1E77EF2A00765473 /* WifeButlerLocationModel.h */,
+				C7C2D8BB1E77EF2A00765473 /* WifeButlerLocationModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2737,6 +2783,10 @@
 				C745FD3B1E740E1F00B01742 /* inputPayMoneyView.h */,
 				C745FD3C1E740E1F00B01742 /* inputPayMoneyView.m */,
 				C745FD3D1E740E1F00B01742 /* inputPayMoneyView.xib */,
+				C7C2D8BD1E781E7F00765473 /* RechargePayViewController.h */,
+				C7C2D8BE1E781E7F00765473 /* RechargePayViewController.m */,
+				C7C2D8C01E78240000765473 /* SelectCardViewController.h */,
+				C7C2D8C11E78240000765473 /* SelectCardViewController.m */,
 			);
 			path = "Balance(余额)";
 			sourceTree = "<group>";
@@ -2788,6 +2838,66 @@
 				C70CDB161E6DAE390004CA4E /* EPCalenderTableViewCell.xib */,
 			);
 			path = "环保日历";
+			sourceTree = "<group>";
+		};
+		C7C2D8D81E784D3A00765473 /* LoveDonateDetail(捐赠详情) */ = {
+			isa = PBXGroup;
+			children = (
+				C7C2D8DD1E784E0700765473 /* LoveDonateDetailViewController.h */,
+				C7C2D8DE1E784E0700765473 /* LoveDonateDetailViewController.m */,
+				C7C2D8E01E784E4D00765473 /* LoveDonateDetailHeaderView.h */,
+				C7C2D8E11E784E4D00765473 /* LoveDonateDetailHeaderView.m */,
+				C7C2D8E31E78540200765473 /* LoveDonateDetailViewCell.h */,
+				C7C2D8E41E78540200765473 /* LoveDonateDetailViewCell.m */,
+				C7C2D8E51E78540200765473 /* LoveDonateDetailViewCell.xib */,
+				C7C2D8E81E78553F00765473 /* LoveDonateDetailModel.h */,
+				C7C2D8E91E78553F00765473 /* LoveDonateDetailModel.m */,
+			);
+			name = "LoveDonateDetail(捐赠详情)";
+			sourceTree = "<group>";
+		};
+		C7C2D8D91E784D5C00765473 /* LoveDonateList(捐赠列表) */ = {
+			isa = PBXGroup;
+			children = (
+				C7C2D8DC1E784D8C00765473 /* Controller */,
+				C7C2D8DB1E784D7E00765473 /* view */,
+				C7C2D8DA1E784D7400765473 /* Model */,
+			);
+			name = "LoveDonateList(捐赠列表)";
+			sourceTree = "<group>";
+		};
+		C7C2D8DA1E784D7400765473 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C7C2D8D51E783F4E00765473 /* LoveDonateListModel.h */,
+				C7C2D8D61E783F4E00765473 /* LoveDonateListModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C7C2D8DB1E784D7E00765473 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				C7C2D8C61E782DC800765473 /* LoveDonateListHeaderView.h */,
+				C7C2D8C71E782DC800765473 /* LoveDonateListHeaderView.m */,
+				C7C2D8C91E782DDE00765473 /* LoveDonateListHeaderView.xib */,
+				C7C2D8CB1E7831EB00765473 /* LoveDonateListSectionView.h */,
+				C7C2D8CC1E7831EB00765473 /* LoveDonateListSectionView.m */,
+				C7C2D8CE1E7831F400765473 /* LoveDonateListSectionView.xib */,
+				C7C2D8D01E78330000765473 /* LoveDonateListTableViewCell.h */,
+				C7C2D8D11E78330000765473 /* LoveDonateListTableViewCell.m */,
+				C7C2D8D21E78330000765473 /* LoveDonateListTableViewCell.xib */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		C7C2D8DC1E784D8C00765473 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C7C2D8C31E782AE100765473 /* LoveDonateViewController.h */,
+				C7C2D8C41E782AE100765473 /* LoveDonateViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		C7C564571E6EEB4B00D15359 /* 用户二维码 */ = {
@@ -2842,6 +2952,8 @@
 		C7CCF4AE1E76D562009A0ED5 /* 爱心捐赠 */ = {
 			isa = PBXGroup;
 			children = (
+				C7C2D8D91E784D5C00765473 /* LoveDonateList(捐赠列表) */,
+				C7C2D8D81E784D3A00765473 /* LoveDonateDetail(捐赠详情) */,
 			);
 			path = "爱心捐赠";
 			sourceTree = "<group>";
@@ -3175,6 +3287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BAD20121D544617005798F2 /* ZTDuiHuanDingDan.storyboard in Resources */,
+				C7C2D8E71E78540200765473 /* LoveDonateDetailViewCell.xib in Resources */,
 				C7F8F21C1E7195C00039293C /* ServiceListTableViewCell.xib in Resources */,
 				7BE3C64C1CF1938800851512 /* ZTYiJianFanKuiViewController.xib in Resources */,
 				7BE3C6611CF19C8300851512 /* ZTNeiBuGongGaoTableViewCell.xib in Resources */,
@@ -3182,12 +3295,14 @@
 				7BE3C6461CF18BAF00851512 /* citydata.plist in Resources */,
 				C7FFD4C31E6714E700754C92 /* MedRefFriendCircleViewController.xib in Resources */,
 				7B288D391D582C9A000A19AF /* README.txt in Resources */,
+				C7C2D8CA1E782DDE00765473 /* LoveDonateListHeaderView.xib in Resources */,
 				7BE3C6421CF188DF00851512 /* ZTAddressPickView.xib in Resources */,
 				7BE3C6AE1CF1A05F00851512 /* ZTHuiZhuanDingDan.storyboard in Resources */,
 				C7C4A4971E5EB81E00075A27 /* HomePageCommodityCell.xib in Resources */,
 				C7CCF49A1E76C4B4009A0ED5 /* ScoreViewController.xib in Resources */,
 				7B4F39741CF2906800D427CD /* ZTXiaoXiXiangQinViewController.xib in Resources */,
 				C7C4A49C1E5EBE6B00075A27 /* HomePageCommodityView.xib in Resources */,
+				C7C2D8CF1E7831F400765473 /* LoveDonateListSectionView.xib in Resources */,
 				C7A191BE1E60263800FEDFD1 /* WifebutlerRCRHomeHeaderView.xib in Resources */,
 				7BE3C63B1CF1888F00851512 /* ZJGuangLiShouHuoDiZhiTableViewCell.xib in Resources */,
 				C7FFD4D81E6717E700754C92 /* CommentView.xib in Resources */,
@@ -3204,6 +3319,7 @@
 				C745FD351E73F0B500B01742 /* CardPocketTableViewCell.xib in Resources */,
 				C745FD3A1E73F32D00B01742 /* CardPocketAddViewController.xib in Resources */,
 				C7C564561E6EAC5B00D15359 /* EPCalendarNoDataView.xib in Resources */,
+				C7C2D8D41E78330000765473 /* LoveDonateListTableViewCell.xib in Resources */,
 				C7CCF4A31E76CEEA009A0ED5 /* CurrentLocationTableViewCell.xib in Resources */,
 				7B5B07BD1D0EAA8600D0246A /* ZTSheQuZhenWu.storyboard in Resources */,
 				7BD04B2B1CF820FE00D431D5 /* ZTBianJiInfo.storyboard in Resources */,
@@ -3335,6 +3451,7 @@
 				C745FD341E73F0B500B01742 /* CardPocketTableViewCell.m in Sources */,
 				C7C1626F1E7000FA0074A9D2 /* GoodsDetailRemarFooter.m in Sources */,
 				C710583E1E61B58600C85CBE /* WifeButlerLoadingTableView.m in Sources */,
+				C7C2D8EA1E78553F00765473 /* LoveDonateDetailModel.m in Sources */,
 				7B63EAC31CFC6735004F9DA7 /* ZTHuanMiTuPianTableViewCell.m in Sources */,
 				7B4F39771CF295CD00D427CD /* ZTPersonGouWuCheViewController.m in Sources */,
 				C7C5645A1E6EEB7D00D15359 /* UserQRViewController.m in Sources */,
@@ -3383,9 +3500,11 @@
 				7BF9ACA81D12B2FD00F0D000 /* ZTXiaoQuXuanZeTableViewCell.m in Sources */,
 				7BC580641CF6DE7400FD157A /* ZTLaJiJieShuanTableViewController.m in Sources */,
 				7BF9ACAB1D12B37E00F0D000 /* ZTXiaoQuXuanZeViewController.m in Sources */,
+				C7C2D8BF1E781E7F00765473 /* RechargePayViewController.m in Sources */,
 				7BB43F501CE9C3BC007D722A /* main.m in Sources */,
 				7B9D39B01CF9B8B200F6359D /* ZTShangPingModel.m in Sources */,
 				C745FD421E740EAF00B01742 /* PlaceHoderText.m in Sources */,
+				C7C2D8E21E784E4D00765473 /* LoveDonateDetailHeaderView.m in Sources */,
 				C7FFD4D01E67173C00754C92 /* DocFriendHeaderView.m in Sources */,
 				C7FFD4F11E6721F800754C92 /* DocFriendReviewModel.m in Sources */,
 				7BAD20251D5495D8005798F2 /* ZTOrderXiangQinModel.m in Sources */,
@@ -3419,9 +3538,12 @@
 				7BFBA6BF1CFE80EC00D4E07C /* ZJGoodsDetailVC.m in Sources */,
 				7B392D461D14E7D700A182BC /* ZTKaiDianTableViewController.m in Sources */,
 				7BF9ACAE1D12CCF600F0D000 /* ZTXiaoQuXuanZe.m in Sources */,
+				C7C2D8DF1E784E0700765473 /* LoveDonateDetailViewController.m in Sources */,
 				7B392D541D151ED600A182BC /* ZTDianPuAddressTableViewController.m in Sources */,
 				C7A191D01E606CF700FEDFD1 /* EPCalendarViewController.m in Sources */,
+				C7C2D8C81E782DC800765473 /* LoveDonateListHeaderView.m in Sources */,
 				7B5B07C01D0EAA9700D0246A /* ZTSheQuZhenWuViewController.m in Sources */,
+				C7C2D8D31E78330000765473 /* LoveDonateListTableViewCell.m in Sources */,
 				C7FFD4DB1E67183C00754C92 /* RightBarMorePopView.m in Sources */,
 				7BD5B7E01D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.m in Sources */,
 				7BC5804C1CF6C81C00FD157A /* ZTGarbageOfRiceViewController.m in Sources */,
@@ -3435,13 +3557,18 @@
 				7BBDB5FF1D010E730098B079 /* CAAnimation+WAnimation.m in Sources */,
 				C7C162781E700AB60074A9D2 /* titleBottomButton.m in Sources */,
 				C7F8F21B1E7195C00039293C /* ServiceListTableViewCell.m in Sources */,
+				C7C2D8D71E783F4E00765473 /* LoveDonateListModel.m in Sources */,
 				7BAD20101D544609005798F2 /* ZTDuiHuanDingDanViewController.m in Sources */,
+				C7C2D8E61E78540200765473 /* LoveDonateDetailViewCell.m in Sources */,
 				C7FFD4B21E66AE4500754C92 /* tempLoadingViewController.m in Sources */,
 				7B54B42E1D53607800FB2B28 /* ZTZhiHuanTiJiaoViewController.m in Sources */,
 				C7FFD5001E6728D200754C92 /* NSString+Size.m in Sources */,
+				C7C2D8BC1E77EF2A00765473 /* WifeButlerLocationModel.m in Sources */,
 				7B0537001D0FE5E400BE9762 /* TYImageCache.m in Sources */,
 				C7C1627B1E7041BA0074A9D2 /* PhotosScrollView.m in Sources */,
 				C7C4A4961E5EB81E00075A27 /* HomePageCommodityCell.m in Sources */,
+				C7C2D8C51E782AE100765473 /* LoveDonateViewController.m in Sources */,
+				C7C2D8C21E78240000765473 /* SelectCardViewController.m in Sources */,
 				C7F8F20C1E718EA40039293C /* ZTTime1CollectionViewCell.m in Sources */,
 				C7C162751E7009ED0074A9D2 /* GoodDetilBottomView.m in Sources */,
 				7B01CA3F1CFDB477008BF259 /* ZTJieShuan2Model.m in Sources */,
@@ -3488,6 +3615,7 @@
 				7B288D421D582DCF000A19AF /* payRequsestHandler.mm in Sources */,
 				7BAD201F1D547970005798F2 /* ZTDingDanXiangQinDuiHuanViewController.m in Sources */,
 				C70CDB171E6DAE390004CA4E /* EPCalenderTableViewCell.m in Sources */,
+				C7C2D8CD1E7831EB00765473 /* LoveDonateListSectionView.m in Sources */,
 				C7FFD4CC1E6716E400754C92 /* MedRefFriendCircleTableHeader.m in Sources */,
 				C7F8F2081E718EA40039293C /* ZTXuanZeTimeViewController.m in Sources */,
 				C7C1626A1E6FFA900074A9D2 /* GoodsDetailRemarkSectionHeader.m in Sources */,

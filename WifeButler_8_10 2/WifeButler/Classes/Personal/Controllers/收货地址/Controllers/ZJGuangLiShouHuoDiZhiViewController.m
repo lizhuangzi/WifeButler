@@ -33,7 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"选择地址";
+    self.title = @"地址管理";
     
     [self createUI];
     

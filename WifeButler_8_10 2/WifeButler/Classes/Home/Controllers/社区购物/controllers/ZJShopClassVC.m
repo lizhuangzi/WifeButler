@@ -21,7 +21,7 @@
 #import "CommunityShopMainModel.h"
 #import "MJExtension.h"
 #import "CommunityShopMainViewCell.h"
-
+#import "WifeButlerLocationManager.h"
 
 @interface ZJShopClassVC ()<CommonShopLeftSelectTypeViewSelectDelegate>
 /**数据源*/
@@ -91,10 +91,8 @@
 - (void)requestSelectTypeHttpData
 {
     NSMutableDictionary * parmIndex = [NSMutableDictionary dictionary];
-    NSString * jing = NSGetUserDefaults(@"jing");
-    NSString * wei = NSGetUserDefaults(@"wei");
-    parmIndex[@"jing"] = jing;
-    parmIndex[@"wei"] = wei;
+    parmIndex[@"jing"] = @([WifeButlerLocationManager sharedManager].longitude);
+    parmIndex[@"wei"] = @([WifeButlerLocationManager sharedManager].latitude);
     
     [SVProgressHUD showWithStatus:@"正在加载数据..."];
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KCommunityShopLeftList parameter:parmIndex success:^(NSDictionary * resultCode) {
@@ -123,10 +121,8 @@
 - (void)requestMainHttpData
 {
     NSMutableDictionary * parm = [NSMutableDictionary dictionary];
-    NSString * jing = NSGetUserDefaults(@"jing");
-    NSString * wei = NSGetUserDefaults(@"wei");
-    parm[@"jing"] = jing;
-    parm[@"wei"] = wei;
+    parm[@"jing"] = @([WifeButlerLocationManager sharedManager].longitude);
+    parm[@"wei"] = @([WifeButlerLocationManager sharedManager].latitude);
     parm[@"cat_id"] = self.currentSelectModel.Id;
     parm[@"serve_id"] = self.currentSelectModel.serve_id;
     parm[@"pageindex"] = [NSString stringWithFormat:@"%zd",self.page];

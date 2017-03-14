@@ -18,6 +18,7 @@
 #import "ZTSheQuFuWuViewController.h"
 #import "CommunityRealEstateController.h"
 #import "ChooseLocationViewController.h"
+#import "LoveDonateViewController.h"
 
 #import "ZTJianKangShenHuoBottomModel.h"
 #import "ZTLunBoToModel.h"
@@ -79,6 +80,8 @@
     
     [self createTableView];
     
+    [self listenNotify];
+
     [self requestBannerData];
     
     if ([WifeButlerAccount sharedAccount].isLogin) { //如果用户登录了
@@ -94,19 +97,10 @@
     }
 }
 
-/**请求当前地理位置*/
-- (void)requestCurrentLocation
+/**监听通知*/
+- (void)listenNotify
 {
-    WEAKSELF
-    [[WifeButlerLocationManager sharedManager]startLocationAndFinishBlock:^(LocationInfoStuct locationInfo) {
-       
-        NSString * PoiName = [NSString stringWithCString:locationInfo.POIName encoding:NSUTF8StringEncoding];
-        weakSelf.addressLab.text = PoiName;
-        
-        NSString * longt = [NSString stringWithFormat:@"%lf",locationInfo.location2D.longitude];
-        NSString * lant = [NSString stringWithFormat:@"%lf",locationInfo.location2D.latitude];
-        [weakSelf requestBoutiqueDataWithLongitude:longt latitude:lant];
-    }];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(locatedChange) name:WifebutlerLocationDidChangeNotification object:nil];
 }
 
 
@@ -130,15 +124,6 @@
             
             // 轮播图
             [self createScorllView1:bannerModels];
-            
-            // 获取沙盒根目录
-            //            NSString *directory = NSHomeDirectory();
-            //
-            //            NSLog(@"directory:%@", directory);
-            //
-            //            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_dataSource];
-            //
-            //            [data writeToFile:[NSString stringWithFormat:@"%@/LunBoTu", directory] atomically:YES];
         }
         else
         {
@@ -160,7 +145,7 @@
     parm[@"lng"] = longtitude;
     parm[@"lat"] = latitude;
     [WifeButlerNetWorking getHttpRequestWithURLsite:KBoutiqueData parameter:parm success:^(NSDictionary *response) {
-        
+        [self.dataArray removeAllObjects];
         if ([response[CodeKey] intValue] == SUCCESS) {
             
             NSDictionary * resultCode = response[@"resultCode"];
@@ -176,10 +161,11 @@
         }
         
     } failure:^(NSError *error) {
-        
+        [self.dataArray removeAllObjects];
     }];
 }
 
+#pragma mark - 创建table
 - (void)createTableView
 {
     //创建tableview
@@ -284,113 +270,17 @@
             [self.navigationController pushViewController:calendar animated:YES];
         }
             break;
+        case 5:{
+            LoveDonateViewController * lo = [LoveDonateViewController new];
+            [self.navigationController pushViewController:lo animated:YES];
+        }
+            break;
         default:
             break;
     }
 }
 
-#pragma mark - iCarousel的代理协议
 
-//- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
-//{
-//    UIView *cardView = view;
-//
-//    if ( !cardView )
-//    {
-//        cardView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.cardSize.width, self.cardSize.height)];
-////        cardView.layer.masksToBounds = YES;
-////        cardView.layer.cornerRadius = cardView.frame.size.width / 2.0;
-//
-//        UIImageView *imageView = [[UIImageView alloc] initWithFrame:cardView.bounds];
-//        [cardView addSubview:imageView];
-//
-//        imageView.contentMode = UIViewContentModeScaleAspectFill;
-//        imageView.backgroundColor = [UIColor clearColor];
-//        imageView.tag = [@"image" hash];
-//
-//    }
-//
-//    UIImageView *imageView = (UIImageView*)[cardView viewWithTag:[@"image" hash]];
-//    imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ZT%ld%ld",index + 1, index + 1]];
-//
-//
-//    return cardView;
-//}
-
-
-//- (CATransform3D)carousel:(iCarousel *)carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform
-//{
-//
-//    //    NSLog(@"offsetoffsetoffset:%f", offset);
-//
-//    // 位置的变化
-//    CGFloat translation = [self translationByOffset:offset];
-//
-//    // 大小的变化
-//    CGFloat scale = [self scaleByOffset:offset];
-//
-//    transform = CATransform3DScale(transform, scale, scale, 1.0f);
-//
-//    return CATransform3DTranslate(transform, offset * self.cardSize.width, - translation * self.cardSize.width, 0);
-//
-//}
-
-//- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
-//{
-//    ZJLog(@"indexindexindex:::%ld", (long)index);
-//
-//    __weak typeof(self) weakSelf = self;
-//
-//
-//    if (index == 2) {
-//
-//        UIStoryboard * sb=[UIStoryboard storyboardWithName:@"ZJHomePageController" bundle:nil];
-//        ZJCommunityShopVC * nav = [sb instantiateViewControllerWithIdentifier:@"ZJCommunityShopVC"];
-//        nav.hidesBottomBarWhenPushed=YES;
-//        [weakSelf.navigationController pushViewController:nav animated:YES];
-//    }
-//
-//    if (index == 3) {
-//
-//        if (KToken == nil) {
-//
-//            [SVProgressHUD showErrorWithStatus:@"请先进行登录"];
-//
-//            return;
-//        }
-//
-//        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuQuanZi" bundle:nil];
-//        ZTQuanZiZViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTQuanZiZViewController"];
-//        nav.hidesBottomBarWhenPushed = YES;
-//        [weakSelf.navigationController pushViewController:nav animated:YES];
-//    }
-//
-//    if (index == 4) {
-//
-//        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuZhenWu" bundle:nil];
-//        ZTSheQuZhenWuViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTSheQuZhenWuViewController"];
-//        nav.hidesBottomBarWhenPushed = YES;
-//        [weakSelf.navigationController pushViewController:nav animated:YES];
-//    }
-//
-//    if (index == 0) {
-//
-//        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuWuYe" bundle:nil];
-//        ZTSheQuWuYeViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTSheQuWuYeViewController"];
-//        nav.hidesBottomBarWhenPushed = YES;
-//        nav.Type = 2;
-//        [weakSelf.navigationController pushViewController:nav animated:YES];
-//    }
-//
-//    if (index == 1) {
-//
-//        UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTSheQuWuYe" bundle:nil];
-//        ZTSheQuWuYeViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTSheQuWuYeViewController"];
-//        nav.hidesBottomBarWhenPushed = YES;
-//        nav.Type = 3;
-//        [weakSelf.navigationController pushViewController:nav animated:YES];
-//    }
-//}
 
 
 
@@ -435,10 +325,11 @@
             
             [self requestBoutiqueDataWithLongitude:jinDu latitude:weiDu];
             
-            NSSaveUserDefaults(jinDu, @"jing");
-            NSSaveUserDefaults(weiDu, @"wei");
-            NSSaveUserDefaults(xiaoQu, @"xiaoQu");
-            self.addressLab.text = NSGetUserDefaults(@"xiaoQu");
+            [WifeButlerLocationManager sharedManager].longitude = jinDu.doubleValue;
+            [WifeButlerLocationManager sharedManager].latitude = weiDu.doubleValue;
+            [WifeButlerLocationManager sharedManager].village = xiaoQu;
+            
+            self.addressLab.text = xiaoQu;
         }
         else
         {
@@ -475,8 +366,17 @@
 }
 
 
-
-
+#pragma mark - 经纬度改变通知刷新页面
+- (void)locatedChange
+{
+    double lo = [WifeButlerLocationManager sharedManager].longitude;
+    double la = [WifeButlerLocationManager sharedManager].latitude;
+    NSString * lon = [NSString stringWithFormat:@"%lf",lo];
+    NSString * lat = [NSString stringWithFormat:@"%lf",la];
+    [self.dataArray removeAllObjects];
+    [self requestBoutiqueDataWithLongitude:lon latitude:lat];
+    self.addressLab.text = [WifeButlerLocationManager sharedManager].village;
+}
 
 
 - (IBAction)titleButtonClick {
@@ -484,4 +384,10 @@
     ChooseLocationViewController * vc = [[ChooseLocationViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
 @end

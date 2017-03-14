@@ -14,6 +14,7 @@
 #import "NetWorkPort.h"
 #import "WifeButlerNetWorking.h"
 #import "WifeButlerLocationManager.h"
+#import "WifebutlerConst.h"
 
 @interface ChooseLocationViewController ()<UITableViewDelegate,UITableViewDataSource>
 /**小区列表*/
@@ -22,8 +23,9 @@
 @property (nonatomic,strong) NSMutableArray * DeliveryLocationList;
 
 @property (nonatomic,weak) UITableView * tableView;
+
 /**当前定位位置*/
-@property (nonatomic,copy)NSString * currentLocation;
+@property (nonatomic,strong)WifeButlerLocationModel * currentLocationModel;
 @end
 
 @implementation ChooseLocationViewController
@@ -110,16 +112,17 @@
 /**请求附近小区数据*/
 - (void)requestLocationAndNearbyVillage
 {
-    self.currentLocation = @"正在定位当前定位...";
+    self.currentLocationModel = nil;
     WEAKSELF;
-    [[WifeButlerLocationManager sharedManager]startLocationAndFinishBlock:^(LocationInfoStuct locationInfo) {
+    [[WifeButlerLocationManager sharedManager]startLocationAndFinishBlock:^(WifeButlerLocationModel * locationInfo) {
         
-        if (locationInfo.formateAddress == NULL) {
-            self.currentLocation = @"定位失败，请在设置中开启应用定位功能";
-            [self.tableView reloadData];
+         weakSelf.currentLocationModel = locationInfo;
+        if (locationInfo.location2D.longitude == 0.0 && locationInfo.location2D.latitude == 0.0) {
+            weakSelf.currentLocationModel.formateAddress = @"定位失败，请在设置中开启应用定位功能";
+            [weakSelf.tableView reloadData];
             return ;
         }
-        weakSelf.currentLocation = [NSString stringWithCString:locationInfo.formateAddress encoding:NSUTF8StringEncoding];
+       
         NSIndexPath * indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         
@@ -131,13 +134,13 @@
         NSDictionary * parm2 = @{@"word":@"",@"lat":laStr,@"lon":loStr};
         // 小区列表
         [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KvillageList parameter:parm2 success:^(NSArray * resultCode) {
-            self.tableView.tableFooterView = nil;
-            self.nearByvillageList.array = resultCode;
-            [self.tableView reloadData];
+            weakSelf.tableView.tableFooterView = nil;
+            weakSelf.nearByvillageList.array = resultCode;
+            [weakSelf.tableView reloadData];
             
         } failure:^(NSError *error) {
             if (error.code == 30000) {
-                [self showFooter];
+                [weakSelf showFooter];
             }
         }];
         
@@ -165,7 +168,11 @@
     if (indexPath.section == 0) {
         
         CurrentLocationTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CurrentLocationTableViewCell"];
-        cell.locationLabel.text = self.currentLocation;
+        if(self.currentLocationModel)
+            cell.locationLabel.text = self.currentLocationModel.formateAddress;
+        else
+            cell.locationLabel.text = @"正在定位当前定位...";
+       
         [cell.reLocateBtn addTarget:self action:@selector(relocated) forControlEvents:UIControlEventTouchUpInside];
         return cell;
         
@@ -213,12 +220,40 @@
     return 30;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        if (!self.currentLocationModel) return; //不存在reutrn
+        
+        [WifeButlerLocationManager sharedManager].longitude = self.currentLocationModel.location2D.longitude;
+         [WifeButlerLocationManager sharedManager].latitude = self.currentLocationModel.location2D.latitude;
+         [WifeButlerLocationManager sharedManager].village = self.currentLocationModel.POIName;
+        
+    }else if (indexPath.section == 1){
+        
+        NSDictionary * dictd = self.DeliveryLocationList[indexPath.row];
+        [WifeButlerLocationManager sharedManager].longitude = [dictd[@"longitude"] doubleValue];
+        [WifeButlerLocationManager sharedManager].latitude = [dictd[@"latitude"] doubleValue];
+        [WifeButlerLocationManager sharedManager].village = dictd[@"village_name"];
+    }else{
+        
+        NSDictionary * dictv = self.nearByvillageList[indexPath.row];
+       [WifeButlerLocationManager sharedManager].latitude =[dictv[@"latitude"] doubleValue];
+       [WifeButlerLocationManager sharedManager].longitude = [dictv[@"longitude"] doubleValue];
+       [WifeButlerLocationManager sharedManager].village = dictv[@"village"];
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    [[NSNotificationCenter defaultCenter]postNotificationName:WifebutlerLocationDidChangeNotification object:nil userInfo:nil];
+}
+
 - (void)relocated
 {
     [self requestLocationAndNearbyVillage];
     [self.nearByvillageList removeAllObjects];
     [self.tableView reloadData];
 }
+
 
 
 - (void)dealloc

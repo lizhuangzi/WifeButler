@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="87" id="KGk-i7-Jjw" customClass="LoveDonateDetailViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <webView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CaU-QE-ECq">
+                        <rect key="frame" x="8" y="40" width="304" height="38"/>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </webView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目简介" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWV-KQ-z1s">
+                        <rect key="frame" x="18" y="40" width="284" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zl-Ju-53x" customClass="LoveDonateListSectionView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VYm-wb-S4d">
+                                <rect key="frame" x="10" y="10" width="4" height="15"/>
+                                <color key="backgroundColor" red="1" green="0.34274346290000002" blue="0.21479166390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="4" id="gpY-hZ-WnC"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公益项目" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3G-FT-2Yq">
+                                <rect key="frame" x="22" y="8.5" width="61.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.99607843139999996" green="0.33725490200000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="J3G-FT-2Yq" firstAttribute="leading" secondItem="VYm-wb-S4d" secondAttribute="trailing" constant="8" id="PzM-CW-C6E"/>
+                            <constraint firstAttribute="bottom" secondItem="VYm-wb-S4d" secondAttribute="bottom" constant="10" id="Yoh-a8-TfO"/>
+                            <constraint firstItem="VYm-wb-S4d" firstAttribute="leading" secondItem="6zl-Ju-53x" secondAttribute="leading" constant="10" id="mIK-mL-bLf"/>
+                            <constraint firstItem="J3G-FT-2Yq" firstAttribute="centerY" secondItem="6zl-Ju-53x" secondAttribute="centerY" id="mhH-Yw-mga"/>
+                            <constraint firstItem="VYm-wb-S4d" firstAttribute="top" secondItem="6zl-Ju-53x" secondAttribute="top" constant="10" id="om6-Nc-u2u"/>
+                            <constraint firstAttribute="height" constant="35" id="qlw-l0-BgP"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="CaU-QE-ECq" secondAttribute="bottom" id="20N-Y0-aUP"/>
+                    <constraint firstItem="CaU-QE-ECq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="7cG-P0-laK"/>
+                    <constraint firstItem="CaU-QE-ECq" firstAttribute="top" secondItem="6zl-Ju-53x" secondAttribute="bottom" constant="5" id="BVk-HF-NQn"/>
+                    <constraint firstAttribute="trailing" secondItem="6zl-Ju-53x" secondAttribute="trailing" id="Ccl-oA-nF7"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="JWV-KQ-z1s" secondAttribute="trailing" constant="10" id="Dob-yw-ANu"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="CaU-QE-ECq" secondAttribute="trailing" id="bhw-an-pZY"/>
+                    <constraint firstItem="JWV-KQ-z1s" firstAttribute="top" secondItem="6zl-Ju-53x" secondAttribute="bottom" constant="5" id="fsH-uj-EmI"/>
+                    <constraint firstItem="6zl-Ju-53x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mC1-6w-KfD"/>
+                    <constraint firstItem="JWV-KQ-z1s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="w5K-EO-YXu"/>
+                    <constraint firstItem="6zl-Ju-53x" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="yhq-U4-0S4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="detailLabel" destination="JWV-KQ-z1s" id="l0m-AT-bKo"/>
+                <outlet property="webView" destination="CaU-QE-ECq" id="dx5-2c-6l4"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="82.5"/>
+        </tableViewCell>
+    </objects>
+</document>

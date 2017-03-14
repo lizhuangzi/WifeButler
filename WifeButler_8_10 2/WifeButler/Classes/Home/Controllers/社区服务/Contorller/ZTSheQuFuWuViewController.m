@@ -83,8 +83,8 @@
 - (void)requestDataWithServiceID:(NSString *)Id
 {
     NSMutableDictionary * parm = [NSMutableDictionary dictionary];
-    parm[@"jing"] = NSGetUserDefaults(@"jing");
-    parm[@"wei"] = NSGetUserDefaults(@"wei");
+    parm[@"jing"] = @([WifeButlerLocationManager sharedManager].longitude);
+    parm[@"wei"] = @([WifeButlerLocationManager sharedManager].latitude);
     parm[@"serve_id"] = Id;
     [SVProgressHUD showWithStatus:@""];
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KCommunityService parameter:parm success:^(NSDictionary * resultCode) {

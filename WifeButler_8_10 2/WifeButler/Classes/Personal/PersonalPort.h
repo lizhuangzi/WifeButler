@@ -27,8 +27,10 @@
 /**用户余额*/
 #define KUserBalance [HTTP_BaseURL stringByAppendingString:@"e_wallet/E_wallet/getbalance"]
 
-/**充值*/
+/**充值最后的接口*/
 #define KRecharge [HTTP_BaseURL stringByAppendingString:@"e_wallet/Walletpay/pay"]
+/**提现最后的接口*/
+#define Kdeposit  [HTTP_BaseURL stringByAppendingString:@"e_wallet/Walletdraw/draw"]
 
 /**充值支付订单*/
 #define KPayAndRechargeOrder [HTTP_BaseURL stringByAppendingString:@"e_wallet/Walletpay/create"]

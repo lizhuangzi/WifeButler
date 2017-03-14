@@ -13,6 +13,7 @@
 #import "ServiceListModel.h"
 #import "WifeButlerDefine.h"
 #import "ServiceDetailViewController.h"
+#import "WifeButlerLocationManager.h"
 
 @interface ServiceListViewController ()
 
@@ -52,8 +53,8 @@
     NSMutableDictionary * parm = [NSMutableDictionary dictionary];
     parm[@"cat_id"] = self.catId;
     parm[@"serve_id"] = self.serviceId;
-    parm[@"jing"] = NSGetUserDefaults(@"jing");
-    parm[@"wei"] = NSGetUserDefaults(@"wei");
+    parm[@"jing"] = @([WifeButlerLocationManager sharedManager].longitude);
+    parm[@"wei"] = @([WifeButlerLocationManager sharedManager].latitude);
     parm[@"pageindex"] = [NSString stringWithFormat:@"%zd",self.page];
     
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:ServiceCategory parameter:parm success:^(NSArray * resultCode) {

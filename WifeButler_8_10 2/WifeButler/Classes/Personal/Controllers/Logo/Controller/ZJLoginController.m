@@ -7,7 +7,6 @@
 //
 
 #import "ZJLoginController.h"
-#import "ZTLogoModel.h"
 #import "NSString+ZJMyJudgeString.h"
 #import  "MJExtension.h"
 #import "WifeButlerNetWorking.h"
@@ -16,6 +15,7 @@
 #import "WifeButlerUserParty.h"
 #import "WifeButlerAccount.h"
 #import "WifeButlerLocationManager.h"
+#import "WifebutlerConst.h"
 
 @interface ZJLoginController () <UITextFieldDelegate>
 
@@ -91,7 +91,7 @@
 - (void)getLogoDes
 {
     
-    if ([NSGetUserDefaults(@"isRememberPasswrod") intValue] == 1) {
+    if ([NSGetUserDefaults(WifeButlerisRememberPasswrod) intValue] == 1) {
         
         
         if ([[NSUserDefaults standardUserDefaults] objectForKey:@"mobile"]) {
@@ -216,73 +216,6 @@ NSString * const LoginViewControllerDidLoginSuccessNotification = @"LoginViewCon
         return;
     }
     
-//    if ([NSString judgePassWordLegal:self.loginPassWordFiled.text] == NO) {
-//        
-//        [SVProgressHUD showErrorWithStatus:@"密码不符合格式"];
-//        return;
-//    }
-   
-    
-//    [manager POST:url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
-//        
-//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        
-//        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
-//        
-//        ZJLog(@"%@", responseObject);
-//        
-//        // 登录成功
-//        if ([responseObject[@"code"] intValue] == 10000) {
-//            
-//            ZTLogoModel *model = [ZTLogoModel mj_objectWithKeyValues:responseObject[@"resultCode"]];            
-//            
-//            [SVProgressHUD dismiss];
-//            
-//            NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-//        
-//            NSSaveUserDefaults(self.loginPassWordFiled.text, @"password");
-//            [ud setObject:model.mobile forKey:@"mobile"];
-//   
-//            [ud setObject:model.avatar forKey:@"avatar"];
-//            [ud setObject:model.gender forKey:@"gender"];
-//            [ud setObject:model.id forKey:@"id"];
-//            [ud setObject:model.last_ip forKey:@"last_ip"];
-//            [ud setObject:model.last_time forKey:@"last_time"];
-//            [ud setObject:model.login_ip forKey:@"login_ip"];
-//            [ud setObject:model.login_time forKey:@"login_time"];
-//            [ud setObject:model.mechine forKey:@"mechine"];
-//            [ud setObject:model.nickname forKey:@"nickname"];
-//            [ud setObject:model.salts forKey:@"salts"];
-//            [ud setObject:model.token_app forKey:@"token_app"];
-//            [ud setObject:model.user_agent forKey:@"user_agent"];
-//            
-//            NSSaveUserDefaults(model.jing, @"jing");
-//            NSSaveUserDefaults(model.wei, @"wei");
-//            NSSaveUserDefaults(model.village, @"xiaoQu");
-//
-//            [ud synchronize];
-//            
-//            
-//            if (self.shuaiXinShuJu) {
-//                
-//                self.shuaiXinShuJu();
-//            }
-//            
-//            [self.navigationController popViewControllerAnimated:YES];
-//            
-//        }
-//        else
-//        {
-//            
-//            [SVProgressHUD showErrorWithStatus:message];
-//        }
-//        
-//        
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        
-//        [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
-//        
-//    }];
     
     [SVProgressHUD showWithStatus:@"加载中..."];
     [ZJLoginController autoLoginWithUserName:self.loginPhoneFiled.text Password:self.loginPassWordFiled.text andfinishBlock:^(LoginResultReturnType returnType) {
@@ -477,12 +410,12 @@ NSString * const LoginViewControllerDidLoginSuccessNotification = @"LoginViewCon
     
     if (self.isRememberPasswrod.selected == YES) {
         
-        NSSaveUserDefaults(@"1", @"isRememberPasswrod");
+        NSSaveUserDefaults(@"1", WifeButlerisRememberPasswrod);
     }
     else
     {
         
-        NSSaveUserDefaults(@"0", @"isRememberPasswrod");
+        NSSaveUserDefaults(@"0", WifeButlerisRememberPasswrod);
     }
 }
 

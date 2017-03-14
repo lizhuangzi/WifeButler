@@ -9,7 +9,8 @@
 #import "BalanceViewController.h"
 #import "BalanceRecordViewController.h"
 #import "inputPayMoneyView.h"
-#import "ZTZhiFuFangShiTableViewController.h"
+#import "RechargePayViewController.h"
+#import "SelectCardViewController.h"
 #import "WifeButlerNetWorking.h"
 #import "PersonalPort.h"
 
@@ -53,11 +54,11 @@
 
 #pragma mark - 提现点击
 - (IBAction)withdrawClick {
-    
+    [self showinputPayMoneyView:NO];
 }
 #pragma mark - 充值点击
 - (IBAction)rechargeClick {
-    [self showinputPayMoneyView];
+    [self showinputPayMoneyView:YES];
 }
 
 
@@ -71,7 +72,7 @@
 
 
 /**显示支付弹出框*/
-- (void)showinputPayMoneyView
+- (void)showinputPayMoneyView:(BOOL)isRecharge
 {
     __unsafe_unretained inputPayMoneyView * inputMoneyView = [inputPayMoneyView inputMoney];
     MJWeakSelf
@@ -84,24 +85,56 @@
             return ;
         }
         
-        if ([self isNUMBER:money]) {
+        if ([weakSelf isNUMBER:money]) {
             
             if (money.floatValue<0.01) {
                 [SVProgressHUD showErrorWithStatus:@"金额必须一分以上"];
                 return;
             }
-            
-            //    //进入支付界面.
-            UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTHuiZhuanDingDan" bundle:nil];
-            ZTZhiFuFangShiTableViewController * payVc =[sb instantiateViewControllerWithIdentifier:@"ZTZhiFuFangShiTableViewController"];
-            [weakSelf.navigationController pushViewController:payVc animated:YES];
             [inputMoneyView inputViewHid];
+            
+            NSString * flag = @"0";
+            //    //进入支付界面.
+            flag = isRecharge?@"1":@"2";
+            [SVProgressHUD showWithStatus:@"正在生成订单中c"];
+            [weakSelf generateOrderWithMoney:money AndFlag:flag Success:^(NSString * orderId){
+                
+                if (isRecharge) {
+                   
+                    RechargePayViewController * re = [RechargePayViewController new];
+                    re.order_id = orderId;
+                    [weakSelf.navigationController pushViewController:re animated:YES];
+                    
+                }else{ //进入选择提现的银行卡界面
+                    SelectCardViewController * cardList = [[SelectCardViewController alloc]init];
+                    [weakSelf.navigationController pushViewController:cardList animated:YES];
+                }
+                
+            } Failure:^{
+                [SVProgressHUD showErrorWithStatus:@"生成订单失败 请稍后重试"];
+            }];
+            
+           
         }else
         {
             [SVProgressHUD showErrorWithStatus:@"输入金额不合法"];
         }
     };
 }
+
+- (void)generateOrderWithMoney:(NSString *)moneyStr AndFlag:(NSString *)flag Success:(void(^)(NSString * orderId))success Failure:(void(^)())failure
+{
+    NSDictionary * parm = @{@"userid":@"",@"token":@"",@"money":@"",@"flag":@""};
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KPayAndRechargeOrder parameter:parm success:^(id resultCode) {
+        
+        !success?:success(@"");
+        
+    } failure:^(NSError *error) {
+        
+        !failure?: failure();
+    }];
+}
+
 /**判断是否是金钱*/
 - (BOOL)isNUMBER:(NSString *)str
 {
