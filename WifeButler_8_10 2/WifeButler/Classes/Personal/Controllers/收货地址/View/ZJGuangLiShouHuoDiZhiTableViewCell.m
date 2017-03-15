@@ -10,13 +10,7 @@
 
 @implementation ZJGuangLiShouHuoDiZhiTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-    
-    self.backview.layer.masksToBounds = YES;
-    
-    self.backview.layer.cornerRadius = 5.0;
-}
+
 
 - (IBAction)bianJiBtn:(id)sender {
     
@@ -37,29 +31,16 @@
 
 - (void)setAssignmentData:(ZTShouHuoAddressModel *)model
 {
-    self.nameLab.text = model.realname;
+    self.InfoLab.text = [NSString stringWithFormat:@"%@ %@ %@",model.realname,model.sex,model.phone];
     
     if ([model.defaults intValue] == 2) {
         
-        NSSaveUserDefaults(model.longitude, @"jing");
-        NSSaveUserDefaults(model.latitude, @"wei");
-        NSSaveUserDefaults(model.village_name, @"xiaoQu");
         self.addressLab.text = [NSString stringWithFormat:@"【默认】%@", model.address];
     }
     else
     {
         self.addressLab.text = model.address;
     }
-    
-    self.iphoneLab.text = model.phone;
-
-}
-
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

@@ -24,6 +24,9 @@ HMSingletonM(Manager);
  
     _finishLocated = NO;
     self.locationManager = [[AMapLocationManager alloc]init];
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    self.locationManager.locationTimeout =2;
+    self.locationManager.reGeocodeTimeout = 2;
     
     [self.locationManager requestLocationWithReGeocode:YES completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
         
@@ -39,6 +42,7 @@ HMSingletonM(Manager);
         lf.location2D = location.coordinate;
         lf.formateAddress = formatteAddress;
         
+        self.locationInfo = lf;
         _finishLocated = YES;
         
         !returnInformation?:returnInformation(lf);

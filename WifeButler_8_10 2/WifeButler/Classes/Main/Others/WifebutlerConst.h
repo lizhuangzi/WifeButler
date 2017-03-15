@@ -19,3 +19,6 @@ extern NSString * const WifeButlerisRememberPasswrod;
 
 /**老伴管家全局地址改变时发的通知*/
 extern NSString * const WifebutlerLocationDidChangeNotification;
+
+/**用户被t*/
+UIKIT_EXTERN NSString * const WifeButlerUserDidLogOutNotification;

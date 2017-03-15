@@ -20,7 +20,7 @@
 
 @implementation WifeButlerSettingViewController
 
-NSString * const WifeButlerUserDidLogOutNotification = @"WifeButlerUserDidLogOutNotification";
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

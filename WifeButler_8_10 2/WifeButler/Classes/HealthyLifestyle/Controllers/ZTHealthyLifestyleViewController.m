@@ -19,7 +19,7 @@
 #import "MJExtension.h"
 
 @interface ZTHealthyLifestyleViewController ()
-
+@property (nonatomic,assign) BOOL isLoadSuccess;
 @property (nonatomic,strong) NSMutableArray * TopModelArray;
 
 @end
@@ -37,14 +37,21 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+    self.isLoadSuccess = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     WEAKSELF
-    [self requestSliderDataAndSuccessBlock:^{
-        
-        [weakSelf setupChildVcWithArray:weakSelf.TopModelArray];
-        
-        [weakSelf config];
-    }];
+    if (!self.isLoadSuccess) {
+        [self requestSliderDataAndSuccessBlock:^{
+            
+            [weakSelf setupChildVcWithArray:weakSelf.TopModelArray];
+            
+            [weakSelf config];
+        }];
+    }
 }
 
 /**请求顶部模块数据*/
@@ -52,10 +59,10 @@
 {
     
     [WifeButlerNetWorking getPackagingHttpRequestWithURLsite:KinformationType parameter:nil success:^(id resultCode) {
-        
+        self.isLoadSuccess = YES;
         NSDictionary *result = resultCode;
         NSArray * cats = result[@"cats"];
-        
+       
         self.TopModelArray = [ZTJianKangShenHuoTopModel mj_objectArrayWithKeyValuesArray:cats];
         
         if (block) {
@@ -63,7 +70,7 @@
         }
     
     } failure:^(NSError *error) {
-        
+        self.isLoadSuccess = NO;
     }];
 }
 

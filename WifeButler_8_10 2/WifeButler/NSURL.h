@@ -53,20 +53,12 @@
 #define KPersonInfoXiuGai  @"account/other/uinfo_update"
 
 
-// 添加收货地址
-#define KAddShouHuoAddress @"account/address/addaddress"
 
-// 编辑收货地址
-#define KBianJiShouHuoAddress @"account/address/editaddress"
-
-// 删除收货地址
-#define KDeleteShouHuoAddress @"account/address/deladdress"
 
 // 获去省市区
 #define KShenShiQuAddress     @"other/region/showlistall"
 
-// 单条收货地址接口
-#define KShenShiQuAddressOne     @"account/address/myaddressone"
+
 
 
 
@@ -201,8 +193,7 @@
 // 清空购物车
 #define   KClearGouWuChe   @"/account/cart/clear"
 
-// 默认地址设置
-#define   KSetDefaultAddress   @"/account/address/default_set"
+
 
 // 客服电话
 #define   KKeFuPhone            @"/account/other/kefu"

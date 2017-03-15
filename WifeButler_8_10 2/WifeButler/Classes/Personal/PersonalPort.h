@@ -38,4 +38,20 @@
 /**交易记录*/
 #define  KTransactionRecord [HTTP_BaseURL stringByAppendingString:@"e_wallet/E_wallet/walletlist"]
 
+
+// 添加收货地址
+#define KAddShouHuoAddress [HTTP_BaseURL stringByAppendingString:@"account/address/addaddress"]
+
+// 编辑收货地址
+#define KBianJiShouHuoAddress [HTTP_BaseURL stringByAppendingString:@"account/address/editaddress"]
+
+// 删除收货地址
+#define KDeleteShouHuoAddress [HTTP_BaseURL stringByAppendingString:@"account/address/deladdress"]
+
+// 默认地址设置
+#define   KSetDefaultAddress   [HTTP_BaseURL stringByAppendingString:@"/account/address/default_set"]
+
+// 单条收货地址接口
+#define KShenShiQuAddressOne      [HTTP_BaseURL stringByAppendingString:@"account/address/myaddressone"]
+
 #endif /* PersonalPort_h */

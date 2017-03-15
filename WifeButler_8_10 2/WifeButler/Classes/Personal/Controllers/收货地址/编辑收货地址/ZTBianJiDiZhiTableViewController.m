@@ -12,21 +12,39 @@
 #import "ZTXiaoQuXuanZe.h"
 #import "NSString+ZJMyJudgeString.h"
 #import "ZJLoginController.h"
+#import "PersonalPort.h"
+#import "WifeButlerNetWorking.h"
+#import "WifeButlerDefine.h"
+#import "ZTBianjiModel.h"
 
-
-@interface ZTBianJiDiZhiTableViewController ()<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
+@interface ZTBianJiDiZhiTableViewController ()<  UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *queRenBtn;
 
-@property (weak, nonatomic) IBOutlet UITextField *addressTF;
+/**
+ *  名字
+ */
+@property (weak, nonatomic) IBOutlet UITextField *nameTextF;
 
+/**
+ *  手机号码
+ */
+@property (weak, nonatomic) IBOutlet UITextField *iphoneTextF;
 
-// 地址
-@property (nonatomic, strong) NSArray * addressArray;
-@property (nonatomic, strong) ZTAddressPickView * addressPV;
-@property (nonatomic, assign) int component0;
-@property (nonatomic, assign) int component1;
-@property (nonatomic, assign) int component2;
+/**
+ *  地址2
+ */
+@property (weak, nonatomic) IBOutlet UITextView *address2TextV;
+
+/**
+ *  默认地址
+ */
+@property (weak, nonatomic) IBOutlet UISwitch *isMoRenAddress;
+
+@property (weak, nonatomic) IBOutlet UIButton *sirBtn;
+@property (weak, nonatomic) IBOutlet UIButton *ladyBtn;
+
+@property (nonatomic,weak) UIButton * currentSelectSexBtn;
 
 /**
  *  省id
@@ -52,9 +70,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *xiaoQuLab;
 
 
+@property (nonatomic,strong) ZTBianjiModel * dataModel;
 @end
 
 @implementation ZTBianJiDiZhiTableViewController
+
+
 
 - (void)viewDidLoad {
     
@@ -62,38 +83,28 @@
     
     [self isBianJiAddress];
     
+    self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+    
     self.queRenBtn.layer.cornerRadius = 5;
     
-    self.addressArray = [NSMutableArray array];
-    
-//    NSString *str = [[NSBundle mainBundle] pathForResource:@"citydata.plist" ofType:nil];
-//    _addressArray = [NSArray arrayWithContentsOfFile:str];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStyleDone target:self action:@selector(queRenBtn1)];
-    
     [self setPram];
+}
+- (IBAction)sureClick {
     
-    [self downLoadInfoDiQu];
+     [self downLoadInfo];
 }
 
 - (void)setPram
 {
     self.nameTextF.delegate = self;
     self.iphoneTextF.delegate = self;
-    self.youBianTextF.delegate = self;
-    
     [self.nameTextF addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
 
 }
 
 
+#pragma mark - 点击小区
 - (IBAction)xiaoQuClick:(UIButton *)sender {
-    
-    if (self.qu_id.length == 0) {
-        
-        [SVProgressHUD showErrorWithStatus:@"请先选择省市区哦!"];
-        return;
-    }
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZTBianJiShouHuoDiZhi" bundle:nil];
     ZTXiaoQuXuanZeViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ZTXiaoQuXuanZeViewController"];
@@ -102,18 +113,12 @@
        
         self.xiaoQuLab.text = model.village;
         self.xiaoQu_id = model.id;
-        NSSaveUserDefaults(model.longitude, @"jing");
-        NSSaveUserDefaults(model.latitude, @"wei");
-        NSSaveUserDefaults(model.village, @"xiaoQu");
+
     }];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 
-- (void)queRenBtn1
-{
-    [self downLoadInfo];
-}
 
 - (void)isBianJiAddress
 {
@@ -124,70 +129,35 @@
     else
     {
         self.title = @"编辑收货地址";
+        [self downLoadInfoXiangQin];
     }
 }
 
-#pragma mark - 数据省市区
-- (void)downLoadInfoDiQu
+#pragma mark - 地址详情
+- (void)downLoadInfoXiangQin
 {
-    
-    if (NSGetUserDefaults(@"ztCC") != nil) {
-        
-        _addressArray = [NSKeyedUnarchiver unarchiveObjectWithData:NSGetUserDefaults(@"ztCC")];;
-        
-        return;
-    }
-    
-    
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];/*添加接可收数据的数据可行*/
-    
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setObject:KToken forKey:@"token"];
+    [dic setObject:self.address_id forKey:@"id"];
     
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KShenShiQuAddress];
-    
-    ZJLog(@"%@", dic);
-    
-    [manager POST:url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KShenShiQuAddressOne parameter:dic success:^(NSDictionary * resultCode) {
         
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.dataModel = [ZTBianjiModel modelWithDictionary:resultCode];
         
-        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
-        
-        ZJLog(@"%@", responseObject);
-        
-        // 登录成功
-        if ([responseObject[@"code"] intValue] == 10000) {
-            
-            [SVProgressHUD dismiss];
-            
-            _addressArray = responseObject[@"resultCode"];
-            
-            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_addressArray];
-            
-            NSSaveUserDefaults(data, @"ztCC");
-            
+        self.nameTextF.text = self.dataModel.realname;
+        self.iphoneTextF.text = self.dataModel.phone;
+        self.isMoRenAddress.on = [self.dataModel.defaults isEqualToString:@"2"];
+        if ([self.dataModel.sex isEqualToString:@"女"]) {
+            [self genderBtnClick:self.ladyBtn];
+        }else{
+            [self genderBtnClick:self.sirBtn];
         }
-        else
-        {
-            
-            [SVProgressHUD showErrorWithStatus:message];
-        }
-        
-        
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
-        
+        self.address2TextV.text = self.dataModel.address;
+        self.xiaoQuLab.text = self.dataModel.village_name;
+    } failure:^(NSError *error) {
+        SVDCommonErrorDeal
     }];
-    
-    
 }
-
 
 #pragma mark - 数据
 - (void)downLoadInfo
@@ -220,20 +190,7 @@
         [SVProgressHUD showErrorWithStatus:@"小区不能为空哦!"];
         return;
     }
-    
-    if ([NSString isValidZipcode:self.youBianTextF.text] == NO) {
-        
-        [SVProgressHUD showErrorWithStatus:@"邮编格式错误"];
-        return;
-    }
-    
-    
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];/*添加接可收数据的数据可行*/
-    
+   
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
     
     [dic setObject:KToken forKey:@"token"];
@@ -242,7 +199,6 @@
     [dic setObject:self.sheng_id forKey:@"pro"];
     [dic setObject:self.shi_id forKey:@"city"];
     [dic setObject:self.qu_id forKey:@"qu"];
-    [dic setObject:self.youBianTextF.text forKey:@"post"];
     [dic setObject:self.address2TextV.text forKey:@"address"];
     [dic setObject:self.xiaoQu_id forKey:@"village"];
     
@@ -255,114 +211,21 @@
     {
         [dic setObject:@"1" forKey:@"defaults"];
     }
-   
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KAddShouHuoAddress];
-    
-    ZJLog(@"%@", dic);
     
     [SVProgressHUD showWithStatus:@"加载中..."];
-    
-    [manager POST:url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KAddShouHuoAddress parameter:dic success:^(id resultCode) {
         
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
-        
-        ZJLog(@"%@", responseObject);
-        
-        // 登录成功
-        if ([responseObject[@"code"] intValue] == 10000) {
+        [SVProgressHUD showSuccessWithStatus:@"添加成功"];
+        if (self.relshBlack) {
             
-            [SVProgressHUD showSuccessWithStatus:@"添加成功"];
-            
-            if (self.relshBlack) {
-                
-                self.relshBlack();
-            }
-            
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-        else
-        {
-            
-            // 登录失效 进行提示登录
-            if ([[responseObject objectForKey:@"code"] intValue] == 40000) {
-                
-                [SVProgressHUD dismiss];
-                
-                __weak typeof(self) weakSelf = self;
-                
-                UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"提示" message:@"您登录已经失效,请重新进行登录哦!" preferredStyle:UIAlertControllerStyleAlert];
-                
-                
-                UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                    
-                    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];
-                    ZJLoginController *vc = [sb instantiateViewControllerWithIdentifier:@"ZJLoginController"];
-                    vc.isLogo = YES;
-                    [weakSelf.navigationController pushViewController:vc animated:YES];
-                }];
-                
-                [vc addAction:otherAction];
-                
-                [weakSelf presentViewController:vc animated:YES completion:nil];
-                
-            }
-            else
-            {
-                
-                [SVProgressHUD showErrorWithStatus:message];
-            }
-
+            self.relshBlack();
         }
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self.navigationController popViewControllerAnimated:YES];
         
-        [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
+    } failure:^(NSError *error) {
         
-    }];
-    
-    
-}
-
-
-- (ZTAddressPickView *)addressPV
-{
-    if (!_addressPV) {
-        
-        _addressPV = [[[NSBundle mainBundle] loadNibNamed:@"ZTAddressPickView" owner:self options:nil] firstObject];
-        
-        _addressPV.frame = CGRectMake(0, iphoneHeight, iphoneWidth, 200);
-    }
-    
-    return _addressPV;
-}
-
-// 设置cityPicker的代理
-- (void)getCityPicker
-{
-    
-    self.addressPV.ZTPickView.showsSelectionIndicator = YES;
-    self.addressPV.ZTPickView.delegate = self;
-    self.addressPV.ZTPickView.dataSource = self;
-    
-    __weak typeof(self) weakSelf = self;
-    
-    // 完成
-    [self.addressPV setDoneBlack:^{
-        
-        [UIView animateWithDuration:0.3 animations:^{
-            
-            weakSelf.addressPV.frame = CGRectMake(0, iphoneHeight, iphoneWidth, 200);
-        }];
-        
-    }];
-    
-    [self.tableView.superview addSubview:self.addressPV];
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        
-        self.addressPV.frame =  CGRectMake(0, iphoneHeight - 200, iphoneWidth, 200);
+        SVDCommonErrorDeal;
     }];
 }
 
@@ -374,102 +237,8 @@
     return 3;
 }
 
-// returns the # of rows in each component..
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-    if (component==0) {
-        
-        return _addressArray.count;
-        
-    }else if (component==1){
-        
-        return [[[_addressArray objectAtIndex:_component0] objectForKey:@"list_a"] count];
-        
-    }else{
-        
-        return [[[[[_addressArray objectAtIndex:_component0] objectForKey:@"list_a"] objectAtIndex:_component1] objectForKey:@"list_b"] count];
-    }
-}
-
--(NSString*) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    
-    if (component==0) {
-        
-        return [[_addressArray objectAtIndex:row] objectForKey:@"name"];
-        
-    }else if (component==1){
-        
-        return [[[[_addressArray objectAtIndex:_component0] objectForKey:@"list_a"] objectAtIndex:row] objectForKey:@"name"];
-        
-    }else{
-        
-        return [[[[[[_addressArray objectAtIndex:_component0] objectForKey:@"list_a"] objectAtIndex:_component1] objectForKey:@"list_b"] objectAtIndex:row] objectForKey:@"name"];
-    }
-}
-
-// 监听pickerView选中
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    if (component==0) {
-        
-        _component0 = (int)row;
-        [pickerView selectRow:0 inComponent:1 animated:YES];
-        _component1 = 0;
-        [pickerView selectRow:0 inComponent:2 animated:YES];
-        _component2 = 0;
-        [pickerView reloadComponent:1];
-        [pickerView reloadComponent:2];
-        
-    }else if (component==1){
-        
-        _component1 = (int)row;
-        [pickerView selectRow:0 inComponent:2 animated:YES];
-        _component2 = 0;
-        [pickerView reloadComponent:2];
-        
-    }else if (component == 2){
-        
-        _component2 = (int)row;
-        
-    }
-    
-    NSString * province = [[_addressArray objectAtIndex:_component0] objectForKey:@"name"];
-    
-    NSString * city = [[[[_addressArray objectAtIndex:_component0] objectForKey:@"list_a"] objectAtIndex:_component1] objectForKey:@"name"];
-    
-    NSString * area = [[[[[[_addressArray objectAtIndex:_component0] objectForKey:@"list_a"] objectAtIndex:_component1] objectForKey:@"list_b"] objectAtIndex:_component2] objectForKey:@"name"];
-    
-    NSString *address = [NSString stringWithFormat:@"%@%@%@",province,city,area];
-    
-    self.sheng_id = [[_addressArray objectAtIndex:_component0] objectForKey:@"id"];
-    self.shi_id = [[[[_addressArray objectAtIndex:_component0] objectForKey:@"list_a"] objectAtIndex:_component1] objectForKey:@"id"];
-    self.qu_id = [[[[[[_addressArray objectAtIndex:_component0] objectForKey:@"list_a"] objectAtIndex:_component1] objectForKey:@"list_b"] objectAtIndex:_component2] objectForKey:@"id"];
-    
-    
-    self.addressTF.text = address;
-    self.xiaoQuLab.text = @"";
-    self.xiaoQu_id = @"";
-    
-}
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-- (IBAction)shenShiQuBtn:(id)sender {
-    
-    if (_addressArray.count == 0) {
-        
-        
-        [SVProgressHUD showSuccessWithStatus:@"省市区数据正在请求中,请稍后..."];
-        return;
-    }
-    
-    [self getCityPicker];
-}
 
 // 限制密码的长度
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -488,20 +257,6 @@
         }
     }
     
-    if (textField == self.youBianTextF) {
-        
-        if (string.length == 0) return YES;
-        
-        NSInteger existedLength = textField.text.length;
-        NSInteger selectedLength = range.length;
-        NSInteger replaceLength = string.length;
-        
-        if (existedLength - selectedLength + replaceLength > 6) {
-            
-            return NO;
-        }
-    }
-
     return YES;
 }
 
@@ -514,6 +269,12 @@
     }
 }
 
+- (IBAction)genderBtnClick:(UIButton *)sender {
+    
+    self.currentSelectSexBtn.selected = NO;
+    sender.selected = YES;
+    self.currentSelectSexBtn = sender;
+}
 
 
 @end

@@ -10,6 +10,6 @@
 
 @interface WifeButlerSettingViewController : UIViewController
 
-UIKIT_EXTERN NSString * const WifeButlerUserDidLogOutNotification;
+
 
 @end

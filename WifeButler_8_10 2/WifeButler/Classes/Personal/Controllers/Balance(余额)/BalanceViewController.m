@@ -99,6 +99,7 @@
             [SVProgressHUD showWithStatus:@"正在生成订单中c"];
             [weakSelf generateOrderWithMoney:money AndFlag:flag Success:^(NSString * orderId){
                 
+                [SVProgressHUD dismiss];
                 if (isRecharge) {
                    
                     RechargePayViewController * re = [RechargePayViewController new];
@@ -124,10 +125,10 @@
 
 - (void)generateOrderWithMoney:(NSString *)moneyStr AndFlag:(NSString *)flag Success:(void(^)(NSString * orderId))success Failure:(void(^)())failure
 {
-    NSDictionary * parm = @{@"userid":@"",@"token":@"",@"money":@"",@"flag":@""};
+    NSDictionary * parm = @{@"userid":KUserId,@"token":KToken,@"money":moneyStr,@"flag":flag};
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KPayAndRechargeOrder parameter:parm success:^(id resultCode) {
         
-        !success?:success(@"");
+        !success?:success(resultCode[@"orderid"]);
         
     } failure:^(NSError *error) {
         

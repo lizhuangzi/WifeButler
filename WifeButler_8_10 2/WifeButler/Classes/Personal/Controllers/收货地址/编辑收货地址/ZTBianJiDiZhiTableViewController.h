@@ -15,35 +15,9 @@
  */
 @property (nonatomic, assign) BOOL isAddAddress;
 
-/**
- *  名字
- */
-@property (weak, nonatomic) IBOutlet UITextField *nameTextF;
+@property (nonatomic,copy)NSString * address_id;
 
-/**
- *  手机号码
- */
-@property (weak, nonatomic) IBOutlet UITextField *iphoneTextF;
 
-/**
- *  邮编
- */
-@property (weak, nonatomic) IBOutlet UITextField *youBianTextF;
-
-/**
- *  地址1
- */
-@property (weak, nonatomic) IBOutlet UITextField *address1TextF;
-
-/**
- *  地址2
- */
-@property (weak, nonatomic) IBOutlet UITextView *address2TextV;
-
-/**
- *  默认地址
- */
-@property (weak, nonatomic) IBOutlet UISwitch *isMoRenAddress;
 
 
 @property (nonatomic, copy) void (^relshBlack)(void);

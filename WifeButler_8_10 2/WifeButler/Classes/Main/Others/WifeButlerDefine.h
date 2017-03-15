@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ZJLoginController.h"
 #import "WifeButlerAccount.h"
-
+#import "WifebutlerConst.h"
 
 #define DISPATCH_GLOBAL_QUEUE  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
@@ -68,6 +68,8 @@ UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAl
 
 //**** 网络请求失败时候svd的代码
 #define SVDCommonErrorDeal   if (error.code == 40000) {\
+    [[WifeButlerAccount sharedAccount]loginOffCurrentUser];\
+    [[NSNotificationCenter defaultCenter]postNotificationName:WifeButlerUserDidLogOutNotification object:nil userInfo:@{}];\
                                 WifeButlerLoginLosingEffection\
                                 }\
                                 else if (error.code == 20000 || error.code == 30000) {\

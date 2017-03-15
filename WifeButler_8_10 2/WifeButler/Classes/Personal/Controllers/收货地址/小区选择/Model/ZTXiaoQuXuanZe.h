@@ -14,5 +14,6 @@
 @property (nonatomic, copy) NSString * latitude;
 @property (nonatomic, copy) NSString * longitude;
 @property (nonatomic, copy) NSString * village;
+@property (nonatomic,copy)  NSString * position;
 
 @end

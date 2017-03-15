@@ -17,7 +17,7 @@ HMSingletonH(Account);
 @property (nonatomic,strong,readonly) WifeButlerUserParty * userParty;
 
 
-@property (nonatomic,assign,readonly) BOOL isLogin;
+@property (nonatomic,assign) BOOL isLogin;
 
 - (void)loginUserParty:(WifeButlerUserParty *)userParty;
 

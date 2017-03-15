@@ -26,4 +26,6 @@ HMSingletonH(Manager);
 - (void)startLocationAndFinishBlock:(void(^)(WifeButlerLocationModel * locationInfo))returnInformation;
 /**是否完成定位*/
 @property (nonatomic,assign,getter=isFinishLocated , readonly) BOOL finishLocated;
+
+@property (nonatomic,strong) WifeButlerLocationModel * locationInfo;
 @end

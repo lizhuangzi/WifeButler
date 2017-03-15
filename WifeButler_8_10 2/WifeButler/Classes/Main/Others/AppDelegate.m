@@ -41,6 +41,7 @@
     //向微信注册wxd930ea5d5a258f4f
     [WXApi registerApp:@"wx4fe9cfcc13e33a10" withDescription:@"weiXinWifeButler"];
     [AMapServices sharedServices].apiKey = @"f7ecc75a1f94250a64b6a81b70c60914";
+    [[AMapServices sharedServices] setEnableHTTPS:YES];
     //开启定位
 //    [[WifeButlerLocationManager sharedManager]startLocationAndFinishBlock:^(NSString *village, CLLocationCoordinate2D location) {
 //        ZJLog(@"这里会和平的:%@",village);

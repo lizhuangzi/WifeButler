@@ -25,7 +25,7 @@
 - (void)RequestWXinencryptionStrWithRequestUrlStr:(NSString *)urlStr andParmDict:(NSDictionary *)parm
 {
     NSDictionary * newParm = @{@"type":@"2",@"ordernum":self.order_id};
-    [super RequestWXinencryptionStrWithRequestUrlStr:urlStr andParmDict:newParm];
+    [super RequestWXinencryptionStrWithRequestUrlStr:KRecharge andParmDict:newParm];
 }
 
 

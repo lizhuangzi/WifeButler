@@ -128,7 +128,7 @@
 - (void)roundButtonClick:(UIButton *)button
 {
     NSUInteger index = button.tag - 2017;
-    WifeButlerLetUserLoginCode
+   // WifeButlerLetUserLoginCode
     switch (index) {
             
         case 0:{ //兑换订单
