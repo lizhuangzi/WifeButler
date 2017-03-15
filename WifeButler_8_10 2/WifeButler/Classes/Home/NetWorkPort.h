@@ -75,6 +75,14 @@
 /**爱心捐赠详情*/
 #define KLoveDonateProjectDetail [HTTP_BaseURL stringByAppendingString:@"loveproject/Loveproject/details?id=%@"]
 
+/**爱心用户个人信息*/
+#define KLoveDonateUserInfo [HTTP_BaseURL stringByAppendingString:@"loveproject/Loveproject/getuserinfo"]
+
+/**用户捐赠的爱心列表*/
+#define KLoveDonateUserDonateList [HTTP_BaseURL stringByAppendingString:@"loveproject/Loveproject/getuserorder"]
+
+/**用户捐赠记录*/
+#define KLoveDonateUserRecordlist [HTTP_BaseURL stringByAppendingString:@"loveproject/Loveproject/getrecord?userid=%@&page=%@"]
 /**生成爱心捐赠订单*/
 #define KLoveDonateGenerateOrder [HTTP_BaseURL stringByAppendingString:@"loveproject/Loveproject/createorder"]
 

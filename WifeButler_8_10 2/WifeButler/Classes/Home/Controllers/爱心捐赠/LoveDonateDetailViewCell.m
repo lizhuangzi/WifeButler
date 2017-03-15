@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.detailLabel.preferredMaxLayoutWidth = iphoneWidth - 25;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

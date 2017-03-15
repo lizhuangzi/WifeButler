@@ -16,6 +16,8 @@
 @property (nonatomic,weak) UIProgressView * progressView;
 
 @property (nonatomic,strong) NSMutableArray * labelnumArr;
+
+@property (nonatomic,weak) UILabel * percentDesLabel;
 @end
 
 @implementation LoveDonateDetailHeaderView
@@ -32,9 +34,17 @@
         [self addSubview:image];
         self.imageView = image;
         
+        UILabel * percentDesLabel = [[UILabel alloc]init];
+        percentDesLabel.font = [UIFont systemFontOfSize:13];
+        percentDesLabel.textColor = HexCOLOR(@"#FFC086");
+        [self addSubview:percentDesLabel];
+        self.percentDesLabel = percentDesLabel;
+        
         UIProgressView * pro = [[UIProgressView alloc]init];
-        pro.bounds = CGRectMake(0, 0, frame.size.width - 40, 10);
-        pro.y = CGRectGetMaxY(image.frame)+10;
+        pro.bounds = CGRectMake(0, 0, frame.size.width - 60, 5);
+        pro.trackTintColor = HexCOLOR(@"#e6e6e6");
+        pro.progressTintColor = HexCOLOR(@"#FFC086");
+        pro.y = CGRectGetMaxY(image.frame)+15;
         
         [self addSubview:pro];
         self.progressView = pro;
@@ -45,7 +55,13 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.progressView.centerX = self.centerX;
+    self.progressView.centerX = self.centerX - 10;
+    
+    self.percentDesLabel.frame  = CGRectMake(CGRectGetMaxX(self.progressView.frame)+6, 0, 30, 20);
+    self.percentDesLabel.centerY = self.progressView.centerY;
+    
+    CGAffineTransform transform = CGAffineTransformMakeScale(1.0f, 2.0f);
+    self.progressView.transform = transform;
 }
 
 - (void)setModel:(LoveDonateDetailModel *)model
@@ -57,16 +73,22 @@
     NSArray * numArr;
     if ([_model.percent isEqualToString:@"无上限"]) {
         self.progressView.hidden = YES;
+        self.percentDesLabel.hidden = YES;
         labelY = CGRectGetMaxY(self.imageView.frame) + 10;
         count = 2;
         nameArr = @[@"用户捐款(元)",@"爱心(份)"];
         numArr = @[_model.user_donation,_model.count];
     }else{
         self.progressView.hidden = NO;
+        
+        self.percentDesLabel.hidden = NO;
+        self.percentDesLabel.text = [NSString stringWithFormat:@"%@%%",_model.percent];
+        
         labelY = CGRectGetMaxY(self.progressView.frame)+10;
         count = 3;
         nameArr = @[@"用户捐款(元)",@"目标(元)",@"爱心(元)"];
         numArr = @[_model.user_donation,_model.target_sum,_model.count];
+        [self.progressView setProgress:_model.percent.floatValue/100];
     }
     
    
@@ -87,7 +109,7 @@
         desLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:desLabel];
         desLabel.frame = numLabel.frame;
-        desLabel.y = CGRectGetMaxY(numLabel.frame) + 5;
+        desLabel.y = CGRectGetMaxY(numLabel.frame);
         desLabel.text = nameArr[i];
         desLabel.font = [UIFont systemFontOfSize:15];
         desLabel.textColor = WifeButlerGaryTextColor4;

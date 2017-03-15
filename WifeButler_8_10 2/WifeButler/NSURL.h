@@ -12,12 +12,12 @@
 //#define HTTP_BaseURL @"http://192.168.1.183:8080/index.php/"
 //#define HTTP_BaseURL @"http://101.201.78.49:10085/index.php/"
 //#define HTTP_BaseURL @"http://101.201.115.59/index.php/"
-#define HTTP_BaseURL @"http://app.icanchubao.com/index.php/"
+#define HTTP_BaseURL @"https://app.icanchubao.com/index.php/"
 
 //#define KImageUrl    @"http://192.168.1.183:8080/"
 //#define KImageUrl    @"http://101.201.78.49:10085/"
 //#define KImageUrl    @"http://101.201.115.59/"
-#define KImageUrl    @"http://app.icanchubao.com/"
+#define KImageUrl    @"https://app.icanchubao.com/"
 
 
 /**

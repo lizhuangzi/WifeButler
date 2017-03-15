@@ -28,4 +28,8 @@
 
 @property (nonatomic,copy)NSString * percent;
 
+@property (nonatomic,assign) CGFloat cell1H;
+
+@property (nonatomic,assign) CGFloat cell2H;
+
 @end

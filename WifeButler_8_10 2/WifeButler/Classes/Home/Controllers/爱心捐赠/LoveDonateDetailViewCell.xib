@@ -16,20 +16,20 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="86.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <webView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CaU-QE-ECq">
-                        <rect key="frame" x="8" y="40" width="304" height="38"/>
+                        <rect key="frame" x="8" y="40" width="304" height="46"/>
                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </webView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目简介" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWV-KQ-z1s">
-                        <rect key="frame" x="18" y="40" width="284" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目简介" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWV-KQ-z1s">
+                        <rect key="frame" x="15" y="40" width="295" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zl-Ju-53x" customClass="LoveDonateListSectionView">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zl-Ju-53x">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VYm-wb-S4d">
@@ -40,13 +40,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公益项目" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3G-FT-2Yq">
-                                <rect key="frame" x="22" y="8.5" width="61.5" height="18"/>
+                                <rect key="frame" x="22" y="8" width="62" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.99607843139999996" green="0.33725490200000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="J3G-FT-2Yq" firstAttribute="leading" secondItem="VYm-wb-S4d" secondAttribute="trailing" constant="8" id="PzM-CW-C6E"/>
                             <constraint firstAttribute="bottom" secondItem="VYm-wb-S4d" secondAttribute="bottom" constant="10" id="Yoh-a8-TfO"/>
@@ -58,20 +58,21 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="CaU-QE-ECq" secondAttribute="bottom" id="20N-Y0-aUP"/>
                     <constraint firstItem="CaU-QE-ECq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="7cG-P0-laK"/>
                     <constraint firstItem="CaU-QE-ECq" firstAttribute="top" secondItem="6zl-Ju-53x" secondAttribute="bottom" constant="5" id="BVk-HF-NQn"/>
                     <constraint firstAttribute="trailing" secondItem="6zl-Ju-53x" secondAttribute="trailing" id="Ccl-oA-nF7"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="JWV-KQ-z1s" secondAttribute="trailing" constant="10" id="Dob-yw-ANu"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="JWV-KQ-z1s" secondAttribute="trailing" constant="2" id="Dob-yw-ANu"/>
+                    <constraint firstAttribute="bottom" secondItem="CaU-QE-ECq" secondAttribute="bottom" id="R17-xi-VL7"/>
                     <constraint firstAttribute="trailingMargin" secondItem="CaU-QE-ECq" secondAttribute="trailing" id="bhw-an-pZY"/>
                     <constraint firstItem="JWV-KQ-z1s" firstAttribute="top" secondItem="6zl-Ju-53x" secondAttribute="bottom" constant="5" id="fsH-uj-EmI"/>
                     <constraint firstItem="6zl-Ju-53x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mC1-6w-KfD"/>
-                    <constraint firstItem="JWV-KQ-z1s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="w5K-EO-YXu"/>
+                    <constraint firstItem="JWV-KQ-z1s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="w5K-EO-YXu"/>
                     <constraint firstItem="6zl-Ju-53x" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="yhq-U4-0S4"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="detailLabel" destination="JWV-KQ-z1s" id="l0m-AT-bKo"/>
+                <outlet property="headerTitleLabel" destination="mhH-Yw-mga" id="hOz-I2-W0u"/>
                 <outlet property="webView" destination="CaU-QE-ECq" id="dx5-2c-6l4"/>
             </connections>
             <point key="canvasLocation" x="34" y="82.5"/>

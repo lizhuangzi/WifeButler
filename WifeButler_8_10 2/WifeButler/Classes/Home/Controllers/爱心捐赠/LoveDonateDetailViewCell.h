@@ -10,8 +10,11 @@
 #import "LoveDonateListSectionView.h"
 
 @interface LoveDonateDetailViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet LoveDonateListSectionView *Cellheader;
+
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerTitleLabel;
+
 
 @end

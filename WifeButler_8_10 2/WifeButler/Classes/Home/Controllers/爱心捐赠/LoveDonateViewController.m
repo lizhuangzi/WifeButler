@@ -16,6 +16,7 @@
 #import "LoveDonateListModel.h"
 
 #import "LoveDonateDetailViewController.h"
+#import "MyDonateViewController.h"
 
 @interface LoveDonateViewController ()
 
@@ -154,7 +155,8 @@
 
 - (void)clickMyDonate
 {
-    
+    MyDonateViewController * my = [MyDonateViewController new];
+    [self.navigationController pushViewController:my animated:YES];
 }
 
 @end

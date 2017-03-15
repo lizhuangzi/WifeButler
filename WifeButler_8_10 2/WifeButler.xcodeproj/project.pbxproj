@@ -215,6 +215,19 @@
 		C7A191D01E606CF700FEDFD1 /* EPCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A191CF1E606CF700FEDFD1 /* EPCalendarViewController.m */; };
 		C7A191D31E606DA400FEDFD1 /* CustomCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A191D21E606DA400FEDFD1 /* CustomCalendarViewController.m */; };
 		C7BA19CB1E26778F00405816 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */; };
+		C7BC453B1E78E2B60057D2C8 /* LoveDonateRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BC453A1E78E2B60057D2C8 /* LoveDonateRecordViewController.m */; };
+		C7BC453D1E78E2D60057D2C8 /* LoveDonateRecordHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7BC453C1E78E2D60057D2C8 /* LoveDonateRecordHeader.xib */; };
+		C7BC45401E78E2F70057D2C8 /* LoveDonateRecordHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BC453F1E78E2F70057D2C8 /* LoveDonateRecordHeader.m */; };
+		C7BC45451E78E5270057D2C8 /* LoveDonateRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BC45431E78E5270057D2C8 /* LoveDonateRecordTableViewCell.m */; };
+		C7BC45461E78E5270057D2C8 /* LoveDonateRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7BC45441E78E5270057D2C8 /* LoveDonateRecordTableViewCell.xib */; };
+		C7BC45491E78E9DA0057D2C8 /* MyDonateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BC45481E78E9DA0057D2C8 /* MyDonateViewController.m */; };
+		C7BC454C1E78E9F50057D2C8 /* MyDonateHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BC454B1E78E9F50057D2C8 /* MyDonateHeaderView.m */; };
+		C7BC454E1E78E9FE0057D2C8 /* MyDonateHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7BC454D1E78E9FE0057D2C8 /* MyDonateHeaderView.xib */; };
+		C7BC45521E78EBC20057D2C8 /* MyDonateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BC45501E78EBC20057D2C8 /* MyDonateTableViewCell.m */; };
+		C7BC45531E78EBC20057D2C8 /* MyDonateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7BC45511E78EBC20057D2C8 /* MyDonateTableViewCell.xib */; };
+		C7BC45561E791AF30057D2C8 /* MyDonateUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BC45551E791AF30057D2C8 /* MyDonateUserModel.m */; };
+		C7BC45591E791BBF0057D2C8 /* MyDonateUserlistModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BC45581E791BBF0057D2C8 /* MyDonateUserlistModel.m */; };
+		C7BC455C1E7929B50057D2C8 /* LoaveDonateRecorelistModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7BC455B1E7929B50057D2C8 /* LoaveDonateRecorelistModel.m */; };
 		C7C1626A1E6FFA900074A9D2 /* GoodsDetailRemarkSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C162691E6FFA900074A9D2 /* GoodsDetailRemarkSectionHeader.m */; };
 		C7C1626C1E6FFAA50074A9D2 /* GoodsDetailRemarkSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C1626B1E6FFAA50074A9D2 /* GoodsDetailRemarkSectionHeader.xib */; };
 		C7C1626F1E7000FA0074A9D2 /* GoodsDetailRemarFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C1626E1E7000FA0074A9D2 /* GoodsDetailRemarFooter.m */; };
@@ -718,6 +731,28 @@
 		C7A191D21E606DA400FEDFD1 /* CustomCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalendarViewController.m; sourceTree = "<group>"; };
 		C7BA19C91E26778F00405816 /* UIColor+HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
 		C7BA19CA1E26778F00405816 /* UIColor+HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
+		C7BC45391E78E2B60057D2C8 /* LoveDonateRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveDonateRecordViewController.h; sourceTree = "<group>"; };
+		C7BC453A1E78E2B60057D2C8 /* LoveDonateRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveDonateRecordViewController.m; sourceTree = "<group>"; };
+		C7BC453C1E78E2D60057D2C8 /* LoveDonateRecordHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoveDonateRecordHeader.xib; sourceTree = "<group>"; };
+		C7BC453E1E78E2F70057D2C8 /* LoveDonateRecordHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveDonateRecordHeader.h; sourceTree = "<group>"; };
+		C7BC453F1E78E2F70057D2C8 /* LoveDonateRecordHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveDonateRecordHeader.m; sourceTree = "<group>"; };
+		C7BC45421E78E5270057D2C8 /* LoveDonateRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveDonateRecordTableViewCell.h; sourceTree = "<group>"; };
+		C7BC45431E78E5270057D2C8 /* LoveDonateRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveDonateRecordTableViewCell.m; sourceTree = "<group>"; };
+		C7BC45441E78E5270057D2C8 /* LoveDonateRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoveDonateRecordTableViewCell.xib; sourceTree = "<group>"; };
+		C7BC45471E78E9DA0057D2C8 /* MyDonateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDonateViewController.h; sourceTree = "<group>"; };
+		C7BC45481E78E9DA0057D2C8 /* MyDonateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDonateViewController.m; sourceTree = "<group>"; };
+		C7BC454A1E78E9F50057D2C8 /* MyDonateHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDonateHeaderView.h; sourceTree = "<group>"; };
+		C7BC454B1E78E9F50057D2C8 /* MyDonateHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDonateHeaderView.m; sourceTree = "<group>"; };
+		C7BC454D1E78E9FE0057D2C8 /* MyDonateHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDonateHeaderView.xib; sourceTree = "<group>"; };
+		C7BC454F1E78EBC20057D2C8 /* MyDonateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDonateTableViewCell.h; sourceTree = "<group>"; };
+		C7BC45501E78EBC20057D2C8 /* MyDonateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDonateTableViewCell.m; sourceTree = "<group>"; };
+		C7BC45511E78EBC20057D2C8 /* MyDonateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDonateTableViewCell.xib; sourceTree = "<group>"; };
+		C7BC45541E791AF30057D2C8 /* MyDonateUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDonateUserModel.h; sourceTree = "<group>"; };
+		C7BC45551E791AF30057D2C8 /* MyDonateUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDonateUserModel.m; sourceTree = "<group>"; };
+		C7BC45571E791BBF0057D2C8 /* MyDonateUserlistModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDonateUserlistModel.h; sourceTree = "<group>"; };
+		C7BC45581E791BBF0057D2C8 /* MyDonateUserlistModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDonateUserlistModel.m; sourceTree = "<group>"; };
+		C7BC455A1E7929B50057D2C8 /* LoaveDonateRecorelistModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoaveDonateRecorelistModel.h; sourceTree = "<group>"; };
+		C7BC455B1E7929B50057D2C8 /* LoaveDonateRecorelistModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoaveDonateRecorelistModel.m; sourceTree = "<group>"; };
 		C7C162681E6FFA900074A9D2 /* GoodsDetailRemarkSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailRemarkSectionHeader.h; sourceTree = "<group>"; };
 		C7C162691E6FFA900074A9D2 /* GoodsDetailRemarkSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailRemarkSectionHeader.m; sourceTree = "<group>"; };
 		C7C1626B1E6FFAA50074A9D2 /* GoodsDetailRemarkSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodsDetailRemarkSectionHeader.xib; sourceTree = "<group>"; };
@@ -2840,6 +2875,42 @@
 			path = "环保日历";
 			sourceTree = "<group>";
 		};
+		C7BC45381E78E27C0057D2C8 /* LoveDonateRecord(捐赠记录) */ = {
+			isa = PBXGroup;
+			children = (
+				C7BC45391E78E2B60057D2C8 /* LoveDonateRecordViewController.h */,
+				C7BC453A1E78E2B60057D2C8 /* LoveDonateRecordViewController.m */,
+				C7BC453C1E78E2D60057D2C8 /* LoveDonateRecordHeader.xib */,
+				C7BC453E1E78E2F70057D2C8 /* LoveDonateRecordHeader.h */,
+				C7BC453F1E78E2F70057D2C8 /* LoveDonateRecordHeader.m */,
+				C7BC45421E78E5270057D2C8 /* LoveDonateRecordTableViewCell.h */,
+				C7BC45431E78E5270057D2C8 /* LoveDonateRecordTableViewCell.m */,
+				C7BC45441E78E5270057D2C8 /* LoveDonateRecordTableViewCell.xib */,
+				C7BC455A1E7929B50057D2C8 /* LoaveDonateRecorelistModel.h */,
+				C7BC455B1E7929B50057D2C8 /* LoaveDonateRecorelistModel.m */,
+			);
+			name = "LoveDonateRecord(捐赠记录)";
+			sourceTree = "<group>";
+		};
+		C7BC45411E78E4BD0057D2C8 /* MYLoveDonate(我的捐赠) */ = {
+			isa = PBXGroup;
+			children = (
+				C7BC45471E78E9DA0057D2C8 /* MyDonateViewController.h */,
+				C7BC45481E78E9DA0057D2C8 /* MyDonateViewController.m */,
+				C7BC454A1E78E9F50057D2C8 /* MyDonateHeaderView.h */,
+				C7BC454B1E78E9F50057D2C8 /* MyDonateHeaderView.m */,
+				C7BC454D1E78E9FE0057D2C8 /* MyDonateHeaderView.xib */,
+				C7BC454F1E78EBC20057D2C8 /* MyDonateTableViewCell.h */,
+				C7BC45501E78EBC20057D2C8 /* MyDonateTableViewCell.m */,
+				C7BC45511E78EBC20057D2C8 /* MyDonateTableViewCell.xib */,
+				C7BC45541E791AF30057D2C8 /* MyDonateUserModel.h */,
+				C7BC45551E791AF30057D2C8 /* MyDonateUserModel.m */,
+				C7BC45571E791BBF0057D2C8 /* MyDonateUserlistModel.h */,
+				C7BC45581E791BBF0057D2C8 /* MyDonateUserlistModel.m */,
+			);
+			name = "MYLoveDonate(我的捐赠)";
+			sourceTree = "<group>";
+		};
 		C7C2D8D81E784D3A00765473 /* LoveDonateDetail(捐赠详情) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2952,6 +3023,8 @@
 		C7CCF4AE1E76D562009A0ED5 /* 爱心捐赠 */ = {
 			isa = PBXGroup;
 			children = (
+				C7BC45411E78E4BD0057D2C8 /* MYLoveDonate(我的捐赠) */,
+				C7BC45381E78E27C0057D2C8 /* LoveDonateRecord(捐赠记录) */,
 				C7C2D8D91E784D5C00765473 /* LoveDonateList(捐赠列表) */,
 				C7C2D8D81E784D3A00765473 /* LoveDonateDetail(捐赠详情) */,
 			);
@@ -3290,12 +3363,14 @@
 				C7C2D8E71E78540200765473 /* LoveDonateDetailViewCell.xib in Resources */,
 				C7F8F21C1E7195C00039293C /* ServiceListTableViewCell.xib in Resources */,
 				7BE3C64C1CF1938800851512 /* ZTYiJianFanKuiViewController.xib in Resources */,
+				C7BC454E1E78E9FE0057D2C8 /* MyDonateHeaderView.xib in Resources */,
 				7BE3C6611CF19C8300851512 /* ZTNeiBuGongGaoTableViewCell.xib in Resources */,
 				7BE3C6521CF1996600851512 /* ZTGuangYuMyViewController.xib in Resources */,
 				7BE3C6461CF18BAF00851512 /* citydata.plist in Resources */,
 				C7FFD4C31E6714E700754C92 /* MedRefFriendCircleViewController.xib in Resources */,
 				7B288D391D582C9A000A19AF /* README.txt in Resources */,
 				C7C2D8CA1E782DDE00765473 /* LoveDonateListHeaderView.xib in Resources */,
+				C7BC45531E78EBC20057D2C8 /* MyDonateTableViewCell.xib in Resources */,
 				7BE3C6421CF188DF00851512 /* ZTAddressPickView.xib in Resources */,
 				7BE3C6AE1CF1A05F00851512 /* ZTHuiZhuanDingDan.storyboard in Resources */,
 				C7C4A4971E5EB81E00075A27 /* HomePageCommodityCell.xib in Resources */,
@@ -3336,6 +3411,7 @@
 				C789739A1E6C0F0900BFF404 /* Location.gpx in Resources */,
 				7BD5B7E11D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.xib in Resources */,
 				7B4F39791CF295DE00D427CD /* ZTGouWuChe.storyboard in Resources */,
+				C7BC453D1E78E2D60057D2C8 /* LoveDonateRecordHeader.xib in Resources */,
 				7BCAA45A1D40AEBE00F46C33 /* ZTTiShiView.xib in Resources */,
 				C707349D1E681AE70043CB3E /* CommunityShopMainViewCell.xib in Resources */,
 				C7F8F1E71E716D150039293C /* ZTSheQuFuWuCollectionViewCell.xib in Resources */,
@@ -3344,6 +3420,7 @@
 				C7A191B91E6021DD00FEDFD1 /* ZTLaJiHuanMiTableViewCell.xib in Resources */,
 				C7F8F2071E718EA40039293C /* ZTTimeXuanZe.storyboard in Resources */,
 				7BFBA6BD1CFE80EC00D4E07C /* ZJHomePageController.storyboard in Resources */,
+				C7BC45461E78E5270057D2C8 /* LoveDonateRecordTableViewCell.xib in Resources */,
 				7BB43F5E1CE9C3BC007D722A /* LaunchScreen.storyboard in Resources */,
 				C7C5645C1E6EEBA600D15359 /* UserQRViewController.xib in Resources */,
 				7BB43F5B1CE9C3BC007D722A /* Assets.xcassets in Resources */,
@@ -3457,6 +3534,7 @@
 				C7C5645A1E6EEB7D00D15359 /* UserQRViewController.m in Sources */,
 				7BC580571CF6C81C00FD157A /* ZJProcessorDetailTableCell5.m in Sources */,
 				7B0537061D0FE5E400BE9762 /* TYViewStorage.m in Sources */,
+				C7BC45451E78E5270057D2C8 /* LoveDonateRecordTableViewCell.m in Sources */,
 				7BCAA4581D40AEAA00F46C33 /* ZTTiShiKuanView.m in Sources */,
 				C781A9191E5FFCF900E3D325 /* XMGHomeViewController.m in Sources */,
 				7BFBA6EB1CFF030600D4E07C /* ZTAddAddressTableViewController.m in Sources */,
@@ -3465,6 +3543,7 @@
 				7BE3C6B61CF1A05F00851512 /* Order3TableViewCell.m in Sources */,
 				7BE3C6AF1CF1A05F00851512 /* ZTHuiZhuanDingDan1ViewController.m in Sources */,
 				C75853D71E753FEA00FFE9A6 /* WifebutlerConst.m in Sources */,
+				C7BC45521E78EBC20057D2C8 /* MyDonateTableViewCell.m in Sources */,
 				7BC580551CF6C81C00FD157A /* ZJProcessorDetailTableCell3.m in Sources */,
 				7BE3C6411CF188DF00851512 /* ZTAddressPickView.m in Sources */,
 				7BB43FB41CE9C57F007D722A /* UIView+Extension.m in Sources */,
@@ -3476,6 +3555,7 @@
 				7BE3C6601CF19C8300851512 /* ZTNeiBuGongGaoTableViewCell.m in Sources */,
 				C7F8F20E1E718EA40039293C /* ZTTime3CollectionViewCell.m in Sources */,
 				7BBE4D401D069FB800DBF00F /* ZTXiangQinHealthyLifeViewController.m in Sources */,
+				C7BC455C1E7929B50057D2C8 /* LoaveDonateRecorelistModel.m in Sources */,
 				C7F8F2141E7190B40039293C /* CommunityRealEstateController.m in Sources */,
 				7BB43FB31CE9C57F007D722A /* UIBarButtonItem+Extension.m in Sources */,
 				C7E4E13D1E65705700169897 /* WifeButlerFileManager.m in Sources */,
@@ -3493,6 +3573,7 @@
 				C70734981E6818780043CB3E /* WifeButlerLocationManager.m in Sources */,
 				7BBDB6041D011C680098B079 /* UserGuideViewController.m in Sources */,
 				C7FFD4E81E671DDB00754C92 /* ImageUtils.m in Sources */,
+				C7BC45401E78E2F70057D2C8 /* LoveDonateRecordHeader.m in Sources */,
 				C7FFD4F71E67262600754C92 /* FontUtils.m in Sources */,
 				7BE3C6511CF1996600851512 /* ZTGuangYuMyViewController.m in Sources */,
 				7B8D04C41CEAB3380024B812 /* ZJLoginController.m in Sources */,
@@ -3512,12 +3593,14 @@
 				C70734A01E6828C10043CB3E /* CommunityShopMainModel.m in Sources */,
 				C7F8F1E21E7153170039293C /* PhotoBrowserGetter.m in Sources */,
 				7B0536FE1D0FE5E400BE9762 /* TYAttributedLabel.m in Sources */,
+				C7BC45561E791AF30057D2C8 /* MyDonateUserModel.m in Sources */,
 				7B8D04C61CEAB3380024B812 /* ZJUserProtocalVC.m in Sources */,
 				7BE420661D13A730009A8FAB /* ZJGoodsDetailCell4.m in Sources */,
 				7BC580581CF6C81C00FD157A /* ZTShangPingGuiGeTableViewCell.m in Sources */,
 				7BAD20151D54685A005798F2 /* ZTDuiHuanOrder1TableViewCell.m in Sources */,
 				7BB43FB61CE9C57F007D722A /* ZJTabBarController.m in Sources */,
 				C7F8EE991E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m in Sources */,
+				C7BC454C1E78E9F50057D2C8 /* MyDonateHeaderView.m in Sources */,
 				C745FD451E7415A200B01742 /* ServiceDetailViewController.m in Sources */,
 				7BCC31651D2E59AF007D930A /* ZTLunBoToModel.m in Sources */,
 				7BE3C6BF1CF1A54C00851512 /* ZYQAssetPickerController.m in Sources */,
@@ -3570,6 +3653,7 @@
 				C7C2D8C51E782AE100765473 /* LoveDonateViewController.m in Sources */,
 				C7C2D8C21E78240000765473 /* SelectCardViewController.m in Sources */,
 				C7F8F20C1E718EA40039293C /* ZTTime1CollectionViewCell.m in Sources */,
+				C7BC45591E791BBF0057D2C8 /* MyDonateUserlistModel.m in Sources */,
 				C7C162751E7009ED0074A9D2 /* GoodDetilBottomView.m in Sources */,
 				7B01CA3F1CFDB477008BF259 /* ZTJieShuan2Model.m in Sources */,
 				7B8D04CA1CEB079D0024B812 /* ZTLogoModel.m in Sources */,
@@ -3632,6 +3716,7 @@
 				C7F8F2221E719C270039293C /* WifeButlerCommonBaseModel.m in Sources */,
 				7BE3C64B1CF1938800851512 /* ZTYiJianFanKuiViewController.m in Sources */,
 				C7FFD50D1E67298400754C92 /* CommonEmojiManager.m in Sources */,
+				C7BC453B1E78E2B60057D2C8 /* LoveDonateRecordViewController.m in Sources */,
 				C7FFD4E11E6719DF00754C92 /* CSActionSheet.m in Sources */,
 				7BE3C6C21CF1A55300851512 /* UIImageView+Del.m in Sources */,
 				7BAF05001D37886800011945 /* ZTShenShiQuModel.m in Sources */,
@@ -3656,6 +3741,7 @@
 				C7A191C21E60337E00FEDFD1 /* exchangeStationModel.m in Sources */,
 				C75853E11E75932F00FFE9A6 /* ExchangeDetailTableViewCell.m in Sources */,
 				C7FFD4E51E671A5800754C92 /* ImagePickerUtils.m in Sources */,
+				C7BC45491E78E9DA0057D2C8 /* MyDonateViewController.m in Sources */,
 				7B8D04C51CEAB3380024B812 /* ZJSeakPassWordVC.m in Sources */,
 				7B9D39A51CF9A95500F6359D /* ZTGouWuCheFooterVIew.m in Sources */,
 				C7CCF4991E76C4B4009A0ED5 /* ScoreViewController.m in Sources */,
