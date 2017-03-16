@@ -8,7 +8,6 @@
 
 #import "ZTGarbageOfRiceViewController.h"
 //关联控制器
-#import "ZJProcessorDetailTableVC.h"
 #import "ZTLaJiHuanMiViewController.h"
 //模型
 #import "ZTLaJiHuanMiModel.h"

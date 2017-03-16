@@ -185,7 +185,7 @@
         
         if ([weakSelf isNUMBER:money]) {
             
-            if (money.floatValue<0.01) {
+            if (money.doubleValue<0.01) {
                 [SVProgressHUD showErrorWithStatus:@"金额必须一分以上"];
                 return;
             }
@@ -196,7 +196,8 @@
             [weakSelf generateOrderWithMoney:money ProjectId:self.projectId Success:^(NSString *orderId) {
                 [SVProgressHUD dismiss];
                 
-                LoveDonatePayViewController * re = [LoveDonatePayViewController new];
+                UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTHuiZhuanDingDan" bundle:nil];
+                LoveDonatePayViewController * re = [sb instantiateViewControllerWithIdentifier:@"LoveDonatePayViewController"];
                 re.order_id = orderId;
                 [weakSelf.navigationController pushViewController:re animated:YES];
                 

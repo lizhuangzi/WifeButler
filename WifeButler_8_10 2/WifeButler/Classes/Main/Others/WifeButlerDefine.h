@@ -70,11 +70,12 @@ UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAl
 #define SVDCommonErrorDeal   if (error.code == 40000) {\
     [[WifeButlerAccount sharedAccount]loginOffCurrentUser];\
     [[NSNotificationCenter defaultCenter]postNotificationName:WifeButlerUserDidLogOutNotification object:nil userInfo:@{}];\
+                                [SVProgressHUD dismiss];\
                                 WifeButlerLoginLosingEffection\
                                 }\
                                 else if (error.code == 20000 || error.code == 30000) {\
                                     if(error.userInfo[@"msg"]){\
-                                         [SVProgressHUD showErrorWithStatus:error.userInfo[@"msg"]];\
+                                         [SVProgressHUD showInfoWithStatus:error.userInfo[@"msg"]];\
                                     }else{\
                                        [SVProgressHUD showErrorWithStatus:@"数据请求发生错误"];\
                                     }\
@@ -119,7 +120,7 @@ NSString *otherButtonTitle = NSLocalizedString(@"确认", nil);\
 UIAlertController *vc = [UIAlertController alertControllerWithTitle:title message:@"" preferredStyle:UIAlertControllerStyleAlert];\
 UIAlertAction *action = [UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];\
 UIAlertAction *otherAction = [UIAlertAction actionWithTitle:otherButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {\
-block();\
+!block?:block();\
 }];\
 [vc addAction:action];\
 [vc addAction:otherAction];\

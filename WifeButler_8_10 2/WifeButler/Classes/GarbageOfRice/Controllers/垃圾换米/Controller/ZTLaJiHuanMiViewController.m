@@ -84,6 +84,7 @@
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.backgroundColor = WifeButlerCommonRedColor;
     [btn setTitle:@"立即兑换" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(zhiHuanClick:) forControlEvents:UIControlEventTouchUpInside];
     [backView addSubview:btn];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(backView.mas_left).offset(20);

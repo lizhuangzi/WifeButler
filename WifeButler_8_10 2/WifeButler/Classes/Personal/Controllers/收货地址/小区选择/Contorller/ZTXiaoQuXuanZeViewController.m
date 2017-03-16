@@ -16,7 +16,7 @@
 #import "WifeButlerDefine.h"
 #import "NearbyVillageTableViewCell.h"
 
-@interface ZTXiaoQuXuanZeViewController () <UISearchBarDelegate,MAMapViewDelegate>
+@interface ZTXiaoQuXuanZeViewController () <UISearchBarDelegate,MAMapViewDelegate,UITableViewDelegate>
 {
     NSMutableArray *_dataSource;
 }
@@ -29,6 +29,7 @@
 
 @property (nonatomic,assign) CLLocationCoordinate2D current2D;
 
+@property (nonatomic,assign) BOOL firstLoad;
 @end
 
 @implementation ZTXiaoQuXuanZeViewController
@@ -37,8 +38,8 @@
     [super viewDidLoad];
     
     self.title = @"选择小区";
+    _firstLoad = YES;
     
-    self.mapView.delegate = self;
     self.XiaoQusearchBar.delegate = self;
     _dataSource = [NSMutableArray array];
     
@@ -50,10 +51,15 @@
     
     UIImageView * needle = [[UIImageView alloc]init];
     [self.view addSubview:needle];
-    needle.bounds = CGRectMake(0, 0, 30, 30);
+    needle.bounds = CGRectMake(0, 0, 18, 30);
     needle.centerX = self.view.centerX;
     needle.centerY = self.mapView.centerY;
-    needle.image = [UIImage imageNamed:@"ZTDingWei1111"];
+    needle.image = [UIImage imageNamed:@"mapViewloc"];
+    
+    self.mapView.delegate = self;
+    self.mapView.showsUserLocation = YES;
+    self.mapView.userTrackingMode = MAUserTrackingModeFollow;
+
     [self.mapView setZoomLevel:16.0];
     
     WEAKSELF;
@@ -62,16 +68,19 @@
     }];
     
     [[WifeButlerLocationManager sharedManager] startLocationAndFinishBlock:^(WifeButlerLocationModel *locationInfo) {
-        
+        _firstLoad = NO;
         if (locationInfo.POIName) {
-            [self.mapView setCenterCoordinate:locationInfo.location2D animated:NO];
+            [weakSelf.mapView setCenterCoordinate:locationInfo.location2D animated:NO];
         }
     }];
 }
 
 - (void)mapView:(MAMapView *)mapView mapDidMoveByUser:(BOOL)wasUserAction {
  
+    if (_firstLoad) { return;}
+    
     ZJLog(@"%lf %lf",self.mapView.centerCoordinate.latitude,self.mapView.centerCoordinate.longitude);
+    [self.view endEditing:YES];
     self.current2D = self.mapView.centerCoordinate;
     [self downLoadInfoSearch:nil Coordinate2D:self.current2D];
 }
@@ -104,13 +113,23 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
+}
 
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchText.length == 0) {
+        [self downLoadInfoSearch:searchBar.text Coordinate2D:self.current2D];
+    }
+}
 
 //点击搜索跳转页面
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    [searchBar resignFirstResponder];
+    [self.view endEditing:YES];
     
     [self downLoadInfoSearch:searchBar.text Coordinate2D:self.current2D];
     

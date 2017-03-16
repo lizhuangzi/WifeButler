@@ -33,6 +33,8 @@
 
 @implementation ZTBianJiZiliaoTableViewController
 
+NSString * const UserDataDidFinishUpDate = @"UserDataDidFinishUpDate";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

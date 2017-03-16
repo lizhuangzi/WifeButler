@@ -10,10 +10,20 @@
 #import "HomePageSectionModel.h"
 #import "HomePageCommodityView.h"
 
+@class HomePageCommodityCell;
+@protocol HomePageCommodityCellDelegate <NSObject>
+
+- (void)HomePageCommodityCell:(HomePageCommodityCell *)cell didClickFindMore:(HomePageSectionModel *)model;
+
+- (void)HomePageCommodityCell:(HomePageCommodityCell *)cell didClickOneCommdity:(HomePageCellModel *)model;
+@end
+
 @interface HomePageCommodityCell : UITableViewCell
 
 @property (nonatomic,strong) HomePageSectionModel * model;
 
 + (instancetype)CommodityCellWithTableView:(UITableView *)tableView;
+
+@property (nonatomic,assign) id<HomePageCommodityCellDelegate> delegate;
 
 @end

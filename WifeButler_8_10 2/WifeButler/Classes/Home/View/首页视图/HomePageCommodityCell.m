@@ -70,6 +70,7 @@
             NSInteger col = i%3;
             //创建
             HomePageCommodityView * comView = [HomePageCommodityView HomePageCommodityView];
+            [comView addTarget:self action:@selector(comViewClick:) forControlEvents:UIControlEventTouchUpInside];
             [self.commoditiesBackView addSubview:comView];
             comView.frame = CGRectMake(wMargin + col * (viewWith + wMargin), hMargin + row * (viewHeight + hMargin), viewWith, viewHeight);
             
@@ -93,10 +94,26 @@
             commodity.hidden = YES;
         }
     }
-    if (tempCount<=3) {
+    if (tempCount == 0) {
+        _model.cellHeight = 37.5;
+    }
+    else if (tempCount<=3) {
         _model.cellHeight = viewHeight + 2 + 37.5;
     }else{
         _model.cellHeight = viewHeight * 2 + 3 + 37.5;
+    }
+}
+- (IBAction)moreClick:(id)sender {
+    
+    if ([self.delegate respondsToSelector:@selector(HomePageCommodityCell:didClickFindMore:)]) {
+        [self.delegate HomePageCommodityCell:self didClickFindMore:self.model];
+    }
+}
+
+- (void)comViewClick:(HomePageCommodityView *)view{
+    
+    if ([self.delegate respondsToSelector:@selector(HomePageCommodityCell:didClickOneCommdity:)]) {
+        [self.delegate HomePageCommodityCell:self didClickOneCommdity:view.cellModel];
     }
 }
 

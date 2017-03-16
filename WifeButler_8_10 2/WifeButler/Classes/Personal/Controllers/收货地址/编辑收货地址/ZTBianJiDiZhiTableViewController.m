@@ -46,15 +46,6 @@
 
 @property (nonatomic,weak) UIButton * currentSelectSexBtn;
 
-/**
- *  省id
- */
-@property (nonatomic, copy) NSString * sheng_id;
-
-/**
- *  市id
- */
-@property (nonatomic, copy) NSString * shi_id;
 
 /**
  *  区id
@@ -111,7 +102,7 @@
     vc.address_id = self.qu_id;
     [vc setAddressBlack:^(ZTXiaoQuXuanZe *model) {
        
-        self.xiaoQuLab.text = model.village;
+        self.xiaoQuLab.text =  model.village;
         self.xiaoQu_id = model.id;
 
     }];
@@ -175,11 +166,6 @@
         return;
     }
     
-    if ([self.sheng_id length] == 0) {
-        
-        [SVProgressHUD showErrorWithStatus:@"省市区不能为空哦!"];
-        return;
-    }
     if ([self.address2TextV.text length] == 0) {
         
         [SVProgressHUD showErrorWithStatus:@"详细地址不能为空哦!"];
@@ -196,9 +182,8 @@
     [dic setObject:KToken forKey:@"token"];
     [dic setObject:self.nameTextF.text forKey:@"realname"];
     [dic setObject:self.iphoneTextF.text forKey:@"phone"];
-    [dic setObject:self.sheng_id forKey:@"pro"];
-    [dic setObject:self.shi_id forKey:@"city"];
-    [dic setObject:self.qu_id forKey:@"qu"];
+    [dic setObject:self.qu_id forKey:@"qu"]; //village
+    //address -> postion;
     [dic setObject:self.address2TextV.text forKey:@"address"];
     [dic setObject:self.xiaoQu_id forKey:@"village"];
     
@@ -229,6 +214,36 @@
     }];
 }
 
+
+#pragma mark -编辑收货地址
+- (void)editingTheAddress{
+    
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+    
+    [dic setObject:KToken forKey:@"token"];
+    [dic setObject:self.nameTextF.text forKey:@"realname"];
+    [dic setObject:self.iphoneTextF.text forKey:@"phone"];
+    [dic setObject:self.qu_id forKey:@"qu"]; //village
+    //address -> postion;
+    [dic setObject:self.address2TextV.text forKey:@"address"];
+    [dic setObject:self.xiaoQu_id forKey:@"village"];
+    [dic setObject:self.address_id forKey:@"id"];
+    // 是默认地址
+    if (_isMoRenAddress.on == YES) {
+        
+        [dic setObject:@"2" forKey:@"defaults"];
+    }
+    else// 不是默认地址
+    {
+        [dic setObject:@"1" forKey:@"defaults"];
+    }
+
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KBianJiShouHuoAddress parameter:dic success:^(id resultCode) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
 
 // returns the number of 'columns' to display.
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView

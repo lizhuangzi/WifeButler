@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ken-lF-UJC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ken-lF-UJC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +25,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="AUJ-SO-KSZ">
                         <view key="titleView" contentMode="scaleToFill" id="q6Y-2X-1hf">
-                            <rect key="frame" x="118" y="5.5" width="139" height="33"/>
+                            <rect key="frame" x="118" y="6" width="139" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwW-bD-4C5">
@@ -36,11 +35,11 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZTXiaLa" translatesAutoresizingMaskIntoConstraints="NO" id="2ga-Xn-s3G">
-                                    <rect key="frame" x="40" y="12" width="12" height="10"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lw" translatesAutoresizingMaskIntoConstraints="NO" id="2ga-Xn-s3G">
+                                    <rect key="frame" x="38" y="8" width="14" height="18"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="12" id="Jgn-t1-NHm"/>
-                                        <constraint firstAttribute="height" constant="10" id="dKj-Sq-hUZ"/>
+                                        <constraint firstAttribute="width" constant="14" id="Jgn-t1-NHm"/>
+                                        <constraint firstAttribute="height" constant="18" id="dKj-Sq-hUZ"/>
                                     </constraints>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9f7-bY-G8D">
@@ -186,15 +185,15 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wES-CQ-Z7i">
                                                     <rect key="frame" x="0.0" y="1" width="375" height="65"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZTHomeLighlighted" translatesAutoresizingMaskIntoConstraints="NO" id="HQV-od-7mb">
-                                                            <rect key="frame" x="13" y="10" width="22" height="22"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="superMarket" translatesAutoresizingMaskIntoConstraints="NO" id="HQV-od-7mb">
+                                                            <rect key="frame" x="13" y="14" width="20" height="20"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="22" id="4e7-XC-0bh"/>
-                                                                <constraint firstAttribute="height" constant="22" id="aOp-gm-sQU"/>
+                                                                <constraint firstAttribute="width" constant="20" id="4e7-XC-0bh"/>
+                                                                <constraint firstAttribute="height" constant="20" id="aOp-gm-sQU"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="思雨超市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4F-vA-Xcx">
-                                                            <rect key="frame" x="41" y="14" width="319" height="18"/>
+                                                            <rect key="frame" x="39" y="14" width="321" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" red="0.2116987179" green="0.2116987179" blue="0.2116987179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -209,7 +208,7 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="O4F-vA-Xcx" firstAttribute="top" secondItem="wES-CQ-Z7i" secondAttribute="top" constant="14" id="3F8-OF-3ku"/>
-                                                        <constraint firstItem="HQV-od-7mb" firstAttribute="top" secondItem="wES-CQ-Z7i" secondAttribute="top" constant="10" id="5YM-3n-whm"/>
+                                                        <constraint firstItem="HQV-od-7mb" firstAttribute="top" secondItem="wES-CQ-Z7i" secondAttribute="top" constant="14" id="5YM-3n-whm"/>
                                                         <constraint firstAttribute="bottom" secondItem="frY-wL-bIW" secondAttribute="bottom" constant="-3" id="A3r-ei-Ng4"/>
                                                         <constraint firstItem="frY-wL-bIW" firstAttribute="leading" secondItem="wES-CQ-Z7i" secondAttribute="leading" id="E44-bP-rN5"/>
                                                         <constraint firstAttribute="trailing" secondItem="frY-wL-bIW" secondAttribute="trailing" id="FNG-9a-AdK"/>
@@ -346,163 +345,9 @@
             </objects>
             <point key="canvasLocation" x="-112.8" y="1502.6986506746628"/>
         </scene>
-        <!--Fu Jin Shang Jia View Controller-->
-        <scene sceneID="384-9O-Zj0">
-            <objects>
-                <viewController storyboardIdentifier="ZTFuJinShangJiaViewController" id="jN7-oi-WbI" customClass="ZTFuJinShangJiaViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="JSd-IY-nQI"/>
-                        <viewControllerLayoutGuide type="bottom" id="oYB-o7-cX1"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cjm-fX-Qne">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tk2-MS-696">
-                                <rect key="frame" x="-2" y="20" width="263" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="263" id="MEy-MS-IER"/>
-                                    <constraint firstAttribute="height" constant="28" id="zm1-0w-abN"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="默认"/>
-                                    <segment title="销量"/>
-                                    <segment title="最新"/>
-                                </segments>
-                                <connections>
-                                    <action selector="paiXuSender:" destination="jN7-oi-WbI" eventType="valueChanged" id="wAv-SN-1c5"/>
-                                </connections>
-                            </segmentedControl>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c6I-vg-Weo">
-                                <rect key="frame" x="89" y="49" width="286" height="618"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kOE-bi-8nO">
-                                    <size key="itemSize" width="113" height="142"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ZTFuJinShangJiaCollectionViewCell" id="VvD-7q-S7G" customClass="ZTFuJinShangJiaCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="113" height="142"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="113" height="142"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZTZhanWeiTu" translatesAutoresizingMaskIntoConstraints="NO" id="n1Q-SU-oY6">
-                                                    <rect key="frame" x="8" y="8" width="97" height="88"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="n1Q-SU-oY6" secondAttribute="height" multiplier="97:88" id="YPO-QE-gIp"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="洗衣清晰清洗清洗" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FER-OB-jD2">
-                                                    <rect key="frame" x="8" y="98" width="105" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="fTH-YR-3Wj"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.29391025640000001" green="0.29391025640000001" blue="0.29391025640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥156" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3AB-16-IKj">
-                                                    <rect key="frame" x="8" y="120" width="105" height="14"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                        <color key="backgroundColor" red="0.96777651712820512" green="0.96777651712820512" blue="0.96777651712820512" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="n1Q-SU-oY6" firstAttribute="top" secondItem="VvD-7q-S7G" secondAttribute="top" constant="8" id="DbW-Rh-muN"/>
-                                            <constraint firstItem="n1Q-SU-oY6" firstAttribute="leading" secondItem="VvD-7q-S7G" secondAttribute="leading" constant="8" id="Hdy-Dp-1Aj"/>
-                                            <constraint firstItem="3AB-16-IKj" firstAttribute="leading" secondItem="VvD-7q-S7G" secondAttribute="leading" constant="8" id="LwC-2q-tAh"/>
-                                            <constraint firstItem="3AB-16-IKj" firstAttribute="top" secondItem="FER-OB-jD2" secondAttribute="bottom" constant="1" id="YxT-BQ-dO0"/>
-                                            <constraint firstAttribute="trailing" secondItem="FER-OB-jD2" secondAttribute="trailing" id="ck1-jE-pqg"/>
-                                            <constraint firstItem="FER-OB-jD2" firstAttribute="leading" secondItem="VvD-7q-S7G" secondAttribute="leading" constant="8" id="i0N-4t-5TL"/>
-                                            <constraint firstAttribute="trailing" secondItem="3AB-16-IKj" secondAttribute="trailing" id="q9I-3G-YYe"/>
-                                            <constraint firstItem="FER-OB-jD2" firstAttribute="top" secondItem="n1Q-SU-oY6" secondAttribute="bottom" constant="2" id="tab-IR-Xhm"/>
-                                            <constraint firstAttribute="bottom" secondItem="3AB-16-IKj" secondAttribute="bottom" constant="8" id="yhT-TC-nSh"/>
-                                            <constraint firstAttribute="trailing" secondItem="n1Q-SU-oY6" secondAttribute="trailing" constant="8" id="zs6-cJ-siK"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="iconImageVIew" destination="n1Q-SU-oY6" id="XRf-R8-V2c"/>
-                                            <outlet property="moneyLab" destination="3AB-16-IKj" id="liD-i3-2TJ"/>
-                                            <outlet property="titleLab" destination="FER-OB-jD2" id="L2k-ra-fCA"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="jN7-oi-WbI" id="8wo-ob-lOj"/>
-                                    <outlet property="delegate" destination="jN7-oi-WbI" id="IA8-AD-neK"/>
-                                </connections>
-                            </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xVY-gc-5OW">
-                                <rect key="frame" x="0.0" y="49" width="87" height="617"/>
-                                <color key="backgroundColor" red="0.96777651710000001" green="0.96777651710000001" blue="0.96777651710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="87" id="xcp-bX-biY"/>
-                                </constraints>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ZTFuJinShangJiaTableViewCell" rowHeight="25" id="eVf-87-GLx" customClass="ZTFuJinShangJiaTableViewCell">
-                                        <rect key="frame" x="0.0" y="28" width="87" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eVf-87-GLx" id="H8W-U2-xAF">
-                                            <rect key="frame" x="0.0" y="0.0" width="87" height="24"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全部" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n4V-LS-jfX">
-                                                    <rect key="frame" x="28" y="3" width="31" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="0.29391025640000001" green="0.29391025640000001" blue="0.29391025640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="n4V-LS-jfX" firstAttribute="centerY" secondItem="H8W-U2-xAF" secondAttribute="centerY" id="OyF-eO-tJE"/>
-                                                <constraint firstItem="n4V-LS-jfX" firstAttribute="centerX" secondItem="H8W-U2-xAF" secondAttribute="centerX" id="i4i-Fp-jiF"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="titleLab" destination="n4V-LS-jfX" id="LPs-z1-fht"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="jN7-oi-WbI" id="ViB-zf-ygX"/>
-                                    <outlet property="delegate" destination="jN7-oi-WbI" id="VKT-HJ-s1m"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.039215686270000001" green="0.71764705880000002" blue="0.63529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="tk2-MS-696" firstAttribute="top" secondItem="JSd-IY-nQI" secondAttribute="bottom" id="5lE-Ys-dcl"/>
-                            <constraint firstItem="c6I-vg-Weo" firstAttribute="leading" secondItem="xVY-gc-5OW" secondAttribute="trailing" constant="2" id="H3M-Kq-QO8"/>
-                            <constraint firstItem="xVY-gc-5OW" firstAttribute="top" secondItem="tk2-MS-696" secondAttribute="bottom" constant="1" id="Nna-b7-Fd3"/>
-                            <constraint firstItem="oYB-o7-cX1" firstAttribute="top" secondItem="xVY-gc-5OW" secondAttribute="bottom" constant="1" id="S3Y-J2-ICJ"/>
-                            <constraint firstItem="c6I-vg-Weo" firstAttribute="top" secondItem="tk2-MS-696" secondAttribute="bottom" constant="1" id="VnJ-gi-Nqh"/>
-                            <constraint firstItem="xVY-gc-5OW" firstAttribute="leading" secondItem="cjm-fX-Qne" secondAttribute="leading" id="cE5-a0-LJf"/>
-                            <constraint firstAttribute="trailing" secondItem="c6I-vg-Weo" secondAttribute="trailing" id="mib-2e-Jf6"/>
-                            <constraint firstItem="tk2-MS-696" firstAttribute="leading" secondItem="cjm-fX-Qne" secondAttribute="leading" constant="-2" id="wkV-25-b8O"/>
-                            <constraint firstItem="oYB-o7-cX1" firstAttribute="top" secondItem="c6I-vg-Weo" secondAttribute="bottom" id="ygx-s3-N7I"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="rPa-Z4-SKD"/>
-                    <connections>
-                        <outlet property="collectionView" destination="c6I-vg-Weo" id="ZG9-Yd-tt5"/>
-                        <outlet property="tableView" destination="xVY-gc-5OW" id="rV6-Os-9y3"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iqm-Kw-mc2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="821" y="1246"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="ZTHomeLighlighted" width="19" height="20"/>
-        <image name="ZTXiaLa" width="12" height="7"/>
-        <image name="ZTZhanWeiTu" width="100" height="125"/>
+        <image name="lw" width="16" height="21"/>
+        <image name="superMarket" width="20" height="12"/>
     </resources>
 </document>

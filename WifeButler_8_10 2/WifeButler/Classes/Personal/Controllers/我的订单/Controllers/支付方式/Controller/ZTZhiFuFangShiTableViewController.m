@@ -13,6 +13,7 @@
 #import "WXApi.h"
 #import "WifeButlerNetWorking.h"
 #import "WifeButlerDefine.h"
+#import "WifebutlerConst.h"
 
 @interface ZTZhiFuFangShiTableViewController ()
 
@@ -82,7 +83,7 @@
             
             self.shuaiXinBlack();
         }
-        
+          [[NSNotificationCenter defaultCenter]postNotificationName:UserImportantInfoDidSuccessChangeNotification object:nil];
         // 自定制弹窗
         [self createrCang];
     }
@@ -249,6 +250,8 @@
     }];
 }
 
+
+
 - (void)AliPayFuncationWithMessage:(NSString *)message AppSchem:(NSString *)appScheme
 {
     [[AlipaySDK defaultService] payOrder:message fromScheme:appScheme callback:^(NSDictionary *resultDic) {
@@ -264,7 +267,7 @@
                 
                 self.shuaiXinBlack();
             }
-            
+            [[NSNotificationCenter defaultCenter]postNotificationName:UserImportantInfoDidSuccessChangeNotification object:nil];
             // 自定制弹窗
             [self createrCang];
             

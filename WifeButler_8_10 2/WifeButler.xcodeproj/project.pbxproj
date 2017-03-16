@@ -56,7 +56,6 @@
 		7B63EAC61CFC6742004F9DA7 /* ZTHuanMiCanShuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63EAC51CFC6742004F9DA7 /* ZTHuanMiCanShuTableViewCell.m */; };
 		7B63EACC1CFC6E7B004F9DA7 /* ZTHuanMiXQModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B63EACB1CFC6E7B004F9DA7 /* ZTHuanMiXQModel.m */; };
 		7B86D80D1CF86C9400AB1E05 /* ZTLaJiHuanMiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B86D80C1CF86C9400AB1E05 /* ZTLaJiHuanMiModel.m */; };
-		7B86D8101CF874E100AB1E05 /* ZTChuLiQiXQModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B86D80F1CF874E100AB1E05 /* ZTChuLiQiXQModel.m */; };
 		7B8D04BB1CEAB21B0024B812 /* NSString+ZJMyJudgeString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D04BA1CEAB21B0024B812 /* NSString+ZJMyJudgeString.m */; };
 		7B8D04C31CEAB3380024B812 /* ZJLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B8D04BC1CEAB3380024B812 /* ZJLogin.storyboard */; };
 		7B8D04C41CEAB3380024B812 /* ZJLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D04BE1CEAB3380024B812 /* ZJLoginController.m */; };
@@ -64,8 +63,6 @@
 		7B8D04C61CEAB3380024B812 /* ZJUserProtocalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D04C21CEAB3380024B812 /* ZJUserProtocalVC.m */; };
 		7B8D04CA1CEB079D0024B812 /* ZTLogoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D04C91CEB079D0024B812 /* ZTLogoModel.m */; };
 		7B8D04D11CEB22DB0024B812 /* ZTBianJiZiliaoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D04D01CEB22DB0024B812 /* ZTBianJiZiliaoTableViewController.m */; };
-		7B9D399F1CF9393C00F6359D /* ZTPingLunModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9D399E1CF9393C00F6359D /* ZTPingLunModel.m */; };
-		7B9D39A21CF9725100F6359D /* ZTjieSuanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9D39A11CF9725100F6359D /* ZTjieSuanModel.m */; };
 		7B9D39A51CF9A95500F6359D /* ZTGouWuCheFooterVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9D39A41CF9A95500F6359D /* ZTGouWuCheFooterVIew.m */; };
 		7B9D39A71CF9A97300F6359D /* ZTGouWuChe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B9D39A61CF9A97300F6359D /* ZTGouWuChe.xib */; };
 		7B9D39AD1CF9B6AF00F6359D /* ZTWoDeDingDanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9D39AC1CF9B6AF00F6359D /* ZTWoDeDingDanModel.m */; };
@@ -102,18 +99,7 @@
 		7BBE4D411D069FB800DBF00F /* ZTXiangQinHealthyLifeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BBE4D3F1D069FB800DBF00F /* ZTXiangQinHealthyLifeViewController.xib */; };
 		7BC5804B1CF6C81C00FD157A /* ZTGarbageOfRice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC580221CF6C81C00FD157A /* ZTGarbageOfRice.storyboard */; };
 		7BC5804C1CF6C81C00FD157A /* ZTGarbageOfRiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC580241CF6C81C00FD157A /* ZTGarbageOfRiceViewController.m */; };
-		7BC580511CF6C81C00FD157A /* ZJProcessorDetailTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC580341CF6C81C00FD157A /* ZJProcessorDetailTableVC.m */; };
-		7BC580521CF6C81C00FD157A /* ZJProcessorCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC580381CF6C81C00FD157A /* ZJProcessorCollectionViewCell.m */; };
-		7BC580531CF6C81C00FD157A /* ZJProcessorDetailTableCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5803A1CF6C81C00FD157A /* ZJProcessorDetailTableCell1.m */; };
-		7BC580541CF6C81C00FD157A /* ZJProcessorDetailTableCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5803C1CF6C81C00FD157A /* ZJProcessorDetailTableCell2.m */; };
-		7BC580551CF6C81C00FD157A /* ZJProcessorDetailTableCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5803E1CF6C81C00FD157A /* ZJProcessorDetailTableCell3.m */; };
-		7BC580561CF6C81C00FD157A /* ZJProcessorDetailTableCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC580401CF6C81C00FD157A /* ZJProcessorDetailTableCell4.m */; };
-		7BC580571CF6C81C00FD157A /* ZJProcessorDetailTableCell5.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC580421CF6C81C00FD157A /* ZJProcessorDetailTableCell5.m */; };
-		7BC580581CF6C81C00FD157A /* ZTShangPingGuiGeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC580441CF6C81C00FD157A /* ZTShangPingGuiGeTableViewCell.m */; };
 		7BC5805A1CF6C81C00FD157A /* ZTLaJiHuanMiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5804A1CF6C81C00FD157A /* ZTLaJiHuanMiTableViewCell.m */; };
-		7BC5805D1CF6D86600FD157A /* ZTShangPinPingJiaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5805C1CF6D86600FD157A /* ZTShangPinPingJiaTableViewCell.m */; };
-		7BC580641CF6DE7400FD157A /* ZTLaJiJieShuanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC580631CF6DE7400FD157A /* ZTLaJiJieShuanTableViewController.m */; };
-		7BC580661CF6DE9400FD157A /* ZTLaJiaJieShuan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC580651CF6DE9400FD157A /* ZTLaJiaJieShuan.storyboard */; };
 		7BC5806D1CF6F91F00FD157A /* ZTYouHuiJuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5806C1CF6F91F00FD157A /* ZTYouHuiJuanViewController.m */; };
 		7BC580701CF6FB6D00FD157A /* ZTYouHuiJuanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5806F1CF6FB6D00FD157A /* ZTYouHuiJuanTableViewCell.m */; };
 		7BC580B11CF720C300FD157A /* ZTGouWuCheTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC580B01CF720C300FD157A /* ZTGouWuCheTableViewCell.m */; };
@@ -268,6 +254,12 @@
 		C7CCF4A81E76D07D009A0ED5 /* DeliveryLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7CCF4A61E76D07D009A0ED5 /* DeliveryLocationTableViewCell.xib */; };
 		C7CCF4AC1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CCF4AA1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.m */; };
 		C7CCF4AD1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7CCF4AB1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.xib */; };
+		C7CF2C131E7A80A0002F7AE5 /* CardPocketAddNextStepController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CF2C111E7A80A0002F7AE5 /* CardPocketAddNextStepController.m */; };
+		C7CF2C141E7A80A0002F7AE5 /* CardPocketAddNextStepController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7CF2C121E7A80A0002F7AE5 /* CardPocketAddNextStepController.xib */; };
+		C7CF2C171E7A8A1D002F7AE5 /* WithdrawDepositViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CF2C161E7A8A1D002F7AE5 /* WithdrawDepositViewController.m */; };
+		C7CF2C1A1E7A9189002F7AE5 /* ZTjieSuanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CF2C191E7A9189002F7AE5 /* ZTjieSuanModel.m */; };
+		C7CF2C201E7A9B1A002F7AE5 /* WifeButlerNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CF2C1F1E7A9B1A002F7AE5 /* WifeButlerNoDataView.m */; };
+		C7CF2C221E7A9B35002F7AE5 /* WifeButlerNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7CF2C211E7A9B35002F7AE5 /* WifeButlerNoDataView.xib */; };
 		C7D52FA11E5F38AC00D98448 /* UIImage+ColorExistion.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D52FA01E5F38AC00D98448 /* UIImage+ColorExistion.m */; };
 		C7E4E13D1E65705700169897 /* WifeButlerFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E4E13C1E65705700169897 /* WifeButlerFileManager.m */; };
 		C7E4E1411E657AC900169897 /* WifeButlerAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E4E1401E657AC900169897 /* WifeButlerAccount.m */; };
@@ -437,8 +429,6 @@
 		7B63EACB1CFC6E7B004F9DA7 /* ZTHuanMiXQModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTHuanMiXQModel.m; sourceTree = "<group>"; };
 		7B86D80B1CF86C9400AB1E05 /* ZTLaJiHuanMiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTLaJiHuanMiModel.h; sourceTree = "<group>"; };
 		7B86D80C1CF86C9400AB1E05 /* ZTLaJiHuanMiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTLaJiHuanMiModel.m; sourceTree = "<group>"; };
-		7B86D80E1CF874E100AB1E05 /* ZTChuLiQiXQModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTChuLiQiXQModel.h; sourceTree = "<group>"; };
-		7B86D80F1CF874E100AB1E05 /* ZTChuLiQiXQModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTChuLiQiXQModel.m; sourceTree = "<group>"; };
 		7B8D04B91CEAB21B0024B812 /* NSString+ZJMyJudgeString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZJMyJudgeString.h"; sourceTree = "<group>"; };
 		7B8D04BA1CEAB21B0024B812 /* NSString+ZJMyJudgeString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZJMyJudgeString.m"; sourceTree = "<group>"; };
 		7B8D04BC1CEAB3380024B812 /* ZJLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZJLogin.storyboard; sourceTree = "<group>"; };
@@ -453,10 +443,6 @@
 		7B8D04C91CEB079D0024B812 /* ZTLogoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTLogoModel.m; sourceTree = "<group>"; };
 		7B8D04CF1CEB22DB0024B812 /* ZTBianJiZiliaoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTBianJiZiliaoTableViewController.h; sourceTree = "<group>"; };
 		7B8D04D01CEB22DB0024B812 /* ZTBianJiZiliaoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTBianJiZiliaoTableViewController.m; sourceTree = "<group>"; };
-		7B9D399D1CF9393C00F6359D /* ZTPingLunModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTPingLunModel.h; sourceTree = "<group>"; };
-		7B9D399E1CF9393C00F6359D /* ZTPingLunModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTPingLunModel.m; sourceTree = "<group>"; };
-		7B9D39A01CF9725100F6359D /* ZTjieSuanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTjieSuanModel.h; sourceTree = "<group>"; };
-		7B9D39A11CF9725100F6359D /* ZTjieSuanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTjieSuanModel.m; sourceTree = "<group>"; };
 		7B9D39A31CF9A95500F6359D /* ZTGouWuCheFooterVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTGouWuCheFooterVIew.h; sourceTree = "<group>"; };
 		7B9D39A41CF9A95500F6359D /* ZTGouWuCheFooterVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTGouWuCheFooterVIew.m; sourceTree = "<group>"; };
 		7B9D39A61CF9A97300F6359D /* ZTGouWuChe.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZTGouWuChe.xib; sourceTree = "<group>"; };
@@ -527,29 +513,8 @@
 		7BC580221CF6C81C00FD157A /* ZTGarbageOfRice.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZTGarbageOfRice.storyboard; sourceTree = "<group>"; };
 		7BC580231CF6C81C00FD157A /* ZTGarbageOfRiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTGarbageOfRiceViewController.h; sourceTree = "<group>"; };
 		7BC580241CF6C81C00FD157A /* ZTGarbageOfRiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTGarbageOfRiceViewController.m; sourceTree = "<group>"; };
-		7BC580331CF6C81C00FD157A /* ZJProcessorDetailTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJProcessorDetailTableVC.h; sourceTree = "<group>"; };
-		7BC580341CF6C81C00FD157A /* ZJProcessorDetailTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJProcessorDetailTableVC.m; sourceTree = "<group>"; };
-		7BC580371CF6C81C00FD157A /* ZJProcessorCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJProcessorCollectionViewCell.h; sourceTree = "<group>"; };
-		7BC580381CF6C81C00FD157A /* ZJProcessorCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJProcessorCollectionViewCell.m; sourceTree = "<group>"; };
-		7BC580391CF6C81C00FD157A /* ZJProcessorDetailTableCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJProcessorDetailTableCell1.h; sourceTree = "<group>"; };
-		7BC5803A1CF6C81C00FD157A /* ZJProcessorDetailTableCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJProcessorDetailTableCell1.m; sourceTree = "<group>"; };
-		7BC5803B1CF6C81C00FD157A /* ZJProcessorDetailTableCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJProcessorDetailTableCell2.h; sourceTree = "<group>"; };
-		7BC5803C1CF6C81C00FD157A /* ZJProcessorDetailTableCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJProcessorDetailTableCell2.m; sourceTree = "<group>"; };
-		7BC5803D1CF6C81C00FD157A /* ZJProcessorDetailTableCell3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJProcessorDetailTableCell3.h; sourceTree = "<group>"; };
-		7BC5803E1CF6C81C00FD157A /* ZJProcessorDetailTableCell3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJProcessorDetailTableCell3.m; sourceTree = "<group>"; };
-		7BC5803F1CF6C81C00FD157A /* ZJProcessorDetailTableCell4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJProcessorDetailTableCell4.h; sourceTree = "<group>"; };
-		7BC580401CF6C81C00FD157A /* ZJProcessorDetailTableCell4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJProcessorDetailTableCell4.m; sourceTree = "<group>"; };
-		7BC580411CF6C81C00FD157A /* ZJProcessorDetailTableCell5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJProcessorDetailTableCell5.h; sourceTree = "<group>"; };
-		7BC580421CF6C81C00FD157A /* ZJProcessorDetailTableCell5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJProcessorDetailTableCell5.m; sourceTree = "<group>"; };
-		7BC580431CF6C81C00FD157A /* ZTShangPingGuiGeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTShangPingGuiGeTableViewCell.h; sourceTree = "<group>"; };
-		7BC580441CF6C81C00FD157A /* ZTShangPingGuiGeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTShangPingGuiGeTableViewCell.m; sourceTree = "<group>"; };
 		7BC580491CF6C81C00FD157A /* ZTLaJiHuanMiTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTLaJiHuanMiTableViewCell.h; sourceTree = "<group>"; };
 		7BC5804A1CF6C81C00FD157A /* ZTLaJiHuanMiTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTLaJiHuanMiTableViewCell.m; sourceTree = "<group>"; };
-		7BC5805B1CF6D86600FD157A /* ZTShangPinPingJiaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTShangPinPingJiaTableViewCell.h; sourceTree = "<group>"; };
-		7BC5805C1CF6D86600FD157A /* ZTShangPinPingJiaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTShangPinPingJiaTableViewCell.m; sourceTree = "<group>"; };
-		7BC580621CF6DE7400FD157A /* ZTLaJiJieShuanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTLaJiJieShuanTableViewController.h; sourceTree = "<group>"; };
-		7BC580631CF6DE7400FD157A /* ZTLaJiJieShuanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTLaJiJieShuanTableViewController.m; sourceTree = "<group>"; };
-		7BC580651CF6DE9400FD157A /* ZTLaJiaJieShuan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZTLaJiaJieShuan.storyboard; sourceTree = "<group>"; };
 		7BC5806B1CF6F91F00FD157A /* ZTYouHuiJuanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTYouHuiJuanViewController.h; sourceTree = "<group>"; };
 		7BC5806C1CF6F91F00FD157A /* ZTYouHuiJuanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTYouHuiJuanViewController.m; sourceTree = "<group>"; };
 		7BC5806E1CF6FB6D00FD157A /* ZTYouHuiJuanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTYouHuiJuanTableViewCell.h; sourceTree = "<group>"; };
@@ -820,6 +785,16 @@
 		C7CCF4A91E76D2C3009A0ED5 /* NearbyVillageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyVillageTableViewCell.h; sourceTree = "<group>"; };
 		C7CCF4AA1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyVillageTableViewCell.m; sourceTree = "<group>"; };
 		C7CCF4AB1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearbyVillageTableViewCell.xib; sourceTree = "<group>"; };
+		C7CF2C101E7A80A0002F7AE5 /* CardPocketAddNextStepController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardPocketAddNextStepController.h; sourceTree = "<group>"; };
+		C7CF2C111E7A80A0002F7AE5 /* CardPocketAddNextStepController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardPocketAddNextStepController.m; sourceTree = "<group>"; };
+		C7CF2C121E7A80A0002F7AE5 /* CardPocketAddNextStepController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardPocketAddNextStepController.xib; sourceTree = "<group>"; };
+		C7CF2C151E7A8A1D002F7AE5 /* WithdrawDepositViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WithdrawDepositViewController.h; sourceTree = "<group>"; };
+		C7CF2C161E7A8A1D002F7AE5 /* WithdrawDepositViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WithdrawDepositViewController.m; sourceTree = "<group>"; };
+		C7CF2C181E7A9189002F7AE5 /* ZTjieSuanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTjieSuanModel.h; sourceTree = "<group>"; };
+		C7CF2C191E7A9189002F7AE5 /* ZTjieSuanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTjieSuanModel.m; sourceTree = "<group>"; };
+		C7CF2C1E1E7A9B1A002F7AE5 /* WifeButlerNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerNoDataView.h; sourceTree = "<group>"; };
+		C7CF2C1F1E7A9B1A002F7AE5 /* WifeButlerNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerNoDataView.m; sourceTree = "<group>"; };
+		C7CF2C211E7A9B35002F7AE5 /* WifeButlerNoDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WifeButlerNoDataView.xib; sourceTree = "<group>"; };
 		C7D52F9F1E5F38AC00D98448 /* UIImage+ColorExistion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorExistion.h"; sourceTree = "<group>"; };
 		C7D52FA01E5F38AC00D98448 /* UIImage+ColorExistion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorExistion.m"; sourceTree = "<group>"; };
 		C7E4E13B1E65705700169897 /* WifeButlerFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerFileManager.h; sourceTree = "<group>"; };
@@ -1894,6 +1869,9 @@
 				C7C1627A1E7041BA0074A9D2 /* PhotosScrollView.m */,
 				C745FD401E740EAF00B01742 /* PlaceHoderText.h */,
 				C745FD411E740EAF00B01742 /* PlaceHoderText.m */,
+				C7CF2C1E1E7A9B1A002F7AE5 /* WifeButlerNoDataView.h */,
+				C7CF2C1F1E7A9B1A002F7AE5 /* WifeButlerNoDataView.m */,
+				C7CF2C211E7A9B35002F7AE5 /* WifeButlerNoDataView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2101,64 +2079,8 @@
 				7BC580231CF6C81C00FD157A /* ZTGarbageOfRiceViewController.h */,
 				7BC580241CF6C81C00FD157A /* ZTGarbageOfRiceViewController.m */,
 				7B63EABA1CFC62BC004F9DA7 /* 垃圾换米 */,
-				7BC580311CF6C81C00FD157A /* 垃圾处理器详情 */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		7BC580311CF6C81C00FD157A /* 垃圾处理器详情 */ = {
-			isa = PBXGroup;
-			children = (
-				7BC580321CF6C81C00FD157A /* controllers */,
-				7BC580351CF6C81C00FD157A /* models */,
-				7BC580361CF6C81C00FD157A /* views */,
-			);
-			name = "垃圾处理器详情";
-			path = "处理器购买";
-			sourceTree = "<group>";
-		};
-		7BC580321CF6C81C00FD157A /* controllers */ = {
-			isa = PBXGroup;
-			children = (
-				7BC580331CF6C81C00FD157A /* ZJProcessorDetailTableVC.h */,
-				7BC580341CF6C81C00FD157A /* ZJProcessorDetailTableVC.m */,
-				7BC5805E1CF6DE1D00FD157A /* 结算 */,
-			);
-			path = controllers;
-			sourceTree = "<group>";
-		};
-		7BC580351CF6C81C00FD157A /* models */ = {
-			isa = PBXGroup;
-			children = (
-				7B86D80E1CF874E100AB1E05 /* ZTChuLiQiXQModel.h */,
-				7B86D80F1CF874E100AB1E05 /* ZTChuLiQiXQModel.m */,
-				7B9D399D1CF9393C00F6359D /* ZTPingLunModel.h */,
-				7B9D399E1CF9393C00F6359D /* ZTPingLunModel.m */,
-			);
-			path = models;
-			sourceTree = "<group>";
-		};
-		7BC580361CF6C81C00FD157A /* views */ = {
-			isa = PBXGroup;
-			children = (
-				7BC580371CF6C81C00FD157A /* ZJProcessorCollectionViewCell.h */,
-				7BC580381CF6C81C00FD157A /* ZJProcessorCollectionViewCell.m */,
-				7BC580391CF6C81C00FD157A /* ZJProcessorDetailTableCell1.h */,
-				7BC5803A1CF6C81C00FD157A /* ZJProcessorDetailTableCell1.m */,
-				7BC5803B1CF6C81C00FD157A /* ZJProcessorDetailTableCell2.h */,
-				7BC5803C1CF6C81C00FD157A /* ZJProcessorDetailTableCell2.m */,
-				7BC5803D1CF6C81C00FD157A /* ZJProcessorDetailTableCell3.h */,
-				7BC5803E1CF6C81C00FD157A /* ZJProcessorDetailTableCell3.m */,
-				7BC5803F1CF6C81C00FD157A /* ZJProcessorDetailTableCell4.h */,
-				7BC580401CF6C81C00FD157A /* ZJProcessorDetailTableCell4.m */,
-				7BC580411CF6C81C00FD157A /* ZJProcessorDetailTableCell5.h */,
-				7BC580421CF6C81C00FD157A /* ZJProcessorDetailTableCell5.m */,
-				7BC580431CF6C81C00FD157A /* ZTShangPingGuiGeTableViewCell.h */,
-				7BC580441CF6C81C00FD157A /* ZTShangPingGuiGeTableViewCell.m */,
-				7BC5805B1CF6D86600FD157A /* ZTShangPinPingJiaTableViewCell.h */,
-				7BC5805C1CF6D86600FD157A /* ZTShangPinPingJiaTableViewCell.m */,
-			);
-			path = views;
 			sourceTree = "<group>";
 		};
 		7BC580451CF6C81C00FD157A /* Model */ = {
@@ -2183,43 +2105,6 @@
 				C7A191BD1E60263800FEDFD1 /* WifebutlerRCRHomeHeaderView.xib */,
 				7BA7EA931D24CD0000ECA67E /* ZTJianJieH5TableViewCell.h */,
 				7BA7EA941D24CD0000ECA67E /* ZTJianJieH5TableViewCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7BC5805E1CF6DE1D00FD157A /* 结算 */ = {
-			isa = PBXGroup;
-			children = (
-				7BC5805F1CF6DE1D00FD157A /* Controller */,
-				7BC580601CF6DE1D00FD157A /* Model */,
-				7BC580611CF6DE1D00FD157A /* View */,
-			);
-			name = "结算";
-			path = "../../立即购买";
-			sourceTree = "<group>";
-		};
-		7BC5805F1CF6DE1D00FD157A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				7BC580621CF6DE7400FD157A /* ZTLaJiJieShuanTableViewController.h */,
-				7BC580631CF6DE7400FD157A /* ZTLaJiJieShuanTableViewController.m */,
-				7BC580651CF6DE9400FD157A /* ZTLaJiaJieShuan.storyboard */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		7BC580601CF6DE1D00FD157A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7B9D39A01CF9725100F6359D /* ZTjieSuanModel.h */,
-				7B9D39A11CF9725100F6359D /* ZTjieSuanModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7BC580611CF6DE1D00FD157A /* View */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2603,6 +2488,8 @@
 		7BF499701CFD877900CCEB45 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C7CF2C181E7A9189002F7AE5 /* ZTjieSuanModel.h */,
+				C7CF2C191E7A9189002F7AE5 /* ZTjieSuanModel.m */,
 				7B01CA3D1CFDB477008BF259 /* ZTJieShuan2Model.h */,
 				7B01CA3E1CFDB477008BF259 /* ZTJieShuan2Model.m */,
 			);
@@ -2673,6 +2560,8 @@
 				7BFBA67E1CFE80EC00D4E07C /* ZJHomePageController.h */,
 				7BFBA67F1CFE80EC00D4E07C /* ZJHomePageController.m */,
 				7BFBA6801CFE80EC00D4E07C /* ZJHomePageController.storyboard */,
+				C73A91261E7AD6CE009AFD52 /* 酵素回收 */,
+				C73A91251E7AD6BB009AFD52 /* 回收服务 */,
 				C7CCF4AE1E76D562009A0ED5 /* 爱心捐赠 */,
 				C7CCF49B1E76CD48009A0ED5 /* 选择地址 */,
 				C7A191CD1E606C7400FEDFD1 /* 环保日历 */,
@@ -2764,6 +2653,20 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C73A91251E7AD6BB009AFD52 /* 回收服务 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "回收服务";
+			sourceTree = "<group>";
+		};
+		C73A91261E7AD6CE009AFD52 /* 酵素回收 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "酵素回收";
+			sourceTree = "<group>";
+		};
 		C745FD1C1E73E0AE00B01742 /* Balance(余额) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2782,6 +2685,8 @@
 				C745FD3D1E740E1F00B01742 /* inputPayMoneyView.xib */,
 				C7C2D8BD1E781E7F00765473 /* RechargePayViewController.h */,
 				C7C2D8BE1E781E7F00765473 /* RechargePayViewController.m */,
+				C7CF2C151E7A8A1D002F7AE5 /* WithdrawDepositViewController.h */,
+				C7CF2C161E7A8A1D002F7AE5 /* WithdrawDepositViewController.m */,
 				C7C2D8C01E78240000765473 /* SelectCardViewController.h */,
 				C7C2D8C11E78240000765473 /* SelectCardViewController.m */,
 			);
@@ -2801,6 +2706,9 @@
 				C745FD361E73F32D00B01742 /* CardPocketAddViewController.h */,
 				C745FD371E73F32D00B01742 /* CardPocketAddViewController.m */,
 				C745FD381E73F32D00B01742 /* CardPocketAddViewController.xib */,
+				C7CF2C101E7A80A0002F7AE5 /* CardPocketAddNextStepController.h */,
+				C7CF2C111E7A80A0002F7AE5 /* CardPocketAddNextStepController.m */,
+				C7CF2C121E7A80A0002F7AE5 /* CardPocketAddNextStepController.xib */,
 			);
 			path = "CardPocket(卡包)";
 			sourceTree = "<group>";
@@ -3284,7 +3192,8 @@
 				TargetAttributes = {
 					7BB43F4A1CE9C3BC007D722A = {
 						CreatedOnToolsVersion = 7.3.1;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = JF6K48U44E;
+						ProvisioningStyle = Automatic;
 					};
 					7BB43F631CE9C3BC007D722A = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -3349,7 +3258,6 @@
 				7BB43FB91CE9C57F007D722A /* ZJMineController.storyboard in Resources */,
 				7BE3C63D1CF1888F00851512 /* ZTBianJiShouHuoDiZhi.storyboard in Resources */,
 				7BE3C6BE1CF1A54C00851512 /* ZYQAssetPicker.Bundle in Resources */,
-				7BC580661CF6DE9400FD157A /* ZTLaJiaJieShuan.storyboard in Resources */,
 				C7FFD4CD1E6716E400754C92 /* MedRefFriendCircleTableHeader.xib in Resources */,
 				C7C1626C1E6FFAA50074A9D2 /* GoodsDetailRemarkSectionHeader.xib in Resources */,
 				C7CCF4AD1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.xib in Resources */,
@@ -3373,9 +3281,11 @@
 				C745FD211E73E15900B01742 /* BalanceViewController.xib in Resources */,
 				C789739A1E6C0F0900BFF404 /* Location.gpx in Resources */,
 				7BD5B7E11D0F981A002ECF03 /* ZTZhenWuXiangQinViewController.xib in Resources */,
+				C7CF2C141E7A80A0002F7AE5 /* CardPocketAddNextStepController.xib in Resources */,
 				7B4F39791CF295DE00D427CD /* ZTGouWuChe.storyboard in Resources */,
 				C7BC453D1E78E2D60057D2C8 /* LoveDonateRecordHeader.xib in Resources */,
 				7BCAA45A1D40AEBE00F46C33 /* ZTTiShiView.xib in Resources */,
+				C7CF2C221E7A9B35002F7AE5 /* WifeButlerNoDataView.xib in Resources */,
 				C707349D1E681AE70043CB3E /* CommunityShopMainViewCell.xib in Resources */,
 				C7F8F1E71E716D150039293C /* ZTSheQuFuWuCollectionViewCell.xib in Resources */,
 				7B8D04C31CEAB3380024B812 /* ZJLogin.storyboard in Resources */,
@@ -3495,7 +3405,6 @@
 				7B63EAC31CFC6735004F9DA7 /* ZTHuanMiTuPianTableViewCell.m in Sources */,
 				7B4F39771CF295CD00D427CD /* ZTPersonGouWuCheViewController.m in Sources */,
 				C7C5645A1E6EEB7D00D15359 /* UserQRViewController.m in Sources */,
-				7BC580571CF6C81C00FD157A /* ZJProcessorDetailTableCell5.m in Sources */,
 				7B0537061D0FE5E400BE9762 /* TYViewStorage.m in Sources */,
 				C7BC45451E78E5270057D2C8 /* LoveDonateRecordTableViewCell.m in Sources */,
 				7BCAA4581D40AEAA00F46C33 /* ZTTiShiKuanView.m in Sources */,
@@ -3506,11 +3415,9 @@
 				7BE3C6AF1CF1A05F00851512 /* ZTHuiZhuanDingDan1ViewController.m in Sources */,
 				C75853D71E753FEA00FFE9A6 /* WifebutlerConst.m in Sources */,
 				C7BC45521E78EBC20057D2C8 /* MyDonateTableViewCell.m in Sources */,
-				7BC580551CF6C81C00FD157A /* ZJProcessorDetailTableCell3.m in Sources */,
 				7BE3C6411CF188DF00851512 /* ZTAddressPickView.m in Sources */,
 				7BB43FB41CE9C57F007D722A /* UIView+Extension.m in Sources */,
 				7BF499741CFD87B000CCEB45 /* ZTJieSuanGouWuCheViewController.m in Sources */,
-				7BC580531CF6C81C00FD157A /* ZJProcessorDetailTableCell1.m in Sources */,
 				C7F8F1E61E716D150039293C /* ZTSheQuFuWuCollectionViewCell.m in Sources */,
 				7B63EAC01CFC6348004F9DA7 /* ZTLaJiHuanMiViewController.m in Sources */,
 				C745FD3E1E740E1F00B01742 /* inputPayMoneyView.m in Sources */,
@@ -3529,7 +3436,6 @@
 				7B86D80D1CF86C9400AB1E05 /* ZTLaJiHuanMiModel.m in Sources */,
 				7B0537051D0FE5E400BE9762 /* TYTextStorage.m in Sources */,
 				7B0537011D0FE5E400BE9762 /* TYImageStorage.m in Sources */,
-				7BC580561CF6C81C00FD157A /* ZJProcessorDetailTableCell4.m in Sources */,
 				7BC5805A1CF6C81C00FD157A /* ZTLaJiHuanMiTableViewCell.m in Sources */,
 				7B0537021D0FE5E400BE9762 /* TYLinkTextStorage.m in Sources */,
 				C70734981E6818780043CB3E /* WifeButlerLocationManager.m in Sources */,
@@ -3539,8 +3445,6 @@
 				C7FFD4F71E67262600754C92 /* FontUtils.m in Sources */,
 				7BE3C6511CF1996600851512 /* ZTGuangYuMyViewController.m in Sources */,
 				7B8D04C41CEAB3380024B812 /* ZJLoginController.m in Sources */,
-				7BC5805D1CF6D86600FD157A /* ZTShangPinPingJiaTableViewCell.m in Sources */,
-				7BC580641CF6DE7400FD157A /* ZTLaJiJieShuanTableViewController.m in Sources */,
 				7BF9ACAB1D12B37E00F0D000 /* ZTXiaoQuXuanZeViewController.m in Sources */,
 				C7C2D8BF1E781E7F00765473 /* RechargePayViewController.m in Sources */,
 				7BB43F501CE9C3BC007D722A /* main.m in Sources */,
@@ -3557,7 +3461,7 @@
 				C7BC45561E791AF30057D2C8 /* MyDonateUserModel.m in Sources */,
 				7B8D04C61CEAB3380024B812 /* ZJUserProtocalVC.m in Sources */,
 				7BE420661D13A730009A8FAB /* ZJGoodsDetailCell4.m in Sources */,
-				7BC580581CF6C81C00FD157A /* ZTShangPingGuiGeTableViewCell.m in Sources */,
+				C7CF2C131E7A80A0002F7AE5 /* CardPocketAddNextStepController.m in Sources */,
 				7BAD20151D54685A005798F2 /* ZTDuiHuanOrder1TableViewCell.m in Sources */,
 				7BB43FB61CE9C57F007D722A /* ZJTabBarController.m in Sources */,
 				C7F8EE991E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m in Sources */,
@@ -3568,8 +3472,6 @@
 				C7F8F21F1E719B6B0039293C /* ServiceListModel.m in Sources */,
 				7BF9ACA11D12931100F0D000 /* ZTWoDeXiaoXiModel.m in Sources */,
 				C7D52FA11E5F38AC00D98448 /* UIImage+ColorExistion.m in Sources */,
-				7B9D399F1CF9393C00F6359D /* ZTPingLunModel.m in Sources */,
-				7B86D8101CF874E100AB1E05 /* ZTChuLiQiXQModel.m in Sources */,
 				7B63EAC61CFC6742004F9DA7 /* ZTHuanMiCanShuTableViewCell.m in Sources */,
 				C707349C1E681AE70043CB3E /* CommunityShopMainViewCell.m in Sources */,
 				C7F8F20A1E718EA40039293C /* ZTTimeTopModel.m in Sources */,
@@ -3626,10 +3528,8 @@
 				C745FD391E73F32D00B01742 /* CardPocketAddViewController.m in Sources */,
 				C781A9171E5FFCF900E3D325 /* XMGConst.m in Sources */,
 				7B2366AC1D026449003BC590 /* ZTWoYaoKaiDianTableViewController.m in Sources */,
-				7BC580511CF6C81C00FD157A /* ZJProcessorDetailTableVC.m in Sources */,
 				C7CCF49E1E76CDD0009A0ED5 /* ChooseLocationViewController.m in Sources */,
 				C745FD481E74190700B01742 /* ZJGoodsDetailCell2.m in Sources */,
-				7B9D39A21CF9725100F6359D /* ZTjieSuanModel.m in Sources */,
 				C7C4A49A1E5EBE5600075A27 /* HomePageCommodityView.m in Sources */,
 				7B8D04BB1CEAB21B0024B812 /* NSString+ZJMyJudgeString.m in Sources */,
 				7BE3C65F1CF19C8300851512 /* ZTNeiBuGongGao1ViewController.m in Sources */,
@@ -3640,6 +3540,7 @@
 				C7457CE71E63011C0039CF5B /* WifeButlerInfoTableViewCell.m in Sources */,
 				7BC580701CF6FB6D00FD157A /* ZTYouHuiJuanTableViewCell.m in Sources */,
 				7B0537031D0FE5E400BE9762 /* TYTextContainer+Extended.m in Sources */,
+				C7CF2C171E7A8A1D002F7AE5 /* WithdrawDepositViewController.m in Sources */,
 				C7FFD50A1E67297B00754C92 /* CommonEmojiCell.m in Sources */,
 				7B01CA3C1CFDB37B008BF259 /* ZTJieSuang11Model.m in Sources */,
 				7BF1DC3D1CFAD636001C1E54 /* ZTDingDanXiangQinTableViewCell.m in Sources */,
@@ -3653,7 +3554,6 @@
 				7B019D7F1D52CAFF0073506E /* ZTBackImageView.m in Sources */,
 				C745FD201E73E15900B01742 /* BalanceViewController.m in Sources */,
 				7B0536FF1D0FE5E400BE9762 /* TYDrawStorage.m in Sources */,
-				7BC580541CF6C81C00FD157A /* ZJProcessorDetailTableCell2.m in Sources */,
 				C7F8F20B1E718EA40039293C /* ZTHeardMMCollectionReusableView.m in Sources */,
 				7B392D4D1D14FB2800A182BC /* ZTDianPuXinXiTableViewController.m in Sources */,
 				C7695EF81E798BF900042432 /* ZTBianjiModel.m in Sources */,
@@ -3696,6 +3596,7 @@
 				C7F8F20D1E718EA40039293C /* ZTTime2CollectionViewCell.m in Sources */,
 				C71058391E615ED700C85CBE /* WifeButlerUserParty.m in Sources */,
 				7BF499791CFD8EFD00CCEB45 /* ZTJieSuan11TableViewCell.m in Sources */,
+				C7CF2C201E7A9B1A002F7AE5 /* WifeButlerNoDataView.m in Sources */,
 				C7FFD4EB1E6721E700754C92 /* DocFriendModel.m in Sources */,
 				7BB43FB81CE9C57F007D722A /* ZJMineController.m in Sources */,
 				7BB43FB71CE9C57F007D722A /* AppDelegate.m in Sources */,
@@ -3711,7 +3612,7 @@
 				C7C564611E6EF6E900D15359 /* WifeButlerSettingViewController.m in Sources */,
 				7BE420681D13A730009A8FAB /* ZJShopClassCell1.m in Sources */,
 				7B5B07B41D0E95F900D0246A /* ZTJianKangShenHuoTopModel.m in Sources */,
-				7BC580521CF6C81C00FD157A /* ZJProcessorCollectionViewCell.m in Sources */,
+				C7CF2C1A1E7A9189002F7AE5 /* ZTjieSuanModel.m in Sources */,
 				7BE420631D13A730009A8FAB /* ZJGoodsDetailCell1.m in Sources */,
 				7B0536FD1D0FE5E400BE9762 /* NSMutableAttributedString+TY.m in Sources */,
 				7BE420651D13A730009A8FAB /* ZJGoodsDetailCell3.m in Sources */,
@@ -3860,7 +3761,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JF6K48U44E;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WifeButler/ZTWifeButle_Prefix.pch";
@@ -3871,7 +3772,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WifeButler/Classes/Main/Category/微信sdk",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JHC.zjtd.com.WifeButler;
+				PRODUCT_BUNDLE_IDENTIFIER = JHC.zjtd.com.WifeButlers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3887,7 +3788,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JF6K48U44E;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WifeButler/ZTWifeButle_Prefix.pch";
@@ -3898,7 +3799,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WifeButler/Classes/Main/Category/微信sdk",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JHC.zjtd.com.WifeButler;
+				PRODUCT_BUNDLE_IDENTIFIER = JHC.zjtd.com.WifeButlers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

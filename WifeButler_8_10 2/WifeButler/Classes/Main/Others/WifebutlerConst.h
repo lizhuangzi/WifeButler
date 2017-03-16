@@ -22,3 +22,6 @@ extern NSString * const WifebutlerLocationDidChangeNotification;
 
 /**用户被t*/
 UIKIT_EXTERN NSString * const WifeButlerUserDidLogOutNotification;
+
+/**用户支付 积分 成功改变时*/
+UIKIT_EXTERN NSString * const UserImportantInfoDidSuccessChangeNotification;

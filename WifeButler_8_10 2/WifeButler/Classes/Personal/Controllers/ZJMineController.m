@@ -86,9 +86,13 @@
 - (ZJMineController * (^)())listenNotification{
     
     return ^{
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getCurrentUserData) name:LoginViewControllerDidLoginSuccessNotification object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(regetData) name:LoginViewControllerDidLoginSuccessNotification object:nil];
       
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(userLogOut) name:WifeButlerUserDidLogOutNotification object:nil];
+        
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getCurrentUserData) name:UserDataDidFinishUpDate object:nil];
+        
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(regetData) name:UserImportantInfoDidSuccessChangeNotification object:nil];
         return self;
     };
 }
@@ -218,7 +222,7 @@
 {
     return ^{
         if ([WifeButlerAccount sharedAccount].isLogin) {
-           
+            
             WifeButlerUserParty * party = [WifeButlerAccount sharedAccount].userParty;
             NSMutableDictionary * parm = [NSMutableDictionary dictionary];
             parm[@"userid"] = party.Id;
@@ -261,6 +265,13 @@
 {
     self.GetLocalData();
 }
+
+- (void)regetData
+{
+    self.GetLocalData().GetHttpData();
+}
+
+
 
 - (void)getCurrentUserData
 {

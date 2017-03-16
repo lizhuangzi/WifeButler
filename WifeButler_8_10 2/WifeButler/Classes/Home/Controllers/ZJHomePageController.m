@@ -7,7 +7,6 @@
 //
 
 #import "ZJHomePageController.h"
-//#import "ZTFuJinShangJiaViewController.h"
 //#import "ZTSheQuWuYeViewController.h"
 //#import "ZTSheQuZhenWuViewController.h"
 //#import "ZJGuangLiShouHuoDiZhiViewController.h"
@@ -19,6 +18,11 @@
 #import "CommunityRealEstateController.h"
 #import "ChooseLocationViewController.h"
 #import "LoveDonateViewController.h"
+#import "ZTPersonGouWuCheViewController.h"
+#import "ZTLaJiHuanMiViewController.h"
+#import "ZJGoodsDetailVC.h"
+#import "ServiceDetailViewController.h"
+#import "CommunityRealEstateController.h"
 
 #import "ZTJianKangShenHuoBottomModel.h"
 #import "ZTLunBoToModel.h"
@@ -38,7 +42,7 @@
 #import "WifeButlerDefine.h"
 #import "WifeButlerLocationManager.h"
 
-@interface ZJHomePageController ()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface ZJHomePageController ()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,HomePageCommodityCellDelegate>
 {
     NSArray *_dataSource;
 }
@@ -83,7 +87,7 @@
     [self listenNotify];
 
     [self requestBannerData];
-    
+
     if ([WifeButlerAccount sharedAccount].isLogin) { //如果用户登录了
         if ([WifeButlerAccount sharedAccount].userParty.village.length == 0) {//用户没设置默认地址
              [self netWorkingJinWeiDu];
@@ -219,6 +223,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HomePageCommodityCell * cell = [HomePageCommodityCell CommodityCellWithTableView:tableView];
+    cell.delegate = self;
     cell.model = self.dataArray[indexPath.section];
     return cell;
 }
@@ -296,7 +301,8 @@
     
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 20, 20);
-    [btn setBackgroundImage:[UIImage imageNamed:@"ZTZhiHuan"] forState:UIControlStateNormal];
+    [btn setBackgroundImage:[UIImage imageNamed:@"shopCart"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(gotoShopCart) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem * item1 = [[UIBarButtonItem alloc]initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = item1;
 }
@@ -384,6 +390,60 @@
     ChooseLocationViewController * vc = [[ChooseLocationViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+
+- (void)gotoShopCart{
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZTGouWuChe" bundle:nil];
+    ZTPersonGouWuCheViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ZTPersonGouWuCheViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+
+- (void)HomePageCommodityCell:(HomePageCommodityCell *)cell didClickFindMore:(HomePageSectionModel *)model
+{
+    if ([model.title isEqualToString:@"兑换精选"]) {
+        [self.tabBarController setSelectedIndex:2];
+    }else if ([model.title isEqualToString:@"商品精选"]){
+        ZJShopClassVC * shop = [[ZJShopClassVC alloc]init];
+        [self.navigationController pushViewController:shop animated:YES];
+    }else if ([model.title isEqualToString:@"服务精选"]){
+        ZTSheQuFuWuViewController * ser = [[ZTSheQuFuWuViewController alloc]init];
+        [self.navigationController pushViewController:ser animated:YES];
+
+    }else if ([model.title isEqualToString:@"物业精选"]){
+        CommunityRealEstateController * realEstate = [[CommunityRealEstateController alloc]init];
+        [self.navigationController pushViewController:realEstate animated:YES];
+    }
+
+}
+
+- (void)HomePageCommodityCell:(HomePageCommodityCell *)cell didClickOneCommdity:(HomePageCellModel *)model
+{
+    if ([cell.model.title isEqualToString:@"兑换精选"]) {
+        ZTLaJiHuanMiViewController * huami = [ZTLaJiHuanMiViewController new];
+        huami.good_id = model.commodityId;
+        [self.navigationController pushViewController:huami animated:YES];
+    }
+    else if ([cell.model.title isEqualToString:@"商品精选"]) {
+        UIStoryboard * story = [UIStoryboard storyboardWithName:@"ZJHomePageController" bundle:nil];
+        ZJGoodsDetailVC * vc = [story instantiateViewControllerWithIdentifier:@"ZJGoodsDetailVC"];
+        vc.goodId = model.commodityId;
+        [self.navigationController pushViewController:vc animated:YES];
+
+    }
+    else if ([cell.model.title isEqualToString:@"服务精选"] || [cell.model.title isEqualToString:@"物业精选"]) {
+        ServiceDetailViewController * service = [[ServiceDetailViewController alloc]initWithGoodId:model.commodityId];
+        [self.navigationController pushViewController:service animated:YES];
+    }
+}
+//
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    CGFloat fl = scrollView.contentOffset.y;
+//    self.navigationController.navigationBar.alpha = 1 - fl/iphoneHeight;
+//}
 
 - (void)dealloc
 {

@@ -26,4 +26,5 @@ typedef enum {
 
 - (void)RequestWXinencryptionStrWithRequestUrlStr:(NSString *)urlStr andParmDict:(NSDictionary *)parm;
 
+
 @end

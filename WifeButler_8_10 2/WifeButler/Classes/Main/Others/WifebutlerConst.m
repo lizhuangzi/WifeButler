@@ -20,3 +20,6 @@ int const SUCCESS = 10000;
 NSString * const WifebutlerLocationDidChangeNotification = @"WifebutlerLocationDidChangeNotification";
 
 NSString * const WifeButlerUserDidLogOutNotification = @"WifeButlerUserDidLogOutNotification";
+
+
+NSString * const UserImportantInfoDidSuccessChangeNotification = @"AliPayDidSuccessPayNotification";

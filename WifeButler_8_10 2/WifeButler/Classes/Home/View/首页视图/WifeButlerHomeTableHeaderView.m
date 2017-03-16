@@ -57,8 +57,8 @@
         [self addSubview:backView];
         //2.创建8个选项
         
-        NSArray * titleArray = @[@"社区圈子",@"社区购物",@"社区服务",@"社区物业",@"环保日历",@"爱心捐赠",@"回收服务",@"社区政务"];
-        NSArray * imageNameArray = @[@"communityCircle",@"communityShop",@"communityService",@"communityRealEstate",@"EPcalendar",@"loveDonation",@"recycleService",@"communityPolitic"];
+        NSArray * titleArray = @[@"社区圈子",@"社区购物",@"社区服务",@"社区物业",@"环保日历",@"爱心捐赠",@"回收服务",@"酵素回收"];
+        NSArray * imageNameArray = @[@"communityCircle",@"communityShop",@"communityService",@"communityRealEstate",@"EPcalendar",@"loveDonation",@"recycleService",@"jiaosuhuishou"];
         
         CGFloat btnW = 55;
         CGFloat btnH = 60;

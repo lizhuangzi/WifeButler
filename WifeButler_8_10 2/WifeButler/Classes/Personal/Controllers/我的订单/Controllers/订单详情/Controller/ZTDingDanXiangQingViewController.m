@@ -93,11 +93,12 @@ typedef enum {
 
 - (void)setPram
 {
-    self.quXiaoDingDanBtn.layer.borderWidth =  1;
+    self.quXiaoDingDanBtn.layer.borderWidth =  0.5;
     self.quXiaoDingDanBtn.layer.borderColor = [[UIColor colorWithWhite:0.431 alpha:1.000] CGColor];
     self.quXiaoDingDanBtn.layer.cornerRadius = 3;
     
     self.fuKuanBtn.layer.borderWidth =  1;
+    self.fuKuanBtn.backgroundColor = [UIColor whiteColor];
     self.fuKuanBtn.layer.borderColor = WifeButlerCommonRedColor.CGColor;
     self.fuKuanBtn.layer.cornerRadius = 3;
     

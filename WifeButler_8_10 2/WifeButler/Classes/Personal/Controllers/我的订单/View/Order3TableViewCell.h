@@ -10,6 +10,7 @@
 
 @interface Order3TableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imagePic;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

@@ -10,4 +10,6 @@
 
 @interface ZTBianJiZiliaoTableViewController : UITableViewController
 
+UIKIT_EXTERN NSString * const UserDataDidFinishUpDate;
+
 @end

@@ -75,10 +75,10 @@ typedef enum {
     
     
     self.title = @"购物订单";
-    
+    self.tableView.backgroundColor = WifeButlerTableBackGaryColor;
     self.dataSource1 = [NSMutableArray array];
     self.dataSource = [NSMutableArray array];
-    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _prize = 1;
     
     [self leftBtn];
@@ -188,8 +188,8 @@ typedef enum {
     else
     {
         Order1TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Order1TableViewCell" forIndexPath:indexPath];
-        [cell.iconImageV sd_setImageWithURL:[NSURL URLWithString:model_shop.files] placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
-        
+        [cell.iconImageV sd_setImageWithURL:[NSURL URLWithString:model_shop.files] placeholderImage:PlaceHolderImage_Other];
+        cell.priceLabel.text = [NSString stringWithFormat: @"¥%@",model_shop.price];
         cell.titleLab.text = model_shop.title;
         cell.numLab.text = [NSString stringWithFormat:@"X%@", model_shop.num];
         
@@ -243,11 +243,11 @@ typedef enum {
     headView.backgroundColor = [UIColor whiteColor];
     
     UIImageView * imgV = [[UIImageView alloc] initWithFrame:CGRectMake(15, 9.5, 25, 20)];
-    imgV.image = [UIImage imageNamed:@"ZTShangJiaDianPu"];
+    imgV.image = [UIImage imageNamed:@"superMarket"];
     [headView addSubview:imgV];
     
-    UILabel * nameLBL = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imgV.frame) + 15, 0, 200, 40)];
-    nameLBL.textColor = [UIColor grayColor];
+    UILabel * nameLBL = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imgV.frame) + 5, 0, 200, 40)];
+    nameLBL.textColor = WifeButlerGaryTextColor1;
     nameLBL.font = [UIFont systemFontOfSize:15];
     nameLBL.text = name;
     [headView addSubview:nameLBL];
@@ -262,7 +262,7 @@ typedef enum {
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 54;
+    return 51;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section

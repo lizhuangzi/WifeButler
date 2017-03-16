@@ -10,9 +10,10 @@
 #import "BalanceRecordViewController.h"
 #import "inputPayMoneyView.h"
 #import "RechargePayViewController.h"
-#import "SelectCardViewController.h"
+#import "WithdrawDepositViewController.h"
 #import "WifeButlerNetWorking.h"
 #import "PersonalPort.h"
+#import "WifebutlerConst.h"
 
 @interface BalanceViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *numLabel;
@@ -36,8 +37,11 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"记录" style:UIBarButtonItemStylePlain target:self action:@selector(recordClick)];
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(regetData) name:UserImportantInfoDidSuccessChangeNotification object:nil];
     [self requestData];
 }
+
+
 
 - (void)requestData
 {
@@ -87,7 +91,7 @@
         
         if ([weakSelf isNUMBER:money]) {
             
-            if (money.floatValue<0.01) {
+            if (money.doubleValue<0.01) {
                 [SVProgressHUD showErrorWithStatus:@"金额必须一分以上"];
                 return;
             }
@@ -96,18 +100,21 @@
             NSString * flag = @"0";
             //    //进入支付界面.
             flag = isRecharge?@"1":@"2";
-            [SVProgressHUD showWithStatus:@"正在生成订单中c"];
+            [SVProgressHUD showWithStatus:@"正在生成订单中"];
             [weakSelf generateOrderWithMoney:money AndFlag:flag Success:^(NSString * orderId){
                 
                 [SVProgressHUD dismiss];
                 if (isRecharge) {
-                   
-                    RechargePayViewController * re = [RechargePayViewController new];
+                    
+                    UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTHuiZhuanDingDan" bundle:nil];
+                    RechargePayViewController * re  = [sb instantiateViewControllerWithIdentifier:@"RechargePayViewController"];
+//                    RechargePayViewController * re = [RechargePayViewController new];
                     re.order_id = orderId;
                     [weakSelf.navigationController pushViewController:re animated:YES];
                     
                 }else{ //进入选择提现的银行卡界面
-                    SelectCardViewController * cardList = [[SelectCardViewController alloc]init];
+                    WithdrawDepositViewController * cardList = [[WithdrawDepositViewController alloc]init];
+                    cardList.orderID = orderId;
                     [weakSelf.navigationController pushViewController:cardList animated:YES];
                 }
                 
@@ -128,7 +135,7 @@
     NSDictionary * parm = @{@"userid":KUserId,@"token":KToken,@"money":moneyStr,@"flag":flag};
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KPayAndRechargeOrder parameter:parm success:^(id resultCode) {
         
-        !success?:success(resultCode[@"orderid"]);
+        !success?:success(resultCode[@"ordernum"]);
         
     } failure:^(NSError *error) {
         
@@ -146,5 +153,8 @@
     return array.count == 1?YES:NO;
 }
 
-
+- (void)regetData
+{
+    [self requestData];
+}
 @end
