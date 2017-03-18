@@ -15,6 +15,7 @@
 #define WifeButlerGaryTextColor2 HexCOLOR(@"#666666")
 #define WifeButlerGaryTextColor3 HexCOLOR(@"#929292")
 #define WifeButlerGaryTextColor4  HexCOLOR(@"#999999")
+#define WifeButlerNavyBlueColor   HexCOLOR(@"#576b95")  // 深蓝色字体
 #define CommonContentBackgroundColor    @"#f6f6f6"  // 内容背景
 
 #define HexCOLOR(hex) ([UIColor colorWithHexString:hex])

@@ -14,7 +14,6 @@
 
 @implementation ImagePickerUtils
 
-void ((^ImagePickerUtilsQBSettingBlock)(UINavigationController * vc));
 /**
  *  选择照片，用于除头像、学术圈背景等单张图片选择页面
  *
@@ -44,12 +43,7 @@ void ((^ImagePickerUtilsQBSettingBlock)(UINavigationController * vc));
                     qbViewController.minimumNumberOfSelection = minNumber;
                     qbViewController.delegate = delegate;
                     
-                    UINavigationController *nv = [[HomeNavgationController alloc] initWithRootViewController:qbViewController];
-                    [viewController presentViewController:nv animated:YES completion:nil];
-                    
-                    if (ImagePickerUtilsQBSettingBlock) {
-                        ImagePickerUtilsQBSettingBlock(nv);
-                    }
+                    [viewController presentViewController:qbViewController animated:YES completion:nil];
                     
                 });
                 isStop=YES;

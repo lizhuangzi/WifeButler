@@ -19,9 +19,15 @@ MJCodingImplementation;
     return model;
 }
 
++ (NSDictionary *)mj_objectClassInArray{
+    
+    return @{ @"child":@"DocFriendReviewModel"
+              };
+}
+
 -(BOOL)isReviewOther
 {
-    if (_replyTopRevId) {
+    if (_argued_id) {
         return YES;
     }else{
         return NO;
@@ -32,18 +38,19 @@ MJCodingImplementation;
 {
     
     NSString *str = _content;
-    if (_replyTopRevId) { // 有被回复人
-        str = [NSString stringWithFormat:@"%@回复%@: %@",_partyName,_replyName,_content];
+    if (_argued_id.integerValue != 0) { // 有被回复人
+        str = [NSString stringWithFormat:@"%@回复%@: %@",_nickname,_argued_name,_content];
     }else{
-        str = [NSString stringWithFormat:@"%@: %@",_partyName,_content];
+        str = [NSString stringWithFormat:@"%@: %@ ",_nickname,_content];
     }
     NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:str];
-//    [attributedStr addAttribute:NSForegroundColorAttributeName value:HexCOLOR(MedRefWordColorNavyBlue) range:NSMakeRange(0,_partyName.length)];
-    [attributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, str.length)];
-    [attributedStr addAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica-Bold" size:14]} range:NSMakeRange(0,_partyName.length)];
-    if (_replyTopRevId) {
-//        [attributedStr addAttribute:NSForegroundColorAttributeName value:HexCOLOR(MedRefWordColorNavyBlue) range:NSMakeRange(_partyName.length + 2,_replyName.length)];
-        [attributedStr addAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica-Bold" size:14]} range:NSMakeRange(_partyName.length + 2,_replyName.length)];
+    [attributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(_nickname.length, _content.length+2)];
+    [attributedStr addAttribute:NSForegroundColorAttributeName value:WifeButlerNavyBlueColor range:NSMakeRange(0,_nickname.length)];
+    [attributedStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Helvetica-Bold" size:14] range:NSMakeRange(0,_nickname.length)];
+    
+       if (_argued_id.integerValue != 0) {
+        [attributedStr addAttribute:NSForegroundColorAttributeName value:WifeButlerNavyBlueColor range:NSMakeRange(_nickname.length + 2,_nickname.length)];
+        [attributedStr addAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica-Bold" size:14]} range:NSMakeRange(_nickname.length + 2,_argued_name.length)];
     }
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
     [paragraphStyle setLineSpacing:2];
@@ -58,10 +65,10 @@ MJCodingImplementation;
         _rangeArray = [NSMutableArray array];
     }
     [_rangeArray removeAllObjects];
-    NSRange partyNameRange = NSMakeRange(0, _partyName.length);
+    NSRange partyNameRange = NSMakeRange(0, _nickname.length);
     [_rangeArray addObject:NSStringFromRange(partyNameRange)];
-    if (_replyTopRevId) {
-        NSRange repluNameRange = NSMakeRange(_partyName.length + 2, _replyName.length + _partyName.length + 2);
+    if (_argued_id) {
+        NSRange repluNameRange = NSMakeRange(_nickname.length + 2, _argued_name.length + _nickname.length + 2);
         [_rangeArray addObject:NSStringFromRange(repluNameRange)];
     }
     return _rangeArray;

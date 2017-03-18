@@ -7,7 +7,6 @@
 //
 
 #import "DocFriendModel.h"
-#import "DocFriendHeaderModel.h"
 #import "DocFriendPraiseModel.h"
 #import "DocFriendReviewModel.h"
 #import "MJExtension.h"
@@ -17,47 +16,62 @@ MJCodingImplementation;
 
 +(DocFriendModel*)friendModelWithDict:(NSDictionary *)dict
 {
-    DocFriendModel *model = [[DocFriendModel alloc] init];
-    [model setValuesForKeysWithDict:dict];
+    DocFriendModel *model = [DocFriendModel mj_objectWithKeyValues:dict];
     return model;
 }
 
--(void)setValuesForKeysWithDict:(NSDictionary *)dict
++ (NSDictionary *)mj_objectClassInArray{
+    return @{ @"some" : @"DocFriendPraiseModel",
+              @"discuss" : @"DocFriendReviewModel",
+              @"gallery":@"DocImageModel"
+              };
+}
+
+- (void)mj_keyValuesDidFinishConvertingToObject
 {
-    // 顶部数据
-    self.headerModel = [[DocFriendHeaderModel alloc] init];
-    [self.headerModel setValuesForKeysWithDictionary:dict];
-    // 点赞数据
-    self.praiseArray = [NSMutableArray array];
-    for (NSDictionary *praiseDic in [dict objectForKey:@"hisTopPraiseList"]) {
-        DocFriendPraiseModel *praiseModel = [[DocFriendPraiseModel alloc] init];
-        [praiseModel setValuesForKeysWithDictionary:praiseDic];
-        [self.praiseArray addObject:praiseModel];
-    }
-    // 评论数据
-    self.reviewArray = [NSMutableArray array];
-    for (NSDictionary *reviewDic in [dict objectForKey:@"hisTopReviewList"]) {
-        DocFriendReviewModel *reviewModel = [DocFriendReviewModel reviewModelWithDic:reviewDic];
-        [self.reviewArray addObject:reviewModel];
+    NSString * str = [KImageUrl stringByAppendingString:self.avatar];
+    NSString * utf8Str =  [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    _iconFullPath = [NSURL URLWithString:utf8Str];
+    
+    // 有点赞 需要在评论数组最前边插入一个标记 用来减少controller中数据处理逻辑
+    if (_some.count > 0) {
+        if (![_discuss containsObject:@"这是一个标记"]) {
+            [_discuss insertObject:@"这是一个标记" atIndex:0];
+        }
+    }else{
+        if ([_discuss containsObject:@"这是一个标记"]) {
+            [_discuss removeObject:@"这是一个标记"];
+        }
     }
     
+    for (int i = 0; i<_discuss.count; i++) {
+        DocFriendReviewModel * re = _discuss[i];
+        [self.reviewArray addObject:re];
+        if ([re isKindOfClass:[NSString class]]) {
+            continue;
+        }
+        for (DocFriendReviewModel * model in re.child) {
+            [self.reviewArray addObject:model];
+        }
+    }
 }
+
 
 -(NSMutableAttributedString *)praiseAttributed
 {
-    if (!(_praiseArray.count > 0)) {
+    if (!(_some.count > 0)) {
         return [[NSMutableAttributedString alloc] init];
     }
     NSMutableAttributedString *atributedStr = [[NSMutableAttributedString alloc] initWithString:@"      "];
     CGFloat strIndex = atributedStr.string.length;
     
-    for (int i = 0 ; i < _praiseArray.count ; i ++) {
-        DocFriendPraiseModel *model = _praiseArray[i];
+    for (int i = 0 ; i < _some.count ; i ++) {
+        DocFriendPraiseModel *model = _some[i];
         if ([model isKindOfClass:[DocFriendPraiseModel class]]) {
-            NSString *name = model.partyName;
+            NSString *name = model.nickname;
             NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:name];
             NSMutableAttributedString *montage = [[NSMutableAttributedString alloc] initWithString:@","];
-            if (i == _praiseArray.count - 1) {
+            if (i == _some.count - 1) {
                 montage = [[NSMutableAttributedString alloc] initWithString:@" "];
             }
             [montage addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, 1)];
@@ -86,13 +100,13 @@ MJCodingImplementation;
     NSMutableAttributedString *atributedStr = [[NSMutableAttributedString alloc] initWithString:@"      "];
     CGFloat strIndex = atributedStr.string.length;
     
-    for (int i = 0 ; i < _praiseArray.count ; i ++) {
-        DocFriendPraiseModel *model = _praiseArray[i];
+    for (int i = 0 ; i < _some.count ; i ++) {
+        DocFriendPraiseModel *model = _some[i];
         if ([model isKindOfClass:[DocFriendPraiseModel class]]) {
-            NSString *name = model.partyName;
+            NSString *name = model.nickname;
             NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:name];
             NSMutableAttributedString *montage = [[NSMutableAttributedString alloc] initWithString:@","];
-            if (i == _praiseArray.count - 1) {
+            if (i == _some.count - 1) {
                 montage = [[NSMutableAttributedString alloc] initWithString:@" "];
             }
             [montage addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, 1)];
@@ -116,15 +130,8 @@ MJCodingImplementation;
 // 评论数组
 -(NSMutableArray *)reviewArray
 {
-    // 有点赞 需要在评论数组最前边插入一个标记 用来减少controller中数据处理逻辑
-    if (_praiseArray.count > 0) {
-        if (![_reviewArray containsObject:@"这是一个标记"]) {
-            [_reviewArray insertObject:@"这是一个标记" atIndex:0];
-        }
-    }else{
-        if ([_reviewArray containsObject:@"这是一个标记"]) {
-            [_reviewArray removeObject:@"这是一个标记"];
-        }
+    if (!_reviewArray) {
+        _reviewArray = [NSMutableArray array];
     }
     return _reviewArray;
 }
@@ -132,6 +139,7 @@ MJCodingImplementation;
 // cell 个数
 -(NSInteger)cellCount
 {
+    
     _cellCount = self.reviewArray.count;
     return _cellCount;
 }

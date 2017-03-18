@@ -7,7 +7,6 @@
 //
 
 #import "ZTJieSuanGouWuCheViewController.h"
-#import "ZTJieSuan11TableViewCell.h"
 #import "ZTJieSuang11Model.h"
 #import "ZTJieShuan2Model.h"
 #import "ZTYouHuiJuanViewController.h"
@@ -16,48 +15,49 @@
 #import "ZJGuangLiShouHuoDiZhiViewController.h"
 #import "ZJLoginController.h"
 #import  "MJExtension.h"
+#import "UserDeliverLocationReturnView.h"
+#import "Masonry.h"
+#import "JieSuanTableViewCell.h"
+#import "JieSuanTableSectionHeader.h"
 
-@interface ZTJieSuanGouWuCheViewController ()
+@interface ZTJieSuanGouWuCheViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSString *_isZaiXianPay;      // 1在线支付   2货到付款
     
     ZTjieSuanModel *_modelAddress;
+    ZTShouHuoAddressModel * _locationModel;
 }
+
+@property (nonatomic,strong) UserDeliverLocationReturnView * userInfoView;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView1;
 
 @property (weak, nonatomic) IBOutlet UIView *addressView;
 
-/**
- *  名字
- */
-@property (weak, nonatomic) IBOutlet UILabel *nameLab;
-@property (weak, nonatomic) IBOutlet UILabel *shouHuoAddressLab;
-@property (weak, nonatomic) IBOutlet UILabel *iphoneLab;
 
 @property (weak, nonatomic) IBOutlet UIButton *ZhiFuFangShiBtn1;
 @property (weak, nonatomic) IBOutlet UIButton *ZhiFuFangShiBtn2;
 
+@property (nonatomic,weak) UIButton * currentSelectBtn;
+
 @property (weak, nonatomic) IBOutlet UILabel *allMoney;
 
-/**
- *  优惠卷数据源
- */
-@property (nonatomic, strong) NSMutableArray * dataSourceYouHuiJuan;
-
-/**
- *  选择优惠卷数据
- */
-@property (nonatomic, strong) NSMutableArray * dataYouHuiJuanArr;
 
 
 @property (nonatomic, assign) NSInteger flag;
 
 @property (nonatomic, assign) NSInteger flag1;
 
+
+
 @end
 
 @implementation ZTJieSuanGouWuCheViewController
+
+- (void)setDataSource:(NSMutableArray *)dataSource
+{
+    _dataSource = dataSource;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -65,158 +65,86 @@
     
     self.title = @"结算";
     
-    _isZaiXianPay = @"1";
+    self.view.backgroundColor = WifeButlerTableBackGaryColor;
+    self.tableView1.backgroundColor = WifeButlerTableBackGaryColor;
+    self.tableView1.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //设置userInfoView
+    self.userInfoView = [[NSBundle mainBundle]loadNibNamed:@"UserDeliverLocationReturnView" owner:nil options:nil].lastObject;
+    self.userInfoView.hidden = YES;
     
-    self.flag = 0;
+    WEAKSELF
+    [self.userInfoView setReturnBlock:^{
+        [weakSelf pushSelectLocationVc];
+    }];
+    [self.addressView addSubview:self.userInfoView];
+    [self.userInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.addressView.mas_top).offset(5);
+        make.left.mas_equalTo(self.addressView);
+        make.right.mas_equalTo(self.addressView);
+        make.bottom.mas_equalTo(self.addressView.mas_bottom).offset(-5);
+    }];
     
-    self.dataYouHuiJuanArr = [NSMutableArray array];
     
+    self.view.backgroundColor = WifeButlerTableBackGaryColor;
+    [self zhiFuClick:self.ZhiFuFangShiBtn1];
     
     self.allMoney.text = self.allMoneyYemp;
     
+    [self.tableView1 registerNib:[UINib nibWithNibName:@"JieSuanTableViewCell" bundle:nil] forCellReuseIdentifier:@"JieSuanTableViewCell"];
+    
     [self netWorking];
-    
-    // 优惠卷
-    [self netWorkingYouHuiJuan];
 }
 
 
-- (IBAction)zhiFuClick:(id)sender {
+- (IBAction)zhiFuClick:(UIButton *)sender {
     
-    [self.ZhiFuFangShiBtn1 setBackgroundImage:[UIImage imageNamed:@"ZTZhiFuFangShi"] forState:UIControlStateNormal];
-    [self.ZhiFuFangShiBtn1 setTitleColor:[UIColor colorWithRed:0.039 green:0.675 blue:0.569 alpha:1.000] forState:UIControlStateNormal];
+    self.currentSelectBtn.selected = NO;
+    sender.selected = YES;
+    self.currentSelectBtn = sender;
     
-    
-    [self.ZhiFuFangShiBtn2 setBackgroundImage:[UIImage imageNamed:@"ZTZhiFuFangShiBack"] forState:UIControlStateNormal];
-    [self.ZhiFuFangShiBtn2 setTitleColor:[UIColor colorWithWhite:0.604 alpha:1.000] forState:UIControlStateNormal];
-    
-    // 在线支付
-    _isZaiXianPay = @"1";
+    if (sender.tag == 249) {
+        // 在线支付
+        _isZaiXianPay = @"1";
+    }else//货到付款
+        _isZaiXianPay = @"2";
     
 }
 
-- (IBAction)zhiFuClick1:(id)sender {
-    
-    [self.ZhiFuFangShiBtn1 setBackgroundImage:[UIImage imageNamed:@"ZTZhiFuFangShiBack"] forState:UIControlStateNormal];
-    [self.ZhiFuFangShiBtn1 setTitleColor:[UIColor colorWithRed:0.737 green:0.729 blue:0.757 alpha:1.000] forState:UIControlStateNormal];
-    
-    [self.ZhiFuFangShiBtn2 setBackgroundImage:[UIImage imageNamed:@"ZTZhiFuFangShi"] forState:UIControlStateNormal];
-    [self.ZhiFuFangShiBtn2 setTitleColor:[UIColor colorWithRed:0.039 green:0.675 blue:0.569 alpha:1.000] forState:UIControlStateNormal];
-    
-    // 货到付款
-    _isZaiXianPay = @"2";
-}
 
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+-  (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return _dataSource.count;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    ZTJieSuang11Model * sectionModel = _dataSource[section];
+    return sectionModel.goods.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ZTJieSuan11TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZTJieSuan11TableViewCell" forIndexPath:indexPath];
- 
-    ZTJieSuang11Model *model = _dataSource[indexPath.row];
-    
-    cell.dianPuNameLab.text = model.shop_name;
-    
-    [cell setTableViewTempWithAry:[ZTJieShuan2Model mj_objectArrayWithKeyValuesArray:model.goods]];
-    
-    cell.shopNumLab.text = [NSString stringWithFormat:@"共%@件商品", model.num];
-    cell.heJiMoneyLab.text = [NSString stringWithFormat:@"￥%.2f", [model.money floatValue]-[model.price_youHuiJuan floatValue]];
-    
-    if (model.price_youHuiJuan) {
-        
-        cell.youHuiJuanLab.text = [NSString stringWithFormat:@"优惠金额:%@", model.price_youHuiJuan];
-    }
-    else
-    {
-        cell.youHuiJuanLab.text = [NSString stringWithFormat:@"请选择代金卷"];
-    }
-    
-    __weak typeof(self) weakSelf = self;
-
-    [cell setYouHuijuanBlack:^(){
-        
-        weakSelf.flag = 0;
-        
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZJMineController" bundle:nil];
-        ZTYouHuiJuanViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ZTYouHuiJuanViewController"];
-        vc.isFanHui = YES;
-        vc.dataSourceYouHuiJuan = self.dataSourceYouHuiJuan;
-        vc.biaoShi = model.shop_id;
- 
-//        vc.shopMoney = [NSString stringWithFormat:@"%f", [model.money floatValue] - [model.price_youHuiJuan floatValue]]
-        
-        vc.shopMoney = model.money;
-        
-        [vc setMoneyBlack:^(ZTYouHuiJuanModel *modelBack) {
-            
-//                // weakSelf.flag = 1;
-//                ZJLog(@"weakSelf.dataSourceYouHuiJuan:%@", weakSelf.dataSourceYouHuiJuan);
-//                // 优惠卷金额
-                model.price_youHuiJuan = modelBack.money;
-                model.YouHuiJuan_id = modelBack.id;
-            
-
-//                weakCell.youHuiJuanLab.text = [NSString stringWithFormat:@"使用%@元优惠券", modelBack.money];
-//                
-//                if ([model.money floatValue] > [modelBack.money floatValue]) {
-//                    
-//                    weakCell.heJiMoneyLab.text = [NSString stringWithFormat:@"%.2f", [model.money floatValue] - [modelBack.money floatValue]];
-//                }
-//                else
-//                {
-//                    weakCell.heJiMoneyLab.text = @"0";
-//                }
-//            
-//                model.money = weakCell.heJiMoneyLab.text;
-//                
-                CGFloat floatMoney = 0;
-                
-                for (int i = 0; i < weakSelf.dataSource.count; i ++) {
-                    
-                    ZTJieSuang11Model *modePrice = _dataSource[i];
-                    
-                    floatMoney = floatMoney + [modePrice.price_youHuiJuan floatValue];
-                    
-                }
-                
-                ZJLog(@"floatMoney:%f", floatMoney);
-                ZJLog(@"self.allMoneyYemp:%@", self.allMoneyYemp);
-                
-                NSString *strAllMoney = [self.allMoneyYemp substringFromIndex:1];
-                
-                if ([strAllMoney floatValue] > floatMoney) {
-                    
-                    weakSelf.allMoney.text = [NSString stringWithFormat:@"%.2f", [strAllMoney floatValue] - floatMoney];
-                }
-                else
-                {
-                    weakSelf.allMoney.text = @"0";
-                }
-            
-                [tableView reloadData];
-            
-        }];
-        
-    
-        
-        [weakSelf.navigationController pushViewController:vc animated:YES];
-
-        ZJLog(@"优惠卷");
-    }];
+    JieSuanTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"JieSuanTableViewCell" forIndexPath:indexPath];
+    ZTJieSuang11Model * sectionModel = self.dataSource[indexPath.section];
+    cell.model = sectionModel.goods[indexPath.row];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ZTJieSuang11Model *model = _dataSource[indexPath.row];
-    
-    // 基本高度  +  每个子cell高度
-    return 170 + (model.goods.count * 86);
+    return 90;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    JieSuanTableSectionHeader * header = [JieSuanTableSectionHeader HeaderViewWithTableView:tableView];
+    ZTJieSuang11Model * sectionModel = _dataSource[section];
+    header.shopName.text = sectionModel.shop_name;
+    return header;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 46;
 }
 
 #pragma mark - 请求数据
@@ -249,13 +177,13 @@
             
             [SVProgressHUD dismiss];
             
-            self.addressView.hidden = YES;
-
+            self.userInfoView.hidden = NO;
+            
             _modelAddress = [ZTjieSuanModel mj_objectWithKeyValues:responseObject[@"resultCode"][@"address"]];
             
-            self.nameLab.text = _modelAddress.realname;
-            self.shouHuoAddressLab.text = _modelAddress.address;
-            self.iphoneLab.text = _modelAddress.phone;
+            self.userInfoView.userInfo.text = [NSString stringWithFormat:@"%@ %@ %@",_modelAddress.realname,_modelAddress.sex,_modelAddress.phone];
+            
+            self.userInfoView.LocationInfo.text = [NSString stringWithFormat:@"%@",_modelAddress.address];
 
         }
         else
@@ -264,7 +192,6 @@
             if ([responseObject[@"code"] intValue] == 30000) {
                 
                 [SVProgressHUD dismiss];
-                self.addressView.hidden = NO;
             }
             else
             {
@@ -317,11 +244,11 @@
 #pragma mark - 提交订单
 - (void)netWorkingTiJiao
 {
-    if ([self.shouHuoAddressLab.text length] == 0 || [self.nameLab.text length] == 0 || [self.iphoneLab.text length] == 0) {
-        
-        [SVProgressHUD showErrorWithStatus:@"请填写完整的收货地址"];
-        return;
-    }
+//    if ([self.shouHuoAddressLab.text length] == 0 || [self.nameLab.text length] == 0 || [self.iphoneLab.text length] == 0) {
+//        
+//        [SVProgressHUD showErrorWithStatus:@"请填写完整的收货地址"];
+//        return;
+//    }
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
@@ -481,100 +408,39 @@
     return [arr componentsJoinedByString:geShi];
 }
 
+
+
 - (IBAction)tiJiaoClick:(id)sender {
     
     [self netWorkingTiJiao];
 }
 
 
-- (IBAction)xuanZheAddress:(id)sender {
+
+
+
+
+- (IBAction)NoaddressClick:(id)sender {
     
+    [self pushSelectLocationVc];
+}
+
+- (void)pushSelectLocationVc
+{
+    WEAKSELF;
     ZJGuangLiShouHuoDiZhiViewController *vc = [[ZJGuangLiShouHuoDiZhiViewController alloc] init];
     vc.isBack = YES;
     
-    __weak typeof(self) weakSelf = self;
     
     [vc setAddressBlack:^(ZTShouHuoAddressModel *model) {
+        _locationModel = model;
+        weakSelf.userInfoView.hidden = NO;
         
-        weakSelf.nameLab.text = model.realname;
-        weakSelf.shouHuoAddressLab.text = model.address;
-        weakSelf.iphoneLab.text = model.phone;
-        weakSelf.addressView.hidden = YES;
+        weakSelf.userInfoView.userInfo.text = [NSString stringWithFormat:@"%@ %@ %@",model.realname,model.sex,model.phone];
+        
+        weakSelf.userInfoView.LocationInfo.text = [NSString stringWithFormat:@"%@",model.address];
     }];
     
-    [self.navigationController pushViewController:vc animated:YES];
+    [weakSelf.navigationController pushViewController:vc animated:YES];
 }
-
-#pragma mark - 优惠劵请求数据
-- (void)netWorkingYouHuiJuan
-{
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];/*添加接可收数据的数据可行*/
-    
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
-    
-    [dic setObject:KToken forKey:@"token"];
-    
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KWoDeDaiJinJuan];
-    
-    ZJLog(@"%@", dic);
-    
-    [SVProgressHUD showWithStatus:@"加载中..."];
-    
-    [manager POST:url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
-        
-        ZJLog(@"%@", responseObject);
-        
-        // 成功
-        if ([responseObject[@"code"] intValue] == 10000) {
-            
-            [SVProgressHUD dismiss];
-            
-            self.dataSourceYouHuiJuan = [ZTYouHuiJuanModel mj_objectArrayWithKeyValuesArray:responseObject[@"resultCode"]];
-        
-        }
-        else
-        {
-            if ([responseObject[@"code"] intValue] == 30000) {
-            
-                [SVProgressHUD dismiss];
-            }
-            else
-            {
-            
-                [SVProgressHUD showErrorWithStatus:message];
-            }
-        }
-        
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
-        
-    }];
-    
-}
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

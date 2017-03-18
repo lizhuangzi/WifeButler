@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HuoQuFaJiaoTongViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKg-Rc-Ag0">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxN-ob-a8u">
+                    <rect key="frame" x="20" y="603" width="335" height="44"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="eXO-fv-Qut"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="支付押金"/>
+                    <connections>
+                        <action selector="payClick:" destination="-1" eventType="touchUpInside" id="H4l-v5-Hqm"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="qKg-Rc-Ag0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BFu-lt-IRe"/>
+                <constraint firstAttribute="bottom" secondItem="wxN-ob-a8u" secondAttribute="bottom" constant="20" id="DIJ-dH-Znx"/>
+                <constraint firstAttribute="trailing" secondItem="qKg-Rc-Ag0" secondAttribute="trailing" id="Rfr-tA-C4G"/>
+                <constraint firstItem="qKg-Rc-Ag0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="b6O-Hb-0OR"/>
+                <constraint firstAttribute="bottom" secondItem="qKg-Rc-Ag0" secondAttribute="bottom" id="jxM-11-RyI"/>
+                <constraint firstAttribute="trailing" secondItem="wxN-ob-a8u" secondAttribute="trailing" constant="20" id="xZa-kv-vvC"/>
+                <constraint firstItem="wxN-ob-a8u" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="zA2-mh-LGl"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

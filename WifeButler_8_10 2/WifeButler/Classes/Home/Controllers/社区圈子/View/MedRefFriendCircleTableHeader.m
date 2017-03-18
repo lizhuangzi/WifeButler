@@ -7,7 +7,7 @@
 //
 
 #import "MedRefFriendCircleTableHeader.h"
-#import "DocFriendHeaderModel.h"
+#import "DocFriendModel.h"
 //#import "CommonImagePreview.h"
 #import "FontUtils.h"
 //#import "NSDate+DocStandTime.h"
@@ -15,13 +15,14 @@
 //#import "UIView+Preview.h"
 #import "Masonry.h"
 #import "WifeButlerDefine.h"
+#import "DocImageModel.h"
 
 @interface MedRefFriendCircleTableHeader (){
     NSArray *imgUrlArray;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *headerView;  // 头像
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;        // 姓名
-@property (weak, nonatomic) IBOutlet UIImageView *relationImgIco; // 关注关系类型标识图标
+
 @property (weak, nonatomic) IBOutlet UILabel *enumFKLabel; // 发起内容类型
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel; // 分享内容文本
 @property (weak, nonatomic) IBOutlet UIView *imgBgView;  // 图片背景
@@ -44,7 +45,7 @@
 
 @property (nonatomic, copy) NSString *collectionImgUrl;
 
-@property (nonatomic, strong) DocFriendHeaderModel *workModel;
+@property (nonatomic, strong) DocFriendModel *workModel;
 
 
 @end
@@ -73,7 +74,7 @@ static float commonVerticalSpace = 8.0f; // 8为控件显示间距
 /**
  * 获取view高度
  */
-+(CGFloat) getHeadSectionHeadHeight:(DocFriendHeaderModel *) model{
++(CGFloat) getHeadSectionHeadHeight:(DocFriendModel *) model{
     
     CGFloat height = 0;
     // 原244 = 320 - 56 - 20替换
@@ -106,10 +107,10 @@ static float commonVerticalSpace = 8.0f; // 8为控件显示间距
         model.showAllBtnHidden = NO;
     }
     
-    if (model.chtTypeEnum){
-        if (model.imagesPath.length>0) {
+  //  if (model.chtTypeEnum){
+        if (model.gallery.count>0) {
             float attachmentViewH = 0.0f;
-            NSInteger count =[model.imagesPath componentsSeparatedByString:@","].count;
+            NSInteger count =model.gallery.count;
             contentViewFrameW = iphoneWidth - (headImgLeftSpace + headImgW + viewRightSpace) * 2;
             switch (count) {
                 case 1:
@@ -136,9 +137,9 @@ static float commonVerticalSpace = 8.0f; // 8为控件显示间距
                 height += commonVerticalSpace;
             }
         }
-    } else {
-        height = height + commonVerticalSpace + attachmentViewHDefault + showBtnAndSpaceHig;
-    }
+//    } else {
+//        height = height + commonVerticalSpace + attachmentViewHDefault + showBtnAndSpaceHig;
+//    }
     height = height + dateViewH;
     return height; // 修正float型计算误差
 }
@@ -171,46 +172,19 @@ static float commonVerticalSpace = 8.0f; // 8为控件显示间距
  * 设置显示数据
  *  @param model
  */
--(void) setWorkmodel:(DocFriendHeaderModel *) model atSection:(NSInteger) section{
+-(void) setWorkmodel:(DocFriendModel *) model atSection:(NSInteger) section{
     self.currentSection = section;
     self.workModel = model;
     // 头像
-    NSString *encodeurl=[model.caseHisTopHeadurl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [self.headerView sd_setImageWithURL:[NSURL URLWithString:encodeurl] placeholderImage:[UIImage imageNamed:@"work_tempPhoto"]];
+    
+    [self.headerView sd_setImageWithURL:model.iconFullPath placeholderImage:[UIImage imageNamed:@"work_tempPhoto"]];
     //名称
-    self.nameLabel.text = model.caseHisTopName;
+    self.nameLabel.text = model.nickname;
     // 关注类型：bothWayConcern, 单向关注：oneWayConcern，好友：friend
-    if([model.relation isEqualToString:@"bothWanyConcern"]){
-        self.relationImgIco.hidden = NO;
-        [self.relationImgIco setImage:[UIImage imageNamed:@"double_attention"]];
-        [self.enumFKLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-            // 图片宽度+左右间距
-            make.left.mas_equalTo(self.nameLabel.mas_right).offset(5.0f + 15.0f + 5.0f);
-        }];
-    } else if([model.relation isEqualToString:@"oneWayConcern"]){
-        self.relationImgIco.hidden = NO;
-        [self.relationImgIco setImage:[UIImage imageNamed:@"unidirectional_attention"]];
-        [self.enumFKLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-            // 图片宽度+左右间距
-            make.left.mas_equalTo(self.nameLabel.mas_right).offset(5.0f + 15.0f + 5.0f);
-        }];
-    } else {
-        self.relationImgIco.hidden = YES;
-        [self.enumFKLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-            // 图片宽度+左右间距
-            make.left.mas_equalTo(self.nameLabel.mas_right).offset(5.0f);
-        }];
-    }
-    self.enumFKLabel.text = @"哈哈";
-    if (model.forwardPartyId.length == 0) { // 非转发
-        self.forwardNameButton.hidden = YES;
-    } else { // 转发
-        self.forwardNameButton.hidden = NO;
-        CGSize size = [FontUtils stringSize:model.forwardPartyName withSize:CGSizeMake(MAXFLOAT, 22.0f) font:self.enumFKLabel.font];
-        [self.forwardNameButton mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_equalTo(size.width + 10);
-        }];
-    }
+      self.enumFKLabel.text = @"哈哈";
+    // 非转发
+    self.forwardNameButton.hidden = YES;
+    
     // 标题内容
     NSString *contentStr = model.content;
     if (contentStr.length == 0) {
@@ -246,10 +220,10 @@ static float commonVerticalSpace = 8.0f; // 8为控件显示间距
     // cell中内容宽度 56左侧间距，10右间距
     // 原244 = 320 - 56 - 20替换
     float contentViewFrameW = iphoneWidth - headImgLeftSpace - headImgW - nameLabelRightSpace -viewRightSpace;
-    if (model.chtTypeEnum) {
+//    if (model.chtTypeEnum) {
         self.otherContentBgView.hidden = YES;
         
-        if (model.imagesPath.length > 0) {
+        if (model.gallery.count > 0) {
             // 有图片
             self.imgBgView.hidden = NO;
             [self.imgBgView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -258,7 +232,7 @@ static float commonVerticalSpace = 8.0f; // 8为控件显示间距
             
             contentViewFrameW = iphoneWidth - (headImgLeftSpace + headImgW + viewRightSpace) * 2;
             
-            imgUrlArray = [model.imagesPath componentsSeparatedByString:@","];
+            imgUrlArray = model.gallery;
             [self createImgViews];
             NSInteger arrayCount = imgUrlArray.count;
             float imageW = 0.0f;
@@ -304,8 +278,9 @@ static float commonVerticalSpace = 8.0f; // 8为控件显示间距
                     imgView.hidden = NO;
                     imgView.frame = rect;
                     imgView.tag = i;
-                    NSString *encodeurl=[imgUrlArray[i] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-                    [imgView sd_setImageWithURL:[NSURL URLWithString:encodeurl] placeholderImage:[UIImage imageNamed:@"work_backGrd"]];
+                    DocImageModel * imageModel = imgUrlArray[i];
+                    NSString *encodeurl=[imageModel.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                    [imgView sd_setImageWithURL:[NSURL URLWithString:encodeurl] placeholderImage:PlaceHolderImage_Other];
                     [self.showImgViewArray addObject:imgView];
                 }else{      // 多余的图片不显示
                     imgView.hidden = YES;
@@ -319,25 +294,26 @@ static float commonVerticalSpace = 8.0f; // 8为控件显示间距
             self.imgBgView.hidden = YES;
         }
         
-    } else {
-        self.imgBgView.hidden = YES;
-        self.otherContentBgView.hidden = NO;
-        self.otherContentBgViewTopSpace.constant = commonVerticalSpace + showBtnAndSpaceHig;
-        // 文章标题label宽度
-        self.otherContentTitleLabel.text=model.articleTitle;
-        NSString *encodeurl=[model.articleAuthorIcon stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSURL *url = [NSURL URLWithString:encodeurl];
-        if ([model.chtTypeEnumFK isEqualToString:@"会议"]) {
-            [self.originalHeaderView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"talk_subject_picture"]];
-        }else{
-            [self.originalHeaderView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"work_tempPhoto"]];
-        }
-
-    }
+//    } else {
+//        self.imgBgView.hidden = YES;
+//        self.otherContentBgView.hidden = NO;
+//        self.otherContentBgViewTopSpace.constant = commonVerticalSpace + showBtnAndSpaceHig;
+//        // 文章标题label宽度
+//        self.otherContentTitleLabel.text=model.articleTitle;
+//        NSString *encodeurl=[model.articleAuthorIcon stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//        NSURL *url = [NSURL URLWithString:encodeurl];
+//        if ([model.chtTypeEnumFK isEqualToString:@"会议"]) {
+//            [self.originalHeaderView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"talk_subject_picture"]];
+//        }else{
+//            [self.originalHeaderView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"work_tempPhoto"]];
+//        }
+//
+//    }
+  
     // 时间
-    NSString *newTime = model.createdStamp;//formatTime:model.createdStamps];
+    NSString *newTime = model.time;//formatTime:model.createdStamps];
     self.timeLabel.text = newTime;
-     if ([model.partyId isEqualToString:@""]) {
+     if ([model.uid isEqualToString: [WifeButlerAccount sharedAccount].userParty.Id]) {
           // 自己发表的动态 可以删除
          self.delDataBtn.hidden=NO;
       }
@@ -375,7 +351,7 @@ static float commonVerticalSpace = 8.0f; // 8为控件显示间距
 -(void)headerImgClick:(UITapGestureRecognizer *)tapGesture{
     [[UIMenuController sharedMenuController] setMenuVisible:NO animated:YES];
     if(self.delegate && [self.delegate respondsToSelector:@selector(tableHeaderView:pushPhotoAlbumWithPartyId:)]){
-        [self.delegate tableHeaderView:self pushPhotoAlbumWithPartyId:self.workModel.partyId];
+        [self.delegate tableHeaderView:self pushPhotoAlbumWithPartyId:self.workModel.id];
     }
 }
 
@@ -397,9 +373,10 @@ static float commonVerticalSpace = 8.0f; // 8为控件显示间距
     [[UIMenuController sharedMenuController] setMenuVisible:NO animated:YES];
     NSInteger index = tapGesture.view.tag;
     // 图片预览
-    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
-    [dict setValue:self.workModel.partyId forKey:@"coverPartyId"];
     
+    if ([self.delegate respondsToSelector:@selector(tableHeaderView:didClickImageViewIndex:andImageModelArr:)]) {
+        [self.delegate tableHeaderView:self didClickImageViewIndex:index andImageModelArr:imgUrlArray];
+    }
 //    [self showWithImageViews:self.showImgViewArray selectedView:self.showImgViewArray[index] type:kPreviewTypeDefult infoDict:dict];
 }
 /**
@@ -418,7 +395,8 @@ static float commonVerticalSpace = 8.0f; // 8为控件显示间距
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuItemControllerDidHideClick) name:UIMenuControllerDidHideMenuNotification object:nil];
     self.collectionType = @"图片";
-    self.collectionImgUrl = imgUrlArray[recognizer.view.tag];
+    DocImageModel * model = imgUrlArray[recognizer.view.tag];
+    self.collectionImgUrl = model.url;
 }
 
 /**
@@ -485,6 +463,9 @@ static float commonVerticalSpace = 8.0f; // 8为控件显示间距
 }
 
 
+#define MedRefWordColorLongRecognizerGray  @"#c7c7c5"  // 长按文字内容背景色
+
+#define MedRefWordColorLongRecognizerBlue  @"#ccd2df"  // 长按分享内容背景色
 #pragma mark - 长按事件
 // 长按内容
 -(void)contentLongRecognizer:(UILongPressGestureRecognizer *)recognizer
@@ -499,16 +480,16 @@ static float commonVerticalSpace = 8.0f; // 8为控件显示间距
     UIMenuController *menuController = [UIMenuController sharedMenuController];
     if ([recognizer.view isKindOfClass:[UILabel class]]) { // 长按文字内容
         self.collectionType = @"文字";
-//        self.contentLabel.backgroundColor = HexCOLOR(MedRefWordColorLongRecognizerGray);
-        if ([self.workModel.partyId isEqualToString:@""]) { // 是自己发布的
+        self.contentLabel.backgroundColor = HexCOLOR(MedRefWordColorLongRecognizerGray);
+        if ([self.workModel.id isEqualToString:@""]) { // 是自己发布的
             [menuController setMenuItems:@[copyItem,collectionItem]];
         }else{  // 不是自己发布的
             [menuController setMenuItems:@[copyItem,collectionItem,forwardItem,complaintItem]];
         }
     }else{      // 长按分享内容
         self.collectionType = @"链接";
-//        self.otherContentBgView.backgroundColor = HexCOLOR(MedRefWordColorLongRecognizerBlue);
-        if ([self.workModel.partyId isEqualToString:@""]) {
+       self.otherContentBgView.backgroundColor = HexCOLOR(MedRefWordColorLongRecognizerBlue);
+        if ([self.workModel.id isEqualToString:@""]) {
             [menuController setMenuItems:@[collectionItem]];
         }else{
             [menuController setMenuItems:@[collectionItem,forwardItem,complaintItem]];

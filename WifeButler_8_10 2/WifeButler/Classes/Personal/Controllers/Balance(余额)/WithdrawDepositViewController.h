@@ -10,6 +10,7 @@
 
 @interface WithdrawDepositViewController : UITableViewController
 
+@property (nonatomic,copy)NSString * money;
 @property (nonatomic,copy)NSString * orderID;
 
 @end

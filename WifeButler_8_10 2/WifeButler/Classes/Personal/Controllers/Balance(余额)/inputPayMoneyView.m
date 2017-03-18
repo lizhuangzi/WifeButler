@@ -138,6 +138,14 @@
     }
 }
 
+- (void)setfixedmoney:(NSString *)money
+{
+    self.moneyTextView.editable = NO;
+    self.moneyTextView.text = money;
+    self.moneyTextView.placeHoderLabel.hidden = YES;
+    self.moneyTextView.textColor = WifeButlerCommonRedColor;
+}
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self];

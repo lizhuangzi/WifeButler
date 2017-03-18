@@ -6,11 +6,10 @@
 //  Copyright © 2016年 zjtd. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "WifeButlerCommonBaseModel.h"
 
-@interface ZTJieShuan2Model : NSObject
+@interface ZTJieShuan2Model : WifeButlerCommonBaseModel
 
-@property (nonatomic, copy) NSString * files;
 @property (nonatomic, copy) NSString * goods_id;
 @property (nonatomic, copy) NSString * money;
 @property (nonatomic, copy) NSString * num;

@@ -52,13 +52,15 @@
 }
 
 -(void)initView{
-    self.backgroundColor = [UIColor whiteColor];
     self.contentView.backgroundColor = [UIColor whiteColor];
+    
+    WifeButlerUserParty * party = [WifeButlerAccount sharedAccount].userParty;
     
     self.userBgImageView = [[UIImageView alloc] init];
     self.userBgImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.userBgImageView.clipsToBounds = YES;
     [self.contentView addSubview:self.userBgImageView];
+    self.userBgImageView.image = [UIImage imageNamed:@"timg"];
     
     self.headerBgView = [[UIImageView alloc] init];
     self.headerBgView.backgroundColor = [UIColor whiteColor];
@@ -73,11 +75,13 @@
     self.headerImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.headerImageView.clipsToBounds = YES;
     [self.headerBgView addSubview:self.headerImageView];
+    [self.headerImageView sd_setImageWithURL:party.iconFullPath placeholderImage:PlaceHolderImage_Person];
     
     self.userNameLabel = [[UILabel alloc] init];
     self.userNameLabel.font = [UIFont systemFontOfSize:17.0f];
     self.userNameLabel.textColor = [UIColor whiteColor];
     [self.contentView addSubview:self.userNameLabel];
+    self.userNameLabel.text = party.nickname;
     
     self.messageBgView = [[UIView alloc] init];
     self.messageBgView.backgroundColor = WifeButlerTableBackGaryColor;
@@ -90,6 +94,7 @@
     self.iconImgView.layer.masksToBounds = YES;
     self.iconImgView.image = [UIImage imageNamed:@"work_tempPhoto_big"];
     [self.messageBgView addSubview:self.iconImgView];
+    
     
     self.messageLabel = [[UILabel alloc] init];
     self.messageLabel.text = @"1条新消息";
@@ -175,6 +180,11 @@
     [self.headerBgView.layer setBorderWidth:0.5f];
     self.userNameLabel.shadowColor=[UIColor blackColor];
      self.userNameLabel.shadowOffset = CGSizeMake(0, 1.0f);
+    
+    self.userBgImageView.userInteractionEnabled = YES;
+    self.userBgImageView.tag = 1;
+    [self.userBgImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headerImageViewTap:)]];
+
 }
 
 -(void)binWithModel:(id)model
@@ -190,9 +200,6 @@
 //    [self.userBgImageView sd_setImageWithURL:[NSURL URLWithString:codeurl] placeholderImage:[UIImage imageNamed:@"academic_popview_background"]];
 //
 //    self.userNameLabel.text = docParty.name;
-//    self.userBgImageView.userInteractionEnabled = YES;
-//    self.userBgImageView.tag = 1;
-//    [self.userBgImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headerImageViewTap:)]];
 }
 
 // 点击头像或背景

@@ -12,9 +12,9 @@
 // 点赞人头像
 @property(nonatomic,copy)NSString * partyheadUrl;
 // 点赞人名称
-@property(nonatomic,copy)NSString * partyName;
+@property(nonatomic,copy)NSString * nickname;
 // 点赞人Id
-@property(nonatomic,copy)NSString * partyId;
+@property(nonatomic,copy)NSString * id;
 // 点赞id
 @property(nonatomic,copy)NSString *caseHisTopRevId;
 

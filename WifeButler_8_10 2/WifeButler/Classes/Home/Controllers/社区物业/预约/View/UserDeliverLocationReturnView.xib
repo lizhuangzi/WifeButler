@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UserDeliverLocationReturnView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZTDingWei1111" translatesAutoresizingMaskIntoConstraints="NO" id="Lfo-Hi-xoP">
+                    <rect key="frame" x="15" y="31" width="20" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="VXs-6Y-MD9"/>
+                        <constraint firstAttribute="height" constant="27" id="eGh-E5-Qq9"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XX 先生 189920012939" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QL7-Do-4Z8">
+                    <rect key="frame" x="47" y="15" width="278" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="Scc-nx-WQN">
+                    <rect key="frame" x="350" y="35" width="10" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="10" id="CWa-DL-dof"/>
+                        <constraint firstAttribute="height" constant="18" id="cO9-TM-VMZ"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="蓝旗营小区2号楼714" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9e-px-WSE">
+                    <rect key="frame" x="47" y="56" width="278" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.54901960780000003" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="QL7-Do-4Z8" secondAttribute="trailing" constant="50" id="7Ps-s1-FhG"/>
+                <constraint firstItem="Scc-nx-WQN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="85x-0I-jEy"/>
+                <constraint firstItem="QL7-Do-4Z8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="47" id="Dfd-oa-Zy3"/>
+                <constraint firstAttribute="trailing" secondItem="t9e-px-WSE" secondAttribute="trailing" constant="50" id="R8y-8O-gke"/>
+                <constraint firstItem="QL7-Do-4Z8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="RRA-sc-mMg"/>
+                <constraint firstItem="Lfo-Hi-xoP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="e7w-Zr-I8y"/>
+                <constraint firstItem="t9e-px-WSE" firstAttribute="leading" secondItem="QL7-Do-4Z8" secondAttribute="leading" id="fJT-2o-yfj"/>
+                <constraint firstItem="Lfo-Hi-xoP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="gly-C3-tSq"/>
+                <constraint firstAttribute="bottom" secondItem="t9e-px-WSE" secondAttribute="bottom" constant="15" id="tis-Ht-vwA"/>
+                <constraint firstAttribute="trailing" secondItem="Scc-nx-WQN" secondAttribute="trailing" constant="15" id="ze2-VF-2Pk"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="LocationInfo" destination="t9e-px-WSE" id="7jl-dv-FMC"/>
+                <outlet property="userInfo" destination="QL7-Do-4Z8" id="6CZ-sJ-1go"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="222"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ZTDingWei1111" width="34" height="48"/>
+        <image name="rightArrow" width="9" height="16"/>
+    </resources>
+</document>

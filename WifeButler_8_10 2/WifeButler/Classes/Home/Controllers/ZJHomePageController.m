@@ -23,6 +23,9 @@
 #import "ZJGoodsDetailVC.h"
 #import "ServiceDetailViewController.h"
 #import "CommunityRealEstateController.h"
+#import "RecycleViewController.h"
+#import "EnzymesRecycleViewController.h"
+#import "MedRefFriendCircleViewController.h"
 
 #import "ZTJianKangShenHuoBottomModel.h"
 #import "ZTLunBoToModel.h"
@@ -250,8 +253,11 @@
 {
     switch (index) {
         case 0:{ //社区圈子
-            [SVProgressHUD showInfoWithStatus:@"功能暂未开放"];
+            //[SVProgressHUD showInfoWithStatus:@"功能暂未开放"];
             //     WifeButlerLetUserLoginCode
+            
+            MedRefFriendCircleViewController * circle = [[MedRefFriendCircleViewController alloc]init];
+            [self.navigationController pushViewController:circle animated:YES];
         }
             break;
         case 1:{ //社区购物
@@ -278,6 +284,15 @@
         case 5:{
             LoveDonateViewController * lo = [LoveDonateViewController new];
             [self.navigationController pushViewController:lo animated:YES];
+        }
+        case 6:{
+            RecycleViewController * re = [RecycleViewController new];
+            [self.navigationController pushViewController:re animated:YES];
+        }
+            break;
+        case 7:{
+            EnzymesRecycleViewController * ez = [EnzymesRecycleViewController new];
+            [self.navigationController pushViewController:ez animated:YES];
         }
             break;
         default:

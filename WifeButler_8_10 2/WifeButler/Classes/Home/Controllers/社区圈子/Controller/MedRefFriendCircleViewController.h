@@ -6,9 +6,9 @@
 //  Copyright © 2015年 ikuki. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "WifeButlerLoadingTableView.h"
 
 
-@interface MedRefFriendCircleViewController :UIViewController
+@interface MedRefFriendCircleViewController : UIViewController
 
 @end

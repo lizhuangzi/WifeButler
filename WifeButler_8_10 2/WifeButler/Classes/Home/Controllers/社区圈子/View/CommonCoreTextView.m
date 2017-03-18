@@ -194,10 +194,11 @@
 
 -(void)binWithAttributeStr:(NSAttributedString *)attributeStr selectRangeArray:(NSArray *)selectRangeArray
 {
-//    [self addRecognizer];
-    self.rangeArray = [selectRangeArray mutableCopy];
-    content = [[NSMutableAttributedString alloc] initWithAttributedString:attributeStr];
     
+    self.rangeArray = [selectRangeArray mutableCopy];
+//    NSAttributedString * a = [[NSAttributedString alloc]initWithString: @"user_28304: 圈子人不多哦"];
+    content = [[NSMutableAttributedString alloc] initWithAttributedString:attributeStr];
+   
     //换行模式，设置段落属性
 //    CTParagraphStyleSetting lineBreakMode;
 //    CGFloat _linespace = 2.0f;

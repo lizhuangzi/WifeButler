@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RecycleFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="286"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ywF-La-KR7">
+                    <rect key="frame" x="0.0" y="20" width="375" height="266"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recycle" translatesAutoresizingMaskIntoConstraints="NO" id="bm5-mL-6mY">
+                            <rect key="frame" x="8" y="5" width="359" height="128"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="128" id="L5M-3O-PLB"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recycle1" translatesAutoresizingMaskIntoConstraints="NO" id="0co-Vg-jqp">
+                            <rect key="frame" x="8" y="142" width="175.5" height="114"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="114" id="D9Z-Qv-qdc"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recycle2" translatesAutoresizingMaskIntoConstraints="NO" id="dQ1-dj-8i6">
+                            <rect key="frame" x="191.5" y="141" width="175.5" height="114"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="114" id="oU3-Zm-VXt"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="bm5-mL-6mY" firstAttribute="leading" secondItem="ywF-La-KR7" secondAttribute="leading" constant="8" id="4Cz-Xx-VEF"/>
+                        <constraint firstAttribute="trailing" secondItem="dQ1-dj-8i6" secondAttribute="trailing" constant="8" id="8uK-mk-x7u"/>
+                        <constraint firstItem="0co-Vg-jqp" firstAttribute="width" secondItem="dQ1-dj-8i6" secondAttribute="width" id="EEn-i5-5tj"/>
+                        <constraint firstAttribute="trailing" secondItem="bm5-mL-6mY" secondAttribute="trailing" constant="8" id="FV3-5Q-h3I"/>
+                        <constraint firstItem="0co-Vg-jqp" firstAttribute="top" secondItem="bm5-mL-6mY" secondAttribute="bottom" constant="9" id="atO-W8-5Lj"/>
+                        <constraint firstItem="0co-Vg-jqp" firstAttribute="leading" secondItem="ywF-La-KR7" secondAttribute="leading" constant="8" id="atc-Af-dtZ"/>
+                        <constraint firstItem="bm5-mL-6mY" firstAttribute="top" secondItem="ywF-La-KR7" secondAttribute="top" constant="5" id="j6T-WH-CJZ"/>
+                        <constraint firstItem="dQ1-dj-8i6" firstAttribute="top" secondItem="bm5-mL-6mY" secondAttribute="bottom" constant="8" id="tow-Mm-PTD"/>
+                        <constraint firstItem="dQ1-dj-8i6" firstAttribute="leading" secondItem="0co-Vg-jqp" secondAttribute="trailing" constant="8" id="ubn-8C-NbY"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="ywF-La-KR7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="03P-Uf-9yS"/>
+                <constraint firstItem="ywF-La-KR7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UXe-eL-GrA"/>
+                <constraint firstAttribute="bottom" secondItem="ywF-La-KR7" secondAttribute="bottom" id="h2L-58-2NX"/>
+                <constraint firstAttribute="trailing" secondItem="ywF-La-KR7" secondAttribute="trailing" id="ims-b5-1wN"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="46.5" y="-525"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="recycle" width="347" height="137"/>
+        <image name="recycle1" width="170" height="137"/>
+        <image name="recycle2" width="170" height="137"/>
+    </resources>
+</document>

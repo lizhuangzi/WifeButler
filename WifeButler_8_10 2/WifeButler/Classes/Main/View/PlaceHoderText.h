@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PlaceHoderText : UITextView
-
+@property (nonatomic,strong)UILabel *placeHoderLabel;
 @end

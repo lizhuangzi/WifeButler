@@ -18,7 +18,7 @@
 #import "ImageUtils.h"
 
 #import "DocFriendModel.h"
-#import "DocFriendHeaderModel.h"
+#import "DocImageModel.h"
 #import "DocFriendReviewModel.h"
 #import "DocFriendPraiseModel.h"
 
@@ -26,9 +26,13 @@
 #import "WifeButlerLoadingTableView.h"
 #import "WifeButlerNetWorking.h"
 #import "Masonry.h"
+#import "NetWorkPort.h"
+#import "WifeButlerDefine.h"
+#import "PhotoBrowserGetter.h"
+#import "PublicCircleViewController.h"
 
 @interface MedRefFriendCircleViewController ()<UITableViewDataSource, UITableViewDelegate,WifeButlerloadingTableViewDelegate, MedRefFriendCircleTableHeaderDelegate, CSActionSheetDelegate, FriendCircleMarkPopViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, RightBarMorePopViewDelegate>{
-    int currentPage;
+    
     NSArray *titleArray;
     NSArray *icoArray;
     NSDictionary *selectorDic;
@@ -39,11 +43,13 @@
     BOOL isPraise;  // 是否点赞
     
 }
-@property (weak, nonatomic) IBOutlet WifeButlerLoadingTableView *friendCircleTableView;
+@property (nonatomic,weak) WifeButlerLoadingTableView * tableView;
 // 数据列表
-@property(nonatomic, strong) NSMutableArray *dataSource;
+@property(nonatomic, strong) NSMutableArray *dataArray;
 // cell 头部高度
 @property(nonatomic, strong) NSMutableArray *headerHeightArray;
+/**图片浏览*/
+@property (nonatomic,strong) PhotoBrowserGetter * browserGetter;
 
 @property (nonatomic, assign) NSInteger currentOpSection; // 当前操作组，为数据源中实际位置，对应tableview需要+1
 
@@ -58,6 +64,7 @@
 // 点击全文按钮时的位置
 @property (nonatomic, assign) CGFloat selectOffect;
 
+@property (nonatomic,assign) NSUInteger page;
 @end
 
 @implementation MedRefFriendCircleViewController
@@ -73,6 +80,14 @@ static NSString * repeatDynamic = @"转发";
 -(void)dealloc
 {
     NSLog(@"学术圈销毁!");
+}
+
+- (NSMutableArray *)dataSource
+{
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -99,14 +114,14 @@ static NSString * repeatDynamic = @"转发";
 }
 
 -(void)initNavigationBar{
-    self.title = @"学术圈";
+    self.title = @"社区圈子";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"ZTAddPengYouQuan"] style:UIBarButtonItemStylePlain target:self action:@selector(rigViewClick)];
 }
 
 -(void)initMemberVariable{
 
-    currentPage = 1;
+    self.page = 1;
     self.headerHeightArray = [NSMutableArray array];
-    self.dataSource = [NSMutableArray array];
     selectorDic = @{commentString: @"publishCommentClick",
                     cancelPraise: @"cancelPraise",
                     setPraise: @"setPraise",
@@ -114,9 +129,20 @@ static NSString * repeatDynamic = @"转发";
 }
 
 -(void)initViewDisplay{
-    UINib *headerNib = [UINib nibWithNibName:@"MedRefFriendCircleTableHeader" bundle:[NSBundle mainBundle]];
-    [self.friendCircleTableView registerNib:headerNib forHeaderFooterViewReuseIdentifier:MedRefFriendCircleTableHeaderIdentifier];
-    self.friendCircleTableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    
+    WifeButlerLoadingTableView * table = [[WifeButlerLoadingTableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    table.backgroundColor = WifeButlerTableBackGaryColor;
+    table.dataSource = self;
+    table.delegate = self;
+    table.loadingDelegate = self;
+    [self.view addSubview:table];
+    table.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    [table mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.view);
+    }];
+    
+    self.tableView = table;
+    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
 }
 
 -(void)rightBarButtonClick{
@@ -126,15 +152,16 @@ static NSString * repeatDynamic = @"转发";
 }
 
 #pragma mark - 右侧更多按钮
--(void)morePopView:(RightBarMorePopView *)popView clickAtIndex:(NSInteger)index{
-
+- (void)rigViewClick
+{
+    PublicCircleViewController * vc = [[PublicCircleViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
-
 
 
 -(void)reloadHeadViewClick
 {
-    [self.friendCircleTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 
@@ -158,7 +185,18 @@ static NSString * repeatDynamic = @"转发";
 
 // 请求列表数据，showWaitting YES 显示等待框
 -(void)startApplicationRequest:(BOOL)showWaitting{
-
+    
+    [SVProgressHUD showWithStatus:@""];
+    NSDictionary * parm = @{@"token":KToken,@"pageindex":@(self.page)};
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KSheQuQuanZi parameter:parm success:^(NSArray * resultCode) {
+        
+        D_SuccessLoadingDeal(0, resultCode, ^(NSArray * arr){
+            [self processingDataWith:arr];
+        });
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        D_FailLoadingDeal(0);
+    }];
 }
 // 转发数据请求
 -(void)forwardWithComment:(NSString *)comment atSection:(NSInteger)section{
@@ -193,14 +231,14 @@ static NSString * repeatDynamic = @"转发";
     NSString *modelType = [notification.userInfo objectForKey:@"modelType"];
     for (int i = 0; i < self.dataSource.count; i ++) {
         DocFriendModel *model = self.dataSource[i];
-        if ([model.headerModel.caseHisTopId isEqualToString:changeModel.headerModel.caseHisTopId]) {
+        if ([model.id isEqualToString:changeModel.id]) {
             if ([modelType isEqualToString:@"change"]) {
                 [self.dataSource replaceObjectAtIndex:i withObject:changeModel];
             }else if ([modelType isEqualToString:@"delete"]){
                 [self.headerHeightArray removeObjectAtIndex:[self.dataSource indexOfObject:model]];
                 [self.dataSource removeObject:model];
             }
-            [self.friendCircleTableView reloadData];
+            [self.tableView reloadData];
             break;
         }
     }
@@ -223,7 +261,7 @@ static NSString * repeatDynamic = @"转发";
 -(void)calculateHeaderViewHeight:(NSArray *)array
 {
     for (DocFriendModel *model in array) {
-        CGFloat height = [MedRefFriendCircleTableHeader getHeadSectionHeadHeight:model.headerModel];
+        CGFloat height = [MedRefFriendCircleTableHeader getHeadSectionHeadHeight:model];
         [self.headerHeightArray addObject:[NSNumber numberWithFloat:height]];
     }
 
@@ -286,8 +324,10 @@ static NSString * repeatDynamic = @"转发";
             height = [self.headerHeightArray[section - 1] floatValue];
         }else{
             DocFriendModel *model = [self.dataSource objectAtIndex:section - 1];
-            height = [MedRefFriendCircleTableHeader getHeadSectionHeadHeight:model.headerModel];
+            height = [MedRefFriendCircleTableHeader getHeadSectionHeadHeight:model];
         }
+    }else{
+        return [DocFriendHeaderView headerViewHeight];
     }
     return height;
 }
@@ -309,8 +349,11 @@ static NSString * repeatDynamic = @"转发";
         return headerView;
     } else {
         MedRefFriendCircleTableHeader *docView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:MedRefFriendCircleTableHeaderIdentifier];
+        if (!docView) {
+            docView = [[NSBundle mainBundle]loadNibNamed:@"MedRefFriendCircleTableHeader" owner:nil options:nil].lastObject;
+        }
         DocFriendModel *model = [self.dataSource objectAtIndex:section - 1];
-        [docView setWorkmodel:model.headerModel atSection:section -1];
+        [docView setWorkmodel:model atSection:section -1];
         docView.delegate = self;
         docView.contentView.backgroundColor = [UIColor whiteColor];
                 
@@ -320,10 +363,10 @@ static NSString * repeatDynamic = @"转发";
         }];
         
         // 投诉
-        [docView setDidReportItemClick:^(DocFriendHeaderModel *model) {
+        [docView setDidReportItemClick:^(DocFriendModel *model) {
         }];
         // 转发给好友
-        [docView setDidForwardItemClick:^(NSString *forwordType, DocFriendHeaderModel *model){
+        [docView setDidForwardItemClick:^(NSString *forwordType, DocFriendModel *model){
           
         }];
 
@@ -338,7 +381,7 @@ static NSString * repeatDynamic = @"转发";
         return 0;
     } else {
         DocFriendModel *model = [self.dataSource objectAtIndex:indexPath.section - 1];
-        if(indexPath.row == 0 && model.praiseArray.count > 0){
+        if(indexPath.row == 0 && model.some.count > 0){
             // 如果有点赞
             height = [MedRefFriendCircleTableCell getHeadSectionRowHeightWithPraiseArray:model];
         } else {
@@ -357,7 +400,7 @@ static NSString * repeatDynamic = @"转发";
         sectionCell = [[MedRefFriendCircleTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
         [sectionCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
-    if(indexPath.row == 0 && model.praiseArray.count > 0){
+    if(indexPath.row == 0 && model.some.count > 0){
         // 如果为分组第一个且类型为数组则该条数据为点赞消息
         [sectionCell setPraiseArray:model atIndexPath:indexPath];
         // 有评论需要显示分割线
@@ -403,19 +446,20 @@ static NSString * repeatDynamic = @"转发";
             [[UIMenuController sharedMenuController] setMenuVisible:NO animated:YES];
             return;
         }
-        if(indexPath.row == 0 && currentModel.praiseArray.count > 0){
+        if(indexPath.row == 0 && currentModel.some.count > 0){
             // 如果为分组第一个且类型为数组则该条数据为点赞消息
         } else {
             DocFriendReviewModel *model = [currentModel.reviewArray objectAtIndex:indexPath.row];
             weakSelf.currentOpIndexPath = indexPath;
             weakSelf.currentOpSection = indexPath.section - 1;
-            if ([model.partyId isEqualToString:[WifeButlerAccount sharedAccount].userParty.Id]) { // 点击自己的评论
-                CSActionSheet *action = [[CSActionSheet alloc] initWithNewTitle:nil delegate:weakSelf cancelButtonTitle:@"取消" destructiveButtonTitle:@"删除" otherButtonTitles:nil, nil];
+            NSString * partyId = [WifeButlerAccount sharedAccount].userParty.Id;
+            if ([model.uid isEqualToString:partyId]) { // 点击自己的评论
+                CSActionSheet *action = [[CSActionSheet alloc] initWithNewTitle:@"" delegate:weakSelf cancelButtonTitle:@"取消" destructiveButtonTitle:@"删除" otherButtonTitles:nil, nil];
                 action.tag = 1;
                 [action show];
                 
             }else{  // 点击别人的评论
-                weakSelf.commentPlaceholder = [NSString stringWithFormat:@"回复%@:",model.partyName];
+                weakSelf.commentPlaceholder = [NSString stringWithFormat:@"回复%@:",model.nickname];
                 weakSelf.replyModel = model;
                 [weakSelf publishCommentClick];
             }
@@ -450,35 +494,29 @@ static NSString * repeatDynamic = @"转发";
 // 点击转发对象名称
 -(void)tableHeaderView:(MedRefFriendCircleTableHeader *)headerView forwardNameClickAtSection:(NSInteger)section{
     DocFriendModel *workModel = [self.dataSource objectAtIndex:section];
-    [self pushToPersonalZone:workModel.headerModel.forwardPartyId];
+    [self pushToPersonalZone:workModel.forwardPartyId];
 }
-// 点击链接图片
--(void)tableHeaderView:(MedRefFriendCircleTableHeader *)headerView authorClickAtSection:(NSInteger)section{
-    DocFriendModel *workModel = [self.dataSource objectAtIndex:section];
-   
-    [self pushToPersonalZone:workModel.headerModel.articleAuthorId];
-    
-}
+
 // 全文按钮点击
 -(void)tableHeaderView:(MedRefFriendCircleTableHeader *)headerView showAllClickAtSection:(NSInteger)section
 {
     // 重新计算高度 放入高度存储数组中
     DocFriendModel *workModel = [self.dataSource objectAtIndex:section];
-    CGFloat height = [MedRefFriendCircleTableHeader getHeadSectionHeadHeight: workModel.headerModel];
+    CGFloat height = [MedRefFriendCircleTableHeader getHeadSectionHeadHeight: workModel];
     [self.headerHeightArray replaceObjectAtIndex:section withObject:[NSNumber numberWithFloat:height]];
-    if (workModel.headerModel.isShowAll) {
-        self.selectOffect = self.friendCircleTableView.contentOffset.y;
+    if (workModel.isShowAll) {
+        self.selectOffect = self.tableView.contentOffset.y;
     }else{
         [UIView animateWithDuration:0.2 animations:^{
-           self.friendCircleTableView.contentOffset = CGPointMake(0, self.selectOffect);
+           self.tableView.contentOffset = CGPointMake(0, self.selectOffect);
         }];
     }
-    [self.friendCircleTableView reloadSections:[[NSIndexSet alloc] initWithIndex:section + 1] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView reloadSections:[[NSIndexSet alloc] initWithIndex:section + 1] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 
 #pragma mark - privat method 页面跳转
-// 进入个人相册页面
+// 进入个人主面
 -(void)pushPhotoAlbumWithPartyId:(NSString *)partyId
 {
    
@@ -501,10 +539,10 @@ static NSString * repeatDynamic = @"转发";
     
     //判断是否点赞
     isPraise = NO;
-    NSInteger count = currentModel.praiseArray.count;
+    NSInteger count = currentModel.some.count;
     for (NSInteger index = 0; index < count; index++) {
-        DocFriendPraiseModel *model = [currentModel.praiseArray objectAtIndex:index];
-        if ([model.partyId isEqualToString:@""]) {
+        DocFriendPraiseModel *model = [currentModel.some objectAtIndex:index];
+        if ([model.id isEqualToString:@""]) {
             isPraise=YES;
             userPraiseIndex = index;
             caseHisTopRevId = model.caseHisTopRevId;
@@ -519,7 +557,7 @@ static NSString * repeatDynamic = @"转发";
         titleArray = @[setPraise, commentString, repeatDynamic];
     }
     // 如果是自己发布的不显示转发按钮
-    if ([currentModel.headerModel.partyId isEqualToString:@""]){// [model.chtTypeEnumFK isEqualToString:@"话题"] || [model.chtTypeEnumFK isEqualToString:@"病历"]
+    if ([currentModel.id isEqualToString:@""]){// [model.chtTypeEnumFK isEqualToString:@"话题"] || [model.chtTypeEnumFK isEqualToString:@"病历"]
         icoArray=@[@"academic_praise_n",@"academic_review"];
         if (isPraise==YES) { // 已点赞
             titleArray = @[cancelPraise, commentString];
@@ -583,6 +621,17 @@ static NSString * repeatDynamic = @"转发";
     alert.tag = 1002;
     [alert show];
 }
+#pragma mark - 预览多张图片
+- (void)tableHeaderView:(MedRefFriendCircleTableHeader *)headerView didClickImageViewIndex:(NSUInteger)index andImageModelArr:(NSArray *)arr
+{
+    NSMutableArray * temp = [NSMutableArray array];
+    for (DocImageModel * model in arr) {
+        [temp addObject: model.url];
+    }
+    self.browserGetter = [PhotoBrowserGetter browserGetter];
+    UIViewController * vc = [self.browserGetter getBrowserWithCurrentIndex:index andimageURLStrings:temp];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 #pragma - mark alertView delegate
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -601,23 +650,23 @@ static NSString * repeatDynamic = @"转发";
     CGFloat height;
     // 有评论或点赞 取 cell 的相对位置
     if (currentModel.cellCount > 0) {
-        MedRefFriendCircleTableCell *cell=[self.friendCircleTableView cellForRowAtIndexPath:path];
-        CGRect frame = [self.friendCircleTableView convertRect:cell.frame toView:[[UIApplication sharedApplication].delegate window]];
+        MedRefFriendCircleTableCell *cell=[self.tableView cellForRowAtIndexPath:path];
+        CGRect frame = [self.tableView convertRect:cell.frame toView:[[UIApplication sharedApplication].delegate window]];
         height=frame.size.height+frame.origin.y;
         // 如果点击的是最后一个cell 需要加上 cell已底部的间距 15
         if (path.row == currentModel.cellCount - 1) {
-            frame = [self.friendCircleTableView convertRect:[self.friendCircleTableView rectForSection:path.section] toView:[[UIApplication sharedApplication].delegate window]];
+            frame = [self.tableView convertRect:[self.tableView rectForSection:path.section] toView:[[UIApplication sharedApplication].delegate window]];
             height=frame.size.height+frame.origin.y;
         }
     }else{ // 没有评论或点赞 取 headerView 的相对位置
-        MedRefFriendCircleTableHeader *header=(MedRefFriendCircleTableHeader *)[self.friendCircleTableView headerViewForSection:self.currentOpIndexPath.section];
-        CGRect frame = [self.friendCircleTableView convertRect:header.frame toView:[[UIApplication sharedApplication].delegate window]];
+        MedRefFriendCircleTableHeader *header=(MedRefFriendCircleTableHeader *)[self.tableView headerViewForSection:self.currentOpIndexPath.section];
+        CGRect frame = [self.tableView convertRect:header.frame toView:[[UIApplication sharedApplication].delegate window]];
         height=frame.size.height+frame.origin.y+15;
     }
     CGFloat commentHeight=bottomview.frame.origin.y;
     CGFloat transform = commentHeight - height > 0 ? 0 : commentHeight-height;
-    CGPoint point=self.friendCircleTableView.contentOffset;
-    [self.friendCircleTableView setContentOffset:CGPointMake(point.x, point.y-transform) animated:YES];
+    CGPoint point=self.tableView.contentOffset;
+    [self.tableView setContentOffset:CGPointMake(point.x, point.y-transform) animated:YES];
 }
 
 
@@ -669,14 +718,14 @@ static NSString * repeatDynamic = @"转发";
 
 // 刷新页面数据
 -(void)reloatTableView{
-    [self.friendCircleTableView reloadData];
+    [self.tableView reloadData];
 }
 
 
 #pragma mark - WifeButlerLoadingTableView代理
 - (void)WifeButlerLoadingTableViewDidRefresh:(WifeButlerLoadingTableView *)tableView
 {
-    currentPage = 1;
+    self.page = 1;
     [self becomeFirstResponder];
     [self startApplicationRequest:NO];
 
@@ -684,8 +733,174 @@ static NSString * repeatDynamic = @"转发";
 
 - (void)WifeButlerLoadingTableViewDidLoadingMore:(WifeButlerLoadingTableView *)tableView
 {
-    currentPage ++;
+    self.page ++;
     [self startApplicationRequest:NO];
 }
 
 @end
+
+
+
+/*
+
+(
+ {
+     "argued_id" = 0;
+     "argued_name" = "";
+     avatar = "/public/upload/images/20170108/recson_20170108143733343924005208.jpg";
+     content = "";
+     discuss =         (
+                        {
+                            "argued_id" = 0;
+                            "argued_name" = "";
+                            avatar = "/public/upload/images/20170105/recson_201701050945241788510072433.jpg";
+                            child =                 (
+                            );
+                            content = "\U5783\U573e\U5206\U7c7b";
+                            id = 4;
+                            level = 1;
+                            nickname = "\U7f57\U5ddd";
+                            time = 1483879212;
+                            "topic_id" = 3;
+                            uid = 1;
+                            "up_user" = 3;
+                            upid = 3;
+                        },
+                        {
+                            "argued_id" = 0;
+                            "argued_name" = "";
+                            avatar = "/public/upload/images/20160825/recson_201608251035032220910027279.jpg";
+                            child =                 (
+                            );
+                            content = "\U5708\U5b50\U4eba\U4e0d\U591a\U54e6";
+                            id = 7;
+                            level = 1;
+                            nickname = "user_28304";
+                            time = 1488037191;
+                            "topic_id" = 3;
+                            uid = 51;
+                            "up_user" = 3;
+                            upid = 3;
+                        }
+                        );
+     gallery =         (
+                        {
+                            h = 600;
+                            url = "https://app.icanchubao.com/./public/upload/images/20170108/recson_201701081438134606590031272.jpg";
+                            w = 450;
+                        },
+                        {
+                            h = 450;
+                            url = "https://app.icanchubao.com/./public/upload/images/20170108/recson_201701081438135128690038523.jpg";
+                            w = 600;
+                        },
+                        {
+                            h = 450;
+                            url = "https://app.icanchubao.com/./public/upload/images/20170108/recson_201701081438135662220084079.jpg";
+                            w = 600;
+                        },
+                        {
+                            h = 450;
+                            url = "https://app.icanchubao.com/./public/upload/images/20170108/recson_201701081438136335130069129.jpg";
+                            w = 600;
+                        },
+                        {
+                            h = 450;
+                            url = "https://app.icanchubao.com/./public/upload/images/20170108/recson_201701081438136832080090239.jpg";
+                            w = 600;
+                        }
+                        );
+     id = 3;
+     level = 0;
+     myup = 0;
+     nickname = "\U738b\U6dcb";
+     some =         (
+                     {
+                         id = 51;
+                         nickname = "user_283041";
+                     },
+                     {
+                         id = 1;
+                         nickname = "\U7f57\U5ddd";
+                     },
+                     {
+                         id = 9;
+                         nickname = "user_458671";
+                     }
+                     );
+     time = 1483857493;
+     "topic_id" = 0;
+     uid = 3;
+     "up_user" = 0;
+     upid = 0;
+     use = 0;
+ },
+ {
+     "argued_id" = 0;
+     "argued_name" = "";
+     avatar = "/public/upload/images/20160825/recson_201608251035032220910027279.jpg";
+     content = "";
+     discuss =         (
+                        {
+                            "argued_id" = 0;
+                            "argued_name" = "";
+                            avatar = "public/upload/images/20170108/recson_20170108143733343924005208.jpg";
+                            child =                 (
+                                                     {
+                                                         "argued_id" = 2;
+                                                         "argued_name" = "\U738b\U6dcb";
+                                                         avatar = "/public/upload/images/20170105/recson_201701050945241788510072433.jpg";
+                                                         content = "\U58c1\U7eb8";
+                                                         id = 6;
+                                                         level = 2;
+                                                         nickname = "\U7f57\U5ddd";
+                                                         time = 1483942755;
+                                                         "topic_id" = 1;
+                                                         uid = 1;
+                                                         "up_user" = 3;
+                                                         upid = 2;
+                                                     }
+                                                     );
+                            content = "\U4ec0\U4e48\U56fe";
+                            id = 2;
+                            level = 1;
+                            nickname = "\U738b\U6dcb";
+                            time = 1483692850;
+                            "topic_id" = 1;
+                            uid = 3;
+                            "up_user" = 4;
+                            upid = 1;
+                        }
+                        );
+     gallery =         (
+                        {
+                            h = 480;
+                            url = "https://app.icanchubao.com/./public/upload/images/20170106/recson_201701061159510544970013061.jpg";
+                            w = 270;
+                        }
+                        );
+     id = 1;
+     level = 0;
+     myup = 0;
+     nickname = "\U5f20\U4e91\U5a1f";
+     some =         (
+                     {
+                         id = 3;
+                         nickname = "user_262812";
+                     },
+                     {
+                         id = 4;
+                         nickname = "\U5f20\U4e91\U5a1f";
+                     }
+                     );
+     time = 1483675191;
+     "topic_id" = 0;
+     uid = 4;
+     "up_user" = 0;
+     upid = 0;
+     use = 0;
+ }
+ )
+ 
+ */
+

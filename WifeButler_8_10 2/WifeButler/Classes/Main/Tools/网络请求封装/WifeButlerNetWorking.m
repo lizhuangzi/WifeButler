@@ -93,9 +93,10 @@
             }
         }else{
             if ([response[@"code"] intValue] == 20000) { //请求接口错误
-                NSError * error = [NSError errorWithDomain:NSMachErrorDomain code:20000 userInfo:@{@"msg":response[@"message"]}];
-                failure(error);
-
+                if (response[@"message"]) {
+                    NSError * error = [NSError errorWithDomain:NSMachErrorDomain code:20000 userInfo:@{@"msg":response[@"message"]}];
+                    failure(error);
+                }
             }else if ([response[@"code"] intValue] == 30000){
                 NSError * error = [NSError errorWithDomain:NSMachErrorDomain code:30000 userInfo:@{@"msg":response[@"message"]}];
                 failure(error);

@@ -118,7 +118,7 @@ static float viewRightSpace = 10.0f;        // 页面右侧间距
     WEAKSELF
     [coreTextView setDidHighlightTextWithIndexClick:^(NSInteger index) {
         DocFriendPraiseModel *model = weakSelf.praiseModelArray[index];
-        [weakSelf didPraiseClickWithPartyId:model.partyId];
+        [weakSelf didPraiseClickWithPartyId:model.id];
     }];
     
     // 评论背景
@@ -147,9 +147,9 @@ static float viewRightSpace = 10.0f;        // 页面右侧间距
     // 点击名字
     [reviseView setDidHighlightTextWithIndexClick:^(NSInteger index) {
         if (index == 0) {
-            [weakSelf didPraiseClickWithPartyId:weakSelf.commentModel.partyId];
+            [weakSelf didPraiseClickWithPartyId:weakSelf.commentModel.id];
         }else{
-            [weakSelf didPraiseClickWithPartyId:weakSelf.commentModel.replyId];
+            [weakSelf didPraiseClickWithPartyId:weakSelf.commentModel.argued_id];
         }
     }];
     // 点击其他区域
@@ -176,7 +176,7 @@ static float viewRightSpace = 10.0f;        // 页面右侧间距
 -(void)commentButtonClick
 {
     if (self.didNameClick) {
-        self.didNameClick(self.commentModel.partyId);
+        self.didNameClick(self.commentModel.id);
         NSLog(@"点击回复人名称");
     }
 }
@@ -185,7 +185,7 @@ static float viewRightSpace = 10.0f;        // 页面右侧间距
 -(void)replyButtonClick
 {
     if (self.didNameClick) {
-        self.didNameClick(self.commentModel.replyId);
+        self.didNameClick(self.commentModel.argued_id);
         NSLog(@"点击被回复人名称");
     }
 }
@@ -239,7 +239,7 @@ static float viewRightSpace = 10.0f;        // 页面右侧间距
         make.top.mas_equalTo(self.contentView.mas_top).offset(3);
     }];
     
-    self.praiseModelArray = model.praiseArray;
+    self.praiseModelArray = model.some;
 
     [coreTextView binWithAttributeStr:model.praiseAttributed selectRangeArray:model.praiseRangeArray];
 
@@ -272,8 +272,6 @@ static float viewRightSpace = 10.0f;        // 页面右侧间距
     [reviseView binWithAttributeStr:personInfoModel.contentAttributed selectRangeArray:personInfoModel.rangeArray];
 }
 
-- (void)awakeFromNib {
-}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -292,7 +290,7 @@ static float viewRightSpace = 10.0f;        // 页面右侧间距
     UIMenuItem *reportItem = [[UIMenuItem alloc] initWithTitle:@"投诉" action:@selector(didReportClick)];
     
     UIMenuController *menuController = [UIMenuController sharedMenuController];
-    if ([self.commentModel.partyId isEqualToString:@"" ]) { // 是自己的评论
+    if ([self.commentModel.id isEqualToString:@"" ]) { // 是自己的评论
         [menuController setMenuItems:@[collectionItem,copyItem]];
     }else{
         [menuController setMenuItems:@[collectionItem,copyItem,reportItem]];

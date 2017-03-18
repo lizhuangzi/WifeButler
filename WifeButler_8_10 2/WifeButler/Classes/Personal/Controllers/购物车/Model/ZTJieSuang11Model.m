@@ -7,12 +7,19 @@
 //
 
 #import "ZTJieSuang11Model.h"
+#import "MJExtension.h"
 
 @implementation ZTJieSuang11Model
 
 - (void)setMoney:(NSString *)money
 {
     _money = money;        
+}
+
++ (NSDictionary *)mj_objectClassInArray{
+    return @{ 
+              @"goods" : @"ZTJieShuan2Model"
+              };
 }
 
 @end

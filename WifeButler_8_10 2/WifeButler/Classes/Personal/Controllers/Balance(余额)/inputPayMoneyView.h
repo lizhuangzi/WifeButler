@@ -20,4 +20,6 @@ typedef void(^payBlock)(NSString * price);
 
 + (instancetype)inputMoney;
 
+- (void)setfixedmoney:(NSString *)money;
+
 @end

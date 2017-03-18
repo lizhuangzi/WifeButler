@@ -47,21 +47,14 @@
 @property (nonatomic,weak) UIButton * currentSelectSexBtn;
 
 
-/**
- *  区id
- */
-@property (nonatomic, copy) NSString * qu_id;
-
-/**
- *  小区id
- */
-@property (nonatomic, copy) NSString * xiaoQu_id;
-
 // 小区地址
 @property (weak, nonatomic) IBOutlet UILabel *xiaoQuLab;
 
 
 @property (nonatomic,strong) ZTBianjiModel * dataModel;
+
+
+@property (nonatomic,strong) ZTXiaoQuXuanZe * returnXiaoQuModel;
 @end
 
 @implementation ZTBianJiDiZhiTableViewController
@@ -82,7 +75,12 @@
 }
 - (IBAction)sureClick {
     
-     [self downLoadInfo];
+    if (self.isAddAddress) {
+        [self downLoadInfo];
+    }else{
+        [self editingTheAddress];
+    }
+    
 }
 
 - (void)setPram
@@ -99,12 +97,11 @@
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZTBianJiShouHuoDiZhi" bundle:nil];
     ZTXiaoQuXuanZeViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ZTXiaoQuXuanZeViewController"];
-    vc.address_id = self.qu_id;
+    vc.address_id = self.address_id;
     [vc setAddressBlack:^(ZTXiaoQuXuanZe *model) {
-       
+      
+        self.returnXiaoQuModel = model;
         self.xiaoQuLab.text =  model.village;
-        self.xiaoQu_id = model.id;
-
     }];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -154,38 +151,19 @@
 - (void)downLoadInfo
 {
     
-    if ([NSString isShouHuoRen:self.nameTextF.text] == NO) {
-        
-        [SVProgressHUD showErrorWithStatus:@"收货人格式不正确"];
-        return;
-    }
+    if (![self isForrmattRight]) return;
     
-    if ([NSString validateMobile:self.iphoneTextF.text] == NO) {
-        
-        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号"];
-        return;
-    }
-    
-    if ([self.address2TextV.text length] == 0) {
-        
-        [SVProgressHUD showErrorWithStatus:@"详细地址不能为空哦!"];
-        return;
-    }
-    if ([self.xiaoQu_id length] == 0) {
-        
-        [SVProgressHUD showErrorWithStatus:@"小区不能为空哦!"];
-        return;
-    }
-   
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
     
     [dic setObject:KToken forKey:@"token"];
     [dic setObject:self.nameTextF.text forKey:@"realname"];
     [dic setObject:self.iphoneTextF.text forKey:@"phone"];
-    [dic setObject:self.qu_id forKey:@"qu"]; //village
-    //address -> postion;
     [dic setObject:self.address2TextV.text forKey:@"address"];
-    [dic setObject:self.xiaoQu_id forKey:@"village"];
+    
+    [dic setObject:self.returnXiaoQuModel.village forKey:@"qu"];
+    [dic setObject:self.returnXiaoQuModel.position forKey:@"position"];
+    [dic setObject:self.returnXiaoQuModel.longitude forKey:@"lng"];
+    [dic setObject:self.returnXiaoQuModel.latitude forKey:@"lat"];
     
     // 是默认地址
     if (_isMoRenAddress.on == YES) {
@@ -197,6 +175,11 @@
         [dic setObject:@"1" forKey:@"defaults"];
     }
     
+    if (self.currentSelectSexBtn.tag == 0) {
+        dic[@"sex"] = @"男";
+    }else {
+        dic[@"sex"] = @"女";
+    }
     [SVProgressHUD showWithStatus:@"加载中..."];
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KAddShouHuoAddress parameter:dic success:^(id resultCode) {
         
@@ -218,15 +201,31 @@
 #pragma mark -编辑收货地址
 - (void)editingTheAddress{
     
+    if (![self isForrmattRight]) return;
+    
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
     
     [dic setObject:KToken forKey:@"token"];
     [dic setObject:self.nameTextF.text forKey:@"realname"];
     [dic setObject:self.iphoneTextF.text forKey:@"phone"];
-    [dic setObject:self.qu_id forKey:@"qu"]; //village
-    //address -> postion;
+    if (self.returnXiaoQuModel) {
+        
+        [dic setObject:self.returnXiaoQuModel.village forKey:@"qu"];
+        [dic setObject:self.returnXiaoQuModel.position forKey:@"position"];
+        [dic setObject:self.returnXiaoQuModel.longitude forKey:@"lng"];
+        [dic setObject:self.returnXiaoQuModel.latitude forKey:@"lat"];
+        
+    }else{
+        
+        [dic setObject:self.xiaoQuLab.text forKey:@"qu"];
+        [dic setObject:self.dataModel.position forKey:@"position"];
+        [dic setObject:self.dataModel.longitude forKey:@"lng"];
+        [dic setObject:self.dataModel.lat forKey:@"lat"];
+        
+    }
+    [dic setObject:self.xiaoQuLab.text forKey:@"qu"]; //village
+
     [dic setObject:self.address2TextV.text forKey:@"address"];
-    [dic setObject:self.xiaoQu_id forKey:@"village"];
     [dic setObject:self.address_id forKey:@"id"];
     // 是默认地址
     if (_isMoRenAddress.on == YES) {
@@ -237,19 +236,53 @@
     {
         [dic setObject:@"1" forKey:@"defaults"];
     }
-
+    if (self.currentSelectSexBtn.tag == 0) {
+        dic[@"sex"] = @"男";
+    }else {
+        dic[@"sex"] = @"女";
+    }
+    
+    [SVProgressHUD showWithStatus:@"加载中..."];
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KBianJiShouHuoAddress parameter:dic success:^(id resultCode) {
         
+        [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+        if (self.relshBlack) {
+            self.relshBlack();
+        }
+        [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSError *error) {
-        
+        SVDCommonErrorDeal
     }];
 }
 
-// returns the number of 'columns' to display.
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
+- (BOOL)isForrmattRight{
     
-    return 3;
+    if ([NSString isShouHuoRen:self.nameTextF.text] == NO) {
+        
+        [SVProgressHUD showErrorWithStatus:@"收货人格式不正确"];
+        return NO;
+    }
+    
+    if ([NSString validateMobile:self.iphoneTextF.text] == NO) {
+        
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号"];
+        return NO;
+    }
+    
+    if ([self.address2TextV.text length] == 0) {
+        
+        [SVProgressHUD showErrorWithStatus:@"详细地址不能为空哦!"];
+        return NO;
+    }
+    if (self.currentSelectSexBtn == nil) {
+        [SVProgressHUD showErrorWithStatus:@"请选择性别哟!"];
+        return NO;
+
+    }
+    if (self.xiaoQuLab.text.length == 0) {
+         [SVProgressHUD showErrorWithStatus:@"请选择小区!"];
+    }
+    return YES;
 }
 
 

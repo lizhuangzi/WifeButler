@@ -38,7 +38,7 @@
 
         NSMutableAttributedString * attstr = [[NSMutableAttributedString alloc]initWithAttributedString:moren];
         
-       [attstr addAttribute:NSForegroundColorAttributeName value:WifeButlerCommonRedColor range:NSMakeRange(0, 3)];
+       [attstr addAttribute:NSForegroundColorAttributeName value:WifeButlerCommonRedColor range:NSMakeRange(0, 4)];
        
         NSAttributedString * villageAttr = [[NSAttributedString alloc]initWithString:village];
         [attstr appendAttributedString:villageAttr];

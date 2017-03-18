@@ -97,20 +97,20 @@
         [self addSubview:itemsBgView];
         
         _titlesArray = [NSMutableArray array];
-        if (title.length == 0) {
+        if (title.length != 0) {
             _titleString = title;
             self.hasTitle = YES;
         } else {
             self.hasTitle = NO;
         }
-        if (destructiveTitle.length == 0) {
+        if (destructiveTitle.length != 0) {
             self.hasDestructiveButton = YES;
             [_titlesArray addObject:destructiveTitle];
         } else {
             self.hasDestructiveButton = NO;
         }
         
-        if (cancelTitle.length == 0) {
+        if (cancelTitle.length != 0) {
             self.hasCancelButton = YES;
             _cancelTitle = cancelTitle;
         } else {

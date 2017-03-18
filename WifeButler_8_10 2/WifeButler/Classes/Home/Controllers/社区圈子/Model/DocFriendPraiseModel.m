@@ -17,12 +17,6 @@ MJCodingImplementation;
     
 }
 
--(NSString *)partyName
-{
-    if (_partyName == nil) {
-        return @"";
-    }
-    return _partyName;
-}
+
 
 @end

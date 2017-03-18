@@ -10,25 +10,27 @@
 
 @interface DocFriendReviewModel : NSObject<NSCoding>
 // 评论人名称
-@property (nonatomic, copy) NSString *partyName;
-// 评论人Id
-@property (nonatomic, copy) NSString *partyId;
-// 评论人头像
-@property (nonatomic,copy)  NSString * partyheadUrl;
-// 这条评论的Id
-@property (nonatomic, copy) NSString *caseHisTopRevId;
+@property (nonatomic, copy) NSString *nickname;
+// 评论Id
+@property (nonatomic, copy) NSString *id;
+
+/**评论人id*/
+@property (nonatomic,copy)NSString * uid;
+
+@property (nonatomic,copy)NSString * avatar;
+
+@property (nonatomic,strong) NSArray * child;
+
 // 评论内容
 @property (nonatomic, copy) NSString *content;
 // 是否是回复别人
 @property (nonatomic, assign) BOOL isReviewOther;
 // 被回复人名称
-@property (nonatomic, copy) NSString *replyName;
-// 被回复人头像
-@property (nonatomic, copy) NSString *replyHeadurl;
+@property (nonatomic, copy) NSString *argued_name;
+
 // 被回复人Id
-@property (nonatomic, copy) NSString *replyId;
-// 被回复的那条评论的Id  有被回复人就有此Id
-@property (nonatomic, copy) NSString *replyTopRevId;
+@property (nonatomic, copy) NSString *argued_id;
+
 // 时间
 @property (nonatomic, copy) NSString *createdStamp;
 // attributed

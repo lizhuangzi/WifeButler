@@ -64,7 +64,7 @@
     
     WEAKSELF;
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [weakSelf downLoadInfoSearch:self.XiaoQusearchBar.text Coordinate2D:self.current2D];
+        [weakSelf downLoadInfoSearch:weakSelf.XiaoQusearchBar.text Coordinate2D:weakSelf.current2D];
     }];
     
     [[WifeButlerLocationManager sharedManager] startLocationAndFinishBlock:^(WifeButlerLocationModel *locationInfo) {
@@ -171,5 +171,8 @@
     
 }
 
-
+- (void)dealloc
+{
+    ZJLog(@"选择小区 dealloc *****");
+}
 @end

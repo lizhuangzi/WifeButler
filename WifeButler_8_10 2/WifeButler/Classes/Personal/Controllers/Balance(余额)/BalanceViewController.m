@@ -115,6 +115,7 @@
                 }else{ //进入选择提现的银行卡界面
                     WithdrawDepositViewController * cardList = [[WithdrawDepositViewController alloc]init];
                     cardList.orderID = orderId;
+                    cardList.money = money;
                     [weakSelf.navigationController pushViewController:cardList animated:YES];
                 }
                 

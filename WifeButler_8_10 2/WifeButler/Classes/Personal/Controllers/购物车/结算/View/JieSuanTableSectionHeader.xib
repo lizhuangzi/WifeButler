@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="JieSuanTableSectionHeader">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fjs-r8-mhG">
+                    <rect key="frame" x="0.0" y="10" width="375" height="36"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="superMarket" translatesAutoresizingMaskIntoConstraints="NO" id="nfb-fu-cUi">
+                    <rect key="frame" x="15" y="18" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="tyf-tX-FNb"/>
+                        <constraint firstAttribute="width" constant="20" id="x5J-y5-h5M"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="思雨超市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWD-en-Ntg">
+                    <rect key="frame" x="43" y="19" width="62" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAt-Ng-CSi">
+                    <rect key="frame" x="0.0" y="46" width="375" height="0.0"/>
+                    <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.69999999999999996" id="NhZ-Rl-25J"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="xWD-en-Ntg" firstAttribute="centerY" secondItem="nfb-fu-cUi" secondAttribute="centerY" id="2XL-Zn-zSe"/>
+                <constraint firstItem="fjs-r8-mhG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="FST-xc-bwK"/>
+                <constraint firstAttribute="bottom" secondItem="fjs-r8-mhG" secondAttribute="bottom" id="La7-xf-RHh"/>
+                <constraint firstAttribute="trailing" secondItem="fjs-r8-mhG" secondAttribute="trailing" id="MOZ-kk-htV"/>
+                <constraint firstItem="nfb-fu-cUi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="MeI-Eh-IFe"/>
+                <constraint firstItem="fjs-r8-mhG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="g9u-Oq-WDB"/>
+                <constraint firstItem="xWD-en-Ntg" firstAttribute="leading" secondItem="nfb-fu-cUi" secondAttribute="trailing" constant="8" id="hjV-wM-XBW"/>
+                <constraint firstAttribute="trailing" secondItem="OAt-Ng-CSi" secondAttribute="trailing" id="mb2-PJ-Bjy"/>
+                <constraint firstItem="OAt-Ng-CSi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="oEK-tY-Xh3"/>
+                <constraint firstAttribute="bottom" secondItem="OAt-Ng-CSi" secondAttribute="bottom" id="pDW-sS-hFm"/>
+                <constraint firstItem="nfb-fu-cUi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="5" id="wdQ-Ea-i1p"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="shopName" destination="xWD-en-Ntg" id="95J-td-7ly"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="206"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="superMarket" width="20" height="12"/>
+    </resources>
+</document>

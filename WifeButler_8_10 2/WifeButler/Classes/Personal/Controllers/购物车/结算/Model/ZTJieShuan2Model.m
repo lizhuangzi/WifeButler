@@ -10,9 +10,4 @@
 
 @implementation ZTJieShuan2Model
 
-- (NSString *)files
-{
-    return [NSString stringWithFormat:@"%@%@", KImageUrl, _files];
-}
-
 @end

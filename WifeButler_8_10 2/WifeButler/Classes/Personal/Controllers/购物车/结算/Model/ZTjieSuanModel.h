@@ -24,6 +24,6 @@
 @property (nonatomic, copy) NSString * realname;
 @property (nonatomic, copy) NSString * times;
 @property (nonatomic, copy) NSString * uid;
-
+@property (nonatomic,copy)  NSString * sex;
 
 @end

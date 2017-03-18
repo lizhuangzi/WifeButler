@@ -181,7 +181,7 @@
             ZJGoodsDetailCell2 * cell = [tableView dequeueReusableCellWithIdentifier:@"good2"];
             cell.shopNameLabel.text = self.dataDic[@"shop_name"];
             NSString * logoUrlStr = self.dataDic[@"shop_logo"];
-            [cell.iconView sd_setImageWithURL:[NSURL URLWithString:logoUrlStr] placeholderImage:[UIImage imageNamed:@"ZTHomeLighlighted"]];
+            [cell.iconView sd_setImageWithURL:[NSURL URLWithString:logoUrlStr] placeholderImage:[UIImage imageNamed:@"superMarket"]];
             return cell;
         }
 

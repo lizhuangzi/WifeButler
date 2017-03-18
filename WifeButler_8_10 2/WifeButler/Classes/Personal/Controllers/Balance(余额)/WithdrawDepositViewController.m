@@ -12,6 +12,7 @@
 #import "WifeButlerNetWorking.h"
 #import "PersonalPort.h"
 #import "WifeButlerDefine.h"
+#import "WithDrawTableViewCell.h"
 
 @interface WithdrawDepositViewController ()
 
@@ -23,6 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"WithDrawTableViewCell" bundle:nil] forCellReuseIdentifier:@"WithDrawTableViewCell"];
     
     [self createFooterView];
 }
@@ -49,7 +52,7 @@
 #pragma mark - tableview 代理 , 源
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -59,21 +62,34 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"Id"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Id"];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    if (indexPath.section == 0) {
+        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"Id"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Id"];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
+        if (self.returnModel) {
+            cell.textLabel.text = self.returnModel.bankname;
+        }else
+            cell.textLabel.text = @"请选择银行卡";
+        return cell;
+
+    }else{
+        WithDrawTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"WithDrawTableViewCell"];
+        cell.moneyLabel.text = self.money;
+        return cell;
     }
-    if (self.returnModel) {
-         cell.textLabel.text = self.returnModel.bankname;
-    }else
-        cell.textLabel.text = @"请选择提现的银行卡";
-    return cell;
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44;
+    if (indexPath.section == 0) {
+        return 44;
+    }else{
+        return 70;
+    }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

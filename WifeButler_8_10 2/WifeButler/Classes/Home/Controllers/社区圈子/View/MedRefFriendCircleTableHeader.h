@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DocFriendModel.h"
 
-#define MedRefFriendCircleTableHeaderIdentifier @"MedRefFriendCircleTableHeaderIdentifier"
+#define MedRefFriendCircleTableHeaderIdentifier @"MedRefFriendCircleTableHeader"
 
 typedef enum HeaderClickType{
     kHeaderClick,
@@ -41,6 +42,8 @@ typedef enum HeaderClickType{
 // 进入个人相册页面事件
 -(void)tableHeaderView:(MedRefFriendCircleTableHeader *)headerView pushPhotoAlbumWithPartyId:(NSString *)partyId;
 
+-(void)tableHeaderView:(MedRefFriendCircleTableHeader *)headerView didClickImageViewIndex:(NSUInteger)index andImageModelArr:(NSArray *)arr;;
+
 @end
 
 @interface MedRefFriendCircleTableHeader : UITableViewHeaderFooterView
@@ -52,20 +55,20 @@ typedef enum HeaderClickType{
 // 收藏
 @property (nonatomic, copy) void (^didCollectionItemClick)(NSString *collectionType,NSString *collectionImgUrl,DocFriendHeaderModel *model);
 // 投诉
-@property (nonatomic, copy) void (^didReportItemClick)(DocFriendHeaderModel *model);
+@property (nonatomic, copy) void (^didReportItemClick)(DocFriendModel *model);
 // 转发
-@property (nonatomic, copy) void (^didForwardItemClick)(NSString *forwordType,DocFriendHeaderModel *model);
+@property (nonatomic, copy) void (^didForwardItemClick)(NSString *forwordType,DocFriendModel *model);
 
 
 /**
  * 获取view高度
  */
-+(CGFloat) getHeadSectionHeadHeight:(DocFriendHeaderModel *) model;
++(CGFloat) getHeadSectionHeadHeight:(DocFriendModel *) model;
 
 /**
  * 设置显示数据
  *  @param model
  */
--(void) setWorkmodel:(DocFriendHeaderModel *) model atSection:(NSInteger) section;
+-(void) setWorkmodel:(DocFriendModel *) model atSection:(NSInteger) section;
 
 @end

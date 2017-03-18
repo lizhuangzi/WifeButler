@@ -14,18 +14,17 @@
 #import "ZTYouHuiJuanViewController.h"
 #import "ZJLoginController.h"
 #import  "MJExtension.h"
+#import "UserDeliverLocationReturnView.h"
+#import "Masonry.h"
 
 @interface ZTYuYueViewController ()
 {
     ZTjieSuanModel *_model;
+    ZTShouHuoAddressModel * _locationModel;
 }
 
-/**
- *  名字
- */
-@property (weak, nonatomic) IBOutlet UILabel *nameLab;
-@property (weak, nonatomic) IBOutlet UILabel *shouHuoAddressLab;
-@property (weak, nonatomic) IBOutlet UILabel *iphoneLab;
+
+@property (strong, nonatomic) UserDeliverLocationReturnView *userInfoView;
 
 @property (weak, nonatomic) IBOutlet UIView *addressView;
 
@@ -62,34 +61,39 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.title = @"马上预约";
-    
-    self.moneyLab.text = self.price;
-    
-    self.allMoneLab.text = self.price;
+    [self setUpUI];
     
     [self netWorking];
     
     [self netWorkingYouHuiJuan];
 }
 
-
-- (IBAction)addressClick:(id)sender {
+- (void)setUpUI
+{
+    self.title = @"马上预约";
     
-    ZJGuangLiShouHuoDiZhiViewController *vc = [[ZJGuangLiShouHuoDiZhiViewController alloc] init];
-    vc.isBack = YES;
+    //设置userInfoView
+    self.userInfoView = [[NSBundle mainBundle]loadNibNamed:@"UserDeliverLocationReturnView" owner:nil options:nil].lastObject;
+    self.userInfoView.hidden = YES;
     
     __weak typeof(self) weakSelf = self;
-    [vc setAddressBlack:^(ZTShouHuoAddressModel *model) {
+    [self.userInfoView setReturnBlock:^{
         
-        weakSelf.nameLab.text = model.realname;
-        weakSelf.shouHuoAddressLab.text = model.address;
-        weakSelf.iphoneLab.text = model.phone;
-        self.addressView.hidden = YES;
+        [weakSelf pushSelectLocationVc];
+    }];
+    [self.addressView addSubview:self.userInfoView];
+    [self.userInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.addressView.mas_top).offset(5);
+        make.left.mas_equalTo(self.addressView);
+        make.right.mas_equalTo(self.addressView);
+        make.bottom.mas_equalTo(self.addressView.mas_bottom).offset(-5);
     }];
     
-    [self.navigationController pushViewController:vc animated:YES];
-
+    
+    self.view.backgroundColor = WifeButlerTableBackGaryColor;
+    self.moneyLab.text = self.price;
+    
+    self.allMoneLab.text = self.price;
 }
 
 
@@ -120,15 +124,16 @@
     
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
     
-    if ([self.shouHuoAddressLab.text length] == 0 || [self.nameLab.text length] == 0 || [self.iphoneLab.text length] == 0) {
-        
-        [SVProgressHUD showErrorWithStatus:@"请填写完整的收货地址"];
-        return;
-    }
     
     [dic setObject:KToken forKey:@"token"];
+    NSString *str ;
+
+    if (_locationModel) {
+        str = [NSString stringWithFormat:@"%@,%@,%@",_locationModel.realname, _locationModel.phone, _locationModel.address];
+    }else{
+        str = [NSString stringWithFormat:@"%@,%@,%@",_model.realname, _model.phone, _model.address];
+    }
     
-    NSString *str = [NSString stringWithFormat:@"%@,%@,%@",self.nameLab.text, self.iphoneLab.text, self.shouHuoAddressLab.text];
     [dic setObject:str forKey:@"receipt"];
     [dic setObject:self.dianPu_id forKey:@"shop_id"];
     [dic setObject:@"1" forKey:@"pay_way"];
@@ -251,13 +256,14 @@
             
             [SVProgressHUD dismiss];
             
-            self.addressView.hidden = YES;
             
             _model = [ZTjieSuanModel mj_objectWithKeyValues:responseObject[@"resultCode"][@"address"]];
             
-            self.nameLab.text = _model.realname;
-            self.shouHuoAddressLab.text = _model.address;
-            self.iphoneLab.text = _model.phone;
+            self.userInfoView.hidden = NO;
+            
+            self.userInfoView.userInfo.text = [NSString stringWithFormat:@"%@ %@ %@",_model.realname,_model.sex,_model.phone];
+            
+            self.userInfoView.LocationInfo.text = [NSString stringWithFormat:@"%@",_model.address];
             
             self.youHuiJuanLab.text = [NSString stringWithFormat:@"可使用%@张优惠券", responseObject[@"resultCode"][@"voucher"]];
         }
@@ -267,7 +273,6 @@
             if ([responseObject[@"code"] intValue] == 30000) {
                 
                 [SVProgressHUD dismiss];
-                self.addressView.hidden = NO;
             }
             else
             {
@@ -450,22 +455,27 @@
     
 }
 
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)pushSelectLocationVc
+{
+    WEAKSELF;
+    ZJGuangLiShouHuoDiZhiViewController *vc = [[ZJGuangLiShouHuoDiZhiViewController alloc] init];
+    vc.isBack = YES;
+    
+    
+    [vc setAddressBlack:^(ZTShouHuoAddressModel *model) {
+        _locationModel = model;
+        weakSelf.userInfoView.hidden = NO;
+        
+        weakSelf.userInfoView.userInfo.text = [NSString stringWithFormat:@"%@ %@ %@",model.realname,model.sex,model.phone];
+        
+        weakSelf.userInfoView.LocationInfo.text = [NSString stringWithFormat:@"%@",model.address];
+    }];
+    
+    [weakSelf.navigationController pushViewController:vc animated:YES];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)noLocationClick:(id)sender {
+    
+    [self pushSelectLocationVc];
 }
-*/
 
 @end

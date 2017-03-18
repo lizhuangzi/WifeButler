@@ -13,7 +13,7 @@
 
 @interface PlaceHoderText ()<UITextViewDelegate>
 
-@property (nonatomic,strong)UILabel *placeHoderLabel;
+
 
 @end
 
