@@ -327,7 +327,7 @@ typedef enum {
             return footView;
         }
         
-        // 2 已取消
+//        // 2 已取消
         if ([model.status intValue] == 2) {
             
             ZTGouWuCheFooterVIew *footView = [[[NSBundle mainBundle] loadNibNamed:@"ZTGouWuChe" owner:self options:nil] firstObject];
@@ -358,9 +358,16 @@ typedef enum {
             footView.goShopBtn.layer.borderWidth = 1;
             footView.goShopBtn.layer.cornerRadius = 5;
             footView.goShopBtn.layer.borderColor = [UIColor redColor].CGColor;
-            [footView.goShopBtn setTitle:@"待发货" forState:UIControlStateNormal];
+            [footView.goShopBtn setTitle:@"确认收货" forState:UIControlStateNormal];
             
             footView.deleteBtn.hidden = YES;
+            
+            // 确认收货
+            [footView setGoShopBlack:^{
+                
+                ZJLog(@"确认收货");
+                [weakSelf netWorkingQueRen:[model.id intValue]];
+            }];
             
             return footView;
             

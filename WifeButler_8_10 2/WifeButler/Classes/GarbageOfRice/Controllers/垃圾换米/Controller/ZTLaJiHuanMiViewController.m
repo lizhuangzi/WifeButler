@@ -51,6 +51,12 @@
     [super viewDidLoad];
     
     self.title = @"兑换详情";
+    [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.view);
+        make.right.mas_equalTo(self.view);
+        make.left.mas_equalTo(self.view);
+        make.bottom.mas_equalTo(self.view.mas_bottom).offset(-44);
+    }];
     self.tableView.allowsSelection = NO;
     self.webCellH = 0;
     self.Flag = NO;
@@ -80,20 +86,17 @@
 
 - (void)createFooterView
 {
-    UIView * backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, iphoneWidth, 55)];
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.backgroundColor = WifeButlerCommonRedColor;
     [btn setTitle:@"立即兑换" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(zhiHuanClick:) forControlEvents:UIControlEventTouchUpInside];
-    [backView addSubview:btn];
+    [self.view addSubview:btn];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(backView.mas_left).offset(20);
-        make.right.mas_equalTo(backView.mas_right).offset(-20);
-        make.centerY.mas_equalTo(backView.mas_centerY);
+        make.left.mas_equalTo(self.view.mas_left).offset(0);
+        make.right.mas_equalTo(self.view.mas_right).offset(0);
+        make.bottom.mas_equalTo(self.view.mas_bottom);
         make.height.mas_equalTo(44);
     }];
-    
-    self.tableView.tableFooterView = backView;
 }
 
 //设置头部滚动视图
@@ -145,6 +148,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"abc"];
             UIWebView * web = [[UIWebView alloc]init];
+            web.scrollView.scrollEnabled = NO;
             web.delegate = self;
             [cell.contentView addSubview:web];
             [web setBackgroundColor:[UIColor whiteColor]];
@@ -209,7 +213,8 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZTGarbageOfRice" bundle:nil];
     ZTZhiHuanTiJiaoViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ZTZhiHuanTiJiaoViewController"];
     vc.good_id = self.good_id;
-    //  vc.pname = _model.title;
+    vc.pname = [self.dataDict objectForKey:@"title"];
+    vc.danwei = [self.dataDict objectForKey:@"danwei"];
     [self.navigationController pushViewController:vc animated:YES];
     
 }

@@ -1,5 +1,5 @@
 //
-//  PublicCircleViewController.h
+//  DeleteLabel.h
 //  WifeButler
 //
 //  Created by 李庄子 on 2017/3/18.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PublicCircleViewController : UIViewController
-
-@property (nonatomic,copy)void(^successBlock)();
+@interface DeleteLabel : UILabel
 
 @end

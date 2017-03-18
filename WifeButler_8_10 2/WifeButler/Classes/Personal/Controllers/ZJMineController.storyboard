@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ha6-FZ-IUe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ha6-FZ-IUe">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -368,6 +368,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="z26-CU-s1q"/>
                     <connections>
+                        <outlet property="backScrollView" destination="Qq6-xq-X45" id="2sv-oc-IYj"/>
                         <outlet property="bottomContentView" destination="JGb-yL-OhE" id="9CG-Yj-u4B"/>
                         <outlet property="levelLabel" destination="U5v-mX-eDL" id="GRS-g9-0Zu"/>
                         <outlet property="nameLabel" destination="K9a-wG-nrD" id="T1A-uF-uSV"/>

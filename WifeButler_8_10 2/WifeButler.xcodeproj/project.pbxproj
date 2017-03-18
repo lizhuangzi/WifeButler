@@ -284,6 +284,7 @@
 		C7CF2C201E7A9B1A002F7AE5 /* WifeButlerNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CF2C1F1E7A9B1A002F7AE5 /* WifeButlerNoDataView.m */; };
 		C7CF2C221E7A9B35002F7AE5 /* WifeButlerNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7CF2C211E7A9B35002F7AE5 /* WifeButlerNoDataView.xib */; };
 		C7D52FA11E5F38AC00D98448 /* UIImage+ColorExistion.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D52FA01E5F38AC00D98448 /* UIImage+ColorExistion.m */; };
+		C7D88BC51E7D7790009FFA32 /* DeleteLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D88BC41E7D7790009FFA32 /* DeleteLabel.m */; };
 		C7E4E13D1E65705700169897 /* WifeButlerFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E4E13C1E65705700169897 /* WifeButlerFileManager.m */; };
 		C7E4E1411E657AC900169897 /* WifeButlerAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E4E1401E657AC900169897 /* WifeButlerAccount.m */; };
 		C7E4E1441E657B8A00169897 /* UIWindow+existion.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E4E1431E657B8A00169897 /* UIWindow+existion.m */; };
@@ -854,6 +855,8 @@
 		C7CF2C211E7A9B35002F7AE5 /* WifeButlerNoDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WifeButlerNoDataView.xib; sourceTree = "<group>"; };
 		C7D52F9F1E5F38AC00D98448 /* UIImage+ColorExistion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorExistion.h"; sourceTree = "<group>"; };
 		C7D52FA01E5F38AC00D98448 /* UIImage+ColorExistion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorExistion.m"; sourceTree = "<group>"; };
+		C7D88BC31E7D7790009FFA32 /* DeleteLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteLabel.h; sourceTree = "<group>"; };
+		C7D88BC41E7D7790009FFA32 /* DeleteLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteLabel.m; sourceTree = "<group>"; };
 		C7E4E13B1E65705700169897 /* WifeButlerFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerFileManager.h; sourceTree = "<group>"; };
 		C7E4E13C1E65705700169897 /* WifeButlerFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerFileManager.m; sourceTree = "<group>"; };
 		C7E4E13F1E657AC900169897 /* WifeButlerAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerAccount.h; sourceTree = "<group>"; };
@@ -1930,6 +1933,8 @@
 				C7CF2C211E7A9B35002F7AE5 /* WifeButlerNoDataView.xib */,
 				C7074C631E7D121E004FBE59 /* CSPlaceHolderTextView.h */,
 				C7074C641E7D121E004FBE59 /* CSPlaceHolderTextView.m */,
+				C7D88BC31E7D7790009FFA32 /* DeleteLabel.h */,
+				C7D88BC41E7D7790009FFA32 /* DeleteLabel.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3629,6 +3634,7 @@
 				7B03BF4F1D0E49CD00DAF357 /* NSString+ZJMyString.m in Sources */,
 				C745FD241E73E79600B01742 /* BalanceRecordViewController.m in Sources */,
 				7B8D04D11CEB22DB0024B812 /* ZTBianJiZiliaoTableViewController.m in Sources */,
+				C7D88BC51E7D7790009FFA32 /* DeleteLabel.m in Sources */,
 				7BE3C6391CF1888F00851512 /* ZTShouHuoAddressModel.m in Sources */,
 				C745FD391E73F32D00B01742 /* CardPocketAddViewController.m in Sources */,
 				C781A9171E5FFCF900E3D325 /* XMGConst.m in Sources */,

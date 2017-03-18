@@ -53,7 +53,8 @@
     _tempStar = 1;
     
     self.tiJiaoBtn.layer.cornerRadius = 5;
-    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = WifeButlerTableBackGaryColor;
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:self.icon] placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
     self.titleLab.text = self.titleTemp;
 }

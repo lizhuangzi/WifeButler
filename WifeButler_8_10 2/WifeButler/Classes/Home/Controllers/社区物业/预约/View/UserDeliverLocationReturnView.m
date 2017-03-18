@@ -21,9 +21,10 @@
 {
     [super awakeFromNib];
     
-    UIControl * backCon = [[UIControl alloc]init];
+    UIButton * backCon = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backCon setTitle:@"" forState:UIControlStateNormal];
     [self addSubview:backCon];
-    [backCon addTarget:self action:@selector(didClick) forControlEvents:UIControlEventTouchDragInside];
+    [backCon addTarget:self action:@selector(didClick) forControlEvents:UIControlEventTouchUpInside];
     [backCon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self);
     }];

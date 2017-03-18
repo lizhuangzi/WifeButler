@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"提现";
     [self.tableView registerNib:[UINib nibWithNibName:@"WithDrawTableViewCell" bundle:nil] forCellReuseIdentifier:@"WithDrawTableViewCell"];
     
     [self createFooterView];
@@ -104,6 +105,7 @@
         SelectCardViewController * card = [[SelectCardViewController alloc]init];
         [card setReturnBlock:^(CardPocklistModel * model) {
             [weakSelf.tableView reloadData];
+            self.returnModel = model;
         }];
         [self.navigationController pushViewController:card animated:YES];
     }
@@ -117,7 +119,7 @@
     NSDictionary * parm = @{@"ordernum":self.orderID,@"bankid":self.returnModel.Id};
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:Kdeposit parameter:parm success:^(id resultCode) {
         
-        D_CommonAlertShow(@"申请已提交银行，具体到账时间又银行来定",^{
+        D_CommonAlertShow(@"已提交银行处理，到账时间由银行而定！",^{
             [self.navigationController popViewControllerAnimated:YES];
         });
         

@@ -19,6 +19,7 @@
 @property (nonatomic,copy)NSString * content;
 @property (nonatomic,strong) NSArray * gallery;
 @property (nonatomic,copy)NSString * time;
+@property (nonatomic,copy)NSString * topic_id;
 // 点赞列表
 @property (nonatomic, strong) NSMutableArray *some;
 // 评论列表 ->接收

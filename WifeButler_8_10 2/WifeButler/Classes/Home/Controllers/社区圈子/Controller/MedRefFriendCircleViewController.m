@@ -82,7 +82,7 @@ static NSString * repeatDynamic = @"转发";
     NSLog(@"学术圈销毁!");
 }
 
-- (NSMutableArray *)dataSource
+- (NSMutableArray *)dataArray
 {
     if (!_dataArray) {
         _dataArray = [NSMutableArray array];
@@ -155,6 +155,12 @@ static NSString * repeatDynamic = @"转发";
 - (void)rigViewClick
 {
     PublicCircleViewController * vc = [[PublicCircleViewController alloc]init];
+    WEAKSELF
+    [vc setSuccessBlock:^{
+        weakSelf.page = 1;
+        [weakSelf.headerHeightArray removeAllObjects];
+        [weakSelf startApplicationRequest:YES];
+    }];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -193,26 +199,74 @@ static NSString * repeatDynamic = @"转发";
         D_SuccessLoadingDeal(0, resultCode, ^(NSArray * arr){
             [self processingDataWith:arr];
         });
-        [self.tableView reloadData];
     } failure:^(NSError *error) {
         D_FailLoadingDeal(0);
     }];
 }
+#pragma mark - 相关数据请求
 // 转发数据请求
 -(void)forwardWithComment:(NSString *)comment atSection:(NSInteger)section{
 
 }
 // 评论数据请求
 -(void)publishComment:(NSString *)content{
+    
+    
 }
 // 点赞or取消点赞
 -(void)praiseRequestWith:(BOOL)praise
 {
+    if (!praise) {
+        [SVProgressHUD showInfoWithStatus:@"暂时不能取消赞."];
+        return;
+    }
+    DocFriendModel * friendmodel = self.dataArray[self.currentOpSection];
+    NSDictionary * parm = @{@"token":KToken,@"topic_id":friendmodel.topic_id};
+
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KQuanZiDianZan parameter:parm success:^(id resultCode) {
+        WifeButlerUserParty * party = [WifeButlerAccount sharedAccount].userParty;
+        if (praise) {
+            
+            DocFriendPraiseModel * me = [DocFriendPraiseModel new];
+           
+            me.id = party.Id;
+            me.nickname = party.nickname;
+            [friendmodel.some addObject:me];
+            
+        }else{
+            
+            DocFriendPraiseModel * temp ;
+            for ( DocFriendPraiseModel * me in friendmodel.some) {
+                if ([me.id isEqualToString:party.Id]) {
+                    temp = me;
+                    break;
+                }
+            }
+            if (temp) {
+                [friendmodel.some removeObject:temp];
+            }
+        }
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        SVDCommonErrorDeal;
+    }];
 }
 
 // 删除动态数据请求
 -(void)deleteDynamicRequest{
-
+    DocFriendModel * friendmodel = self.dataArray[self.currentOpSection ];
+    
+    NSDictionary * parm = @{@"token":KToken,@"topic_id":friendmodel.topic_id};
+    
+    [SVProgressHUD showWithStatus:@"正在删除.."];
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KQuanZiShanChu parameter:parm success:^(id resultCode) {
+        [SVProgressHUD dismiss];
+        [self.dataArray removeObjectAtIndex:self.currentOpSection];
+        [self.headerHeightArray removeObjectAtIndex:self.currentOpSection];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        SVDCommonErrorDeal;
+    }];
 }
 
 // 删除评论数据请求
@@ -222,21 +276,22 @@ static NSString * repeatDynamic = @"转发";
 
 //上传头像(顶部背景)
 -(void)setUserBgImage:(UIImage *)headerImg{
-  
+   
+//    WifeButlerNetWorking postPackagingHttpRequestWithURLsite:<#(NSString *)#> parameter:<#(NSDictionary *)#> andFormData:<#^(id<AFMultipartFormData> formData)formDataBlock#> success:<#^(id resultCode)success#> failure:<#^(NSError *error)failure#>
 }
 
 -(void)detailDataChangeUpdata:(NSNotification *)notification
 {
     DocFriendModel *changeModel = [notification.userInfo objectForKey:@"changeModel"];
     NSString *modelType = [notification.userInfo objectForKey:@"modelType"];
-    for (int i = 0; i < self.dataSource.count; i ++) {
-        DocFriendModel *model = self.dataSource[i];
+    for (int i = 0; i < self.dataArray.count; i ++) {
+        DocFriendModel *model = self.dataArray[i];
         if ([model.id isEqualToString:changeModel.id]) {
             if ([modelType isEqualToString:@"change"]) {
-                [self.dataSource replaceObjectAtIndex:i withObject:changeModel];
+                [self.dataArray replaceObjectAtIndex:i withObject:changeModel];
             }else if ([modelType isEqualToString:@"delete"]){
-                [self.headerHeightArray removeObjectAtIndex:[self.dataSource indexOfObject:model]];
-                [self.dataSource removeObject:model];
+                [self.headerHeightArray removeObjectAtIndex:[self.dataArray indexOfObject:model]];
+                [self.dataArray removeObject:model];
             }
             [self.tableView reloadData];
             break;
@@ -250,7 +305,7 @@ static NSString * repeatDynamic = @"转发";
     NSMutableArray *changeArray = [NSMutableArray array];
     for (NSDictionary *dic in dataArray) {
         DocFriendModel *model = [DocFriendModel friendModelWithDict:dic];
-        [self.dataSource addObject:model];
+        [self.dataArray addObject:model];
         [changeArray addObject:model];
     }
     /**计算高度**/
@@ -270,14 +325,14 @@ static NSString * repeatDynamic = @"转发";
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // +1为头
-    return self.dataSource.count + 1;
+    return self.dataArray.count + 1;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section==0) {
         return 0;
     } else {
-        DocFriendModel *model = [self.dataSource objectAtIndex:section - 1];
+        DocFriendModel *model = [self.dataArray objectAtIndex:section - 1];
         return model.cellCount;
     }
 }
@@ -323,7 +378,7 @@ static NSString * repeatDynamic = @"转发";
         if (self.headerHeightArray.count >= section - 1) {
             height = [self.headerHeightArray[section - 1] floatValue];
         }else{
-            DocFriendModel *model = [self.dataSource objectAtIndex:section - 1];
+            DocFriendModel *model = [self.dataArray objectAtIndex:section - 1];
             height = [MedRefFriendCircleTableHeader getHeadSectionHeadHeight:model];
         }
     }else{
@@ -352,7 +407,7 @@ static NSString * repeatDynamic = @"转发";
         if (!docView) {
             docView = [[NSBundle mainBundle]loadNibNamed:@"MedRefFriendCircleTableHeader" owner:nil options:nil].lastObject;
         }
-        DocFriendModel *model = [self.dataSource objectAtIndex:section - 1];
+        DocFriendModel *model = [self.dataArray objectAtIndex:section - 1];
         [docView setWorkmodel:model atSection:section -1];
         docView.delegate = self;
         docView.contentView.backgroundColor = [UIColor whiteColor];
@@ -380,7 +435,7 @@ static NSString * repeatDynamic = @"转发";
     if (indexPath.section==0) {
         return 0;
     } else {
-        DocFriendModel *model = [self.dataSource objectAtIndex:indexPath.section - 1];
+        DocFriendModel *model = [self.dataArray objectAtIndex:indexPath.section - 1];
         if(indexPath.row == 0 && model.some.count > 0){
             // 如果有点赞
             height = [MedRefFriendCircleTableCell getHeadSectionRowHeightWithPraiseArray:model];
@@ -394,7 +449,7 @@ static NSString * repeatDynamic = @"转发";
 // 设置评论点赞
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellId=@"HeaderSecondTableViewTempCell";
-    DocFriendModel *model = [self.dataSource objectAtIndex:indexPath.section - 1];
+    DocFriendModel *model = [self.dataArray objectAtIndex:indexPath.section - 1];
     MedRefFriendCircleTableCell *sectionCell = (MedRefFriendCircleTableCell *)[tableView dequeueReusableCellWithIdentifier:cellId];
     if (!sectionCell) {
         sectionCell = [[MedRefFriendCircleTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
@@ -438,7 +493,7 @@ static NSString * repeatDynamic = @"转发";
         [weakSelf pushPhotoAlbumWithPartyId:partyId];
     }];
     
-    DocFriendModel *currentModel = [self.dataSource objectAtIndex:indexPath.section - 1];
+    DocFriendModel *currentModel = [self.dataArray objectAtIndex:indexPath.section - 1];
     // 点击评论
     [cell setDidCommentClick:^{
         // 如果存在menu控件 则隐藏控件
@@ -493,7 +548,7 @@ static NSString * repeatDynamic = @"转发";
 
 // 点击转发对象名称
 -(void)tableHeaderView:(MedRefFriendCircleTableHeader *)headerView forwardNameClickAtSection:(NSInteger)section{
-    DocFriendModel *workModel = [self.dataSource objectAtIndex:section];
+    DocFriendModel *workModel = [self.dataArray objectAtIndex:section];
     [self pushToPersonalZone:workModel.forwardPartyId];
 }
 
@@ -501,7 +556,7 @@ static NSString * repeatDynamic = @"转发";
 -(void)tableHeaderView:(MedRefFriendCircleTableHeader *)headerView showAllClickAtSection:(NSInteger)section
 {
     // 重新计算高度 放入高度存储数组中
-    DocFriendModel *workModel = [self.dataSource objectAtIndex:section];
+    DocFriendModel *workModel = [self.dataArray objectAtIndex:section];
     CGFloat height = [MedRefFriendCircleTableHeader getHeadSectionHeadHeight: workModel];
     [self.headerHeightArray replaceObjectAtIndex:section withObject:[NSNumber numberWithFloat:height]];
     if (workModel.isShowAll) {
@@ -533,16 +588,17 @@ static NSString * repeatDynamic = @"转发";
 -(void)tableHeaderView:(MedRefFriendCircleTableHeader *)headerView markClickAtSection:(NSInteger)section withClickView:(UIView *)view{
     
     self.currentOpSection = section;
-    DocFriendModel *currentModel = [self.dataSource objectAtIndex:section];
+    DocFriendModel *currentModel = [self.dataArray objectAtIndex:section];
     NSInteger row = currentModel.cellCount > 0 ? currentModel.cellCount - 1 : 0;
     self.currentOpIndexPath = [NSIndexPath indexPathForRow:row inSection:self.currentOpSection + 1];
     
     //判断是否点赞
     isPraise = NO;
     NSInteger count = currentModel.some.count;
+    WifeButlerUserParty * party = [WifeButlerAccount sharedAccount].userParty;
     for (NSInteger index = 0; index < count; index++) {
         DocFriendPraiseModel *model = [currentModel.some objectAtIndex:index];
-        if ([model.id isEqualToString:@""]) {
+        if ([model.id isEqualToString:party.Id]) {
             isPraise=YES;
             userPraiseIndex = index;
             caseHisTopRevId = model.caseHisTopRevId;
@@ -645,7 +701,7 @@ static NSString * repeatDynamic = @"转发";
 -(void)changeTableViewContentOffsetWith:(NSNotification *)notification{
 
     UIView *bottomview = notification.object;
-    DocFriendModel *currentModel = [self.dataSource objectAtIndex:self.currentOpIndexPath.section - 1];
+    DocFriendModel *currentModel = [self.dataArray objectAtIndex:self.currentOpIndexPath.section - 1];
     NSIndexPath *path=  self.currentOpIndexPath;
     CGFloat height;
     // 有评论或点赞 取 cell 的相对位置
@@ -697,6 +753,7 @@ static NSString * repeatDynamic = @"转发";
 }
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [picker dismissViewControllerAnimated:YES completion:nil];
       WEAKSELF
     dispatch_async(DISPATCH_GLOBAL_QUEUE, ^{
         UIImage *selectImg = [info objectForKey:UIImagePickerControllerEditedImage];
@@ -707,7 +764,7 @@ static NSString * repeatDynamic = @"转发";
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
         {
-   
+   [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 // 页面滚动

@@ -19,4 +19,7 @@
 
 + (void)postPackagingHttpRequestWithURLsite:(NSString *)URLSite parameter:(NSDictionary *)parmDict success:(void(^)(id resultCode))success  failure:(void(^)(NSError * error))failure;
 
+/**上传图片*/
++ (void)postPackagingHttpRequestWithURLsite:(NSString *)URLSite parameter:(NSDictionary *)parmDict andFormData:(void(^)(id<AFMultipartFormData> formData))formDataBlock success:(void(^)(id resultCode))success  failure:(void(^)(NSError * error))failure;
+
 @end

@@ -474,28 +474,30 @@ static float commonVerticalSpace = 8.0f; // 8为控件显示间距
         return;
     }
     UIMenuItem *copyItem = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(didCopyItemClick)];
-    UIMenuItem *collectionItem = [[UIMenuItem alloc] initWithTitle:@"收藏" action:@selector(didCollectionClick)];
-    UIMenuItem *forwardItem = [[UIMenuItem alloc] initWithTitle:@"转发" action:@selector(didForwardClick)];
-    UIMenuItem *complaintItem = [[UIMenuItem alloc] initWithTitle:@"投诉" action:@selector(didComplaintClick)];
+//    UIMenuItem *collectionItem = [[UIMenuItem alloc] initWithTitle:@"收藏" action:@selector(didCollectionClick)];
+//    UIMenuItem *forwardItem = [[UIMenuItem alloc] initWithTitle:@"转发" action:@selector(didForwardClick)];
+//    UIMenuItem *complaintItem = [[UIMenuItem alloc] initWithTitle:@"投诉" action:@selector(didComplaintClick)];
     UIMenuController *menuController = [UIMenuController sharedMenuController];
-    if ([recognizer.view isKindOfClass:[UILabel class]]) { // 长按文字内容
-        self.collectionType = @"文字";
-        self.contentLabel.backgroundColor = HexCOLOR(MedRefWordColorLongRecognizerGray);
-        if ([self.workModel.id isEqualToString:@""]) { // 是自己发布的
-            [menuController setMenuItems:@[copyItem,collectionItem]];
-        }else{  // 不是自己发布的
-            [menuController setMenuItems:@[copyItem,collectionItem,forwardItem,complaintItem]];
-        }
-    }else{      // 长按分享内容
-        self.collectionType = @"链接";
-       self.otherContentBgView.backgroundColor = HexCOLOR(MedRefWordColorLongRecognizerBlue);
-        if ([self.workModel.id isEqualToString:@""]) {
-            [menuController setMenuItems:@[collectionItem]];
-        }else{
-            [menuController setMenuItems:@[collectionItem,forwardItem,complaintItem]];
-        }
-    }
-    
+//    if ([recognizer.view isKindOfClass:[UILabel class]]) { // 长按文字内容
+//        self.collectionType = @"文字";
+//        self.contentLabel.backgroundColor = HexCOLOR(MedRefWordColorLongRecognizerGray);
+//        if ([self.workModel.id isEqualToString:@""]) { // 是自己发布的
+//            [menuController setMenuItems:@[copyItem,collectionItem]];
+//        }else{  // 不是自己发布的
+//            [menuController setMenuItems:@[copyItem,collectionItem,forwardItem,complaintItem]];
+//        }
+//    }else{      // 长按分享内容
+//        self.collectionType = @"链接";
+//       self.otherContentBgView.backgroundColor = HexCOLOR(MedRefWordColorLongRecognizerBlue);
+//        if ([self.workModel.id isEqualToString:@""]) {
+//            [menuController setMenuItems:@[collectionItem]];
+//        }else{
+//            [menuController setMenuItems:@[collectionItem,forwardItem,complaintItem]];
+//        }
+//    }
+    self.collectionType = @"文字";
+    self.contentLabel.backgroundColor = HexCOLOR(MedRefWordColorLongRecognizerGray);
+    [menuController setMenuItems:@[copyItem]];
     [menuController setTargetRect:CGRectInset(recognizer.view.frame, 0.0f, 4.0f) inView:self];
     [menuController setMenuVisible:YES animated:YES];
     

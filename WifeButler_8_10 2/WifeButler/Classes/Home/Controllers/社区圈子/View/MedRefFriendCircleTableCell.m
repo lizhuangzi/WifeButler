@@ -285,19 +285,21 @@ static float viewRightSpace = 10.0f;        // 页面右侧间距
         return;
     }
     
-    UIMenuItem *collectionItem = [[UIMenuItem alloc] initWithTitle:@"收藏" action:@selector(didCollectionClick)];
+ //   UIMenuItem *collectionItem = [[UIMenuItem alloc] initWithTitle:@"收藏" action:@selector(didCollectionClick)];
     UIMenuItem *copyItem = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(didCopyClick)];
-    UIMenuItem *reportItem = [[UIMenuItem alloc] initWithTitle:@"投诉" action:@selector(didReportClick)];
+ //   UIMenuItem *reportItem = [[UIMenuItem alloc] initWithTitle:@"投诉" action:@selector(didReportClick)];
     
     UIMenuController *menuController = [UIMenuController sharedMenuController];
-    if ([self.commentModel.id isEqualToString:@"" ]) { // 是自己的评论
-        [menuController setMenuItems:@[collectionItem,copyItem]];
-    }else{
-        [menuController setMenuItems:@[collectionItem,copyItem,reportItem]];
-    }
+//    if ([self.commentModel.id isEqualToString:@"" ]) { // 是自己的评论
+//        [menuController setMenuItems:@[collectionItem,copyItem]];
+//    }else{
+//        [menuController setMenuItems:@[collectionItem,copyItem,reportItem]];
+//    }
+    
+    [menuController setMenuItems:@[copyItem]];
     [menuController setTargetRect:CGRectInset(recognizer.view.frame, 0.0f, 4.0f) inView:self];
     [menuController setMenuVisible:YES animated:YES];
-//    reviseBgView.backgroundColor = HexCOLOR(MedRefWordColorLongRecognizerBlue);
+    reviseBgView.backgroundColor = WifeButlerGaryTextColor3;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuItemControllerDidHideClick) name:UIMenuControllerDidHideMenuNotification object:nil];
 }
 

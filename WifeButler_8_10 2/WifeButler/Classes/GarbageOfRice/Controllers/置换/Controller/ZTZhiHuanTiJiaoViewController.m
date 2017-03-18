@@ -13,21 +13,21 @@
 #import "ZTDuiHuanDingDanViewController.h"
 #import "ZJLoginController.h"
 #import  "MJExtension.h"
+#import "Masonry.h"
+#import "UserDeliverLocationReturnView.h"
 
 #define MAX_LIMIT_NUMS  40
 
 @interface ZTZhiHuanTiJiaoViewController () <UITextViewDelegate, UITextFieldDelegate, UIScrollViewDelegate>
 {
     ZTjieSuanModel *_model;
+    ZTShouHuoAddressModel * _locationModel;
 }
 
+@property (strong, nonatomic) UserDeliverLocationReturnView *userInfoView;
+
 @property (weak, nonatomic) IBOutlet UIView *addressView;
-/**
- *  名字
- */
-@property (weak, nonatomic) IBOutlet UILabel *nameLab;
-@property (weak, nonatomic) IBOutlet UILabel *shouHuoAddressLab;
-@property (weak, nonatomic) IBOutlet UILabel *iphoneLab;
+
 
 @property (weak, nonatomic) IBOutlet UITextView *liuYanTV;
 @property (weak, nonatomic) IBOutlet UILabel *moRenLab;
@@ -38,6 +38,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *weight;
 
+@property (weak, nonatomic) IBOutlet UIView *duihuanKGView;
 
 
 @end
@@ -49,6 +50,35 @@
     // Do any additional setup after loading the view.
     
     self.title = @"置换";
+    
+    if ([self.danwei isEqualToString:@"kg"]) {
+        self.duihuanKGView.hidden = NO;
+    }else{
+        self.duihuanKGView.hidden = YES;
+        [self.duihuanKGView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(1);
+        }];
+    }
+    
+    //设置userInfoView
+    self.userInfoView = [[NSBundle mainBundle]loadNibNamed:@"UserDeliverLocationReturnView" owner:nil options:nil].lastObject;
+    self.userInfoView.hidden = YES;
+    
+    __weak typeof(self) weakSelf = self;
+    [self.userInfoView setReturnBlock:^{
+        
+        [weakSelf pushSelectLocationVc];
+    }];
+    [self.addressView addSubview:self.userInfoView];
+    [self.userInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.addressView.mas_top).offset(5);
+        make.left.mas_equalTo(self.addressView);
+        make.right.mas_equalTo(self.addressView);
+        make.bottom.mas_equalTo(self.addressView.mas_bottom).offset(-5);
+    }];
+    
+    
+    self.view.backgroundColor = WifeButlerTableBackGaryColor;
     
     [self setPram];
     
@@ -85,14 +115,15 @@
             
             [SVProgressHUD dismiss];
             
-            self.addressView.hidden = YES;
+
             
             _model = [ZTjieSuanModel mj_objectWithKeyValues:responseObject[@"resultCode"][@"address"]];
             
-            self.nameLab.text = _model.realname;
-            self.shouHuoAddressLab.text = _model.address;
-            self.iphoneLab.text = _model.phone;
+            self.userInfoView.hidden = NO;
             
+            self.userInfoView.userInfo.text = [NSString stringWithFormat:@"%@ %@ %@",_model.realname,_model.sex,_model.phone];
+            
+            self.userInfoView.LocationInfo.text = [NSString stringWithFormat:@"%@",_model.address];
 //            [self.youHuiJuanLab setTitle:[NSString stringWithFormat:@"可使用%@张优惠券", responseObject[@"resultCode"][@"voucher"]] forState:UIControlStateNormal];
         }
         else
@@ -101,7 +132,6 @@
             if ([responseObject[@"code"] intValue] == 30000) {
                 
                 [SVProgressHUD dismiss];
-                self.addressView.hidden = NO;
             }
             else
             {
@@ -157,11 +187,11 @@
         return;
     }
     
-    if (self.weight.text.length == 0) {
-        
-        [SVProgressHUD showErrorWithStatus:@"您没有填写重量哦!"];
-        return;
-    }
+//    if (self.weight.text.length == 0) {
+//        
+//        [SVProgressHUD showErrorWithStatus:@"您没有填写重量哦!"];
+//        return;
+//    }
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
@@ -169,13 +199,28 @@
     
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
     
-    NSString *str = [NSString stringWithFormat:@"%@,%@,%@",self.nameLab.text, self.shouHuoAddressLab.text, self.iphoneLab.text];
+    NSString *str ;
+    
+    if (_locationModel) {
+        str = [NSString stringWithFormat:@"%@,%@,%@",_locationModel.realname, _locationModel.phone, _locationModel.address];
+    }else{
+        str = [NSString stringWithFormat:@"%@,%@,%@",_model.realname, _model.phone, _model.address];
+    }
+    
     
     [dic setObject:KToken forKey:@"token"];
+    [dic setObject:@"1" forKey:@"flag"];
     [dic setObject:self.good_id forKey:@"goods_id"];
     [dic setObject:self.timeLab.text forKey:@"exchange_time"];
     [dic setObject:self.liuYanTV.text forKey:@"text"];
-    [dic setObject:self.weight.text forKey:@"weight"];
+    [dic setObject:KUserId forKey:@"id"];
+    
+    if ([self.danwei isEqualToString:@"kg"]) {
+        [dic setObject:self.weight.text forKey:@"weight"];
+    }else{
+        [dic setObject:@"1" forKey:@"weight"];
+    }
+  
     [dic setObject:str forKey:@"receipt"];
     
     NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KLaJiHuanDaMiTijiao];
@@ -293,22 +338,7 @@
     
 }
 
-- (IBAction)addressClick:(id)sender {
-    
-    ZJGuangLiShouHuoDiZhiViewController *vc = [[ZJGuangLiShouHuoDiZhiViewController alloc] init];
-    vc.isBack = YES;
-    
-    __weak typeof(self) weakSelf = self;
-    [vc setAddressBlack:^(ZTShouHuoAddressModel *model) {
-        
-        weakSelf.nameLab.text = model.realname;
-        weakSelf.shouHuoAddressLab.text = model.address;
-        weakSelf.iphoneLab.text = model.phone;
-        self.addressView.hidden = YES;
-    }];
-    
-    [self.navigationController pushViewController:vc animated:YES];
-}
+
 
 - (IBAction)tiJiaoDingDanClick:(id)sender {
     
@@ -355,20 +385,28 @@
 //    
 //}
 
-- (void)didReceiveMemoryWarning {
+- (void)pushSelectLocationVc
+{
+    WEAKSELF;
+    ZJGuangLiShouHuoDiZhiViewController *vc = [[ZJGuangLiShouHuoDiZhiViewController alloc] init];
+    vc.isBack = YES;
     
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    [vc setAddressBlack:^(ZTShouHuoAddressModel *model) {
+        _locationModel = model;
+        weakSelf.userInfoView.hidden = NO;
+        
+        weakSelf.userInfoView.userInfo.text = [NSString stringWithFormat:@"%@ %@ %@",model.realname,model.sex,model.phone];
+        
+        weakSelf.userInfoView.LocationInfo.text = [NSString stringWithFormat:@"%@",model.address];
+    }];
+    
+    [weakSelf.navigationController pushViewController:vc animated:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)noLocationClick:(id)sender {
+    
+    [self pushSelectLocationVc];
 }
-*/
 
 @end

@@ -26,7 +26,19 @@
 #define KSheQuQuanZiDianZhan  [HTTP_BaseURL stringByAppendingString: @"account/chat/support"]
 
 /**我的圈子*/
-#define TRENDSLIST [HTTP_BaseURL stringByAppendingString: @"account/chat/myindex"]
+#define KTRENDSLIST [HTTP_BaseURL stringByAppendingString:@"account/chat/myindex"]
+
+/**发布圈子*/
+#define KPublicQuanZi [HTTP_BaseURL stringByAppendingString:@"account/chat/say"]
+
+/**圈子点赞 */
+#define KQuanZiDianZan [HTTP_BaseURL stringByAppendingString:@"account/chat/support"]
+/**圈子删除*/
+#define KQuanZiShanChu [HTTP_BaseURL stringByAppendingString:@"account/chat/del"]
+/**更新背景*/
+#define KQuanZiUpdateBG [HTTP_BaseURL stringByAppendingString:@"account/chat/bg_update"]
+/**圈子评论*/
+#define KQuanZiPingLun [HTTP_BaseURL stringByAppendingString:@"account/chat/comment"]
 
 /**社区购物左侧选择列表 1.jing 2.wei 3.cat_id 4.serve_id 5.pagesize 6.pageindex*/
 #define KCommunityShopLeftList [HTTP_BaseURL stringByAppendingString:@"goods/goods/goods_index"]
@@ -86,7 +98,13 @@
 /**生成爱心捐赠订单*/
 #define KLoveDonateGenerateOrder [HTTP_BaseURL stringByAppendingString:@"loveproject/Loveproject/createorder"]
 
-/**请求后台支付加密字符串*/
+/**爱心请求后台支付加密字符串*/
 #define KLoveDonatePayment [HTTP_BaseURL stringByAppendingString:@"loveproject/Loveproject/pay"]
 
+
+/**酵素回收是否交押金*/
+#define KEnzymesRecycleisPaycashPledge [HTTP_BaseURL stringByAppendingString:@"integrals/Deposit/ishave"]
+
+/**酵素回收押金支付*/
+#define K [HTTP_BaseURL stringByAppendingString:@"integrals/Deposit/createpay"];
 #endif/* NetWorkPort_h */

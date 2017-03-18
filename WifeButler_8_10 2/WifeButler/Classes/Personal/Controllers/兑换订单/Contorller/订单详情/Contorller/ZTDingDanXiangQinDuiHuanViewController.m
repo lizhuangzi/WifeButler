@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *numLab;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLa;
-@property (weak, nonatomic) IBOutlet UILabel *phoneLab;
+
 @property (weak, nonatomic) IBOutlet UILabel *addressLab;
 
 
@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *orderTypeLab;
 @property (weak, nonatomic) IBOutlet UILabel *yuYueTimeLab;
 
+@property (weak, nonatomic) IBOutlet UILabel *danweiLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *keFuPhoneBtn;
 
@@ -90,13 +91,13 @@
             weakSelf.shopNameLab.text = _model.shop_name;
             [weakSelf.iconImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", KImageUrl, _model.file]] placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
             weakSelf.titleLab.text = _model.title;
-            weakSelf.numLab.text = [NSString stringWithFormat:@"%@g", _model.weight];
-            
+            weakSelf.numLab.text = [NSString stringWithFormat:@"X%@", _model.weight];
+            weakSelf.danweiLabel.text = _model.scale;
             
             NSArray *arrAddress = [_model.receipt componentsSeparatedByString:@","];
-            weakSelf.nameLa.text = arrAddress[0];
-            weakSelf.phoneLab.text = arrAddress[2];
-            weakSelf.addressLab.text = arrAddress[1];
+            weakSelf.nameLa.text =[NSString stringWithFormat:@"%@ %@", arrAddress[0],arrAddress[1]];
+         
+            weakSelf.addressLab.text = arrAddress[2];
             
             weakSelf.liuYanLab.text = _model.content;
             

@@ -18,6 +18,7 @@
 #import "ZJGuangLiShouHuoDiZhiViewController.h"
 #import "ZTDuiHuanDingDanViewController.h"
 #import "ZTBianJiZiliaoTableViewController.h"
+#import "MJRefresh.h"
 
 @class WifeButlerHomeCircleButton;
 
@@ -41,6 +42,7 @@
 
 /**底部view*/
 @property (weak, nonatomic) IBOutlet UIView *bottomContentView;
+@property (weak, nonatomic) IBOutlet UIScrollView *backScrollView;
 
 @end
 
@@ -79,6 +81,12 @@
             button.frame = CGRectMake(margin + cloum *(btnW+margin), Hmargin + row * (btnH + Hmargin), btnW, btnH);
             [self.bottomContentView addSubview:button];
         }
+        
+        WEAKSELF
+        self.backScrollView.mj_header = [MJRefreshHeader headerWithRefreshingBlock:^{
+            
+            weakSelf.GetLocalData().GetHttpData();
+        }];
         return self;
     };
 }
@@ -235,8 +243,10 @@
                 [self.userScore setTitle:resultCode[@"integrals"] forState:UIControlStateNormal] ;
                 [self.userMoney setTitle: [NSString stringWithFormat:@"¥%@",resultCode[@"money"]] forState:UIControlStateNormal];
                 [self.userDiscountCoupon setTitle:[NSString stringWithFormat:@"%@", resultCode[@"voucher"]]  forState:UIControlStateNormal] ;
-            } failure:^(NSError *error) {
                 
+                [self.backScrollView.mj_header endRefreshing];
+            } failure:^(NSError *error) {
+                [self.backScrollView.mj_header endRefreshing];
                 SVDCommonErrorDeal
             }];
         }

@@ -45,6 +45,12 @@
  *  图片压缩
  */
 + (UIImage *)comparessImageFromOriginalImage:(UIImage *)originalImage {
+    NSData * data = [self comparessImageReturnDataWithOriginalImage:originalImage];
+       return [UIImage imageWithData:data];
+}
+
++ (NSData *)comparessImageReturnDataWithOriginalImage:(UIImage *)originalImage
+{
     NSData *data = nil;
     CGSize size = originalImage.size;
     CGFloat maxLength = MAX(size.width, size.height);
@@ -74,9 +80,8 @@
             }
         }
     }
-    return [UIImage imageWithData:data];
+    return data;
 }
-
 
 
 /**

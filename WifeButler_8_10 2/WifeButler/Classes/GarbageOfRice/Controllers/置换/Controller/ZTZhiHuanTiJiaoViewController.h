@@ -14,4 +14,5 @@
 
 @property (nonatomic, copy) NSString * pname;
 
+@property (nonatomic,copy)NSString * danwei;
 @end

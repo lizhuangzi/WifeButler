@@ -31,6 +31,7 @@
 #import "ZTLunBoToModel.h"
 #import "Masonry.h"
 #import  "MJExtension.h"
+#import "MJRefresh.h"
 
 #import "NetWorkPort.h"
 #import "WifeButlerNetWorking.h"
@@ -166,9 +167,10 @@
             
             [self.homeTableView reloadData];
         }
-        
+        [self.homeTableView.mj_header endRefreshing];
     } failure:^(NSError *error) {
         [self.dataArray removeAllObjects];
+        [self.homeTableView.mj_header endRefreshing];
     }];
 }
 
@@ -199,6 +201,21 @@
         
     }];
     table.tableHeaderView = header;
+    
+    table.mj_header = [MJRefreshHeader headerWithRefreshingBlock:^{
+        
+        if ([WifeButlerAccount sharedAccount].isLogin) { //如果用户登录了
+            if ([WifeButlerAccount sharedAccount].userParty.village.length == 0) {//用户没设置默认地址
+                [weakSelf netWorkingJinWeiDu];
+            }else{
+                WifeButlerUserParty * party = [WifeButlerAccount sharedAccount].userParty;
+                weakSelf.title = party.village;
+                [weakSelf requestBoutiqueDataWithLongitude:party.jing latitude:party.wei];
+            }
+        }else{
+            [weakSelf netWorkingJinWeiDu];
+        }
+    }];
     
     self.tableHeader = header;
     self.homeTableView = table;

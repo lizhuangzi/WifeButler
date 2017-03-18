@@ -21,6 +21,7 @@ typedef void (^ImageUtilReponseBlock)(NSArray *urlArray,NSDictionary *responseDa
  */
 + (UIImage *)comparessImageFromOriginalImage:(UIImage *)originalImage;
 
++ (NSData *)comparessImageReturnDataWithOriginalImage:(UIImage *)originalImage;
 /**
  *  等比压缩图片
  */

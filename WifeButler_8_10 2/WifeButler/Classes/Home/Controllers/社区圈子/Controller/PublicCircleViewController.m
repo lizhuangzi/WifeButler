@@ -12,7 +12,10 @@
 #import "Masonry.h"
 #import "ImagePickerUtils.h"
 #import "CSActionSheet.h"
-
+#import "WifeButlerNetWorking.h"
+#import "NetWorkPort.h"
+#import "ImageUtils.h"
+#import "WifeButlerDefine.h"
 
 #define ACTIONSHEETADDIMAGETAG 6
 #define ACTIONSHEETDELETEIMAGETAG 7
@@ -45,6 +48,9 @@ static int deleteIndex = 0;
     [super viewDidLoad];
     
     self.title = @"发布圈子";
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(fabu)];
+    
     
     self.view.backgroundColor = [UIColor whiteColor];
     CSPlaceHolderTextView * text = [[CSPlaceHolderTextView alloc]init];
@@ -195,5 +201,40 @@ static NSString * ID = @"collectionView";
         [self.imageDataArray insertObject:image atIndex:0];
     }
     [self.collectionView reloadData];
+}
+
+#pragma mark - 发布
+- (void)fabu
+{
+    [SVProgressHUD showWithStatus:@"正在上传"];
+    //1.压缩图片.
+    NSMutableArray * temp = [NSMutableArray new];
+    
+    for (UIImage * image in self.imageDataArray) {
+        if ([image isKindOfClass:[UIImage class]]) {
+            NSData * newData = [ImageUtils comparessImageReturnDataWithOriginalImage:image];
+            [temp addObject:newData];
+        }
+   }
+    
+    NSDictionary * parm = @{@"token":KToken,@"content":self.textView.text};
+    //上传服务器
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KPublicQuanZi parameter:parm andFormData:^(id<AFMultipartFormData> formData) {
+        
+        for (int i = 0; i<temp.count; i++) {
+            NSData * data = temp[i];
+            NSString * name1  = [NSString stringWithFormat:@"gallery%d.png",i];
+            [formData appendPartWithFileData:data name:name1 fileName:name1 mimeType:@"image/jpeg"];
+        }
+    } success:^(id resultCode) {
+        [SVProgressHUD showSuccessWithStatus:@"发布成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+        if (self.successBlock) {
+            self.successBlock();
+        }
+    } failure:^(NSError *error) {
+        
+        SVDCommonErrorDeal
+    }];
 }
 @end
