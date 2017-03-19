@@ -9,6 +9,8 @@
 #import "HomePageCommodityView.h"
 #import "UIColor+HexColor.h"
 #import "UIImage+ColorExistion.h"
+#import "fanliView.h"
+#import "Masonry.h"
 
 @interface HomePageCommodityView ()
 
@@ -16,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
+@property (weak, nonatomic) IBOutlet fanliView *fanliView;
 @end
 
 @implementation HomePageCommodityView
@@ -23,8 +26,25 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    self.clipsToBounds = YES;
     self.priceLabel.textColor = HexCOLOR(@"#df3031");
     self.nameLabel.textColor = HexCOLOR(@"#5a5a5a");
+    
+    fanliView * view = [[NSBundle mainBundle]loadNibNamed:@"fanliView" owner:nil options:nil].firstObject;
+     [self addSubview:view];
+     self.fanliView = view;
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.mas_top).offset(-10);
+        make.width.mas_equalTo(40);
+        make.height.mas_equalTo(40);
+        make.left.mas_equalTo(0);
+    }];
+    view.layer.cornerRadius = 20;
+    view.clipsToBounds = YES;
+    
+   
+   
+    self.fanliView.hidden = YES;
 }
 
 + (instancetype)HomePageCommodityView
@@ -42,6 +62,15 @@
         self.priceLabel.text = [NSString stringWithFormat:@"¥%@",cellModel.money];
     }else
         self.priceLabel.text = [NSString stringWithFormat:@"%@元一%@",cellModel.money,cellModel.danwei];
+    
+    if ([_cellModel.ispayoff integerValue] == 1) { //返利
+        self.fanliView.hidden = NO;
+         NSInteger i = _cellModel.payoffper.doubleValue/0.01;
+        self.fanliView.numLabel.text =[NSString stringWithFormat:@"%zd%%",i];
+    }else{
+        self.fanliView.hidden = YES;
+        self.fanliView.numLabel.text = @"0%";
+    }
 }
 
 @end

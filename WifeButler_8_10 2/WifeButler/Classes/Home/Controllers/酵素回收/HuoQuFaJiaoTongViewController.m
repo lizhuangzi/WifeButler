@@ -9,9 +9,15 @@
 #import "HuoQuFaJiaoTongViewController.h"
 #import "inputPayMoneyView.h"
 #import "WifeButlerNetWorking.h"
+#import "UIImage+ColorExistion.h"
+#import "NetWorkPort.h"
+#import "EnzyCashPledgeViewController.h"
 
 @interface HuoQuFaJiaoTongViewController ()
 
+@property (nonatomic,copy)NSString * money;
+
+@property (weak, nonatomic) IBOutlet UIButton *cashPledgeBtn;
 @end
 
 @implementation HuoQuFaJiaoTongViewController
@@ -20,8 +26,38 @@
     [super viewDidLoad];
     
     self.title = @"获取发酵桶";
+    self.cashPledgeBtn.enabled = NO;
+    [self.cashPledgeBtn setBackgroundImage:[UIImage imageWithColor:WifeButlerCommonRedColor] forState:UIControlStateNormal];
+    
+    [self.cashPledgeBtn setBackgroundImage:[UIImage imageWithColor:WifeButlerGaryTextColor2] forState:UIControlStateDisabled];
+    
+    [self.cashPledgeBtn setTitle:@"已支付押金" forState:UIControlStateDisabled];
+    
+    [self.cashPledgeBtn setTitle:@"支付押金" forState:UIControlStateNormal];
+
+    [self requestData];
 }
 
+
+- (void)requestData
+{
+    [SVProgressHUD showWithStatus:@""];
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KEnzymesRecycleisPaycashPledge parameter:@{@"userid":KUserId} success:^(NSDictionary * resultCode) {
+        
+        [SVProgressHUD dismiss];
+        NSString * flag = resultCode[@"flag"];
+        if ([flag isEqualToString:@"1"]) {
+            self.cashPledgeBtn.enabled = NO;
+        }else{
+            self.cashPledgeBtn.enabled = YES;
+        }
+        self.money = resultCode[@"money"];
+        ZJLog(@"%@",resultCode);
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络出错了"];
+        self.cashPledgeBtn.enabled = NO;
+    }];
+}
 
 - (IBAction)payClick:(id)sender {
     [self showinputPayMoneyView];
@@ -49,18 +85,13 @@
             }
             [inputMoneyView inputViewHid];
             
-            [SVProgressHUD showWithStatus:@"正在生成订单中"];
-            
-            [weakSelf generateOrderWithMoney:money ProjectId:@"" Success:^(NSString *orderId) {
-                [SVProgressHUD dismiss];
-//                
-//                UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTHuiZhuanDingDan" bundle:nil];
-//                LoveDonatePayViewController * re = [sb instantiateViewControllerWithIdentifier:@"LoveDonatePayViewController"];
-    
-            } Failure:^{
-                [SVProgressHUD showErrorWithStatus:@"生成订单失败"];
+            UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTHuiZhuanDingDan" bundle:nil];
+            EnzyCashPledgeViewController * re = [sb instantiateViewControllerWithIdentifier:@"EnzyCashPledgeViewController"];
+            [re setShuaiXinBlack:^{
+                [weakSelf requestData];
             }];
-            
+            [weakSelf.navigationController pushViewController:re animated:YES];
+
             
         }else
         {
@@ -69,19 +100,7 @@
     };
 }
 
-- (void)generateOrderWithMoney:(NSString *)moneyStr ProjectId:(NSString *)projectId Success:(void(^)(NSString * orderId))success Failure:(void(^)())failure
-{
-    NSDictionary * parm = @{@"userid":KUserId,@"projectid":projectId,@"money":moneyStr};
 
-//    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KLoveDonateGenerateOrder parameter:parm success:^(id resultCode) {
-//        
-//        !success?:success(resultCode[@"orderid"]);
-//        
-//    } failure:^(NSError *error) {
-//        
-//        !failure?: failure();
-//    }];
-}
 
 /**判断是否是金钱*/
 - (BOOL)isNUMBER:(NSString *)str

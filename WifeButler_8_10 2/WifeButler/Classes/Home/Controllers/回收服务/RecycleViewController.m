@@ -11,13 +11,22 @@
 #import "RecycleFooterView.h"
 #import "Masonry.h"
 #import "RecycleYuYueViewController.h"
-
+#import "WifeButlerLocationManager.h"
+#import "WifebutlerConst.h"
+#import "WifeButlerNetWorking.h"
+#import "NetWorkPort.h"
+#import "UIImage+ColorExistion.h"
 @interface RecycleViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic,strong) NSArray * iconNameArray;
 @property (nonatomic,strong) NSArray * nameArray;
 @property (nonatomic,strong) NSArray * moneyArray;
+
+@property (nonatomic,copy)NSString * yuyuephone;
+
+@property (weak, nonatomic) IBOutlet UIButton *yuyueBtn;
+
 @end
 
 @implementation RecycleViewController
@@ -30,6 +39,9 @@
    
     self.title = @"回收服务";
     
+    [self.yuyueBtn setBackgroundImage:[UIImage imageWithColor:WifeButlerGaryTextColor2] forState:UIControlStateDisabled];
+     [self.yuyueBtn setBackgroundImage:[UIImage imageWithColor:WifeButlerCommonRedColor] forState:UIControlStateNormal];
+    self.yuyueBtn.enabled = NO;
     self.iconNameArray = @[@"comp",@"telv",@"Rice",@"Rair",@"Rwash"];
     self.nameArray = @[@"电脑",@"电视机",@"冰箱",@"空调",@"洗衣机"];
     self.moneyArray = @[@"¥10.00-¥150.00/台",@"¥10.00-¥150.00/台",@"¥10.00-¥150.00/台",@"¥10.00-¥150.00/台",@"¥10.00-¥150.00/台"];
@@ -39,6 +51,8 @@
     self.tableView.delegate = self;
     
     [self createFooterView];
+    
+    [self judgephone];
 }
 
 - (void)createFooterView
@@ -85,7 +99,25 @@
 - (IBAction)yuyueClick:(id)sender {
     
     RecycleYuYueViewController * reVc = [RecycleYuYueViewController new];
+    reVc.phoneNum = self.yuyuephone;
     [self.navigationController pushViewController:reVc animated:YES];
+}
+
+- (void)judgephone
+{
+    NSMutableDictionary * parm = [NSMutableDictionary dictionary];
+    parm[@"lon"] = @([WifeButlerLocationManager sharedManager].longitude);
+    parm[@"lat"] = @([WifeButlerLocationManager sharedManager].latitude);
+    
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KGetSocialTelePhone parameter:parm success:^(NSDictionary * resultCode) {
+        self.yuyueBtn.enabled = YES;
+        self.yuyuephone = resultCode[@"mobile"];
+        
+    } failure:^(NSError *error) {
+        [SVProgressHUD showInfoWithStatus:@"该地址不能回收."];
+        self.yuyueBtn.enabled = NO;
+    }];
+
 }
 
 @end

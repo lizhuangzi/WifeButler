@@ -69,5 +69,9 @@
     [SVProgressHUD showErrorWithStatus:@"加载失败"];
 }
 
+- (void)dealloc
+{
+    [SVProgressHUD dismiss];
+}
 
 @end

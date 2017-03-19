@@ -58,7 +58,7 @@
     CGFloat wMargin = 1;
     CGFloat hMargin = 1;
     CGFloat viewWith = (iphoneWidth - 4*wMargin)/3;
-    CGFloat viewHeight = viewWith/2*3;
+    CGFloat viewHeight = viewWith/3*4;
 
     if (backCount <tempCount) {  //复用来的商品个小于数据个数
         

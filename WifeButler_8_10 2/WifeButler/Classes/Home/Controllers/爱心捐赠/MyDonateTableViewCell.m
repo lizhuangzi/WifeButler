@@ -35,4 +35,11 @@
     self.DAllLoveHeart.text = [NSString stringWithFormat:@"共%@份爱心",@"3"];
 }
 
+- (IBAction)juankuan:(id)sender {
+    
+    if (self.juankuanblock) {
+        self.juankuanblock(self.model);
+    }
+    
+}
 @end

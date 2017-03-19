@@ -13,4 +13,6 @@
 
 @property (nonatomic,strong) LoaveDonateRecorelistModel * model;
 
+
+
 @end

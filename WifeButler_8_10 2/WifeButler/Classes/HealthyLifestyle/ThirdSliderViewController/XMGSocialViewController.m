@@ -131,8 +131,11 @@ static NSString *ID = @"social";
     NSString * urlStr = [NSString stringWithFormat:KinformationDetial,model.Id];
     
     WifeButlerWebViewController * web = [[WifeButlerWebViewController alloc]initWithUrlStr:urlStr];
-    web.title = @"咨询详情";
+    web.title = @"资讯详情";
     [self.navigationController pushViewController:web animated:YES];
+    NSDictionary * parm = @{@"article_id":model.Id};
+    
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KInformationReadCount parameter:parm success:nil failure:nil];
 }
 
 @end

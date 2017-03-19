@@ -15,6 +15,7 @@
 #import "ExchangeDetailTableViewCell.h"
 #import "Masonry.h"
 #import "NetWorkPort.h"
+#import "WifeButlerDefine.h"
 
 @interface ZTLaJiHuanMiViewController ()<UIWebViewDelegate>
 
@@ -58,6 +59,7 @@
         make.bottom.mas_equalTo(self.view.mas_bottom).offset(-44);
     }];
     self.tableView.allowsSelection = NO;
+    self.tableView.footerRefreshEnable = NO;
     self.webCellH = 0;
     self.Flag = NO;
     [self createFooterView];
@@ -67,7 +69,7 @@
 {
     NSDictionary * parm = @{@"goods_id":self.good_id};
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KexchangeDetail parameter:parm success:^(NSDictionary * resultCode) {
-        
+        [self.imgAry removeAllObjects];
         self.dataDict.dictionary = resultCode;
         NSString *imgStr = [self.dataDict objectForKey:@"gallery"];
         NSArray *array = [imgStr componentsSeparatedByString:@","];
@@ -78,9 +80,11 @@
         }
         [self createScorllViewWuWang:self.imgAry];
         [self.tableView reloadData];
-        
+        [self.tableView endRefreshing];
     } failure:^(NSError *error) {
         
+        [self.tableView endRefreshing];
+        SVDCommonErrorDeal
     }];
 }
 
@@ -170,7 +174,7 @@
         return 110;
     }else{
         if (self.webCellH == 0) {
-            return 1;
+            return 100;
         }
         return self.webCellH;
     }
@@ -218,5 +222,11 @@
     [self.navigationController pushViewController:vc animated:YES];
     
 }
+
+- (void)WifeButlerLoadingTableViewDidRefresh:(WifeButlerLoadingTableView *)tableView
+{
+    [self requestHttpData];
+}
+
 
 @end

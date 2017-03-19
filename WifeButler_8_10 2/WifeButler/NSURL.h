@@ -79,8 +79,7 @@
 // 垃圾处理器详情评价
 #define    KLaJiChuLiQiPingJia    @"goods/goods/comment_rubbish"
 
-// 我的默认收货地址接口&我的优惠劵（收货地址使用）
-#define    KMoRenDiZhi            @"account/address/address_default"
+
 
 // 兑换详情 - 商品简介
 #define   KDuiHuanXiangQinH5       @"goods/goods/exchange_detail_h5"

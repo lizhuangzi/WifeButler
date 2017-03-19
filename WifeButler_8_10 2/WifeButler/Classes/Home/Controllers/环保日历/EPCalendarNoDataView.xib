@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,10 +15,10 @@
             <rect key="frame" x="0.0" y="0.0" width="179" height="158"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="communityPolitic" translatesAutoresizingMaskIntoConstraints="NO" id="sXh-bn-hBd">
-                    <rect key="frame" x="50" y="10" width="80" height="80"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_record" translatesAutoresizingMaskIntoConstraints="NO" id="sXh-bn-hBd">
+                    <rect key="frame" x="55" y="20" width="70" height="80"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="80" id="7pi-zI-KTs"/>
+                        <constraint firstAttribute="width" constant="70" id="7pi-zI-KTs"/>
                         <constraint firstAttribute="height" constant="80" id="Uqp-mx-x7x"/>
                     </constraints>
                 </imageView>
@@ -41,17 +41,17 @@
             </subviews>
             <constraints>
                 <constraint firstItem="M6r-5r-9io" firstAttribute="top" secondItem="gaH-l3-g67" secondAttribute="bottom" constant="7" id="801-rG-nMg"/>
-                <constraint firstItem="gaH-l3-g67" firstAttribute="top" secondItem="sXh-bn-hBd" secondAttribute="bottom" constant="15" id="9Oa-BQ-2Xa"/>
+                <constraint firstItem="gaH-l3-g67" firstAttribute="top" secondItem="sXh-bn-hBd" secondAttribute="bottom" constant="5" id="9Oa-BQ-2Xa"/>
                 <constraint firstItem="M6r-5r-9io" firstAttribute="centerX" secondItem="Jvl-Px-18l" secondAttribute="centerX" id="NRt-K6-yII"/>
                 <constraint firstItem="gaH-l3-g67" firstAttribute="centerX" secondItem="Jvl-Px-18l" secondAttribute="centerX" id="VSA-bR-Fja"/>
                 <constraint firstItem="sXh-bn-hBd" firstAttribute="centerX" secondItem="Jvl-Px-18l" secondAttribute="centerX" id="cQp-35-rlh"/>
-                <constraint firstItem="sXh-bn-hBd" firstAttribute="top" secondItem="Jvl-Px-18l" secondAttribute="top" constant="10" id="y43-Ns-GXL"/>
+                <constraint firstItem="sXh-bn-hBd" firstAttribute="top" secondItem="Jvl-Px-18l" secondAttribute="top" constant="20" id="y43-Ns-GXL"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-118.5" y="263"/>
         </view>
     </objects>
     <resources>
-        <image name="communityPolitic" width="50" height="50"/>
+        <image name="no_record" width="52" height="60"/>
     </resources>
 </document>

@@ -16,6 +16,9 @@
 /** 默认小区接口经纬度*/
 #define KMoRenXiaoQuJinWeiDu  [HTTP_BaseURL stringByAppendingString: @"goods/goods/village_default"]
 
+// 我的默认收货地址接口&我的优惠劵（收货地址使用）
+#define  KMoRenDiZhi         [HTTP_BaseURL stringByAppendingString:@"account/address/address_default"]
+
 /**精品请求*/
 #define KBoutiqueData [HTTP_BaseURL stringByAppendingString: @"homepage/Homepage/getJP"]
 
@@ -97,6 +100,8 @@
 #define KLoveDonateUserRecordlist [HTTP_BaseURL stringByAppendingString:@"loveproject/Loveproject/getrecord?userid=%@&page=%@"]
 /**生成爱心捐赠订单*/
 #define KLoveDonateGenerateOrder [HTTP_BaseURL stringByAppendingString:@"loveproject/Loveproject/createorder"]
+/**爱心捐赠详情内容h5*/
+#define KLoveDonateHtml [HTTP_BaseURL stringByAppendingString:@"loveproject/Loveproject/pro_desc?pro_id=%@"]
 
 /**爱心请求后台支付加密字符串*/
 #define KLoveDonatePayment [HTTP_BaseURL stringByAppendingString:@"loveproject/Loveproject/pay"]
@@ -106,5 +111,15 @@
 #define KEnzymesRecycleisPaycashPledge [HTTP_BaseURL stringByAppendingString:@"integrals/Deposit/ishave"]
 
 /**酵素回收押金支付*/
-#define K [HTTP_BaseURL stringByAppendingString:@"integrals/Deposit/createpay"];
+#define KCashpledgePay [HTTP_BaseURL stringByAppendingString:@"integrals/Deposit/createpay"]
+
+/**获取社区回收电话*/
+#define KGetSocialTelePhone [HTTP_BaseURL stringByAppendingString:@"integrals/Admin/getgarbagecollectionservice"]
+
+/**获取回收时间*/
+#define KGetAppointmentTime  [HTTP_BaseURL stringByAppendingString:@"integrals/Garbagecollection/serve_time"]
+
+/**预约回收*/
+#define KMakeAppointment [HTTP_BaseURL stringByAppendingString:@"integrals/Admin/sendmsggarbagecollection"]
+
 #endif/* NetWorkPort_h */

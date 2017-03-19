@@ -16,6 +16,7 @@
 #import "WifeButlerDefine.h"
 
 #import "LoveDonateRecordViewController.h"
+#import "LoveDonateDetailViewController.h"
 
 
 @interface MyDonateViewController ()
@@ -113,6 +114,13 @@
 {
     MyDonateTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyDonateTableViewCell"];
     cell.model = self.dataArray[indexPath.row];
+    WEAKSELF;
+    [cell setJuankuanblock:^(MyDonateUserlistModel * model){
+        
+        LoveDonateDetailViewController * detail = [[LoveDonateDetailViewController alloc]init];
+        detail.projectId = model.Id;
+        [weakSelf.navigationController pushViewController:detail animated:YES];
+    }];
     return cell;
 }
 
@@ -123,7 +131,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    MyDonateUserlistModel * model = self.dataArray[indexPath.row];
+    LoveDonateDetailViewController * detail = [[LoveDonateDetailViewController alloc]init];
+    detail.projectId = model.Id;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 #pragma mark - loading refresh

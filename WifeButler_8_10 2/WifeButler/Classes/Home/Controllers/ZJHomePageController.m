@@ -26,6 +26,7 @@
 #import "RecycleViewController.h"
 #import "EnzymesRecycleViewController.h"
 #import "MedRefFriendCircleViewController.h"
+#import "WifeButlerWebViewController.h"
 
 #import "ZTJianKangShenHuoBottomModel.h"
 #import "ZTLunBoToModel.h"
@@ -45,6 +46,7 @@
 #import "WifebutlerConst.h"
 #import "WifeButlerDefine.h"
 #import "WifeButlerLocationManager.h"
+#import "InformationPort.h"
 
 @interface ZJHomePageController ()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,HomePageCommodityCellDelegate>
 {
@@ -64,7 +66,7 @@
 
 @property (nonatomic,weak) WifeButlerHomeTableHeaderView * tableHeader;
 
-
+@property (nonatomic,assign) BOOL canLoadAppear;
 
 @end
 
@@ -91,17 +93,37 @@
     [self listenNotify];
 
     [self requestBannerData];
-
+    
+    self.canLoadAppear = NO;
+    
     if ([WifeButlerAccount sharedAccount].isLogin) { //如果用户登录了
-        if ([WifeButlerAccount sharedAccount].userParty.village.length == 0) {//用户没设置默认地址
-             [self netWorkingJinWeiDu];
-        }else{
-            WifeButlerUserParty * party = [WifeButlerAccount sharedAccount].userParty;
-            self.title = party.village;
-            [self requestBoutiqueDataWithLongitude:party.jing latitude:party.wei];
+        
+        if([WifeButlerLocationManager sharedManager].village.length == 0){ //用户没地址
+            [self tianjiaDiZhi];
+            [self netWorkingJinWeiDu];
+            
+        }else{ //用户有地址
+            NSString * jing = [NSString stringWithFormat:@"%f", [WifeButlerLocationManager sharedManager].longitude];
+            NSString * wei = [NSString stringWithFormat:@"%f", [WifeButlerLocationManager sharedManager].latitude];
+            self.addressLab.text = [WifeButlerLocationManager sharedManager].village;
+            [self requestBoutiqueDataWithLongitude:jing latitude:wei];
         }
+
     }else{
         [self netWorkingJinWeiDu];
+    }
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //没登录或者 没有地址
+   
+    if (self.canLoadAppear) {
+        if (![WifeButlerAccount sharedAccount].isLogin || [WifeButlerLocationManager sharedManager].village.length == 0) {
+            [self netWorkingJinWeiDu];
+        }
     }
 }
 
@@ -109,6 +131,8 @@
 - (void)listenNotify
 {
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(locatedChange) name:WifebutlerLocationDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogin) name:LoginViewControllerDidLoginSuccessNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogOut) name:WifeButlerUserDidLogOutNotification object:nil];
 }
 
 
@@ -200,17 +224,26 @@
         [weakSelf delalPushViewControllerWithClickIndex:index];
         
     }];
+    
+    
+    [header setTopScrollViewClick:^(ZTLunBoToModel * model){
+        NSString * urlStr = [NSString stringWithFormat:KinformationDetial,model.goods_id];
+        WifeButlerWebViewController * web = [[WifeButlerWebViewController alloc]initWithUrlStr:urlStr];
+        web.title = @"资讯详情";
+        [self.navigationController pushViewController:web animated:YES];
+    }];
     table.tableHeaderView = header;
     
     table.mj_header = [MJRefreshHeader headerWithRefreshingBlock:^{
         
         if ([WifeButlerAccount sharedAccount].isLogin) { //如果用户登录了
-            if ([WifeButlerAccount sharedAccount].userParty.village.length == 0) {//用户没设置默认地址
+            if ([WifeButlerLocationManager sharedManager].village.length == 0) {//用户没设置默认地址
                 [weakSelf netWorkingJinWeiDu];
             }else{
-                WifeButlerUserParty * party = [WifeButlerAccount sharedAccount].userParty;
-                weakSelf.title = party.village;
-                [weakSelf requestBoutiqueDataWithLongitude:party.jing latitude:party.wei];
+                NSString * jing = [NSString stringWithFormat:@"%f", [WifeButlerLocationManager sharedManager].longitude];
+                NSString * wei = [NSString stringWithFormat:@"%f", [WifeButlerLocationManager sharedManager].latitude];
+                self.addressLab.text = [WifeButlerLocationManager sharedManager].village;
+                [weakSelf requestBoutiqueDataWithLongitude:jing latitude:wei];
             }
         }else{
             [weakSelf netWorkingJinWeiDu];
@@ -302,6 +335,7 @@
             LoveDonateViewController * lo = [LoveDonateViewController new];
             [self.navigationController pushViewController:lo animated:YES];
         }
+            break;
         case 6:{
             RecycleViewController * re = [RecycleViewController new];
             [self.navigationController pushViewController:re animated:YES];
@@ -321,11 +355,15 @@
 
 
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
 
+
+- (void)tianjiaDiZhi
+{
+    D_CommonAlertShow(@"您还没添加默认收货地址 块去添加吧", ^{
+        
+        [self titleButtonClick];
+    });
+}
 
 - (void)createNav
 {
@@ -339,47 +377,26 @@
     self.navigationItem.rightBarButtonItem = item1;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-
 #pragma mark - 默认经纬度请求
 - (void)netWorkingJinWeiDu
 {
-    
-    [WifeButlerNetWorking getHttpRequestWithURLsite:KMoRenXiaoQuJinWeiDu parameter:nil success:^(NSDictionary *response) {
+    [[WifeButlerLocationManager sharedManager]startLocationAndFinishBlock:^(WifeButlerLocationModel *locationInfo) {
         
-        // 登录成功
-        if ([response[CodeKey] intValue] == SUCCESS) {
-            
-            [SVProgressHUD dismiss];
-            
-            NSString *weiDu = response[@"resultCode"][@"latitude"];
-            NSString *jinDu = response[@"resultCode"][@"longitude"];
-            NSString *xiaoQu = response[@"resultCode"][@"village"];
-            
-            [self requestBoutiqueDataWithLongitude:jinDu latitude:weiDu];
-            
-            [WifeButlerLocationManager sharedManager].longitude = jinDu.doubleValue;
-            [WifeButlerLocationManager sharedManager].latitude = weiDu.doubleValue;
-            [WifeButlerLocationManager sharedManager].village = xiaoQu;
-            
-            self.addressLab.text = xiaoQu;
-        }
-        else
-        {
-            
-            
+        if (locationInfo.POIName.length == 0) {
+            [SVProgressHUD showErrorWithStatus:@"请求默认经纬度失败,请检查你的网络连接"];
+            return ;
         }
         
-    } failure:^(NSError *error) {
+        NSString * jingDu = [NSString stringWithFormat:@"%f",locationInfo.location2D.longitude];
+        NSString * weiDu = [NSString stringWithFormat:@"%f",locationInfo.location2D.latitude];
         
-        [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
+        [WifeButlerLocationManager sharedManager].longitude = locationInfo.location2D.longitude;
+        [WifeButlerLocationManager sharedManager].latitude = locationInfo.location2D.latitude;
+        [WifeButlerLocationManager sharedManager].village = locationInfo.POIName;
+        self.addressLab.text = locationInfo.POIName;
+        
+        [self requestBoutiqueDataWithLongitude:jingDu latitude:weiDu];
     }];
-    
 }
 
 
@@ -388,19 +405,16 @@
 {
     NSMutableArray *imageArrMutTemp = [NSMutableArray array];
     
-    NSMutableArray *titleArr = [NSMutableArray array];
     
     for (int i = 0; i < imageArr.count; i ++) {
         
         ZTLunBoToModel *model = imageArr[i];
         
         NSString *imageStr = [NSString stringWithFormat:@"%@%@", KImageUrl, model.file];
-        NSString *title = model.word;
-        
-        [titleArr addObject:title];
         [imageArrMutTemp addObject:imageStr];
     }
     self.tableHeader.bannerImageURLStrings = imageArrMutTemp;
+    self.tableHeader.lunboModelArr = imageArr;
 }
 
 
@@ -416,6 +430,25 @@
     self.addressLab.text = [WifeButlerLocationManager sharedManager].village;
 }
 
+- (void)userLogOut
+{
+    self.canLoadAppear = NO;
+}
+
+- (void)userLogin
+{
+    self.canLoadAppear = YES;
+    if([WifeButlerLocationManager sharedManager].village.length == 0){ //用户没地址
+        [self tianjiaDiZhi];
+        [self netWorkingJinWeiDu];
+        
+    }else{ //用户有地址
+        NSString * jing = [NSString stringWithFormat:@"%f", [WifeButlerLocationManager sharedManager].longitude];
+        NSString * wei = [NSString stringWithFormat:@"%f", [WifeButlerLocationManager sharedManager].latitude];
+        self.addressLab.text = [WifeButlerLocationManager sharedManager].village;
+        [self requestBoutiqueDataWithLongitude:jing latitude:wei];
+    }
+}
 
 - (IBAction)titleButtonClick {
     
@@ -426,6 +459,7 @@
 
 - (void)gotoShopCart{
     
+    WifeButlerLetUserLoginCode
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZTGouWuChe" bundle:nil];
     ZTPersonGouWuCheViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ZTPersonGouWuCheViewController"];
     [self.navigationController pushViewController:vc animated:YES];

@@ -7,6 +7,8 @@
 //
 
 #import "CommunityShopMainViewCell.h"
+#import "fanliView.h"
+#import "Masonry.h"
 
 @interface CommunityShopMainViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -17,6 +19,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *cellCountAndInventoryView;
 
+@property (nonatomic,weak) fanliView * fanliView;
 
 @end
 
@@ -33,6 +36,23 @@
     return cell;
 }
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+//    fanliView * view = [[NSBundle mainBundle]loadNibNamed:@"fanliView" owner:nil options:nil].firstObject;
+//    [self addSubview:view];
+//    self.fanliView = view;
+//    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.mas_equalTo(self.mas_bottom).offset(-10);
+//        make.width.mas_equalTo(30);
+//        make.height.mas_equalTo(30);
+//        make.right.mas_equalTo(-10);
+//    }];
+//    view.layer.cornerRadius = 15;
+//    view.clipsToBounds = YES;
+}
+
 - (void)setModel:(CommunityShopMainModel *)model
 {
     _model = model;
@@ -45,11 +65,6 @@
     self.nowPriceView.text = [NSString stringWithFormat:@"¥%@",model.money];
     self.orginPriceView.text = [NSString stringWithFormat:@"¥%@",_model.oldprice];
     self.cellCountAndInventoryView.text = [NSString stringWithFormat:@"销量:%@库存:%@",_model.sales,_model.store];
-}
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
 }
 
 - (IBAction)shopButtonClick:(UIButton *)sender {

@@ -19,7 +19,7 @@
 #import "Masonry.h"
 #import "JieSuanTableViewCell.h"
 #import "JieSuanTableSectionHeader.h"
-
+#import "NetWorkPort.h"
 @interface ZTJieSuanGouWuCheViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSString *_isZaiXianPay;      // 1在线支付   2货到付款
@@ -158,7 +158,7 @@
     
     [dic setObject:KToken forKey:@"token"];
     
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KMoRenDiZhi];
+    NSString *url = KMoRenDiZhi;
     
     ZJLog(@"%@", dic);
     

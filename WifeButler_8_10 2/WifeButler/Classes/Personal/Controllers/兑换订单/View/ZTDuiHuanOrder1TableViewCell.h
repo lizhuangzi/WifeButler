@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *numLab;
 
 @property (weak, nonatomic) IBOutlet UIButton *queRenBtn;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @property (nonatomic, copy) void (^queRenBlock)(void);
 

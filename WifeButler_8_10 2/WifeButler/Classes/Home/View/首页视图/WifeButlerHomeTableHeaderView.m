@@ -35,10 +35,16 @@
     self.cycleScrollView2.imageURLStringsGroup = _bannerImageURLStrings;
 }
 
+- (void)setLunboModelArr:(NSArray *)lunboModelArr
+{
+    _lunboModelArr = lunboModelArr;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
         
+        WEAKSELF
         //1.创建轮播装置
         SDCycleScrollView *cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, self.width, 136.5) delegate:self placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
         
@@ -46,7 +52,10 @@
         cycleScrollView2.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
         cycleScrollView2.currentPageDotColor = [UIColor whiteColor]; // 自定义分页控件小圆标颜色
         cycleScrollView2.backgroundColor = [UIColor whiteColor];
-        
+        [cycleScrollView2 setClickItemOperationBlock:^(NSInteger index) {
+            ZTLunBoToModel * lunbomodel = weakSelf.lunboModelArr[index];
+            !weakSelf.topScrollViewClick?:weakSelf.topScrollViewClick(lunbomodel);
+        }];
         [self addSubview:cycleScrollView2];
         self.cycleScrollView2 = cycleScrollView2;
         

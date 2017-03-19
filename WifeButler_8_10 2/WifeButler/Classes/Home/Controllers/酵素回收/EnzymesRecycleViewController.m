@@ -8,7 +8,8 @@
 
 #import "EnzymesRecycleViewController.h"
 #import "HuoQuFaJiaoTongViewController.h"
-
+#import "WifeButlerNetWorking.h"
+#import "NetWorkPort.h"
 @interface EnzymesRecycleViewController ()
 
 @end
@@ -19,6 +20,7 @@
     [super viewDidLoad];
     self.title = @"酵素回收";
     self.view.backgroundColor = WifeButlerTableBackGaryColor;
+    
 }
 
 - (IBAction)huoquClick:(id)sender {

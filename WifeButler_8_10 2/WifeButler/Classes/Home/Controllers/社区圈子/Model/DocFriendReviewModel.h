@@ -17,8 +17,9 @@
 /**评论人id*/
 @property (nonatomic,copy)NSString * uid;
 
+@property (nonatomic,copy)NSString * topic_id;
 @property (nonatomic,copy)NSString * avatar;
-
+@property (nonatomic,copy)NSString * level;
 @property (nonatomic,strong) NSArray * child;
 
 // 评论内容

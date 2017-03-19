@@ -11,6 +11,7 @@
 typedef NS_ENUM(NSUInteger, GoodsDetailRemarFooterShowType) {
     GoodsDetailRemarFooterShowTypeFindMoreReview,
     GoodsDetailRemarFooterShowTypeNoReview,
+    GoodsDetailRemarFooterShowTypeNothing,
 };
 /**这是评论section底部*/
 @interface GoodsDetailRemarFooter : UIView
@@ -18,5 +19,8 @@ typedef NS_ENUM(NSUInteger, GoodsDetailRemarFooterShowType) {
 + (instancetype)footerView;
 
 @property (nonatomic,assign) GoodsDetailRemarFooterShowType showType;
+
+/**查看更多*/
+@property (nonatomic,copy)void(^seekMoreBlock)();
 
 @end

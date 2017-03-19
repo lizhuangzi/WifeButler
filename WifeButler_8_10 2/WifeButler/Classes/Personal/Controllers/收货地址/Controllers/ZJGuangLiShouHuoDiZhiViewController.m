@@ -49,7 +49,6 @@
 
 - (void)createUI
 {
-    
     _dataSource = [NSMutableArray array];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, iphoneWidth, iphoneHeight - 44 - 64) style:UITableViewStylePlain];
@@ -66,7 +65,7 @@
     [self.view addSubview:bottomBtn];
     bottomBtn.frame = CGRectMake(0, CGRectGetMaxY(_tableView.frame), iphoneWidth, 44);
     [bottomBtn setTitle:@"添加地址" forState:UIControlStateNormal];
-    [bottomBtn setImage:[UIImage imageNamed:@"ZTTianJiaTuPian1"] forState:UIControlStateNormal];
+    [bottomBtn setImage:[UIImage imageNamed:@"gwc_add"] forState:UIControlStateNormal];
     [bottomBtn setBackgroundColor:[UIColor whiteColor]];
     bottomBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [bottomBtn setTitleColor:WifeButlerCommonRedColor forState:UIControlStateNormal];

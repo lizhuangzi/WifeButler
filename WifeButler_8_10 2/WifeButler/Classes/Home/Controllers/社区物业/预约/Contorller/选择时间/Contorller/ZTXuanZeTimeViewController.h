@@ -17,4 +17,6 @@
 // 返回时间
 @property (nonatomic, copy) void (^BackTimeBlack)(NSString *time);
 
+@property (nonatomic,copy) NSString *  requestURLStr;
+
 @end

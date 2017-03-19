@@ -32,6 +32,8 @@
         [button setTitleColor:WifeButlerCommonRedColor forState:UIControlStateNormal];
         [button setTitle:@"该商品暂无评价" forState:UIControlStateDisabled];
         [button setTitleColor:WifeButlerGaryTextColor2 forState:UIControlStateDisabled];
+        [button addTarget:self action:@selector(morepingjia) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:@"没有评价了" forState:UIControlStateSelected];
         [self addSubview:button];
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(self);
@@ -47,11 +49,23 @@
     _showType = showType;
     if (_showType == GoodsDetailRemarFooterShowTypeFindMoreReview) {
         self.button.enabled = YES;
+        self.button.selected = NO;
         self.backgroundColor = [UIColor whiteColor];
+    }else if(_showType == GoodsDetailRemarFooterShowTypeNoReview){
+        self.button.enabled = NO;
+         self.button.selected = NO;
+        self.backgroundColor = [UIColor clearColor];
     }else{
         self.button.enabled = NO;
+        self.button.selected = YES;
         self.backgroundColor = [UIColor clearColor];
     }
 }
 
+- (void)morepingjia
+{
+    if (self.seekMoreBlock) {
+        self.seekMoreBlock();
+    }
+}
 @end

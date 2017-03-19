@@ -191,8 +191,10 @@ static NSString * repeatDynamic = @"转发";
 
 // 请求列表数据，showWaitting YES 显示等待框
 -(void)startApplicationRequest:(BOOL)showWaitting{
-    
-    [SVProgressHUD showWithStatus:@""];
+    if (showWaitting) {
+         [SVProgressHUD showWithStatus:@""];
+    }
+   
     NSDictionary * parm = @{@"token":KToken,@"pageindex":@(self.page)};
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KSheQuQuanZi parameter:parm success:^(NSArray * resultCode) {
         
@@ -203,7 +205,7 @@ static NSString * repeatDynamic = @"转发";
         D_FailLoadingDeal(0);
     }];
 }
-#pragma mark - 相关数据请求
+#pragma mark - 相关数据请求 点赞 评论
 // 转发数据请求
 -(void)forwardWithComment:(NSString *)comment atSection:(NSInteger)section{
 
@@ -211,6 +213,39 @@ static NSString * repeatDynamic = @"转发";
 // 评论数据请求
 -(void)publishComment:(NSString *)content{
     
+    DocFriendModel * friendmodel = self.dataArray[self.currentOpSection];
+    
+    NSMutableDictionary * parm = [NSMutableDictionary dictionary];
+    parm[@"token"] = KToken;
+    parm[@"content"] = content;
+    if (self.replyModel) { //评论评论
+      parm[@"topic_id"] = self.replyModel.topic_id;
+      parm[@"level"] = @"2";
+      parm[@"msg_id"] = self.replyModel.id;
+        if ([self.replyModel.level isEqualToString:@"1"]) {
+            
+            parm[@"argued_id"] = self.replyModel.id;
+            parm[@"argued_name"] = self.replyModel.nickname;
+        }else{
+            
+            parm[@"argued_id"] = self.replyModel.argued_id;
+            parm[@"argued_name"] = self.replyModel.nickname;
+        }
+    }else{ //评论动态
+        parm[@"msg_id"] = friendmodel.id;
+        parm[@"argued_id"] = @"";
+        parm[@"argued_name"] = @"";
+        parm[@"level"] = @"1";
+        parm[@"topic_id"] = friendmodel.id;
+    }
+  
+    
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KQuanZiPingLun parameter:parm success:^(id resultCode) {
+        
+        [self startApplicationRequest:YES];
+    } failure:^(NSError *error) {
+        SVDCommonErrorDeal;
+    }];
     
 }
 // 点赞or取消点赞
@@ -221,7 +256,7 @@ static NSString * repeatDynamic = @"转发";
         return;
     }
     DocFriendModel * friendmodel = self.dataArray[self.currentOpSection];
-    NSDictionary * parm = @{@"token":KToken,@"topic_id":friendmodel.topic_id};
+    NSDictionary * parm = @{@"token":KToken,@"topic_id":friendmodel.id};
 
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KQuanZiDianZan parameter:parm success:^(id resultCode) {
         WifeButlerUserParty * party = [WifeButlerAccount sharedAccount].userParty;
@@ -606,21 +641,21 @@ static NSString * repeatDynamic = @"转发";
         }
     }
 
-    icoArray=@[@"academic_praise_n",@"academic_review",@"academic_share"];
+    icoArray=@[@"academic_praise_n",@"academic_review"];
     if (isPraise==YES) { // 已点赞
-        titleArray = @[cancelPraise, commentString, repeatDynamic];
+        titleArray = @[cancelPraise, commentString];
     } else {
-        titleArray = @[setPraise, commentString, repeatDynamic];
+        titleArray = @[setPraise, commentString];
     }
-    // 如果是自己发布的不显示转发按钮
-    if ([currentModel.id isEqualToString:@""]){// [model.chtTypeEnumFK isEqualToString:@"话题"] || [model.chtTypeEnumFK isEqualToString:@"病历"]
-        icoArray=@[@"academic_praise_n",@"academic_review"];
-        if (isPraise==YES) { // 已点赞
-            titleArray = @[cancelPraise, commentString];
-        } else {
-            titleArray = @[setPraise, commentString];
-        }
-    }
+//    // 如果是自己发布的不显示转发按钮
+//    if ([currentModel.id isEqualToString:@""]){// [model.chtTypeEnumFK isEqualToString:@"话题"] || [model.chtTypeEnumFK isEqualToString:@"病历"]
+//        icoArray=@[@"academic_praise_n",@"academic_review"];
+//        if (isPraise==YES) { // 已点赞
+//            titleArray = @[cancelPraise, commentString];
+//        } else {
+//            titleArray = @[setPraise, commentString];
+//        }
+//    }
     FriendCircleMarkPopView *popView = [[FriendCircleMarkPopView alloc] init];
     [popView setItemTitles:titleArray withIcos:icoArray];
     popView.delegate = self;

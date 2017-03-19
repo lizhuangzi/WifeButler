@@ -15,6 +15,7 @@
 #import "GoodsDetailRemarkSectionHeader.h"
 #import "PhotosScrollView.h"
 #import "ZTPersonGouWuCheViewController.h"
+#import "GoodReviewViewController.h"
 #import "ZJLoginController.h"
 #import "MJRefresh.h"
 
@@ -154,7 +155,10 @@
     }
     else if(section == 1)
     {
-        return self.dataAry.count;
+        if (self.dataAry.count>3) {
+            return 3;
+        }else
+            return self.dataAry.count;
     }else{
         return 1;
     }
@@ -173,6 +177,15 @@
             cell.saleLabel.text=[NSString stringWithFormat:@"已有%@人付款",[self.dataDic objectForKey:@"sales"]];
             cell.oldPriceLabel.text = [NSString stringWithFormat:@"¥%@",self.dataDic[@"oldprice"]];
             cell.inventoryLabel.text = [NSString stringWithFormat:@"库存:%@",self.dataDic[@"store"]];
+            
+            if ([self.dataDic[@"ispayoff"] integerValue] == 1) {
+                cell.fanliLabel.hidden = NO;
+                NSInteger i = [self.dataDic[@"payoffper"] doubleValue]/0.01;
+                cell.fanliLabel.text =[NSString stringWithFormat:@"超高返利%zd%%",i];
+            }else{
+                cell.fanliLabel.hidden = YES;
+                cell.fanliLabel.text = @"不参与返利";
+            }
             return cell;
         }
         
@@ -193,6 +206,8 @@
         cell.nameLabel.text=[[self.dataAry objectAtIndex:indexPath.row] objectForKey:@"nickname"];
         cell.pingLunLabel.text=[[self.dataAry objectAtIndex:indexPath.row] objectForKey:@"content"];
         cell.timeLabel.text=[self time:[[self.dataAry objectAtIndex:indexPath.row] objectForKey:@"time"]];
+        NSString * star = [[self.dataAry objectAtIndex:indexPath.row] objectForKey:@"star"];
+        [cell.startView setCurrentScore:[star floatValue]];
         return cell;
         
     }else if (indexPath.section == 2){
@@ -221,11 +236,11 @@
         
         if (indexPath.row==0) {
             
-            return 94;
+            return 99;
         }
         if (indexPath.row==1) {
             
-            return 66;
+            return 56;
         }
     }
     
@@ -254,7 +269,7 @@
         
         header.reViewLabel.text = [NSString stringWithFormat:@"%zd人评价",self.reviewCount];
         header.scoreLabel.text = [NSString stringWithFormat:@"%.1f",self.averageScore];
-        
+        [header.startView setCurrentScore:self.averageScore];
         return header;
     }
     return nil;
@@ -271,9 +286,17 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     if (section == 1) {
+        WEAKSELF
         GoodsDetailRemarFooter * footer = [[GoodsDetailRemarFooter alloc]init];
+        [footer setSeekMoreBlock:^{
+            GoodReviewViewController * view = [[GoodReviewViewController alloc]init];
+            view.goodId = self.goodId;
+            [weakSelf.navigationController pushViewController:view animated:YES];
+        }];
         if (self.dataAry.count == 0) {
             footer.showType = GoodsDetailRemarFooterShowTypeNoReview;
+        }else if(self.dataAry.count<3){
+            footer.showType = GoodsDetailRemarFooterShowTypeNothing;
         }else{
             footer.showType = GoodsDetailRemarFooterShowTypeFindMoreReview;
         }
@@ -333,9 +356,8 @@
         
         // 登录成功
         if ([[responseObject objectForKey:@"code"] intValue] == 10000) {
-            
             [SVProgressHUD dismiss];
-            self.dataDic = [responseObject objectForKey:@"resultCode"];
+            self.dataDic.dictionary = [responseObject objectForKey:@"resultCode"];
             //回调到需要自己数据的控制器
             !self.usefulDataBlock?:self.usefulDataBlock(self.dataDic);
             
@@ -364,6 +386,7 @@
     }];
 }
 
+#pragma mark - 请求评论
 - (void)ZJNetWorkingJiaZa
 {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];

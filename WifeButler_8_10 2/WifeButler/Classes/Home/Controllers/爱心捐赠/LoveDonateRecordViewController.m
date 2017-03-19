@@ -102,6 +102,10 @@
     return @"我的捐赠记录";
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 #pragma mark - loading refresh
 - (void)WifeButlerLoadingTableViewDidRefresh:(WifeButlerLoadingTableView *)tableView

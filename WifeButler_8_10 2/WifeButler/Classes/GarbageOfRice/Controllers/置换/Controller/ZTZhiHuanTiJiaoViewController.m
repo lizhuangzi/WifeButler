@@ -15,7 +15,7 @@
 #import  "MJExtension.h"
 #import "Masonry.h"
 #import "UserDeliverLocationReturnView.h"
-
+#import "NetWorkPort.h"
 #define MAX_LIMIT_NUMS  40
 
 @interface ZTZhiHuanTiJiaoViewController () <UITextViewDelegate, UITextFieldDelegate, UIScrollViewDelegate>
@@ -96,7 +96,7 @@
     
     [dic setObject:KToken forKey:@"token"];
     
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KMoRenDiZhi];
+    NSString *url = KMoRenDiZhi;
     
     ZJLog(@"%@", dic);
     

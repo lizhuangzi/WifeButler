@@ -94,8 +94,10 @@
         self.viewModel = [LoveDonateDetailModel modelWithDictionary:resultCode];
         self.headerView.model = self.viewModel;
         [self.tableView reloadData];
+        [self.tableView endRefreshing];
     } failure:^(NSError *error) {
         SVDCommonErrorDeal
+        [self.tableView endRefreshing];
     }];
 
 }
@@ -130,7 +132,10 @@
     }else{
         cell.webView.hidden = NO;
         cell.detailLabel.hidden = YES;
-        [cell.webView loadHTMLString:@"adlkadslkalsdlalsdlasdlalsdlaldlsadllsafn\nasnfnasndnsdnnasdnnasdnansdnasndnasd\nkkasdllasdllasldlasldlasldnnvnasdkldlasdl" baseURL:nil];
+        NSString * urlStr = [NSString stringWithFormat:KLoveDonateHtml,self.projectId];
+        NSURL * url = [NSURL URLWithString:urlStr];
+        NSURLRequest * req = [NSURLRequest requestWithURL:url];
+        [cell.webView loadRequest:req];
     }
     
     return cell;
@@ -143,7 +148,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 2) {
-        return self.webHeight;
+        return self.viewModel.cell1H + self.webHeight + self.viewModel.cell2H;
     }else if(indexPath.row == 0){
         return self.viewModel.cell1H;
     }else{
@@ -158,8 +163,8 @@
     webView.height = webH - 5;
     
     if (!_isLoadWeb) {
-        NSIndexPath * indexpath = [NSIndexPath indexPathForRow:2 inSection:0];
-        [self.tableView reloadRowsAtIndexPaths:@[indexpath] withRowAnimation:UITableViewRowAnimationNone];
+       
+        [self.tableView reloadData];
         _isLoadWeb = YES;
     }
 }
@@ -235,6 +240,11 @@
     NSArray * array = [ex matchesInString:str options:0 range:NSMakeRange(0, str.length)];
     
     return array.count == 1?YES:NO;
+}
+
+- (void)WifeButlerLoadingTableViewDidRefresh:(WifeButlerLoadingTableView *)tableView
+{
+    [self requestData];
 }
 
 @end

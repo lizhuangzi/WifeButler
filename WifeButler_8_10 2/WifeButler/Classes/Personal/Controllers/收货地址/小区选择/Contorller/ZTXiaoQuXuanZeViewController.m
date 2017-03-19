@@ -15,6 +15,7 @@
 #import "WifeButlerNetWorking.h"
 #import "WifeButlerDefine.h"
 #import "NearbyVillageTableViewCell.h"
+#import "PersonalPort.h"
 
 @interface ZTXiaoQuXuanZeViewController () <UISearchBarDelegate,MAMapViewDelegate,UITableViewDelegate>
 {
@@ -29,7 +30,10 @@
 
 @property (nonatomic,assign) CLLocationCoordinate2D current2D;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableTopCon;
 @property (nonatomic,assign) BOOL firstLoad;
+
+@property (nonatomic,weak) UIImageView * pointImage;
 @end
 
 @implementation ZTXiaoQuXuanZeViewController
@@ -55,6 +59,7 @@
     needle.centerX = self.view.centerX;
     needle.centerY = self.mapView.centerY;
     needle.image = [UIImage imageNamed:@"mapViewloc"];
+    self.pointImage = needle;
     
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
@@ -63,9 +68,6 @@
     [self.mapView setZoomLevel:16.0];
     
     WEAKSELF;
-    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [weakSelf downLoadInfoSearch:weakSelf.XiaoQusearchBar.text Coordinate2D:weakSelf.current2D];
-    }];
     
     [[WifeButlerLocationManager sharedManager] startLocationAndFinishBlock:^(WifeButlerLocationModel *locationInfo) {
         _firstLoad = NO;
@@ -131,9 +133,7 @@
 {
     [self.view endEditing:YES];
     
-    [self downLoadInfoSearch:searchBar.text Coordinate2D:self.current2D];
-    
-    ZJLog(@"xxxxxxxxx");
+    [self requestAllVillage];
 }
 
 #pragma mark - 数据小区
@@ -145,14 +145,11 @@
     NSString * laStr = [NSString stringWithFormat:@"%lf",la];
     NSString * loStr = [NSString stringWithFormat:@"%lf",lo];
     NSMutableDictionary * parm = [NSMutableDictionary dictionary];
+
+    parm[@"word"] = @"";
     parm[@"lat"] = laStr;
     parm[@"lon"] = loStr;
-    if (word) {
-        parm[@"word"] = word;
-
-    }else{
-        parm[@"word"] = @"";
-    }
+    
     // 小区列表
     [SVProgressHUD showWithStatus:@""];
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KvillageList parameter:parm success:^(NSArray * resultCode) {
@@ -162,6 +159,7 @@
         
         [weakSelf.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
+        
     } failure:^(NSError *error) {
         [self.tableView.mj_header endRefreshing];
         [_dataSource removeAllObjects];
@@ -169,6 +167,30 @@
         SVDCommonErrorDeal;
     }];
     
+}
+
+- (void)requestAllVillage
+{
+    [SVProgressHUD showWithStatus:@""];
+    NSDictionary * parm = @{@"search":self.XiaoQusearchBar.text};
+    NSString * word = self.XiaoQusearchBar.text;
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KGetSearchVillageList parameter:parm success:^(id resultCode) {
+        [SVProgressHUD dismiss];
+        _dataSource.array = [ZTXiaoQuXuanZe mj_objectArrayWithKeyValuesArray:resultCode];
+        
+        [self.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
+        if (word.length>0) {
+            self.tableTopCon.constant = 44;
+            self.pointImage.hidden = YES;
+        }
+        
+    } failure:^(NSError *error) {
+        [self.tableView.mj_header endRefreshing];
+        [_dataSource removeAllObjects];
+        [self.tableView reloadData];
+        SVDCommonErrorDeal;
+    }];
 }
 
 - (void)dealloc

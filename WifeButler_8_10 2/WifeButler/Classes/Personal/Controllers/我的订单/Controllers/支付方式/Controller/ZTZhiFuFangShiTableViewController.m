@@ -129,7 +129,10 @@
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     
     [dic setObject:KToken forKey:@"token"];
-    [dic setObject:self.order_id forKey:@"order_id"];
+    if (self.order_id) {
+       [dic setObject:self.order_id forKey:@"order_id"];
+    }
+   
     
     NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KZhiFuBaoZhiFu];
     [self RequestAliencryptionStrWithRequestUrlStr:url andParmDict:dic];
@@ -140,8 +143,9 @@
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     
     [dic setObject:KToken forKey:@"token"];
-    [dic setObject:self.order_id forKey:@"order_id"];
-    
+    if (self.order_id) {
+        [dic setObject:self.order_id forKey:@"order_id"];
+    }
     NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KWeiXinZhiFu];
     
     [self RequestWXinencryptionStrWithRequestUrlStr:url andParmDict:dic];

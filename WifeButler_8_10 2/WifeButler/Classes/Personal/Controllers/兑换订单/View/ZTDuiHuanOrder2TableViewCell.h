@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *delegateBtn;
 
 @property (nonatomic, copy) void (^deleteBlock)(void);
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 - (void)setDataSourceModel:(ZTDuiHuanOederModel *)model;
 

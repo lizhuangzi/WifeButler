@@ -13,6 +13,8 @@
 #import "NetWorkPort.h"
 #import "EPCalendarModel.h"
 #import "EPCalenderTableViewCell.h"
+#import "WifeButlerWebViewController.h"
+#import "InformationPort.h"
 
 @interface EPCalendarViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -30,10 +32,13 @@
 - (EPCalendarNoDataView *)noDataView
 {
     if (!_noDataView) {
-        
+        WEAKSELF
         _noDataView = [[NSBundle mainBundle]loadNibNamed:@"EPCalendarNoDataView" owner:nil options:nil].firstObject;
+         NSString * urlStr = [NSString stringWithFormat:KinformationDetial,@"8"];
         [_noDataView setClickBlock:^{
-            
+            WifeButlerWebViewController * web = [[WifeButlerWebViewController alloc]initWithUrlStr:urlStr];
+            web.title = @"如何垃圾分类";
+            [weakSelf.navigationController pushViewController:web animated:YES];
         }];
     }
     return _noDataView;

@@ -22,6 +22,8 @@ HMSingletonH(Manager);
 /**用于存放当前用户选择的小区*/
 @property (nonatomic,copy)NSString * village;
 
+- (void)getCurrentLocationInfo:(void(^)(WifeButlerLocationModel * info))infoBlock;
+
 /**请求高德定位信息*/
 - (void)startLocationAndFinishBlock:(void(^)(WifeButlerLocationModel * locationInfo))returnInformation;
 /**是否完成定位*/

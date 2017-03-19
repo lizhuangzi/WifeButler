@@ -44,14 +44,20 @@ MJCodingImplementation;
         str = [NSString stringWithFormat:@"%@: %@ ",_nickname,_content];
     }
     NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:str];
-    [attributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(_nickname.length, _content.length+2)];
-    [attributedStr addAttribute:NSForegroundColorAttributeName value:WifeButlerNavyBlueColor range:NSMakeRange(0,_nickname.length)];
-    [attributedStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Helvetica-Bold" size:14] range:NSMakeRange(0,_nickname.length)];
-    
-       if (_argued_id.integerValue != 0) {
-        [attributedStr addAttribute:NSForegroundColorAttributeName value:WifeButlerNavyBlueColor range:NSMakeRange(_nickname.length + 2,_nickname.length)];
+
+       if (_argued_id.integerValue != 0) { //有被回复人
+           
+        [attributedStr addAttribute:NSForegroundColorAttributeName value:WifeButlerNavyBlueColor range:NSMakeRange(0,_nickname.length)];
+        [attributedStr addAttribute:NSForegroundColorAttributeName value:WifeButlerNavyBlueColor range:NSMakeRange(_nickname.length + 2,_argued_name.length)];
+        [attributedStr addAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica-Bold" size:14]} range:NSMakeRange(0,_nickname.length)];
         [attributedStr addAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica-Bold" size:14]} range:NSMakeRange(_nickname.length + 2,_argued_name.length)];
-    }
+        [attributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(_nickname.length + 2 + _argued_name.length+2, _content.length)];
+       }else{ //正常评论
+           
+       [attributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(_nickname.length, _content.length+2)];
+       [attributedStr addAttribute:NSForegroundColorAttributeName value:WifeButlerNavyBlueColor range:NSMakeRange(0,_nickname.length)];
+       [attributedStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Helvetica-Bold" size:14] range:NSMakeRange(0,_nickname.length)];
+       }
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
     [paragraphStyle setLineSpacing:2];
     

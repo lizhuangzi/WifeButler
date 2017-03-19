@@ -23,4 +23,9 @@
 /**单位*/
 @property (nonatomic,copy)NSString * danwei;
 
+/**是佛返利*/
+@property (nonatomic,copy)NSString * ispayoff;
+/**返利之*/
+@property (nonatomic,copy)NSString * payoffper;
+
 @end

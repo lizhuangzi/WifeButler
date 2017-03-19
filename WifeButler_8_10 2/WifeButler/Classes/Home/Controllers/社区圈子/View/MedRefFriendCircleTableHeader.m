@@ -16,6 +16,7 @@
 #import "Masonry.h"
 #import "WifeButlerDefine.h"
 #import "DocImageModel.h"
+#import "NSDate+NowTime.h"
 
 @interface MedRefFriendCircleTableHeader (){
     NSArray *imgUrlArray;
@@ -311,7 +312,7 @@ static float commonVerticalSpace = 8.0f; // 8为控件显示间距
 //    }
   
     // 时间
-    NSString *newTime = model.time;//formatTime:model.createdStamps];
+    NSString *newTime = [NSDate getdateStrWithCurrentTime:model.time];//formatTime:model.createdStamps];
     self.timeLabel.text = newTime;
      if ([model.uid isEqualToString: [WifeButlerAccount sharedAccount].userParty.Id]) {
           // 自己发表的动态 可以删除

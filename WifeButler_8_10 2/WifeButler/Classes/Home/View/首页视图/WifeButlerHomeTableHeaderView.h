@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZTLunBoToModel.h"
 
 @interface WifeButlerHomeTableHeaderView : UIView
 
@@ -14,8 +15,12 @@
 
 /**回调index*/
 @property (nonatomic,copy)void(^returnBlock)(NSInteger index);
+
+@property (nonatomic,copy)void(^topScrollViewClick)(ZTLunBoToModel * model);
 /**URLStr数组*/
 @property (nonatomic,strong) NSArray * bannerImageURLStrings;
+
+@property (nonatomic,strong) NSArray * lunboModelArr;
 @end
 
 

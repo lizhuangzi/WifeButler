@@ -15,6 +15,9 @@
 #import "ZTXuanZeTimeViewController.h"
 #import "ZJGuangLiShouHuoDiZhiViewController.h"
 #import "Masonry.h"
+#import "NetWorkPort.h"
+#import "WifeButlerNetWorking.h"
+#import "WifeButlerDefine.h"
 
 @interface RecycleYuYueViewController ()
 
@@ -49,6 +52,8 @@
     self.userInfoView = [[NSBundle mainBundle]loadNibNamed:@"UserDeliverLocationReturnView" owner:nil options:nil].lastObject;
     self.userInfoView.hidden = YES;
     
+    [self.phoneNumBtn setTitle:self.phoneNum forState:UIControlStateNormal];
+    
     __weak typeof(self) weakSelf = self;
     [self.userInfoView setReturnBlock:^{
         
@@ -75,24 +80,52 @@
     self.view.backgroundColor = WifeButlerTableBackGaryColor;
 }
 
+- (IBAction)sureClick:(id)sender {
+    
+    if (self.yuYueTime.length == 0) {
+        [SVProgressHUD showInfoWithStatus:@"请选预约时间"];
+        return;
+    }
+    if (self.userInfoView.userInfo.text.length == 0) {
+        [SVProgressHUD showInfoWithStatus:@"请选择地址"];
+        return;
+    }
+    if (self.phoneNum.length == 0) {
+        [SVProgressHUD showInfoWithStatus:@"没有预约的客服电话"];
+        return;
+    }
+    
+    NSString * str = self.userInfoView.userInfo.text;
+    NSArray * arr = [str componentsSeparatedByString:@" "];
+    if (arr.count == 3) {
+        str = arr[2];
+    }
+    NSDictionary * parm = @{@"mobile":self.phoneNum,@"address":self.userInfoView.LocationInfo.text,@"time":self.yuYueTime,@"phone":str};
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KMakeAppointment parameter:parm success:^(id resultCode) {
+        
+        [SVProgressHUD showSuccessWithStatus:@"预约成功，请等待客服电话"];
+        [self.navigationController popViewControllerAnimated:YES];
+    } failure:^(NSError *error) {
+        SVDCommonErrorDeal;
+    }];
+    
+}
 
 - (IBAction)chooseTimeClick:(id)sender {
     
     UIStoryboard * sb = [UIStoryboard storyboardWithName:@"ZTTimeXuanZe" bundle:nil];
-    ZTXuanZeTimeViewController * nav = [sb instantiateViewControllerWithIdentifier:@"ZTXuanZeTimeViewController"];
-    nav.goods_id = self.goods_id;
+    ZTXuanZeTimeViewController * con = [sb instantiateViewControllerWithIdentifier:@"ZTXuanZeTimeViewController"];
+    con.requestURLStr = KGetAppointmentTime;
+    [self.navigationController pushViewController:con animated:YES];
     
     __weak typeof(self) weakSelf = self;
     
-    [nav setBackTimeBlack:^(NSString *time) {
+    [con setBackTimeBlack:^(NSString *time) {
         
         ZJLog(@"%@", time);
         weakSelf.timeYuYueLab.text = time;
         weakSelf.yuYueTime = time;
     }];
-    
-    [self.navigationController pushViewController:nav animated:YES];
-
 }
 
 #pragma mark - 请求数据
@@ -112,7 +145,7 @@
     
     [dic setObject:KToken forKey:@"token"];
     
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KMoRenDiZhi];
+    NSString *url = KMoRenDiZhi;
     
     ZJLog(@"%@", dic);
     
@@ -138,9 +171,7 @@
             
             self.userInfoView.userInfo.text = [NSString stringWithFormat:@"%@ %@ %@",_model.realname,_model.sex,_model.phone];
             
-            self.userInfoView.LocationInfo.text = [NSString stringWithFormat:@"%@",_model.address];
-            
-            [self.phoneNumBtn setTitle:_model.phone forState:UIControlStateNormal];
+            self.userInfoView.LocationInfo.text = [NSString stringWithFormat:@"%@%@",_model.qu,_model.address];
             
         }
         else

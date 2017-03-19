@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -165,15 +165,23 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yB7-t2-U7J">
+                                                    <rect key="frame" x="17" y="69" width="92" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.54901960780000003" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="149-RT-Ldh" secondAttribute="trailing" constant="0.5" id="6Rv-XO-IUU"/>
                                                 <constraint firstItem="zoK-dp-juy" firstAttribute="top" secondItem="AIS-Xl-eyS" secondAttribute="top" constant="8" id="Bdr-Tb-PZh"/>
                                                 <constraint firstItem="rZZ-kt-Yv7" firstAttribute="top" secondItem="149-RT-Ldh" secondAttribute="bottom" constant="17" id="HEI-Sw-6Jl"/>
+                                                <constraint firstItem="yB7-t2-U7J" firstAttribute="leading" secondItem="zoK-dp-juy" secondAttribute="leading" id="O9N-cR-mV2"/>
                                                 <constraint firstItem="149-RT-Ldh" firstAttribute="top" secondItem="AIS-Xl-eyS" secondAttribute="top" constant="27" id="OfS-Xn-aEc"/>
                                                 <constraint firstAttribute="trailing" secondItem="rZZ-kt-Yv7" secondAttribute="trailing" constant="8" id="aaf-TG-lj0"/>
                                                 <constraint firstItem="VQx-np-YhY" firstAttribute="top" secondItem="AIS-Xl-eyS" secondAttribute="top" constant="18" id="g6b-5p-oxN"/>
                                                 <constraint firstItem="VQx-np-YhY" firstAttribute="leading" secondItem="zoK-dp-juy" secondAttribute="trailing" constant="3" id="hwc-mM-QjP"/>
+                                                <constraint firstItem="yB7-t2-U7J" firstAttribute="top" secondItem="zoK-dp-juy" secondAttribute="bottom" constant="3" id="mUt-rF-HKn"/>
                                                 <constraint firstItem="149-RT-Ldh" firstAttribute="leading" secondItem="VQx-np-YhY" secondAttribute="trailing" constant="3" id="mac-6k-Cv9"/>
                                                 <constraint firstItem="zoK-dp-juy" firstAttribute="leading" secondItem="AIS-Xl-eyS" secondAttribute="leading" constant="16" id="w8S-HU-4Ro"/>
                                             </constraints>
@@ -182,6 +190,7 @@
                                             <outlet property="iconImageView" destination="zoK-dp-juy" id="Bha-sA-Sf8"/>
                                             <outlet property="numLab" destination="149-RT-Ldh" id="i8f-S6-CXc"/>
                                             <outlet property="queRenBtn" destination="rZZ-kt-Yv7" id="5td-SW-aTp"/>
+                                            <outlet property="timeLabel" destination="yB7-t2-U7J" id="sGU-qu-SGV"/>
                                             <outlet property="titleLab" destination="VQx-np-YhY" id="S3A-bn-iff"/>
                                         </connections>
                                     </tableViewCell>
@@ -243,10 +252,17 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ex9-Mg-SvK">
+                                                    <rect key="frame" x="17" y="68" width="92" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.54901960780000003" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ZHQ-Gg-EZm" firstAttribute="top" secondItem="YWP-j6-BNw" secondAttribute="top" constant="27" id="A0h-uu-hDX"/>
                                                 <constraint firstItem="121-wh-f3Y" firstAttribute="top" secondItem="ZsL-MO-jX7" secondAttribute="bottom" constant="7" id="Abv-Gt-n1P"/>
+                                                <constraint firstItem="Ex9-Mg-SvK" firstAttribute="leading" secondItem="Gu7-0x-FWU" secondAttribute="leading" id="CLV-Xa-E3v"/>
                                                 <constraint firstItem="y3z-MD-TSP" firstAttribute="top" secondItem="ZHQ-Gg-EZm" secondAttribute="bottom" constant="16" id="G3m-MO-Pac"/>
                                                 <constraint firstItem="Gu7-0x-FWU" firstAttribute="leading" secondItem="YWP-j6-BNw" secondAttribute="leading" constant="16" id="TJe-Ej-cZK"/>
                                                 <constraint firstItem="Gu7-0x-FWU" firstAttribute="top" secondItem="YWP-j6-BNw" secondAttribute="top" constant="8" id="Taa-UY-5ww"/>
@@ -256,12 +272,14 @@
                                                 <constraint firstItem="ZHQ-Gg-EZm" firstAttribute="leading" secondItem="ZsL-MO-jX7" secondAttribute="trailing" constant="4" id="dC7-7g-dvj"/>
                                                 <constraint firstItem="ZsL-MO-jX7" firstAttribute="leading" secondItem="Gu7-0x-FWU" secondAttribute="trailing" constant="2" id="gi5-4r-H8e"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZHQ-Gg-EZm" secondAttribute="trailing" id="rkb-Yc-S2B"/>
+                                                <constraint firstItem="Ex9-Mg-SvK" firstAttribute="top" secondItem="Gu7-0x-FWU" secondAttribute="bottom" constant="3" id="yFe-zp-asp"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="delegateBtn" destination="y3z-MD-TSP" id="f9P-vk-kq9"/>
                                             <outlet property="iconImageView" destination="Gu7-0x-FWU" id="9q2-tm-fY9"/>
                                             <outlet property="numLab" destination="ZHQ-Gg-EZm" id="4v6-YX-8Bs"/>
+                                            <outlet property="timeLabel" destination="Ex9-Mg-SvK" id="Yz6-cy-r0i"/>
                                             <outlet property="titleLab" destination="ZsL-MO-jX7" id="fkI-yN-cfj"/>
                                         </connections>
                                     </tableViewCell>
@@ -304,7 +322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gT0-eF-CCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1194" y="250"/>
+            <point key="canvasLocation" x="1192.8" y="249.62518740629687"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="amY-hL-Gun">

@@ -209,10 +209,16 @@
         
         [dic setObject:@"1" forKey:@"exchange"];
     }
+    NSString *url;
+    if (self.requestURLStr.length>0) {
+        
+        url = self.requestURLStr;
+        
+    }else{
+        [dic setObject:self.goods_id forKey:@"goods_id"];
     
-    [dic setObject:self.goods_id forKey:@"goods_id"];
-    
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KYuYueTime];
+        url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KYuYueTime];
+    }
     
     ZJLog(@"%@", dic);
     

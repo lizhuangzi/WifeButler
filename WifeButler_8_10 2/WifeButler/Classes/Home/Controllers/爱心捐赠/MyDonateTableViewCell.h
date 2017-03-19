@@ -14,4 +14,6 @@
 
 @property (nonatomic,strong) MyDonateUserlistModel * model;
 
+@property (nonatomic,copy)void(^juankuanblock)( MyDonateUserlistModel * model);
+
 @end

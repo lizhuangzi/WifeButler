@@ -15,7 +15,7 @@
 #import "WifeButlerNetWorking.h"
 #import "WifeButlerLocationManager.h"
 #import "WifebutlerConst.h"
-
+#import "WifeButlerDefine.h"
 @interface ChooseLocationViewController ()<UITableViewDelegate,UITableViewDataSource>
 /**小区列表*/
 @property (nonatomic,strong) NSMutableArray * nearByvillageList;
@@ -26,6 +26,8 @@
 
 /**当前定位位置*/
 @property (nonatomic,strong)WifeButlerLocationModel * currentLocationModel;
+
+@property (nonatomic,strong) UIButton * showWrongBtn;
 @end
 
 @implementation ChooseLocationViewController
@@ -47,13 +49,32 @@
     return  _DeliveryLocationList;
 }
 
+
+- (UIButton *)showWrongBtn
+{
+    if (!_showWrongBtn) {
+        _showWrongBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_showWrongBtn setTitleColor:WifeButlerCommonRedColor forState:UIControlStateNormal];
+        [_showWrongBtn addTarget:self action:@selector(showwrongclick:) forControlEvents:UIControlEventTouchUpInside];
+        _showWrongBtn.frame = CGRectMake(0, 110, iphoneWidth, 44);
+        _showWrongBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    }
+    return _showWrongBtn;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     [self setUpUI];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.showWrongBtn removeFromSuperview];
     [self requestDeliverLocation];
     [self requestLocationAndNearbyVillage];
+
 }
 
 - (void)setUpUI
@@ -96,6 +117,14 @@
 /**请求收货地址*/
 - (void)requestDeliverLocation
 {
+    if(![WifeButlerAccount sharedAccount].isLogin){
+        [self.tableView addSubview:self.showWrongBtn];
+        [self.showWrongBtn setTitle:@"您还没有登录 点击登录" forState:UIControlStateNormal];
+        self.showWrongBtn.tag = 5;
+        [self.tableView addSubview:self.showWrongBtn];
+        return;
+    }
+    
     WEAKSELF
     NSDictionary * parm1 = @{@"pageindex":@"1",@"token":KToken};
     //我的收货地址
@@ -104,8 +133,21 @@
         self.DeliveryLocationList.array = resultCode;
         [weakSelf.tableView reloadData];
         
+        if (self.DeliveryLocationList.count == 0) {
+            [self.tableView addSubview:self.showWrongBtn];
+            [self.showWrongBtn setTitle:@"您还没有添加收货地址，点击添加" forState:UIControlStateNormal];
+            self.showWrongBtn.tag = 6;
+            [self.tableView addSubview:self.showWrongBtn];
+        }
+        
     } failure:^(NSError *error) {
         
+        if (error.code == 30000) {
+            [self.tableView addSubview:self.showWrongBtn];
+            [self.showWrongBtn setTitle:@"您还没有添加收货地址，点击添加" forState:UIControlStateNormal];
+            self.showWrongBtn.tag = 6;
+            [self.tableView addSubview:self.showWrongBtn];
+        }
     }];
 
 }
@@ -254,7 +296,19 @@
     [self.tableView reloadData];
 }
 
-
+- (void)showwrongclick:(UIButton *)showwrongBtn
+{
+    if (showwrongBtn.tag == 5) { //登录
+        
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];
+        ZJLoginController *vc = [sb instantiateViewControllerWithIdentifier:@"ZJLoginController"];
+        vc.isLogo = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }else{
+        [self locationManage];
+    }
+}
 
 - (void)dealloc
 {

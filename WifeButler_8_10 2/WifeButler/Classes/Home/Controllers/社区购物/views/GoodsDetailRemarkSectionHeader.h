@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XHStarRateView.h"
 
 @interface GoodsDetailRemarkSectionHeader : UIView
 
 + (instancetype)DetailRemarkSectionHeader;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reViewLabel;
+
+@property (weak, nonatomic) IBOutlet XHStarRateView *startView;
+
+
 @end

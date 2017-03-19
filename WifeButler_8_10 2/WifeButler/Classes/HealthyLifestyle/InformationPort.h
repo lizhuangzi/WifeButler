@@ -22,5 +22,7 @@
 
 /**资讯详情*/
 #define KinformationDetial [HTTP_BaseURL stringByAppendingString:@"goods/article/health_detail?article_id=%@"]
+/**阅读量+*/
+#define KInformationReadCount [HTTP_BaseURL stringByAppendingString:@"goods/article/readadd"]
 
 #endif /* InformationPort_h */

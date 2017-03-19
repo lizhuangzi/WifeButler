@@ -7,6 +7,7 @@
 //
 
 #import "ZTDuiHuanOrder2TableViewCell.h"
+#import "NSDate+NowTime.h"
 
 @implementation ZTDuiHuanOrder2TableViewCell
 
@@ -33,6 +34,7 @@
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", KImageUrl, model.file]] placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
     self.titleLab.text = model.title;
     self.numLab.text = [NSString stringWithFormat:@"%@g", model.weight];
+    self.timeLabel.text = [NSDate getdateStrWithCurrentTime:model.time] ;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -64,7 +64,7 @@
                                                         <constraint firstAttribute="height" constant="25" id="akp-iF-aka"/>
                                                         <constraint firstAttribute="width" constant="25" id="vuK-l8-0HQ"/>
                                                     </constraints>
-                                                    <state key="normal" image="ZTZJia"/>
+                                                    <state key="normal" image="gwc_add"/>
                                                     <connections>
                                                         <action selector="addClick:" destination="kK3-nd-FyQ" eventType="touchUpInside" id="3qk-eu-mSb"/>
                                                     </connections>
@@ -84,7 +84,7 @@
                                                         <constraint firstAttribute="width" constant="25" id="FO5-JV-Rju"/>
                                                         <constraint firstAttribute="height" constant="25" id="gXg-JP-iaK"/>
                                                     </constraints>
-                                                    <state key="normal" image="ZTZjian"/>
+                                                    <state key="normal" image="gwc_cut"/>
                                                     <connections>
                                                         <action selector="jianClick:" destination="kK3-nd-FyQ" eventType="touchUpInside" id="3bg-qA-feb"/>
                                                     </connections>
@@ -220,9 +220,9 @@
     </scenes>
     <resources>
         <image name="ZTDuiHuanIcon" width="720" height="338"/>
-        <image name="ZTZJia" width="25" height="25"/>
-        <image name="ZTZjian" width="25" height="25"/>
         <image name="ZTx1" width="20" height="20"/>
         <image name="ZTx2" width="20" height="20"/>
+        <image name="gwc_add" width="24" height="24"/>
+        <image name="gwc_cut" width="24" height="24"/>
     </resources>
 </document>

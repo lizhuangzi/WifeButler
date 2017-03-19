@@ -16,6 +16,7 @@
 #import "WifeButlerAccount.h"
 #import "WifeButlerLocationManager.h"
 #import "WifebutlerConst.h"
+#import "NetWorkPort.h"
 
 @interface ZJLoginController () <UITextFieldDelegate>
 
@@ -254,11 +255,26 @@ NSString * const LoginViewControllerDidLoginSuccessNotification = @"LoginViewCon
         WifeButlerUserParty * party = [WifeButlerUserParty UserPartyWithDictionary:result];
         party.userLoginAccount = [userName copy];
         party.userLoginPassWord = [password copy];
-        
-        
         [[WifeButlerAccount sharedAccount]loginUserParty:party];
-        !finish?:finish(LoginResultReturnTypeSuccess);
         
+        [WifeButlerNetWorking getPackagingHttpRequestWithURLsite:KMoRenDiZhi parameter:@{@"token":KToken} success:^(NSDictionary * resultCode) {
+            
+            NSDictionary * dict = resultCode[@"address"];
+            NSString * village = dict[@"village_name"];
+            
+            if (village.length == 0) {
+                !finish?:finish(LoginResultReturnTypeSuccess);
+            }else{
+                
+                [WifeButlerLocationManager sharedManager].longitude =  [dict[@"longitude"] doubleValue];
+                [WifeButlerLocationManager sharedManager].latitude =  [dict[@"latitude"] doubleValue];
+                [WifeButlerLocationManager sharedManager].village = village;
+                !finish?:finish(LoginResultReturnTypeSuccess);
+            }
+        } failure:^(NSError *error) {
+             !finish?:finish(LoginResultReturnTypeSuccess);
+        }];
+
     } failure:^(NSError *error) {
         !finish?:finish(LoginResultReturnTypeFailure);
     }];

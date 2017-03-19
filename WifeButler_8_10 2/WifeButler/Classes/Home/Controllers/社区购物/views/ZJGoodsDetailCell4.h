@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XHStarRateView.h"
 
 @interface ZJGoodsDetailCell4 : UITableViewCell
 
@@ -14,4 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pingLunLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
+@property (nonatomic,weak) IBOutlet XHStarRateView * startView;
+
 @end

@@ -10,6 +10,7 @@
 
 @interface RecycleYuYueViewController : UIViewController
 
-@property (nonatomic,copy)NSString * goods_id;
+
+@property (nonatomic,copy)NSString * phoneNum;
 
 @end

@@ -16,6 +16,7 @@
 #import  "MJExtension.h"
 #import "UserDeliverLocationReturnView.h"
 #import "Masonry.h"
+#import "NetWorkPort.h"
 
 @interface ZTYuYueViewController ()
 {
@@ -237,7 +238,7 @@
     
     [dic setObject:KToken forKey:@"token"];
     
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KMoRenDiZhi];
+    NSString *url = KMoRenDiZhi;
     
     ZJLog(@"%@", dic);
     

@@ -8,11 +8,14 @@
 
 #import "WifeButlerLocationManager.h"
 #import <AMapLocationKit/AMapLocationKit.h>
+#import "WifeButlerNetWorking.h"
+#import "NetWorkPort.h"
 
 @interface WifeButlerLocationManager ()
 
 @property (nonatomic,strong) AMapLocationManager * locationManager;
 
+@property (nonatomic,copy)void(^locationInfoBlock)(WifeButlerLocationModel * info);
 @end
 
 @implementation WifeButlerLocationManager
@@ -56,4 +59,50 @@ HMSingletonM(Manager);
     }
     return _village;
 }
+
+
+
+- (void)getCurrentLocationInfo:(void (^)(WifeButlerLocationModel *))infoBlock
+{
+    if ([WifeButlerAccount sharedAccount].isLogin) { //如果用户登录了
+        [WifeButlerNetWorking getPackagingHttpRequestWithURLsite:KMoRenDiZhi parameter:@{@"token":KToken} success:^(NSDictionary * resultCode) {
+            NSDictionary * dict = resultCode[@"address"];
+            NSString * village = dict[@"village_name"];
+            
+            if (village.length == 0) {
+                [self netWorkingJinWeiDu];
+            }else{
+                
+                [WifeButlerLocationManager sharedManager].longitude =  [dict[@"longitude"] doubleValue];
+                [WifeButlerLocationManager sharedManager].latitude =  [dict[@"latitude"] doubleValue];
+                [WifeButlerLocationManager sharedManager].village = village;
+               
+            }
+        } failure:^(NSError *error) {
+            [self netWorkingJinWeiDu];
+        }];
+    }else{
+        [self netWorkingJinWeiDu];
+    }
+}
+
+- (void)netWorkingJinWeiDu{
+    
+    [self startLocationAndFinishBlock:^(WifeButlerLocationModel *locationInfo) {
+        
+        if (locationInfo.POIName.length == 0) {
+            [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
+            return ;
+        }
+        
+        NSString * jingDu = [NSString stringWithFormat:@"%f",locationInfo.location2D.longitude];
+        NSString * weiDu = [NSString stringWithFormat:@"%f",locationInfo.location2D.latitude];
+        
+        [WifeButlerLocationManager sharedManager].longitude = locationInfo.location2D.longitude;
+        [WifeButlerLocationManager sharedManager].latitude = locationInfo.location2D.latitude;
+        [WifeButlerLocationManager sharedManager].village = locationInfo.POIName;
+    }];
+
+}
+
 @end

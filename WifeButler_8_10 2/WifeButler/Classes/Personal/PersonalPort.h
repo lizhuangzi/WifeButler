@@ -55,4 +55,6 @@
 // 单条收货地址接口
 #define KShenShiQuAddressOne      [HTTP_BaseURL stringByAppendingString:@"account/address/myaddressone"]
 
+//获取搜索的小区列表
+#define KGetSearchVillageList [HTTP_BaseURL stringByAppendingString:@"account/address/getvillagelist"]
 #endif /* PersonalPort_h */

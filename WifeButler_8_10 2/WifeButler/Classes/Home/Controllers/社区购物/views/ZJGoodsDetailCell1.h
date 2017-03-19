@@ -16,4 +16,6 @@
 /**库存*/
 @property (weak, nonatomic) IBOutlet UILabel *inventoryLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *fanliLabel;
+
 @end

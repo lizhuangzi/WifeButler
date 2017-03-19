@@ -13,6 +13,8 @@
 @property (nonatomic,weak) UIView * dateBackView;
 //用于进行交替的view
 @property (nonatomic,strong) NSDate * currentShowingDate;
+
+@property (nonatomic,weak) CustomredPointButton * currentSelectBtn;
 @end
 
 @implementation CustomCalendarViewController
@@ -153,6 +155,9 @@
 - (void)dateBtnClick:(CustomredPointButton *)button
 {
     !self.selectDayblock?:self.selectDayblock(self.currentShowingDate,button.day);
+    self.currentSelectBtn.selected = NO;
+    button.selected = YES;
+    self.currentSelectBtn = button;
 }
 
 - (NSInteger)firstWeekdayInThisMotnth:(NSDate *)date{
@@ -221,6 +226,7 @@
 
 @end
 
+#import "UIImage+ColorExistion.h"
 @interface CustomredPointButton ()
 
 @property (nonatomic,weak) CALayer * redLayer;
@@ -240,6 +246,8 @@
         redLayer.hidden = YES;
         [self.layer addSublayer:redLayer];
         self.redLayer = redLayer;
+        
+        [self setBackgroundImage:[UIImage imageWithColor:WifeButlerCommonRedColor] forState:UIControlStateSelected];
         self.day = 0;
     }
     return self;

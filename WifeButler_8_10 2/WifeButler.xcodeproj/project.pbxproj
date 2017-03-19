@@ -164,6 +164,13 @@
 		C710583E1E61B58600C85CBE /* WifeButlerLoadingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C710583D1E61B58600C85CBE /* WifeButlerLoadingTableView.m */; };
 		C71058411E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71058401E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m */; };
 		C71365321E350BEB00C89CB5 /* UIColor+EasyExistion.m in Sources */ = {isa = PBXBuildFile; fileRef = C71365311E350BEB00C89CB5 /* UIColor+EasyExistion.m */; };
+		C714D6CA1E7E1F0A0087A452 /* XHStarRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = C714D6C91E7E1F0A0087A452 /* XHStarRateView.m */; };
+		C714D6CD1E7E27080087A452 /* GoodReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C714D6CC1E7E27080087A452 /* GoodReviewViewController.m */; };
+		C714D6CF1E7E2CA10087A452 /* ZJGoodsDetailCell4.xib in Resources */ = {isa = PBXBuildFile; fileRef = C714D6CE1E7E2CA10087A452 /* ZJGoodsDetailCell4.xib */; };
+		C714D6D21E7E2F920087A452 /* NSDate+NowTime.m in Sources */ = {isa = PBXBuildFile; fileRef = C714D6D11E7E2F920087A452 /* NSDate+NowTime.m */; };
+		C714D6D81E7E4C240087A452 /* fanliView.m in Sources */ = {isa = PBXBuildFile; fileRef = C714D6D71E7E4C240087A452 /* fanliView.m */; };
+		C714D6DA1E7E4C380087A452 /* fanliView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C714D6D91E7E4C380087A452 /* fanliView.xib */; };
+		C714D6DD1E7E7CD70087A452 /* EnzyCashPledgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C714D6DC1E7E7CD70087A452 /* EnzyCashPledgeViewController.m */; };
 		C7457CE71E63011C0039CF5B /* WifeButlerInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7457CE61E63011C0039CF5B /* WifeButlerInfoTableViewCell.m */; };
 		C745FD201E73E15900B01742 /* BalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C745FD1E1E73E15900B01742 /* BalanceViewController.m */; };
 		C745FD211E73E15900B01742 /* BalanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C745FD1F1E73E15900B01742 /* BalanceViewController.xib */; };
@@ -651,6 +658,18 @@
 		C71058401E61BC3000C85CBE /* WifeButlerLoadingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerLoadingTableViewController.m; sourceTree = "<group>"; };
 		C71365301E350BEB00C89CB5 /* UIColor+EasyExistion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+EasyExistion.h"; sourceTree = "<group>"; };
 		C71365311E350BEB00C89CB5 /* UIColor+EasyExistion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+EasyExistion.m"; sourceTree = "<group>"; };
+		C714D6C81E7E1F0A0087A452 /* XHStarRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHStarRateView.h; sourceTree = "<group>"; };
+		C714D6C91E7E1F0A0087A452 /* XHStarRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHStarRateView.m; sourceTree = "<group>"; };
+		C714D6CB1E7E27080087A452 /* GoodReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodReviewViewController.h; sourceTree = "<group>"; };
+		C714D6CC1E7E27080087A452 /* GoodReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodReviewViewController.m; sourceTree = "<group>"; };
+		C714D6CE1E7E2CA10087A452 /* ZJGoodsDetailCell4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZJGoodsDetailCell4.xib; sourceTree = "<group>"; };
+		C714D6D01E7E2F920087A452 /* NSDate+NowTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+NowTime.h"; sourceTree = "<group>"; };
+		C714D6D11E7E2F920087A452 /* NSDate+NowTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+NowTime.m"; sourceTree = "<group>"; };
+		C714D6D61E7E4C240087A452 /* fanliView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fanliView.h; sourceTree = "<group>"; };
+		C714D6D71E7E4C240087A452 /* fanliView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fanliView.m; sourceTree = "<group>"; };
+		C714D6D91E7E4C380087A452 /* fanliView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = fanliView.xib; sourceTree = "<group>"; };
+		C714D6DB1E7E7CD70087A452 /* EnzyCashPledgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnzyCashPledgeViewController.h; sourceTree = "<group>"; };
+		C714D6DC1E7E7CD70087A452 /* EnzyCashPledgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnzyCashPledgeViewController.m; sourceTree = "<group>"; };
 		C7457CE51E63011C0039CF5B /* WifeButlerInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerInfoTableViewCell.h; sourceTree = "<group>"; };
 		C7457CE61E63011C0039CF5B /* WifeButlerInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerInfoTableViewCell.m; sourceTree = "<group>"; };
 		C745FD1D1E73E15900B01742 /* BalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceViewController.h; sourceTree = "<group>"; };
@@ -1075,6 +1094,9 @@
 			children = (
 				7BFBA6851CFE80EC00D4E07C /* ZJGoodsDetailVC.h */,
 				7BFBA6861CFE80EC00D4E07C /* ZJGoodsDetailVC.m */,
+				C714D6CB1E7E27080087A452 /* GoodReviewViewController.h */,
+				C714D6CC1E7E27080087A452 /* GoodReviewViewController.m */,
+				C714D6CE1E7E2CA10087A452 /* ZJGoodsDetailCell4.xib */,
 			);
 			name = "商品详情";
 			sourceTree = "<group>";
@@ -1849,6 +1871,8 @@
 				7BB43F971CE9C57F007D722A /* UIBarButtonItem+Extension.m */,
 				7BB43F981CE9C57F007D722A /* UIView+Extension.h */,
 				7BB43F991CE9C57F007D722A /* UIView+Extension.m */,
+				C714D6D01E7E2F920087A452 /* NSDate+NowTime.h */,
+				C714D6D11E7E2F920087A452 /* NSDate+NowTime.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2671,6 +2695,8 @@
 		7BFBA68A1CFE80EC00D4E07C /* views */ = {
 			isa = PBXGroup;
 			children = (
+				C714D6C81E7E1F0A0087A452 /* XHStarRateView.h */,
+				C714D6C91E7E1F0A0087A452 /* XHStarRateView.m */,
 				7BE420541D13A730009A8FAB /* ZJGoodsDetailCell1.h */,
 				7BE420551D13A730009A8FAB /* ZJGoodsDetailCell1.m */,
 				C745FD461E74190700B01742 /* ZJGoodsDetailCell2.h */,
@@ -2746,6 +2772,8 @@
 				C779446D1E7BED2C008812B3 /* HuoQuFaJiaoTongViewController.h */,
 				C779446E1E7BED2C008812B3 /* HuoQuFaJiaoTongViewController.m */,
 				C779446F1E7BED2C008812B3 /* HuoQuFaJiaoTongViewController.xib */,
+				C714D6DB1E7E7CD70087A452 /* EnzyCashPledgeViewController.h */,
+				C714D6DC1E7E7CD70087A452 /* EnzyCashPledgeViewController.m */,
 			);
 			path = "酵素回收";
 			sourceTree = "<group>";
@@ -3014,6 +3042,9 @@
 				C7C4A4981E5EBE5600075A27 /* HomePageCommodityView.h */,
 				C7C4A4991E5EBE5600075A27 /* HomePageCommodityView.m */,
 				C7C4A49B1E5EBE6B00075A27 /* HomePageCommodityView.xib */,
+				C714D6D61E7E4C240087A452 /* fanliView.h */,
+				C714D6D71E7E4C240087A452 /* fanliView.m */,
+				C714D6D91E7E4C380087A452 /* fanliView.xib */,
 			);
 			path = "首页视图";
 			sourceTree = "<group>";
@@ -3343,7 +3374,9 @@
 				C7C4A49C1E5EBE6B00075A27 /* HomePageCommodityView.xib in Resources */,
 				C7C2D8CF1E7831F400765473 /* LoveDonateListSectionView.xib in Resources */,
 				C7A191BE1E60263800FEDFD1 /* WifebutlerRCRHomeHeaderView.xib in Resources */,
+				C714D6DA1E7E4C380087A452 /* fanliView.xib in Resources */,
 				7BE3C63B1CF1888F00851512 /* ZJGuangLiShouHuoDiZhiTableViewCell.xib in Resources */,
+				C714D6CF1E7E2CA10087A452 /* ZJGoodsDetailCell4.xib in Resources */,
 				C7FFD4D81E6717E700754C92 /* CommentView.xib in Resources */,
 				C7F8F2061E718EA40039293C /* ZTYuYueViewController.xib in Resources */,
 				7BB43FB91CE9C57F007D722A /* ZJMineController.storyboard in Resources */,
@@ -3559,6 +3592,7 @@
 				C7FFD4F11E6721F800754C92 /* DocFriendReviewModel.m in Sources */,
 				7BAD20251D5495D8005798F2 /* ZTOrderXiangQinModel.m in Sources */,
 				7BAD20181D546867005798F2 /* ZTDuiHuanOrder2TableViewCell.m in Sources */,
+				C714D6DD1E7E7CD70087A452 /* EnzyCashPledgeViewController.m in Sources */,
 				C70734A01E6828C10043CB3E /* CommunityShopMainModel.m in Sources */,
 				C7F8F1E21E7153170039293C /* PhotoBrowserGetter.m in Sources */,
 				7B0536FE1D0FE5E400BE9762 /* TYAttributedLabel.m in Sources */,
@@ -3590,6 +3624,7 @@
 				C7C2D8DF1E784E0700765473 /* LoveDonateDetailViewController.m in Sources */,
 				7B392D541D151ED600A182BC /* ZTDianPuAddressTableViewController.m in Sources */,
 				C779446B1E7BE40C008812B3 /* EnzymesRecycleViewController.m in Sources */,
+				C714D6CD1E7E27080087A452 /* GoodReviewViewController.m in Sources */,
 				C7A191D01E606CF700FEDFD1 /* EPCalendarViewController.m in Sources */,
 				C7C2D8C81E782DC800765473 /* LoveDonateListHeaderView.m in Sources */,
 				C77944661E7BDE09008812B3 /* RecycleYuYueViewController.m in Sources */,
@@ -3609,6 +3644,7 @@
 				7BBDB6001D010E730098B079 /* UIView+WZLBadge.m in Sources */,
 				C7F8F2091E718EA40039293C /* ZTTimeBottonModel.m in Sources */,
 				C78973981E6BF1CD00BFF404 /* WifeButlerWebViewController.m in Sources */,
+				C714D6D81E7E4C240087A452 /* fanliView.m in Sources */,
 				C7074C651E7D121E004FBE59 /* CSPlaceHolderTextView.m in Sources */,
 				7BBDB5FF1D010E730098B079 /* CAAnimation+WAnimation.m in Sources */,
 				C7C162781E700AB60074A9D2 /* titleBottomButton.m in Sources */,
@@ -3617,6 +3653,7 @@
 				7BAD20101D544609005798F2 /* ZTDuiHuanDingDanViewController.m in Sources */,
 				C7C2D8E61E78540200765473 /* LoveDonateDetailViewCell.m in Sources */,
 				C7FFD4B21E66AE4500754C92 /* tempLoadingViewController.m in Sources */,
+				C714D6D21E7E2F920087A452 /* NSDate+NowTime.m in Sources */,
 				7B54B42E1D53607800FB2B28 /* ZTZhiHuanTiJiaoViewController.m in Sources */,
 				C7FFD5001E6728D200754C92 /* NSString+Size.m in Sources */,
 				C7C2D8BC1E77EF2A00765473 /* WifeButlerLocationModel.m in Sources */,
@@ -3712,6 +3749,7 @@
 				C7FFD4EB1E6721E700754C92 /* DocFriendModel.m in Sources */,
 				7BB43FB81CE9C57F007D722A /* ZJMineController.m in Sources */,
 				7BB43FB71CE9C57F007D722A /* AppDelegate.m in Sources */,
+				C714D6CA1E7E1F0A0087A452 /* XHStarRateView.m in Sources */,
 				C7FFD4FA1E67284000754C92 /* UIView+RedView.m in Sources */,
 				7BE3C63C1CF1888F00851512 /* ZTBianJiDiZhiTableViewController.m in Sources */,
 				C7A191C21E60337E00FEDFD1 /* exchangeStationModel.m in Sources */,
