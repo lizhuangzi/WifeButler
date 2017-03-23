@@ -17,7 +17,6 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.backgroundColor = WifeButlerCommonRedColor;
 }
 
 @end

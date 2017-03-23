@@ -46,7 +46,7 @@
         
         WEAKSELF
         //1.创建轮播装置
-        SDCycleScrollView *cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, self.width, 136.5) delegate:self placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
+        SDCycleScrollView *cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, self.width, 141.5) delegate:self placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
         
         cycleScrollView2.backgroundColor = [UIColor whiteColor];
         cycleScrollView2.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
@@ -61,7 +61,7 @@
         
         
         //添加背景
-        UIView * backView = [[UIView alloc]initWithFrame:CGRectMake(0, cycleScrollView2.height+1, frame.size.width, frame.size.height - cycleScrollView2.height)];
+        UIView * backView = [[UIView alloc]initWithFrame:CGRectMake(0, cycleScrollView2.height+1, frame.size.width, frame.size.height - cycleScrollView2.height - 1)];
         backView.backgroundColor = [UIColor whiteColor];
         [self addSubview:backView];
         //2.创建8个选项
@@ -79,9 +79,22 @@
             WifeButlerHomeCircleButton * button = [[WifeButlerHomeCircleButton alloc]initWithImageName:imageNameArray[i]  andtitle:titleArray[i]];
             button.tag = i+2017;
             [button addTarget:self action:@selector(roundButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-            button.frame = CGRectMake(margin + cloum *(btnW+margin), Hmargin + row * (btnH + Hmargin), btnW, btnH);
+            if (row == 0) {
+                 button.frame = CGRectMake(margin + cloum *(btnW+margin), 11, btnW, btnH);
+            }else
+                button.frame = CGRectMake(margin + cloum *(btnW+margin), 18 + row * (btnH + Hmargin), btnW, btnH);
             [backView addSubview:button];
         }
+        
+        UIView * bottomLine = [[UIView alloc]init];
+        bottomLine.backgroundColor = HexCOLOR(@"#e8e8e8");
+        [self addSubview:bottomLine];
+        [bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(backView);
+            make.right.mas_equalTo(backView);
+            make.bottom.mas_equalTo(backView);
+            make.height.mas_equalTo(1);
+        }];
         
     }
     return self;
@@ -117,7 +130,7 @@
         
         UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
         [self addSubview:imageView];
-        CGFloat height = 55;
+        CGFloat height = 50;
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.mas_top).offset(0);
             make.centerX.mas_equalTo(self.mas_centerX);
@@ -127,9 +140,9 @@
         imageView.image = [UIImage imageNamed:imageName];
         
         UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
-        label.textColor = WifeButlerGaryTextColor4;
+        label.textColor = HexCOLOR(@"#75747b");
         [self addSubview:label];
-        label.font = [UIFont systemFontOfSize:11];
+        label.font = [UIFont systemFontOfSize:12];
         label.text = title;
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(imageView.mas_bottom).offset(5);

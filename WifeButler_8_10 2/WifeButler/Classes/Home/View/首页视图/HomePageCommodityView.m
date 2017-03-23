@@ -34,15 +34,11 @@
      [self addSubview:view];
      self.fanliView = view;
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.mas_top).offset(-10);
-        make.width.mas_equalTo(40);
+        make.top.mas_equalTo(self.mas_top).offset(0);
+        make.width.mas_equalTo(50);
         make.height.mas_equalTo(40);
         make.left.mas_equalTo(0);
     }];
-    view.layer.cornerRadius = 20;
-    view.clipsToBounds = YES;
-    
-   
    
     self.fanliView.hidden = YES;
 }

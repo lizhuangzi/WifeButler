@@ -107,6 +107,7 @@ static NSString *ID = @"social";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WifeButlerInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    cell.separatorInset = UIEdgeInsetsZero;
     cell.model = self.dataArray[indexPath.row];
     
     return cell;

@@ -190,6 +190,9 @@
             }
             
             [self.homeTableView reloadData];
+        }else{
+            [self.dataArray removeAllObjects];
+            [self.homeTableView.mj_header endRefreshing];
         }
         [self.homeTableView.mj_header endRefreshing];
     } failure:^(NSError *error) {
@@ -295,7 +298,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 150;
+    return 163;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.01;
 }
 
 #pragma mark - push控制器操作

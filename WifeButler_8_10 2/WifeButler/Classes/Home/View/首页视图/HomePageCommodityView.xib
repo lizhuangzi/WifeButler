@@ -16,20 +16,21 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v5C-K7-8St">
-                    <rect key="frame" x="15" y="15" width="101" height="98"/>
+                    <rect key="frame" x="21" y="15" width="90" height="90"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="98" id="ohq-8M-5LN"/>
+                        <constraint firstAttribute="height" constant="90" id="ohq-8M-5LN"/>
+                        <constraint firstAttribute="width" constant="90" id="zvJ-dx-74D"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOa-Z4-Mz8">
-                    <rect key="frame" x="5" y="137" width="121" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <rect key="frame" x="5" y="138" width="121" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgZ-rR-YnF">
-                    <rect key="frame" x="51" y="158" width="29" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <rect key="frame" x="53" y="157" width="25" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -37,13 +38,12 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="bOa-Z4-Mz8" secondAttribute="trailing" constant="5" id="5P4-7q-qv2"/>
+                <constraint firstItem="v5C-K7-8St" firstAttribute="centerX" secondItem="Mrh-cb-PMO" secondAttribute="centerX" id="B9s-c0-TaF"/>
                 <constraint firstItem="NgZ-rR-YnF" firstAttribute="top" secondItem="bOa-Z4-Mz8" secondAttribute="bottom" constant="4" id="P6v-e7-Lnv"/>
-                <constraint firstAttribute="bottom" secondItem="NgZ-rR-YnF" secondAttribute="bottom" constant="10" id="RG8-Pc-EiY"/>
-                <constraint firstAttribute="trailing" secondItem="v5C-K7-8St" secondAttribute="trailing" constant="15" id="UzM-Q3-Whd"/>
+                <constraint firstAttribute="bottom" secondItem="NgZ-rR-YnF" secondAttribute="bottom" constant="13" id="RG8-Pc-EiY"/>
                 <constraint firstItem="bOa-Z4-Mz8" firstAttribute="centerX" secondItem="Mrh-cb-PMO" secondAttribute="centerX" id="XLR-PD-Bbl"/>
                 <constraint firstItem="v5C-K7-8St" firstAttribute="top" secondItem="Mrh-cb-PMO" secondAttribute="top" constant="15" id="etr-6M-AsF"/>
                 <constraint firstItem="bOa-Z4-Mz8" firstAttribute="leading" secondItem="Mrh-cb-PMO" secondAttribute="leading" constant="5" id="fXS-Fc-mY2"/>
-                <constraint firstItem="v5C-K7-8St" firstAttribute="leading" secondItem="Mrh-cb-PMO" secondAttribute="leading" constant="15" id="jaK-OK-xBH"/>
                 <constraint firstItem="NgZ-rR-YnF" firstAttribute="centerX" secondItem="Mrh-cb-PMO" secondAttribute="centerX" id="jom-Hb-APK"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

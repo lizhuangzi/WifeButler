@@ -26,7 +26,6 @@
 {   
     [super awakeFromNib];
     self.titleLabel.textColor = WifeButlerCommonRedColor;
-    self.contentView.backgroundColor = WifeButlerTableBackGaryColor;
 }
 
 + (instancetype)CommodityCellWithTableView:(UITableView *)tableView{
@@ -55,10 +54,10 @@
     //商品当前个数（复用来的）
     NSInteger backCount = self.commoditiesBackView.subviews.count;
     
-    CGFloat wMargin = 1;
-    CGFloat hMargin = 1;
+    CGFloat wMargin = 1.5;
+    CGFloat hMargin = 1.5;
     CGFloat viewWith = (iphoneWidth - 4*wMargin)/3;
-    CGFloat viewHeight = viewWith/3*4;
+    CGFloat viewHeight = 165;
 
     if (backCount <tempCount) {  //复用来的商品个小于数据个数
         
@@ -72,7 +71,10 @@
             HomePageCommodityView * comView = [HomePageCommodityView HomePageCommodityView];
             [comView addTarget:self action:@selector(comViewClick:) forControlEvents:UIControlEventTouchUpInside];
             [self.commoditiesBackView addSubview:comView];
-            comView.frame = CGRectMake(wMargin + col * (viewWith + wMargin), hMargin + row * (viewHeight + hMargin), viewWith, viewHeight);
+            if (row == 0) {
+                comView.frame = CGRectMake(wMargin + col * (viewWith + wMargin), 0, viewWith, viewHeight);
+            }else
+                comView.frame = CGRectMake(wMargin + col * (viewWith + wMargin), hMargin + row * (viewHeight + hMargin), viewWith, viewHeight);
             
         }
         //显示数据
@@ -95,12 +97,12 @@
         }
     }
     if (tempCount == 0) {
-        _model.cellHeight = 37.5;
+        _model.cellHeight = 39;
     }
     else if (tempCount<=3) {
-        _model.cellHeight = viewHeight + 2 + 37.5;
+        _model.cellHeight = viewHeight + 2 + 39;
     }else{
-        _model.cellHeight = viewHeight * 2 + 3 + 37.5;
+        _model.cellHeight = viewHeight * 2 + 3 + 39;
     }
 }
 - (IBAction)moreClick:(id)sender {

@@ -23,8 +23,8 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        self.font = [UIFont systemFontOfSize:15];
-        self.textColor = [UIColor blackColor];
+        self.font = [UIFont systemFontOfSize:14];
+        self.textColor = HexCOLOR(@"#666666");
         self.textAlignment = NSTextAlignmentCenter;
         self.backgroundColor = [UIColor clearColor];
         self.userInteractionEnabled = YES;

@@ -44,7 +44,7 @@
     self.view.backgroundColor = WifeButlerSeparateLineColor;
     
     UIScrollView *  titleScro = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, iphoneWidth, 44)];
-    titleScro.backgroundColor = [UIColor whiteColor];
+    titleScro.backgroundColor = WifeButlerTableBackGaryColor;
     titleScro.showsVerticalScrollIndicator = NO;
     titleScro.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:titleScro];
@@ -58,7 +58,7 @@
     
     [titleScro layoutIfNeeded];
     //滑块底部的线
-    UIView * sliderLineView = [[UIView alloc]initWithFrame:CGRectMake(7, titleScro.height-3, 90, 3)];
+    UIView * sliderLineView = [[UIView alloc]initWithFrame:CGRectMake(7, titleScro.height-3, 80, 3)];
     sliderLineView.backgroundColor = WifeButlerCommonRedColor;
     [titleScro addSubview:sliderLineView];
     self.sliderlineView = sliderLineView;
@@ -92,7 +92,7 @@
 - (void)setupTitle
 {
     // 定义临时变量
-    CGFloat labelW = 100;
+    CGFloat labelW = 90;
     CGFloat labelY = 0;
     CGFloat labelH = self.titleScrollView.frame.size.height;
     
@@ -190,7 +190,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat scale = scrollView.contentOffset.x / iphoneWidth;
-    self.sliderlineView.x = self.titleScrollView.contentSize.width/scrollView.contentSize.width * scrollView.contentOffset.x + 4;
+    self.sliderlineView.x = self.titleScrollView.contentSize.width/scrollView.contentSize.width * scrollView.contentOffset.x + 7;
     
     if (scale < 0 || scale > self.titleArray.count - 1) return;
     

@@ -12,34 +12,43 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="fanliView">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="50" height="44"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tuceng1" translatesAutoresizingMaskIntoConstraints="NO" id="5oW-Kr-OdN">
+                    <rect key="frame" x="0.0" y="0.0" width="50" height="44"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="返利" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dn-50-XtL">
-                    <rect key="frame" x="15" y="12" width="20.5" height="12"/>
+                    <rect key="frame" x="15" y="4" width="21" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTj-Nb-bz8">
-                    <rect key="frame" x="12.5" y="26" width="26" height="12"/>
+                    <rect key="frame" x="13" y="18" width="26" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <color key="textColor" red="1" green="0.75294117650000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.98039215686274506" green="1" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="YTj-Nb-bz8" firstAttribute="top" secondItem="7dn-50-XtL" secondAttribute="bottom" constant="2" id="2Wd-u8-TWi"/>
                 <constraint firstItem="YTj-Nb-bz8" firstAttribute="centerX" secondItem="7dn-50-XtL" secondAttribute="centerX" id="3Ag-TW-e9M"/>
-                <constraint firstItem="7dn-50-XtL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="dHh-Il-pjB"/>
+                <constraint firstItem="5oW-Kr-OdN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="A9D-LT-kTo"/>
+                <constraint firstItem="7dn-50-XtL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="dHh-Il-pjB"/>
+                <constraint firstItem="5oW-Kr-OdN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dJy-eO-5ji"/>
+                <constraint firstAttribute="trailing" secondItem="5oW-Kr-OdN" secondAttribute="trailing" id="qSV-vX-ZBw"/>
                 <constraint firstItem="7dn-50-XtL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="srm-5w-eff"/>
+                <constraint firstAttribute="bottom" secondItem="5oW-Kr-OdN" secondAttribute="bottom" id="y9D-Hz-1Bc"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="numLabel" destination="YTj-Nb-bz8" id="5Wh-hQ-U6e"/>
             </connections>
-            <point key="canvasLocation" x="-103" y="227"/>
+            <point key="canvasLocation" x="-103" y="224"/>
         </view>
     </objects>
+    <resources>
+        <image name="tuceng1" width="47" height="35"/>
+    </resources>
 </document>
