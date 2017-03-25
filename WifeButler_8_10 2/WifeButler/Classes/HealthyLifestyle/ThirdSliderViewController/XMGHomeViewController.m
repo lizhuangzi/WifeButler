@@ -53,12 +53,12 @@
         make.top.mas_equalTo(self.view.mas_top);
         make.left.mas_equalTo(self.view.mas_left);
         make.right.mas_equalTo(self.view.mas_right);
-        make.height.mas_equalTo(44);
+        make.height.mas_equalTo(39);
     }];
     
     [titleScro layoutIfNeeded];
     //滑块底部的线
-    UIView * sliderLineView = [[UIView alloc]initWithFrame:CGRectMake(7, titleScro.height-3, 80, 3)];
+    UIView * sliderLineView = [[UIView alloc]initWithFrame:CGRectMake(5, titleScro.height-3, 80, 3)];
     sliderLineView.backgroundColor = WifeButlerCommonRedColor;
     [titleScro addSubview:sliderLineView];
     self.sliderlineView = sliderLineView;
@@ -190,7 +190,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat scale = scrollView.contentOffset.x / iphoneWidth;
-    self.sliderlineView.x = self.titleScrollView.contentSize.width/scrollView.contentSize.width * scrollView.contentOffset.x + 7;
+    self.sliderlineView.x = self.titleScrollView.contentSize.width/scrollView.contentSize.width * scrollView.contentOffset.x + 5;
     
     if (scale < 0 || scale > self.titleArray.count - 1) return;
     

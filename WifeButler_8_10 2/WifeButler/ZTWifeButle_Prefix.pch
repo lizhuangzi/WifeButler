@@ -30,6 +30,7 @@
 
 #define MAINCOLOR [UIColor colorWithRed:221.0f/255 green:32.0f/255 blue:46.0f/255 alpha:1]
 
+#define ThinFont(font)  [UIFont systemFontOfSize:font weight:UIFontWeightRegular]
 
 #define NSSaveUserDefaults(obj,key) [[NSUserDefaults standardUserDefaults] setObject:obj forKey:key]; \
                                     [[NSUserDefaults standardUserDefaults] synchronize];

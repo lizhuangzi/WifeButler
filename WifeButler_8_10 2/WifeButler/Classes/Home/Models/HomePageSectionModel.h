@@ -19,6 +19,8 @@
 
 @property (nonatomic,assign) CGFloat cellHeight;
 
+@property (nonatomic,assign) NSInteger type;
+
 + (instancetype)SectionModelWithDictionary:(NSDictionary *)dict;
 
 @end

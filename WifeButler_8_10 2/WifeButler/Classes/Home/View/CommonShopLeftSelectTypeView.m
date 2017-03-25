@@ -36,7 +36,7 @@
     CommonShopLeftSelectTypeView * table = [[CommonShopLeftSelectTypeView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     [fatherView addSubview:table];
     
-    table.backgroundColor = WifeButlerTableBackGaryColor;
+    table.backgroundColor = HexCOLOR(@"#f7f7f7");
     [table mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(fatherView.mas_top);
         make.left.mas_equalTo(fatherView.mas_left);
@@ -45,7 +45,7 @@
     }];
     
     table.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
-    
+    table.rowHeight = 40;
     return table;
 }
 
@@ -99,11 +99,18 @@
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        cell.textLabel.font = [UIFont systemFontOfSize:13];
+        cell.textLabel.textColor = HexCOLOR(@"#666666");
         cell.backgroundColor = [UIColor clearColor];
         UIView * selectView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+        UIView * Redline = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 3, 40)];
+        Redline.backgroundColor = WifeButlerCommonRedColor;
+        [selectView addSubview:Redline];
         selectView.backgroundColor = [UIColor whiteColor];
+        
         cell.selectedBackgroundView = selectView;
+        
+        cell.separatorInset = UIEdgeInsetsZero;
     }
     ShopLeftSelectTypeViewModel * model = self.dataArray[indexPath.row];
     cell.textLabel.text = model.name;

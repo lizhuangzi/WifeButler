@@ -23,6 +23,11 @@
 
 /**银行卡归属*/
 #define KBankCardAffiliate [HTTP_BaseURL stringByAppendingString:@"e_wallet/E_wallet/bankname"]
+/**银行卡验证*/
+#define KBankVerifyMessage [HTTP_BaseURL stringByAppendingString:@"e_wallet/E_wallet/sendmsg"]
+
+/**绑定银行卡*/
+#define KBindingCard [HTTP_BaseURL stringByAppendingString:@"e_wallet/E_wallet/bankcardbinding"]
 
 /**用户余额*/
 #define KUserBalance [HTTP_BaseURL stringByAppendingString:@"e_wallet/E_wallet/getbalance"]

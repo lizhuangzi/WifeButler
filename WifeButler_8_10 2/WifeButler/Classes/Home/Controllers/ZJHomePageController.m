@@ -185,6 +185,8 @@
             for (int i = 0; i<4; i++) {
                NSDictionary * tempDict = resultCode.allValues[i];
                 HomePageSectionModel * sectionModel = [HomePageSectionModel SectionModelWithDictionary:tempDict];
+                sectionModel.type = i;
+                
                 sectionModel.title = titleArr[i];
                 [self.dataArray addObject:sectionModel];
             }

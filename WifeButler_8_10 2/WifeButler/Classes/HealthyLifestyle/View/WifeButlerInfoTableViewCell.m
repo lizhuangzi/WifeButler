@@ -42,7 +42,7 @@ typedef NS_ENUM(NSUInteger, WifeButlerInfoTableViewCellShowType) {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
         UILabel * titleLabel = [[UILabel alloc]init];
-        titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        titleLabel.font = ThinFont(16);
         titleLabel.numberOfLines = 0;
         titleLabel.textColor = HexCOLOR(@"#111111");
         titleLabel.preferredMaxLayoutWidth = iphoneWidth - 20;
@@ -149,6 +149,17 @@ typedef NS_ENUM(NSUInteger, WifeButlerInfoTableViewCellShowType) {
             make.edges.mas_equalTo(self.imageBackView);
         }];
         
+//        for (int i = 1; i<currentCount; i++) {
+//            
+//            UIImageView * imageView = self.imageBackView.subviews[i];
+//            [imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.width.mas_equalTo(0);
+//                make.height.mas_equalTo(0);
+//                make.top.mas_equalTo(self.imageBackView.mas_top);
+//                make.left.mas_equalTo(i*60+10);
+//            }];
+//        }
+        
     }else if(modelCount == 0){ //没有图片
         self.showType = WifeButlerInfoTableViewCellShowTypeNopicture;
         
@@ -196,7 +207,9 @@ typedef NS_ENUM(NSUInteger, WifeButlerInfoTableViewCellShowType) {
                 make.top.mas_equalTo(self.mas_top).offset(15);
             else make.top.mas_equalTo(self.contentLabel.mas_bottom).offset(10);
             
-            make.height.mas_equalTo(60);
+            if (self.showType == WifeButlerInfoTableViewCellShowTypeOnepicture)
+                make.height.mas_equalTo(139);
+            else make.height.mas_equalTo(60);
         }
     }];
 
@@ -204,7 +217,7 @@ typedef NS_ENUM(NSUInteger, WifeButlerInfoTableViewCellShowType) {
     [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         
         if (self.showType == WifeButlerInfoTableViewCellShowTypeOnepicture)
-            make.top.mas_equalTo(self.mas_top).offset(85);
+            make.top.mas_equalTo(self.mas_top).offset(164);
         else make.top.mas_equalTo(self.mas_top).offset(19.5);
         
         make.left.mas_equalTo(self.mas_left).offset(10);
@@ -214,14 +227,14 @@ typedef NS_ENUM(NSUInteger, WifeButlerInfoTableViewCellShowType) {
     
     [self.contentLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         
-        make.top.mas_equalTo(self.titleLabel.mas_bottom).offset(12.5);
+        make.top.mas_equalTo(self.titleLabel.mas_bottom).offset(11);
         make.left.mas_equalTo(self.mas_left).offset(10);
         make.right.mas_equalTo(self.mas_right).offset(-10);
     }];
     
     [self.dateLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         if (self.showType == WifeButlerInfoTableViewCellShowTypeManypictures) {
-            make.top.mas_equalTo(self.contentLabel.mas_bottom).offset(98);
+            make.top.mas_equalTo(self.contentLabel.mas_bottom).offset(84);
         }else{
             make.top.mas_equalTo(self.contentLabel.mas_bottom).offset(14.5);
         }
@@ -231,7 +244,7 @@ typedef NS_ENUM(NSUInteger, WifeButlerInfoTableViewCellShowType) {
     [self.readTimeLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         
         if (self.showType == WifeButlerInfoTableViewCellShowTypeManypictures)
-            make.top.mas_equalTo(self.contentLabel.mas_bottom).offset(97.5);
+            make.top.mas_equalTo(self.contentLabel.mas_bottom).offset(84);
         else make.top.mas_equalTo(self.contentLabel.mas_bottom).offset(14.5);
         
         make.right.mas_equalTo(self.mas_right).offset(-10);
@@ -253,6 +266,8 @@ typedef NS_ENUM(NSUInteger, WifeButlerInfoTableViewCellShowType) {
         for (NSUInteger i = currentCount; i<modelCount; i++) {
             
             UIImageView * imageView = [[UIImageView alloc]init];
+            imageView.contentMode = UIViewContentModeScaleAspectFill;
+            imageView.clipsToBounds = YES;
             [self.imageBackView addSubview:imageView];
             
         }
@@ -260,10 +275,22 @@ typedef NS_ENUM(NSUInteger, WifeButlerInfoTableViewCellShowType) {
     }else{ //如果当前的多于模型的 则多余的隐藏
         if (currentCount != modelCount) {
             
-            for (NSUInteger i = currentCount - 1; i>modelCount; i--) {
+            for (NSUInteger i = currentCount - 1; i>=modelCount; i--) {
+                
+                if (i>=self.imageBackView.subviews.count)
+                    continue;
                 
                 UIImageView * imageView = self.imageBackView.subviews[i];
                 imageView.hidden = YES;
+            }
+            
+            for (NSInteger i = modelCount - 1; i>=0; i--) {
+                
+                if (i>=self.imageBackView.subviews.count)
+                    continue;
+                
+                UIImageView * imageView = self.imageBackView.subviews[i];
+                imageView.hidden = NO;
             }
         }
         

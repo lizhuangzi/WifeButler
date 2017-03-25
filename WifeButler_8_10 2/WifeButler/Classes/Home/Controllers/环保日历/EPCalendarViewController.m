@@ -163,7 +163,7 @@
     [self.view addSubview:self.noDataView];
     self.noDataView.width = 179;
     self.noDataView.height = 158;
-    self.noDataView.y = iphoneHeight - 114 - 158;
+    self.noDataView.y = iphoneHeight - 114 - 158 - 10;
     self.noDataView.x = iphoneWidth/2 - self.noDataView.width/2;
     
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {

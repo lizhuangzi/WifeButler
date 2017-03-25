@@ -28,6 +28,10 @@
 
 @property (nonatomic,copy)NSString * Id;
 
+/**返利相关*/
+@property (nonatomic,copy)NSString * ispayoff;
+
+@property (nonatomic,copy)NSString * payoffper;
 
 + (instancetype)ShopMainModelWithDictionary:(NSDictionary *)dict;
 

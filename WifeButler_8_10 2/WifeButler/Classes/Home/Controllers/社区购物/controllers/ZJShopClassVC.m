@@ -65,14 +65,8 @@
     [rightBtnOrder setBackgroundImage:[UIImage imageNamed:@"tab_btn_more"] forState:UIControlStateNormal];
     [rightBtnOrder addTarget:self action:@selector(orderClick) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton * btnSearch = [UIButton buttonWithType:UIButtonTypeCustom];
-    btnSearch.frame = CGRectMake(0, 0, 22, 22);
-    [btnSearch setBackgroundImage:[UIImage imageNamed:@"ic_Search"] forState:UIControlStateNormal];
-    
     UIBarButtonItem * item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBtnOrder];
-    UIBarButtonItem * item2 = [[UIBarButtonItem alloc]initWithCustomView:btnSearch];
-    self.navigationItem.rightBarButtonItems = @[item1,item2];
-    
+    self.navigationItem.rightBarButtonItem = item1;
     
     CommonShopLeftSelectTypeView * selectView = [CommonShopLeftSelectTypeView AddIntoFatherView:self.view];
     selectView.selectDelegate = self;
@@ -188,7 +182,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 90;
+    return 86;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

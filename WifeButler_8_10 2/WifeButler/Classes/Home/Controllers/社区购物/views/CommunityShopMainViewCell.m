@@ -19,7 +19,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *cellCountAndInventoryView;
 
-@property (nonatomic,weak) fanliView * fanliView;
+
+/**返利相关*/
+@property (weak, nonatomic) IBOutlet UIView *fanliView;
+
+@property (weak, nonatomic) IBOutlet UILabel *fanliPercent;
 
 @end
 
@@ -40,17 +44,6 @@
 {
     [super awakeFromNib];
     
-//    fanliView * view = [[NSBundle mainBundle]loadNibNamed:@"fanliView" owner:nil options:nil].firstObject;
-//    [self addSubview:view];
-//    self.fanliView = view;
-//    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.mas_equalTo(self.mas_bottom).offset(-10);
-//        make.width.mas_equalTo(30);
-//        make.height.mas_equalTo(30);
-//        make.right.mas_equalTo(-10);
-//    }];
-//    view.layer.cornerRadius = 15;
-//    view.clipsToBounds = YES;
 }
 
 - (void)setModel:(CommunityShopMainModel *)model
@@ -65,6 +58,16 @@
     self.nowPriceView.text = [NSString stringWithFormat:@"¥%@",model.money];
     self.orginPriceView.text = [NSString stringWithFormat:@"¥%@",_model.oldprice];
     self.cellCountAndInventoryView.text = [NSString stringWithFormat:@"销量:%@库存:%@",_model.sales,_model.store];
+    
+    if ([_model.ispayoff integerValue] == 1) { //返利
+        self.fanliView.hidden = NO;
+        NSInteger i = _model.payoffper.doubleValue/0.01;
+        self.fanliPercent.text =[NSString stringWithFormat:@"%zd%%",i];
+    }else{
+        self.fanliView.hidden = YES;
+        self.fanliPercent.text = @"0%";
+    }
+
 }
 
 - (IBAction)shopButtonClick:(UIButton *)sender {

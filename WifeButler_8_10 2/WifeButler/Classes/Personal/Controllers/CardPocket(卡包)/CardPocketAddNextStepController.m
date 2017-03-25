@@ -58,11 +58,9 @@
     
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
     
-    [dic setObject:self.phoneNumeFiled.text forKey:@"mobile"];
+    [dic setObject:self.phoneNumeFiled.text forKey:@"phone"];
     
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KHuoYanZhenMa];
-    
-    ZJLog(@"%@", dic);
+    NSString *url = KBankVerifyMessage;
     
     [manager POST:url parameters:dic constructingBodyWithBlock:nil progress:^(NSProgress * _Nonnull uploadProgress) {
         

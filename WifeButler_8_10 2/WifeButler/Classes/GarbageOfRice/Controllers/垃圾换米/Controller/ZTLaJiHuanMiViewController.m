@@ -106,9 +106,9 @@
 //设置头部滚动视图
 - (void)createScorllViewWuWang:(NSArray *)imageArr
 {
-    UIView*headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, iphoneWidth, iphoneHeight*0.5)];
+    UIView*headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, iphoneWidth, 375)];
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, iphoneWidth, iphoneHeight*0.5 +1)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, iphoneWidth, 375 +1)];
     [headerView addSubview:view];
     self.tableView.tableHeaderView = headerView;
     //顶部滑动浏览视图
@@ -171,7 +171,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        return 110;
+        return 114;
     }else{
         if (self.webCellH == 0) {
             return 100;

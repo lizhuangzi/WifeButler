@@ -28,4 +28,5 @@
 /**返利之*/
 @property (nonatomic,copy)NSString * payoffper;
 
+@property (nonatomic,assign) NSInteger type;
 @end

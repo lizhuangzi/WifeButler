@@ -46,7 +46,7 @@
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.tableView.backgroundColor = WifeButlerTableBackGaryColor;
-    
+    self.tableView.rowHeight = 97+15;
     _dataSource = [NSMutableArray array];
     
     [self shuaXinJiaZa];

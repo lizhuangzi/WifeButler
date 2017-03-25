@@ -197,7 +197,7 @@
     }];
 }
 
-
+//WifebutlerLocationDidChangeNotification
 #pragma mark -编辑收货地址
 - (void)editingTheAddress{
     
@@ -249,6 +249,7 @@
         if (self.relshBlack) {
             self.relshBlack();
         }
+
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSError *error) {
         SVDCommonErrorDeal

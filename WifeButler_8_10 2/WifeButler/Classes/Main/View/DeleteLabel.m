@@ -10,12 +10,33 @@
 
 @implementation DeleteLabel
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        [self setNeedsDisplay];
+    }
+    return self;
 }
-*/
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    [self setNeedsDisplay];
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    
+    [HexCOLOR(@"#aaaaaa") set];
+    
+    CGContextMoveToPoint(ctx, 0, rect.size.height/2);
+    
+    CGContextAddLineToPoint(ctx, rect.size.width, rect.size.height/2);
+    
+    CGContextStrokePath(ctx);
+}
 
 @end

@@ -57,7 +57,10 @@
     if (cellModel.danwei.length == 0) {
         self.priceLabel.text = [NSString stringWithFormat:@"¥%@",cellModel.money];
     }else
-        self.priceLabel.text = [NSString stringWithFormat:@"%@元一%@",cellModel.money,cellModel.danwei];
+        if (_cellModel.type == 0) {
+             self.priceLabel.text = [NSString stringWithFormat:@"%@分/%@",cellModel.money,cellModel.danwei];
+        }else
+            self.priceLabel.text = [NSString stringWithFormat:@"%@元一%@",cellModel.money,cellModel.danwei];
     
     if ([_cellModel.ispayoff integerValue] == 1) { //返利
         self.fanliView.hidden = NO;

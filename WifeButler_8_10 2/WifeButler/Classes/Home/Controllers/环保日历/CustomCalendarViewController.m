@@ -98,7 +98,8 @@
     }
     CGFloat marginH = 5;
     CGFloat itemH = 30;
-    CGFloat itemW = self.view.width/7;
+    CGFloat itemW = itemH;
+    CGFloat marginW = (self.view.width - 7*itemW)/8;
     // 1.分析这个月的第一天是第一周的星期几
     NSInteger firstWeekday = [self firstWeekdayInThisMotnth:date];
     
@@ -114,7 +115,7 @@
             
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 
-            int x = (i % 7) * itemW ;
+            int x = marginW + (i % 7) * (itemW + marginW) ;
             int y = marginH + (i / 7) * (itemH + marginH) ;
             
             button.frame = CGRectMake(x, y, itemW, itemH);
@@ -247,7 +248,8 @@
         [self.layer addSublayer:redLayer];
         self.redLayer = redLayer;
         
-        [self setBackgroundImage:[UIImage imageWithColor:WifeButlerCommonRedColor] forState:UIControlStateSelected];
+        [self setBackgroundImage:[UIImage imageNamed:@"epdateSelect"] forState:UIControlStateSelected];
+        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         self.day = 0;
     }
     return self;
@@ -258,7 +260,7 @@
     _showRedPoint = showRedPoint;
     if (_showRedPoint) {
         self.redLayer.hidden = NO;
-        self.redLayer.position = CGPointMake(self.width-8, 4);
+        self.redLayer.position = CGPointMake(self.width-5, 4);
     }else{
         self.redLayer.hidden = YES;
     }

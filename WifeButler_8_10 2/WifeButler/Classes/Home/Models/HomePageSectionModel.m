@@ -7,6 +7,7 @@
 //
 
 #import "HomePageSectionModel.h"
+#import "HomePageCellModel.h"
 #import  "MJExtension.h"
 
 @implementation HomePageSectionModel
@@ -16,6 +17,14 @@
     HomePageSectionModel * model = [HomePageSectionModel mj_objectWithKeyValues:dict];
     
     return model;
+}
+
+- (void)setType:(NSInteger)type
+{
+    _type = type;
+    for (HomePageCellModel * model in self.list) {
+        model.type = _type;
+    }
 }
 
 + (NSDictionary *)mj_objectClassInArray

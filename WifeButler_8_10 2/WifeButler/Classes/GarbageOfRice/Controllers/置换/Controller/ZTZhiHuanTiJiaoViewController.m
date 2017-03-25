@@ -40,6 +40,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *duihuanKGView;
 
+@property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 
 @end
 
@@ -50,6 +51,9 @@
     // Do any additional setup after loading the view.
     
     self.title = @"置换";
+    
+    self.sureBtn.layer.cornerRadius = 5;
+    self.sureBtn.clipsToBounds = YES;
     
     if ([self.danwei isEqualToString:@"kg"]) {
         self.duihuanKGView.hidden = NO;

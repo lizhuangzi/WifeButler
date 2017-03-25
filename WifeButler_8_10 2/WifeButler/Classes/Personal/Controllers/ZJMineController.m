@@ -59,8 +59,13 @@
 - (ZJMineController * (^)())initBottomUI{
     
     return ^{
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"personNoti"] style:UIBarButtonItemStylePlain target:self action:@selector(usermsgclick)];
+        
         //头像处理
         self.userIconView.layer.cornerRadius = 30;
+        self.userIconView.layer.borderWidth = 1;
+        self.userIconView.layer.borderColor = WifeButlerTableBackGaryColor.CGColor;
         self.userIconView.clipsToBounds = YES;
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headerClick)];
         [self.userIconView addGestureRecognizer:tap];
@@ -76,6 +81,7 @@
             int row = i/4;
             int cloum = i%4;
             WifeButlerHomeCircleButton * button = [[WifeButlerHomeCircleButton alloc]initWithImageName:imageNameArray[i]  andtitle:titleArray[i]];
+            
             button.tag = i+2017;
             [button addTarget:self action:@selector(roundButtonClick:) forControlEvents:UIControlEventTouchUpInside];
             button.frame = CGRectMake(margin + cloum *(btnW+margin), Hmargin + row * (btnH + Hmargin), btnW, btnH);
@@ -302,6 +308,11 @@
         NSString * iconStr = [KImageUrl stringByAppendingString:party.avatar];
         [self.userIconView sd_setImageWithURL:[NSURL URLWithString:iconStr] placeholderImage:[UIImage imageNamed:@"placeHolderIcon"]];
     }
+}
+
+- (void)usermsgclick
+{
+    
 }
 
 - (void)dealloc
