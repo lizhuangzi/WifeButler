@@ -11,6 +11,4 @@
 @interface CardPocketAddViewController : UIViewController
 
 
-
-
 @end

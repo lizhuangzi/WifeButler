@@ -29,7 +29,7 @@
     // Do any additional setup after loading the view from its nib.
     
     self.title = @"意见反馈";
-    
+    self.view.backgroundColor = WifeButlerTableBackGaryColor;
     self.tiJiaoBtn.layer.cornerRadius = 5;
     
     _textView1.delegate = self;

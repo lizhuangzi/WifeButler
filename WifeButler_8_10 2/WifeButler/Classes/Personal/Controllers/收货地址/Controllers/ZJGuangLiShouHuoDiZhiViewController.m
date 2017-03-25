@@ -210,32 +210,32 @@
         
         ZTShouHuoAddressModel *model = _dataSource[indexPath.row];
         
-        __weak typeof(self) weakSelf = self;
+//        __weak typeof(self) weakSelf = self;
         
-        if ([model.defaults intValue] != 2) {
-            
-            NSString *cancelButtonTitle = NSLocalizedString(@"取消", nil);
-            NSString *otherButtonTitle = NSLocalizedString(@"确认", nil);
-            
-            UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"提示" message:@"您选择的地址和定位地址不符合,如果您继续的话,购物车将会被清空." preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction *action = [UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                
-
-            }];
-            
-            UIAlertAction *otherAction = [UIAlertAction actionWithTitle:otherButtonTitle style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-            
-                // 设置默认地址
-                [weakSelf downLoadInfoSetdefaults:model.id];
-                
-            }];
-            
-            [vc addAction:action];
-            [vc addAction:otherAction];
-            
-            [self presentViewController:vc animated:YES completion:nil];
-        }
+//        if ([model.defaults intValue] != 2) {
+//            
+//            NSString *cancelButtonTitle = NSLocalizedString(@"取消", nil);
+//            NSString *otherButtonTitle = NSLocalizedString(@"确认", nil);
+//            
+//            UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"提示" message:@"您选择的地址和定位地址不符合,如果您继续的话,购物车将会被清空." preferredStyle:UIAlertControllerStyleAlert];
+//            
+//            UIAlertAction *action = [UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//                
+//
+//            }];
+//            
+//            UIAlertAction *otherAction = [UIAlertAction actionWithTitle:otherButtonTitle style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+//            
+//                // 设置默认地址
+//                [weakSelf downLoadInfoSetdefaults:model.id];
+//                
+//            }];
+//            
+//            [vc addAction:action];
+//            [vc addAction:otherAction];
+//            
+//            [self presentViewController:vc animated:YES completion:nil];
+//        }
         
         if (self.addressBlack) {
             

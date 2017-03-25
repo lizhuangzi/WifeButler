@@ -16,15 +16,15 @@
 #import "MJRefresh.h"
 #import  "MJExtension.h"
 #import "WifeButlerDefine.h"
+#import "WifeButlerNoDataView.h"
+#import "WifeButlerNetWorking.h"
+#import "WifeButlerLoadingTableView.h"
 
 @interface ZTPersonGouWuCheViewController ()<UITableViewDataSource,UITableViewDelegate>
-{
-    NSMutableArray *_dataSource;
-    
-    int _pize;
-}
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic,strong) NSMutableArray * dataArray;
+
+@property (weak, nonatomic) IBOutlet WifeButlerLoadingTableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UIButton *quanBuBtn;
 
@@ -32,9 +32,19 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *tiJiaoBtn;
 
+@property (nonatomic,assign) NSInteger page;
 @end
 
 @implementation ZTPersonGouWuCheViewController
+
+- (NSMutableArray *)dataArray
+{
+    if(!_dataArray){
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,12 +52,12 @@
     
     self.title = @"购物车";
     
-    _pize = 1;
+    self.page = 1;
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.tableView.backgroundColor = WifeButlerTableBackGaryColor;
     self.tableView.rowHeight = 97+15;
-    _dataSource = [NSMutableArray array];
+    self.dataArray = [NSMutableArray array];
     
     [self shuaXinJiaZa];
     
@@ -60,26 +70,27 @@
 #pragma mark - 刷新
 - (void)shuaXinJiaZa
 {
+    WEAKSELF
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
-        _pize = 1;
-        [self netWorking];
+        _page = 1;
+        [weakSelf netWorking];
     }];
     
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _dataSource.count;
+    return self.dataArray.count;
 }
 
 - (void)setPriceModel
 {
     CGFloat floatMoney = 0;
     
-    for (int i = 0; i < _dataSource.count; i ++) {
+    for (int i = 0; i < self.dataArray.count; i ++) {
         
-        ZTGouWuCheModel *model = _dataSource[i];
+        ZTGouWuCheModel *model = self.dataArray[i];
         
         if (model.isSelect == YES) {
             
@@ -96,7 +107,7 @@
 {
     ZTGouWuCheTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZTGouWuCheTableViewCell" forIndexPath:indexPath];
     
-    ZTGouWuCheModel *model = _dataSource[indexPath.row];
+    ZTGouWuCheModel *model = self.dataArray[indexPath.row];
     
     cell.titleLab.text = model.title;
     [cell.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.files] placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
@@ -143,7 +154,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ZTGouWuCheModel *model = _dataSource[indexPath.row];
+    ZTGouWuCheModel *model = self.dataArray[indexPath.row];
     
     if (model.isSelect == YES) {
         
@@ -166,7 +177,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WEAKSELF;
-     ZTGouWuCheModel *model = _dataSource[indexPath.row];
+     ZTGouWuCheModel *model = self.dataArray[indexPath.row];
     NSString *cancelButtonTitle = NSLocalizedString(@"取消", nil);
     NSString *otherButtonTitle = NSLocalizedString(@"确认", nil);
     
@@ -197,9 +208,9 @@
 #pragma mark -  判断是否全选
 - (void)panDuanisQuanXuan
 {
-    for (int i = 0; i < _dataSource.count; i++) {
+    for (int i = 0; i < self.dataArray.count; i++) {
         
-        ZTGouWuCheModel *model = _dataSource[i];
+        ZTGouWuCheModel *model = self.dataArray[i];
         
         // 中间有一个非选中  就不是全选了
         if (model.isSelect == NO) {
@@ -224,9 +235,9 @@
 {
     int a = 0;
     
-    for (int i = 0; i < _dataSource.count; i ++) {
+    for (int i = 0; i < self.dataArray.count; i ++) {
         
-        ZTGouWuCheModel *model1 = _dataSource[i];
+        ZTGouWuCheModel *model1 = self.dataArray[i];
         
         if (model1.isSelect == YES) {
             
@@ -244,9 +255,9 @@
     
     if (self.quanBuBtn.selected == YES) {
         
-        for (int i = 0; i < _dataSource.count; i ++) {
+        for (int i = 0; i < self.dataArray.count; i ++) {
             
-            ZTGouWuCheModel *model = _dataSource[i];
+            ZTGouWuCheModel *model = self.dataArray[i];
             
             model.isSelect = YES;
             
@@ -257,9 +268,9 @@
     }
     else
     {
-        for (int i = 0; i < _dataSource.count; i ++) {
+        for (int i = 0; i < self.dataArray.count; i ++) {
             
-            ZTGouWuCheModel *model = _dataSource[i];
+            ZTGouWuCheModel *model = self.dataArray[i];
             
             model.isSelect = NO;
             
@@ -276,9 +287,9 @@
     
     int j = 0;
     
-    for (int i = 0; i < _dataSource.count; i ++) {
+    for (int i = 0; i < self.dataArray.count; i ++) {
         
-        ZTGouWuCheModel *model = _dataSource[i];
+        ZTGouWuCheModel *model = self.dataArray[i];
         
         if (model.isSelect == YES) {
             
@@ -300,39 +311,30 @@
 #pragma mark - 数据请求
 - (void)netWorking
 {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];/*添加接可收数据的数据可行*/
     
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
     
-    [dic setObject:@(_pize) forKey:@"pageindex"];
+    [dic setObject:@(self.page) forKey:@"pageindex"];
     [dic setObject:@(100) forKey:@"pagesize"];
     
-   
-    [dic setObject: [WifeButlerAccount sharedAccount].userParty.token_app forKey:@"token"];
+    [dic setObject: KToken forKey:@"token"];
     
     NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KGouWuCheList];
     
     [SVProgressHUD showWithStatus:@"加载中..."];
 
-    ZJLog(@"%@", dic);
-    
-    [manager POST:url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:url parameter:dic success:^(NSArray * resultCode) {
         
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [SVProgressHUD dismiss];
+        if (self.page == 1 && resultCode.count == 0) {
+            WifeButlerNoDataViewShow(self.view, 2, nil);
+            return ;
+        }
         
-        
-        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
-        
-        ZJLog(@"%@", responseObject);
-        
-        // 成功
-        if ([responseObject[@"code"] intValue] == 10000) {
+        D_SuccessLoadingDeal(0, resultCode, ^(NSArray * arr){
             
-            [SVProgressHUD dismiss];
-            
-            _dataSource = [ZTGouWuCheModel mj_objectArrayWithKeyValuesArray:responseObject[@"resultCode"]];
+            WifeButlerNoDataViewRemoveFrom(self.view);
+            self.dataArray = [ZTGouWuCheModel mj_objectArrayWithKeyValuesArray:arr];
             
             [self setTiJiaoNum];
             
@@ -340,74 +342,10 @@
             
             // 判断是否全选
             [self panDuanisQuanXuan];
-            
-            [self.tableView reloadData];
-            
-        }
-        else
-        {
-            
-            // 登录失效 进行提示登录
-            if ([[responseObject objectForKey:@"code"] intValue] == 40000) {
-                
-                [SVProgressHUD dismiss];
-                
-                __weak typeof(self) weakSelf = self;
-                
-                UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"提示" message:@"您登录已经失效,请重新进行登录哦!" preferredStyle:UIAlertControllerStyleAlert];
-                
-                
-                UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                    
-                    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];
-                    ZJLoginController *vc = [sb instantiateViewControllerWithIdentifier:@"ZJLoginController"];
-                    vc.isLogo = YES;
-                    [vc setShuaiXinShuJu:^{
-                        
-                        [self netWorking];
-                    }];
-                    [weakSelf.navigationController pushViewController:vc animated:YES];
-                }];
-                
-                [vc addAction:otherAction];
-                
-                [weakSelf presentViewController:vc animated:YES completion:nil];
-                
-            }
-            else
-            {
-                
-                if ([[responseObject objectForKey:@"code"] intValue] == 30000) {
-                    
-                    [SVProgressHUD dismiss];
-                    
-                    ZTBackImageView *backImage = [[[NSBundle mainBundle] loadNibNamed:@"ZTBackImageView" owner:self options:nil] firstObject];
-                    backImage.frame = CGRectMake(0, 0, iphoneWidth, iphoneHeight - 53);
-                    backImage.backImageView.image = [UIImage imageNamed:@"ZTBackGouWuCar"];
-                    backImage.titleLab.text = @"   购物车内暂无商品";
-                    
-                    [self.view addSubview:backImage];
-                }
-                else
-                {
-                    
-                    [SVProgressHUD showErrorWithStatus:message];
-                }
+        });
 
-            }
-            
-
-        }
-        
-        [self.tableView.mj_header endRefreshing];
-        
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
-        
-        [self.tableView.mj_header endRefreshing];
-        
+    } failure:^(NSError *error) {
+        D_FailLoadingDeal(0);
     }];
     
 }
@@ -515,7 +453,7 @@
 - (void)netWorkingXuanZhongQuanStatus:(NSString *)status
 {
     // 如果没有数据,防止崩溃
-    if (_dataSource.count == 0) {
+    if (self.dataArray.count == 0) {
         
         return;
     }
@@ -529,9 +467,9 @@
     
     NSString *strId = @"";
     
-    for (int i = 0; i < _dataSource.count; i ++) {
+    for (int i = 0; i < self.dataArray.count; i ++) {
         
-        ZTGouWuCheModel *model = _dataSource[i];
+        ZTGouWuCheModel *model = self.dataArray[i];
         
         strId = [strId stringByAppendingFormat:@",%@", model.id];
         
@@ -644,21 +582,16 @@
             
             [SVProgressHUD dismiss];
             
-            [_dataSource removeObject:model];
+            [self.dataArray removeObject:model];
             
             [self setTiJiaoNum];
             
             [self setPriceModel];
             
             // 没有商品 出现背景图片
-            if (_dataSource.count == 0) {
+            if (self.dataArray.count == 0) {
                 
-                ZTBackImageView *backImage = [[[NSBundle mainBundle] loadNibNamed:@"ZTBackImageView" owner:self options:nil] firstObject];
-                backImage.frame = CGRectMake(0, 0, iphoneWidth, iphoneHeight - 53);
-                backImage.backImageView.image = [UIImage imageNamed:@"ZTBackGouWuCar"];
-                backImage.titleLab.text = @"   购物车内暂无商品";
-                
-                [self.view addSubview:backImage];
+                WifeButlerNoDataViewShow(self.view, 2, nil);
             }
             
             [self.tableView reloadData];
@@ -727,9 +660,9 @@
     NSMutableArray *arrNums = [NSMutableArray array];
     
     
-    for (int i = 0; i < _dataSource.count; i ++) {
+    for (int i = 0; i < self.dataArray.count; i ++) {
      
-        ZTGouWuCheModel *model = _dataSource[i];
+        ZTGouWuCheModel *model = self.dataArray[i];
         
         if (model.isSelect == YES) {
             
@@ -900,11 +833,9 @@
 
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)dealloc
+{
+    ZJLog(@"购物车dealloc******");
 }
-
-
 
 @end

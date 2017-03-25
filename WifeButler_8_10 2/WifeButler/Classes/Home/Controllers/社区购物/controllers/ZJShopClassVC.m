@@ -22,6 +22,7 @@
 #import "MJExtension.h"
 #import "CommunityShopMainViewCell.h"
 #import "WifeButlerLocationManager.h"
+#import "WifeButlerNoDataView.h"
 
 @interface ZJShopClassVC ()<CommonShopLeftSelectTypeViewSelectDelegate>
 /**数据源*/
@@ -79,6 +80,8 @@
         make.right.mas_equalTo(self.view);
         make.bottom.mas_equalTo(self.view);
     }];
+    
+    self.tableView.backgroundColor = [UIColor whiteColor];
 }
 
 #pragma mark - 请求左侧选项数据
@@ -133,6 +136,7 @@
             if (self.page == 1) {
                 [SVProgressHUD showInfoWithStatus:@"无数据"];
                 //显示无数据
+                WifeButlerNoDataViewShow(self.tableView, 1, nil);
             }else{
                 self.page --;
                 [SVProgressHUD showInfoWithStatus:@"没有更多了"];
@@ -143,6 +147,7 @@
                 CommunityShopMainModel * model = [CommunityShopMainModel ShopMainModelWithDictionary:dict];
                 [self.dataArray addObject:model];
             }
+            WifeButlerNoDataViewRemoveFrom(self.tableView);
         }
         [self.tableView reloadData];
         [self.tableView endRefreshing];

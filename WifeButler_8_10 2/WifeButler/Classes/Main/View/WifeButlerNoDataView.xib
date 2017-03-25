@@ -36,13 +36,17 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="l4I-1q-FWN" firstAttribute="top" secondItem="3o3-MA-OY5" secondAttribute="bottom" constant="7.5" id="6hc-Ul-Skv"/>
                 <constraint firstItem="l4I-1q-FWN" firstAttribute="centerX" secondItem="3o3-MA-OY5" secondAttribute="centerX" id="HAe-Af-3J0"/>
                 <constraint firstItem="3o3-MA-OY5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="LY2-hd-eau"/>
                 <constraint firstItem="3o3-MA-OY5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-50" id="xR4-GU-gbE"/>
             </constraints>
+            <connections>
+                <outlet property="nodataBtn" destination="l4I-1q-FWN" id="rRx-ET-cKd"/>
+                <outlet property="nodataBtnTopCon" destination="6hc-Ul-Skv" id="8iG-SC-3zH"/>
+                <outlet property="nodataImage" destination="3o3-MA-OY5" id="0VM-Ls-NNM"/>
+            </connections>
             <point key="canvasLocation" x="33.5" y="89.5"/>
         </view>
     </objects>

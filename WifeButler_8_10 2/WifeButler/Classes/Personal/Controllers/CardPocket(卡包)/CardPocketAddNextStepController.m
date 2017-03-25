@@ -30,9 +30,43 @@
 
 }
 
+NSString * const CardPocketAddNextStepControllerAddSuccessNotification = @"CardPocketAddNextStepControllerAddSuccessNotification";
+
 #pragma mark - 调取添加接口
 - (IBAction)sureClick:(id)sender {
     
+    if ([NSString validateMobile:self.phoneNumeFiled.text] == NO) {
+        
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号"];
+        
+        return;
+    }
+    
+    if (self.checkNumFiled.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输正确的验证码"];
+        
+        return;
+    }
+
+    NSMutableDictionary * parm = [NSMutableDictionary dictionary];
+    parm[@"phone"] = self.phoneNumeFiled.text;
+    parm[@"username"] = self.userName;
+    parm[@"token"] = KToken;
+    parm[@"userid"] = KUserId;
+    parm[@"bankname"] = self.cardTypeStr;
+    parm[@"bankcard"] = self.cardNum;
+    parm[@"idcard"] = self.userIdCard;
+    parm[@"rand"] = self.checkNumFiled.text;
+    
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KBindingCard parameter:parm success:^(id resultCode) {
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName:CardPocketAddNextStepControllerAddSuccessNotification object:nil userInfo:nil];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    } failure:^(NSError *error) {
+        SVDCommonErrorDeal
+    }];
     
 }
 
@@ -66,7 +100,7 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
+        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"massage"]];
         
         ZJLog(@"%@", responseObject);
         

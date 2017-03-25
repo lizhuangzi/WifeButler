@@ -37,7 +37,7 @@
     }
     [self.window makeKeyAndVisible];
 
-    
+    [[UITableView appearance]setSeparatorColor:WifeButlerSeparateLineColor];
     //向微信注册wxd930ea5d5a258f4f
     [WXApi registerApp:@"wx4fe9cfcc13e33a10" withDescription:@"weiXinWifeButler"];
     [AMapServices sharedServices].apiKey = @"f7ecc75a1f94250a64b6a81b70c60914";

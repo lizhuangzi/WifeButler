@@ -10,7 +10,7 @@
 #import "NSString+ZJMyJudgeString.h"
 #import  "MJExtension.h"
 #import "WifeButlerNetWorking.h"
-
+#import "WifeButlerDefine.h"
 #import "PersonalPort.h"
 #import "WifeButlerUserParty.h"
 #import "WifeButlerAccount.h"
@@ -234,7 +234,7 @@ NSString * const LoginViewControllerDidLoginSuccessNotification = @"LoginViewCon
             [self.navigationController popViewControllerAnimated:YES];
 
         }else{
-             [SVProgressHUD showErrorWithStatus:@"请求失败,请检查你的网络连接"];
+            
         }
       
     }];
@@ -276,6 +276,7 @@ NSString * const LoginViewControllerDidLoginSuccessNotification = @"LoginViewCon
         }];
 
     } failure:^(NSError *error) {
+        [SVProgressHUD showInfoWithStatus:error.userInfo[@"msg"]];
         !finish?:finish(LoginResultReturnTypeFailure);
     }];
 

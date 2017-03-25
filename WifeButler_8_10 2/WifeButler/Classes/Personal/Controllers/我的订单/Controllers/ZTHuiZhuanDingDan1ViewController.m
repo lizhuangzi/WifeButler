@@ -22,6 +22,8 @@
 #import "MJRefresh.h"
 #import  "MJExtension.h"
 #import "WifeButlerDefine.h"
+#import "WifeButlerNoDataView.h"
+#import "ZJShopClassVC.h"
 
 typedef enum {
 
@@ -62,9 +64,6 @@ typedef enum {
 @property (nonatomic, assign) orderType  orderType;
 @property (nonatomic, strong) NSMutableArray * dataSource;
 @property (nonatomic, strong) NSMutableArray * dataSource1;
-
-@property (nonatomic, strong) ZTBackImageView * backImageView;
-
 @end
 
 @implementation ZTHuiZhuanDingDan1ViewController
@@ -75,7 +74,8 @@ typedef enum {
     
     
     self.title = @"购物订单";
-    self.tableView.backgroundColor = WifeButlerTableBackGaryColor;
+    self.footView.backgroundColor = WifeButlerTableBackGaryColor;
+    self.view.backgroundColor = [UIColor whiteColor];
     self.dataSource1 = [NSMutableArray array];
     self.dataSource = [NSMutableArray array];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -89,7 +89,6 @@ typedef enum {
     
 //    [_tableView.mj_header beginRefreshing];
 }
-
 
 #pragma mark - 创建返回按钮
 - (void)leftBtn
@@ -628,13 +627,16 @@ typedef enum {
             // 是否有订单  没有给背景图片
             if (self.dataSource.count == 0) {
                 
-                [self.view addSubview:self.backImageView];
+                WEAKSELF;
+                WifeButlerNoDataViewShow(self.footView, 0, ^{
+                    ZJShopClassVC * shop = [[ZJShopClassVC alloc]init];
+                    [weakSelf.navigationController pushViewController:shop animated:YES];
+                });
             }
             else
             {
-                [self.backImageView removeFromSuperview];
+                WifeButlerNoDataViewRemoveFrom(self.footView);
             }
-            
             
             
             if (self.dataSource.count < 9) {
@@ -1122,33 +1124,6 @@ typedef enum {
 }
 
 
-- (ZTBackImageView *)backImageView
-{
-    if (_backImageView == nil) {
-        
-        _backImageView = [[[NSBundle mainBundle] loadNibNamed:@"ZTBackImageView" owner:self options:nil] firstObject];
-        _backImageView.frame = CGRectMake(0, 40, iphoneWidth, iphoneHeight - 104);
-        _backImageView.backImageView.image = [UIImage imageNamed:@"ZTBackDingDan"];
-        _backImageView.titleLab.text = @"您暂时没有任何订单";
-    }
-    
-    return _backImageView;
-}
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

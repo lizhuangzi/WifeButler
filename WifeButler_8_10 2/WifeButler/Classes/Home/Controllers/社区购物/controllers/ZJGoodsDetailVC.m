@@ -363,6 +363,7 @@
             
             NSString *imgStr = [self.dataDic objectForKey:@"gallery"];
             NSArray *array = [imgStr componentsSeparatedByString:@","];
+            [self.imgAry removeAllObjects];
             for (int i = 0; i < [array count]; i ++) {
                 
                 NSString *str = [NSString stringWithFormat:@"%@%@",KImageUrl,[array objectAtIndex:i]];

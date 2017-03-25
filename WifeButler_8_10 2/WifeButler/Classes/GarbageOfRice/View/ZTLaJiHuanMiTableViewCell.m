@@ -45,6 +45,7 @@
     ZTLaJiHuanMiTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
         cell = [[NSBundle mainBundle]loadNibNamed:@"ZTLaJiHuanMiTableViewCell" owner:nil options:nil].lastObject;
+        cell.separatorInset = UIEdgeInsetsZero;
     }
     return cell;
 }
@@ -59,7 +60,7 @@
     if (model.sales != nil) {
         num = [model.sales intValue];
     }
-    self.exchangeTimesLabel.text = [NSString stringWithFormat:@"兑换次数%d次",num];
+    self.exchangeTimesLabel.text = [NSString stringWithFormat:@"%d次兑换",num];
     self.originalMoneyLab.text = [NSString stringWithFormat:@"¥%@",_model.oldprice];
     
     self.currentMoneyLab.text = [NSString stringWithFormat:@"%@分/%@",_model.scale,_model.danwei];

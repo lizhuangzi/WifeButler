@@ -32,9 +32,9 @@
     
     [HexCOLOR(@"#aaaaaa") set];
     
-    CGContextMoveToPoint(ctx, 0, rect.size.height/2);
+    CGContextMoveToPoint(ctx, 0, self.height/2);
     
-    CGContextAddLineToPoint(ctx, rect.size.width, rect.size.height/2);
+    CGContextAddLineToPoint(ctx, self.width, self.height/2);
     
     CGContextStrokePath(ctx);
 }

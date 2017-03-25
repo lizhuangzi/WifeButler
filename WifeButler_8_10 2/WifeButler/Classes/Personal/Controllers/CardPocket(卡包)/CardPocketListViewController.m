@@ -12,7 +12,7 @@
 #import "WifeButlerNetWorking.h"
 #import "PersonalPort.h"
 #import "WifeButlerDefine.h"
-
+#import "CardPocketAddNextStepController.h"
 
 @interface CardPocketListViewController ()
 
@@ -35,6 +35,7 @@
     [super viewDidLoad];
    
     [self setupUI];
+    [self listenNotify];
     [self requestHttpData];
 }
 
@@ -48,8 +49,16 @@
     
 }
 
+
+- (void)listenNotify
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addSuccess) name:CardPocketAddNextStepControllerAddSuccessNotification object:nil];
+}
+
 - (void)requestHttpData
 {
+    [SVProgressHUD showWithStatus:@""];
+    
     NSString * page = [NSString stringWithFormat:@"%zd",self.page];
     NSDictionary * parm = @{@"userid":KUserId,@"token":KToken,@"page":page};
     
@@ -100,6 +109,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+}
+
+
+- (void)addSuccess
+{
+    [self requestHttpData];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 @end

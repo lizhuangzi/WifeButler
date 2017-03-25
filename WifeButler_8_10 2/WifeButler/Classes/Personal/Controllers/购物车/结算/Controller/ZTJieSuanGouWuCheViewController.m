@@ -183,7 +183,7 @@
             
             self.userInfoView.userInfo.text = [NSString stringWithFormat:@"%@ %@ %@",_modelAddress.realname,_modelAddress.sex,_modelAddress.phone];
             
-            self.userInfoView.LocationInfo.text = [NSString stringWithFormat:@"%@",_modelAddress.address];
+            self.userInfoView.LocationInfo.text = [NSString stringWithFormat:@"%@ %@",_modelAddress.qu, _modelAddress.address];
 
         }
         else
@@ -438,7 +438,7 @@
         
         weakSelf.userInfoView.userInfo.text = [NSString stringWithFormat:@"%@ %@ %@",model.realname,model.sex,model.phone];
         
-        weakSelf.userInfoView.LocationInfo.text = [NSString stringWithFormat:@"%@",model.address];
+        weakSelf.userInfoView.LocationInfo.text = [NSString stringWithFormat:@"%@ %@",model.qu, model.address];
     }];
     
     [weakSelf.navigationController pushViewController:vc animated:YES];

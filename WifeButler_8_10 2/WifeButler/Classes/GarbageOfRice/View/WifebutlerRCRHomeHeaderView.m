@@ -38,6 +38,9 @@
     self.noticeBackView.layer.opacity = 0.5;
     self.iconView.layer.cornerRadius = 30;
     self.iconView.clipsToBounds = YES;
+    
+    self.backImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.backImageView.clipsToBounds = YES;
 }
 
 + (instancetype)headerView
@@ -52,6 +55,13 @@
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.shop_pic] placeholderImage:nil];
     self.mainNameLabel.text = model.shop_name;
     self.todayNotice.text = [NSString stringWithFormat:@"今日公告:%@",_model.gonggao];
+}
+
+- (IBAction)QRClick:(id)sender {
+    
+    if ([self.delegate respondsToSelector:@selector(WifebutlerRCRHomeHeaderViewdidClickQR:)]) {
+        [self.delegate WifebutlerRCRHomeHeaderViewdidClickQR:self];
+    }
 }
 
 @end

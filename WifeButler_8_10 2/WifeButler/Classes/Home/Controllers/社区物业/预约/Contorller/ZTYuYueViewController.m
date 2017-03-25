@@ -264,7 +264,7 @@
             
             self.userInfoView.userInfo.text = [NSString stringWithFormat:@"%@ %@ %@",_model.realname,_model.sex,_model.phone];
             
-            self.userInfoView.LocationInfo.text = [NSString stringWithFormat:@"%@",_model.address];
+            self.userInfoView.LocationInfo.text = [NSString stringWithFormat:@"%@ %@",_model.qu,_model.address];
             
             self.youHuiJuanLab.text = [NSString stringWithFormat:@"可使用%@张优惠券", responseObject[@"resultCode"][@"voucher"]];
         }
@@ -469,7 +469,7 @@
         
         weakSelf.userInfoView.userInfo.text = [NSString stringWithFormat:@"%@ %@ %@",model.realname,model.sex,model.phone];
         
-        weakSelf.userInfoView.LocationInfo.text = [NSString stringWithFormat:@"%@",model.address];
+        weakSelf.userInfoView.LocationInfo.text = [NSString stringWithFormat:@"%@ %@",model.qu,model.address];
     }];
     
     [weakSelf.navigationController pushViewController:vc animated:YES];

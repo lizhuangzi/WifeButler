@@ -122,9 +122,10 @@ typedef NS_ENUM(NSUInteger, WifeButlerInfoTableViewCellShowType) {
     self.readTimeLabel.text = [NSString stringWithFormat:@"阅读次数:%@次",model.readnum];
     self.dateLabel.text = model.time;
     
-    NSUInteger currentCount = self.imageBackView.subviews.count;
-    NSUInteger modelCount = _model.imageURLStrs.count;
+    NSInteger currentCount = self.imageBackView.subviews.count;
+    NSInteger modelCount = _model.imageURLStrs.count;
     
+   // NSLog(@"%zd  %zd",currentCount,modelCount);
     //处理图片的显示隐藏
     [self dealImageShowWithcurrentCount:currentCount andModelCount:modelCount];
     //加载图片
@@ -273,25 +274,16 @@ typedef NS_ENUM(NSUInteger, WifeButlerInfoTableViewCellShowType) {
         }
         
     }else{ //如果当前的多于模型的 则多余的隐藏
-        if (currentCount != modelCount) {
+        
+        for (NSInteger i = 0; i<modelCount; i++) {
+            UIImageView * imageView = self.imageBackView.subviews[i];
+            imageView.hidden = NO;
+        }
+        
+        for (NSInteger j = modelCount; j<currentCount; j++) {
             
-            for (NSUInteger i = currentCount - 1; i>=modelCount; i--) {
-                
-                if (i>=self.imageBackView.subviews.count)
-                    continue;
-                
-                UIImageView * imageView = self.imageBackView.subviews[i];
-                imageView.hidden = YES;
-            }
-            
-            for (NSInteger i = modelCount - 1; i>=0; i--) {
-                
-                if (i>=self.imageBackView.subviews.count)
-                    continue;
-                
-                UIImageView * imageView = self.imageBackView.subviews[i];
-                imageView.hidden = NO;
-            }
+            UIImageView * imageView = self.imageBackView.subviews[j];
+            imageView.hidden = YES;
         }
         
     }

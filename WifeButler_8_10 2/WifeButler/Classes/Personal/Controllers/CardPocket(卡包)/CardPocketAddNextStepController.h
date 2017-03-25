@@ -10,6 +10,12 @@
 
 @interface CardPocketAddNextStepController : UIViewController
 
-@property (nonatomic,copy)NSString * cardTypeStr;
 
+UIKIT_EXTERN NSString * const CardPocketAddNextStepControllerAddSuccessNotification;
+
+@property (nonatomic,copy)NSString * cardTypeStr;
+@property (nonatomic,copy)NSString * userName;
+@property (nonatomic,copy)NSString * cardNum;
+//身份证
+@property (nonatomic,copy)NSString * userIdCard;
 @end

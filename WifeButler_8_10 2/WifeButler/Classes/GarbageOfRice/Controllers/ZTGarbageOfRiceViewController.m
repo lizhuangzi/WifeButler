@@ -9,6 +9,7 @@
 #import "ZTGarbageOfRiceViewController.h"
 //关联控制器
 #import "ZTLaJiHuanMiViewController.h"
+#import "UserQRViewController.h"
 //模型
 #import "ZTLaJiHuanMiModel.h"
 #import "exchangeStationModel.h"
@@ -25,10 +26,11 @@
 #import "Masonry.h"
 #import "WifeButlerNetWorking.h"
 #import "WifeButlerLocationManager.h"
+#import "WifeButlerDefine.h"
+
+#import "WifeButlerNoDataView.h"
 
 /** 兑换点接口 */
-
-
 @interface ZTGarbageOfRiceViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) NSMutableArray * dataArray;
@@ -72,11 +74,35 @@
     }];
     table.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     self.tableView = table;
+    WEAKSELF
+    table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakSelf requestData];
+    }];
+    
     
     WifebutlerRCRHomeHeaderView * headerView = [WifebutlerRCRHomeHeaderView headerView];
-    headerView.frame = CGRectMake(0, 0, iphoneWidth, 180);
+    headerView.frame = CGRectMake(0, 0, iphoneWidth, 209);
     table.tableHeaderView = headerView;
     self.tableHeaderView = headerView;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"QRCodeImage"] style:UIBarButtonItemStylePlain target:self action:@selector(WifebutlerRCRHomeHeaderViewdidClickQR)];
+    
+    [self createLeftItem];
+}
+
+- (void)createLeftItem
+{
+    
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.titleLabel.font = [UIFont systemFontOfSize:13];
+    btn.titleLabel.textAlignment = NSTextAlignmentLeft;
+    btn.frame = CGRectMake(0, 0, 120, 17);
+    [btn setImage:[UIImage imageNamed:@"ArrowDown2"] forState:UIControlStateNormal];
+    [btn setTitle:[WifeButlerLocationManager sharedManager].village forState:UIControlStateNormal];
+    btn.titleEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
+    btn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
+
 }
 
 /**监听通知*/
@@ -87,20 +113,6 @@
 
 - (void)requestData{
     
-    [WifeButlerNetWorking getHttpRequestWithURLsite:KexchangeStation parameter:nil success:^(NSDictionary *response) {
-       
-        if ([response[CodeKey] intValue] == SUCCESS) {
-            NSArray * array = response[@"resultCode"];
-            NSDictionary * dict = array.firstObject;
-            exchangeStationModel * model = [exchangeStationModel exchangeStationModelWithDict:dict];
-            self.tableHeaderView.model = model;
-        }
-      
-        
-    } failure:^(NSError *error) {
-        
-    }];
-    
     NSMutableDictionary * parm = [NSMutableDictionary dictionary];
     parm[WifeButlerLongtitudeKey] = @([WifeButlerLocationManager sharedManager].longitude);
     parm[WifeButlerLatitudeKey] = @([WifeButlerLocationManager sharedManager].latitude);
@@ -109,7 +121,14 @@
         
         if ([response[CodeKey] intValue]==SUCCESS) {
             
+            WifeButlerNoDataViewRemoveFrom(self.view);
+            
             NSDictionary * resultCode =  response[@"resultCode"];
+            NSDictionary * shop = resultCode[@"shop"];
+            exchangeStationModel * model = [exchangeStationModel exchangeStationModelWithDict:shop];
+            self.tableHeaderView.model = model;
+            
+            [self.dataArray removeAllObjects];
             NSArray * goodsList = resultCode[@"goods"];
             for (int i = 0; i<goodsList.count; i++) {
                 NSDictionary * dict = goodsList[i];
@@ -117,11 +136,15 @@
                 [self.dataArray addObject:rcrModel];
             }
             [self.tableView reloadData];
+        }else{
+            
+            WifeButlerNoDataViewShow(self.view,1,nil);
         }
-       
+        [self.tableView.mj_header endRefreshing];
         
     } failure:^(NSError *error) {
-        
+        [self.tableView.mj_header endRefreshing];
+        SVDCommonErrorDeal
     }];
 }
 
@@ -141,7 +164,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 100;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -158,8 +181,20 @@
 #pragma mark - 经纬度改变通知刷新页面
 - (void)locatedChange
 {
+    [self createLeftItem];
+    
     [self requestData];
 }
 
+- (void)choose
+{
+    
+}
+
+- (void)WifebutlerRCRHomeHeaderViewdidClickQR
+{
+    UserQRViewController *qrVc = [[UserQRViewController alloc]init];
+    [self.navigationController pushViewController:qrVc animated:YES];
+}
 
 @end
