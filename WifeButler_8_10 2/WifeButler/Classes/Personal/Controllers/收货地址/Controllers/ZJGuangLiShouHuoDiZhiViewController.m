@@ -120,7 +120,7 @@
 }
 
 #pragma mark - 删除
-- (void)downLoadInfoDelete:(NSString *)str_id
+- (void)downLoadInfoDelete:(ZTShouHuoAddressModel *)model
 {
     
     D_CommonAlertShow(@"确定要删除该收货地址吗",^{
@@ -128,13 +128,16 @@
         NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
         
         [dic setObject:KToken forKey:@"token"];
-        [dic setObject:str_id forKey:@"id"];
+        [dic setObject:model.id forKey:@"id"];
         
         
         [SVProgressHUD showWithStatus:@"加载中..."];
         
         [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KDeleteShouHuoAddress parameter:dic success:^(id resultCode) {
             [SVProgressHUD dismiss];
+            if ([model.defaults integerValue] == 2) {
+                [WifeButlerAccount sharedAccount].userParty.defaultAddress = nil;
+            }
             [self downLoadInfo];
             
         } failure:^(NSError *error) {
@@ -250,7 +253,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ZTShouHuoAddressModel *model =_dataSource[indexPath.row];
-    [self downLoadInfoDelete:model.id];
+    [self downLoadInfoDelete:model];
 }
 
 #pragma mark -

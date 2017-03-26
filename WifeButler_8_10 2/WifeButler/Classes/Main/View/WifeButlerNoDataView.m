@@ -58,6 +58,7 @@
         }
             break;
         case WifeButlerNoDataViewNoDataTypeExchange:{
+            self.backgroundColor = [UIColor whiteColor];
             [self.nodataBtn setTitle:@"附近暂无商家对接." forState:UIControlStateDisabled];
             [self.nodataBtn setTitleColor:WifeButlerGaryTextColor2 forState:UIControlStateDisabled];
             self.nodataBtn.enabled = NO;
@@ -79,5 +80,8 @@
         default:
             break;
     }
+    
+    UIView * view ;
+   
 }
 @end

@@ -181,9 +181,14 @@
         if ([response[CodeKey] intValue] == SUCCESS) {
             
             NSDictionary * resultCode = response[@"resultCode"];
+            NSDictionary * dic1 = resultCode[@"duihuan"];
+            NSDictionary * dic2 =resultCode[@"goods"];
+            NSDictionary * dic3 =resultCode[@"service"];
+            NSDictionary * dic4 =resultCode[@"wuye"];
             
+            NSArray * tempArr = @[dic1,dic2,dic3,dic4];
             for (int i = 0; i<4; i++) {
-               NSDictionary * tempDict = resultCode.allValues[i];
+               NSDictionary * tempDict = tempArr[i];
                 HomePageSectionModel * sectionModel = [HomePageSectionModel SectionModelWithDictionary:tempDict];
                 sectionModel.type = i;
                 
@@ -239,7 +244,7 @@
     }];
     table.tableHeaderView = header;
     
-    table.mj_header = [MJRefreshHeader headerWithRefreshingBlock:^{
+    table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
         if ([WifeButlerAccount sharedAccount].isLogin) { //如果用户登录了
             if ([WifeButlerLocationManager sharedManager].village.length == 0) {//用户没设置默认地址
@@ -391,7 +396,14 @@
 #pragma mark - 默认经纬度请求
 - (void)netWorkingJinWeiDu
 {
-    [[WifeButlerLocationManager sharedManager]startLocationAndFinishBlock:^(WifeButlerLocationModel *locationInfo) {
+    [WifeButlerLocationManager sharedManager].longitude = 116.300386;
+    [WifeButlerLocationManager sharedManager].latitude = 39.908582;
+    [WifeButlerLocationManager sharedManager].village = @"天行健商务大厦";
+    self.addressLab.text = @"天行健商务大厦";
+    
+    [self requestBoutiqueDataWithLongitude:@"116.300386" latitude:@"39.908582"];
+    
+   /* [[WifeButlerLocationManager sharedManager]startLocationAndFinishBlock:^(WifeButlerLocationModel *locationInfo) {
         
         if (locationInfo.POIName.length == 0) {
             [SVProgressHUD showErrorWithStatus:@"请求默认经纬度失败,请检查你的网络连接"];
@@ -405,9 +417,7 @@
         [WifeButlerLocationManager sharedManager].latitude = locationInfo.location2D.latitude;
         [WifeButlerLocationManager sharedManager].village = locationInfo.POIName;
         self.addressLab.text = locationInfo.POIName;
-        
-        [self requestBoutiqueDataWithLongitude:jingDu latitude:weiDu];
-    }];
+    }];  */
 }
 
 

@@ -405,8 +405,7 @@ typedef enum {
     
     UIAlertAction *otherAction = [UIAlertAction actionWithTitle:otherButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
-        //        ZJMontherFarModel *model = _dataSource1[1];
-        NSString *str = [NSString stringWithFormat:@"tel://%@", @"010-5678878"];
+        NSString *str = [NSString stringWithFormat:@"tel://%@", @"010-51921371"];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
     }];
     

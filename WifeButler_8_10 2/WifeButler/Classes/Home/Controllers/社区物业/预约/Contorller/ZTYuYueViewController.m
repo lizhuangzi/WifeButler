@@ -130,9 +130,9 @@
     NSString *str ;
 
     if (_locationModel) {
-        str = [NSString stringWithFormat:@"%@,%@,%@",_locationModel.realname, _locationModel.phone, _locationModel.address];
+        str = [NSString stringWithFormat:@"%@ %@,%@,%@ %@",_locationModel.realname,_locationModel.sex, _locationModel.phone, _locationModel.qu,_locationModel.address];
     }else{
-        str = [NSString stringWithFormat:@"%@,%@,%@",_model.realname, _model.phone, _model.address];
+        str = [NSString stringWithFormat:@"%@ %@,%@,%@ %@",_model.realname,_model.sex, _model.phone, _model.qu ,_model.address];
     }
     
     [dic setObject:str forKey:@"receipt"];
@@ -320,6 +320,9 @@
 
 
 - (IBAction)youHuiJuanClick:(id)sender {
+    
+    [SVProgressHUD showInfoWithStatus:@"优惠券功能暂未开放"];
+    return;
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZJMineController" bundle:nil];
     ZTYouHuiJuanViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ZTYouHuiJuanViewController"];

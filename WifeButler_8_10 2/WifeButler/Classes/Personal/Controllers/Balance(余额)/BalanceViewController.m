@@ -35,7 +35,7 @@
     self.btnWithDraw.clipsToBounds = YES;
     self.btnRecharge.clipsToBounds = YES;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"记录" style:UIBarButtonItemStylePlain target:self action:@selector(recordClick)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"明细" style:UIBarButtonItemStylePlain target:self action:@selector(recordClick)];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(regetData) name:UserImportantInfoDidSuccessChangeNotification object:nil];
     [self requestData];
@@ -93,6 +93,10 @@
             
             if (money.doubleValue<0.01) {
                 [SVProgressHUD showErrorWithStatus:@"金额必须一分以上"];
+                return;
+            }
+            if (money.doubleValue>self.numLabel.text.doubleValue) {
+                [SVProgressHUD showErrorWithStatus:@"提现金额不能超出余额."];
                 return;
             }
             [inputMoneyView inputViewHid];

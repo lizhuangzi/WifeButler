@@ -12,6 +12,8 @@
 #import "PersonalPort.h"
 #import "WifeButlerNetWorking.h"
 #import "WifeButlerDefine.h"
+#import "WifeButlerLocationManager.h"
+
 @interface UserQRViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *backWhiteView;
@@ -35,7 +37,7 @@
     
     self.userNameView.text = party.nickname;
     [self.userIconView sd_setImageWithURL:party.iconFullPath placeholderImage:PlaceHolderImage_Person];
-    self.userAddressView.text = party.village;
+    self.userAddressView.text = party.defaultAddress;
     
     if ([party.gender isEqualToString:@"男"]) {
         self.userSexPictureView.image = [UIImage imageNamed:@"ZTWoDeHighlighted"];

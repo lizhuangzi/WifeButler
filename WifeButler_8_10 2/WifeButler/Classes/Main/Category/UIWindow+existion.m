@@ -52,11 +52,11 @@
     }else{
         self.rootViewController = tabbar;
         
-        UINavigationController * nv = tabbar.viewControllers.firstObject;
+      /*  UINavigationController * nv = tabbar.viewControllers.firstObject;
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZJLogin" bundle:nil];
         ZJLoginController *vc = [sb instantiateViewControllerWithIdentifier:@"ZJLoginController"];
         vc.isLogo = YES;
-        [nv pushViewController:vc animated:YES];
+        [nv pushViewController:vc animated:YES];*/
     }
    
 //    }else{

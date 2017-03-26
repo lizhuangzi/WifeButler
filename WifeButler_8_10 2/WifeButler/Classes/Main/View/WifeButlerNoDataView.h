@@ -25,9 +25,13 @@ typedef NS_ENUM(NSUInteger, WifeButlerNoDataViewNoDataType) {
                                                     nodataview = [WifeButlerNoDataView noDataView];\
                                                 nodataview.tag = 1024;\
                                                 [view addSubview:nodataview];\
-                                                [nodataview mas_makeConstraints:^(MASConstraintMaker *make) {\
-                                                make.edges.mas_equalTo(view);\
-                                                }];\
+[nodataview mas_makeConstraints:^(MASConstraintMaker *make) {\
+make.top.mas_equalTo(view);\
+make.left.mas_equalTo(view);\
+make.right.mas_equalTo(view);\
+make.height.mas_equalTo(iphoneHeight - 64);\
+make.width.mas_equalTo(view);\
+}];\
                                                 nodataview.type = T;\
                                                 nodataview.reloadBlock = reloblock;
 

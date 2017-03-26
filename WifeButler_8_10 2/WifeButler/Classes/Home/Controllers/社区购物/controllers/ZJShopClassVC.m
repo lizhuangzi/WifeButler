@@ -63,7 +63,7 @@
     
     UIButton * rightBtnOrder = [UIButton buttonWithType:UIButtonTypeCustom];
     rightBtnOrder.frame = CGRectMake(0, 0, 22, 22);
-    [rightBtnOrder setBackgroundImage:[UIImage imageNamed:@"tab_btn_more"] forState:UIControlStateNormal];
+    [rightBtnOrder setBackgroundImage:[UIImage imageNamed:@"ZTDingDan"] forState:UIControlStateNormal];
     [rightBtnOrder addTarget:self action:@selector(orderClick) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem * item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBtnOrder];
@@ -163,6 +163,7 @@
 - (void)CommonShopLeftSelectTypeView:(CommonShopLeftSelectTypeView *)view didSelect:(ShopLeftSelectTypeViewModel *)model
 {
     self.currentSelectModel = model;
+    self.page = 1;
     [self requestMainHttpData];
 }
 

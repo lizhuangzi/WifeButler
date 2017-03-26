@@ -11,24 +11,24 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomePageCommodityCell" rowHeight="107" id="KGk-i7-Jjw" customClass="HomePageCommodityCell">
-            <rect key="frame" x="0.0" y="0.0" width="391" height="107"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomePageCommodityCell" rowHeight="163" id="KGk-i7-Jjw" customClass="HomePageCommodityCell">
+            <rect key="frame" x="0.0" y="0.0" width="391" height="163"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="391" height="106"/>
+                <rect key="frame" x="0.0" y="0.0" width="391" height="162.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjw-CO-hu0">
                         <rect key="frame" x="0.0" y="1" width="391" height="39"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="兑换精选" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zi9-eq-BA2">
-                                <rect key="frame" x="22" y="10.5" width="61.5" height="18"/>
+                                <rect key="frame" x="22" y="11" width="62" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.87450980392156863" green="0.18823529411764706" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5I-7z-tmo">
-                                <rect key="frame" x="313" y="11.5" width="70" height="16"/>
+                                <rect key="frame" x="313" y="12" width="70" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="gQ3-eg-9Sc"/>
                                 </constraints>
@@ -73,17 +73,48 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WQR-gb-Fn2">
-                        <rect key="frame" x="0.0" y="40" width="391" height="65.5"/>
+                        <rect key="frame" x="0.0" y="40" width="391" height="121.5"/>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYX-Kb-6Xi">
+                        <rect key="frame" x="0.0" y="40" width="391" height="122.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeNoStore" translatesAutoresizingMaskIntoConstraints="NO" id="2Xy-DR-x8O">
+                                <rect key="frame" x="56" y="1" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="C8s-xg-cpY"/>
+                                    <constraint firstAttribute="width" constant="120" id="h7W-6J-iji"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="该地区还未对接商家努力对接中.." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3G-gc-WSc">
+                                <rect key="frame" x="184" y="46" width="130" height="31.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="ZFG-da-Uzk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.65098039220000004" green="0.65098039220000004" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="2Xy-DR-x8O" firstAttribute="centerX" secondItem="yYX-Kb-6Xi" secondAttribute="centerX" constant="-80" id="3fB-Xg-nNc"/>
+                            <constraint firstItem="Q3G-gc-WSc" firstAttribute="centerY" secondItem="yYX-Kb-6Xi" secondAttribute="centerY" id="RWG-qz-oYx"/>
+                            <constraint firstItem="Q3G-gc-WSc" firstAttribute="leading" secondItem="2Xy-DR-x8O" secondAttribute="trailing" constant="8" id="dmq-Fq-Nxb"/>
+                            <constraint firstItem="2Xy-DR-x8O" firstAttribute="centerY" secondItem="yYX-Kb-6Xi" secondAttribute="centerY" id="sW2-L6-Jl4"/>
+                        </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="WQR-gb-Fn2" secondAttribute="trailing" id="6bh-he-kUG"/>
                     <constraint firstItem="cjw-CO-hu0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Axp-Zo-icq"/>
+                    <constraint firstItem="yYX-Kb-6Xi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="FKr-dZ-w5I"/>
+                    <constraint firstAttribute="bottom" secondItem="yYX-Kb-6Xi" secondAttribute="bottom" id="IgG-Oo-Y7j"/>
                     <constraint firstAttribute="bottom" secondItem="WQR-gb-Fn2" secondAttribute="bottom" constant="1" id="J0y-2t-xjb"/>
                     <constraint firstAttribute="trailing" secondItem="cjw-CO-hu0" secondAttribute="trailing" id="Nyh-RJ-uXG"/>
                     <constraint firstItem="cjw-CO-hu0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="1" id="bpQ-tj-NFh"/>
+                    <constraint firstAttribute="trailing" secondItem="yYX-Kb-6Xi" secondAttribute="trailing" id="reg-Dm-JNa"/>
+                    <constraint firstItem="yYX-Kb-6Xi" firstAttribute="top" secondItem="cjw-CO-hu0" secondAttribute="bottom" id="scK-c7-Uf9"/>
                     <constraint firstItem="WQR-gb-Fn2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="stV-Qa-W2M"/>
                     <constraint firstItem="WQR-gb-Fn2" firstAttribute="top" secondItem="cjw-CO-hu0" secondAttribute="bottom" id="wcc-gL-vbi"/>
                 </constraints>
@@ -91,12 +122,14 @@
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="commoditiesBackView" destination="WQR-gb-Fn2" id="cIg-Bj-6q5"/>
+                <outlet property="noStoreView" destination="yYX-Kb-6Xi" id="PFO-K4-vv5"/>
                 <outlet property="titleLabel" destination="Zi9-eq-BA2" id="ORA-9w-nP1"/>
             </connections>
-            <point key="canvasLocation" x="69.5" y="97.5"/>
+            <point key="canvasLocation" x="69.5" y="125.5"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="HomeNoStore" width="84" height="84"/>
         <image name="rightArrow" width="9" height="16"/>
     </resources>
 </document>

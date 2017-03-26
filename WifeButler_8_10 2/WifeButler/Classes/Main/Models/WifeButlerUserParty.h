@@ -45,18 +45,8 @@
 
 @property (nonatomic, copy) NSString * user_agent;
 
-/**
- *  经度
- */
-@property (nonatomic, copy) NSString * jing;
-/**
- *  小区
- */
-@property (nonatomic, copy) NSString * village;
-/**
- *  纬度
- */
-@property (nonatomic, copy) NSString * wei;
+@property (nonatomic,copy)NSString * defaultAddress;
+
 
 
 + (instancetype)UserPartyWithDictionary:(NSDictionary *)dictionary;

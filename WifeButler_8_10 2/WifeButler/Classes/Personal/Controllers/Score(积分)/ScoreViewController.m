@@ -7,6 +7,7 @@
 //
 
 #import "ScoreViewController.h"
+#import "EPCalendarViewController.h"
 
 @interface ScoreViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *currentScore;
@@ -35,21 +36,14 @@
 
     [attStr appendAttributedString:fen];
     self.currentScore.attributedText = attStr;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"环保日历" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemClick)];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)rightItemClick
+{
+    EPCalendarViewController * calendar = [[EPCalendarViewController alloc]init];
+    [self.navigationController pushViewController:calendar animated:YES];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -258,7 +258,7 @@
     
     [dic setObject:KToken forKey:@"token"];
     
-    NSString *strAddress = [NSString stringWithFormat:@"%@,%@,%@", _modelAddress.realname, _modelAddress.phone, _modelAddress.address];
+    NSString *strAddress = [NSString stringWithFormat:@"%@ %@,%@,%@ %@", _modelAddress.realname,_modelAddress.sex, _modelAddress.phone, _modelAddress.qu, _modelAddress.address];
     
     [dic setObject:strAddress forKey:@"receipt"];
     

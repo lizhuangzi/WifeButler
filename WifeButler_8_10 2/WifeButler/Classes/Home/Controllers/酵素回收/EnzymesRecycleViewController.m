@@ -10,6 +10,8 @@
 #import "HuoQuFaJiaoTongViewController.h"
 #import "WifeButlerNetWorking.h"
 #import "NetWorkPort.h"
+#import "EPCalendarViewController.h"
+
 @interface EnzymesRecycleViewController ()
 
 @end
@@ -27,6 +29,22 @@
     
     HuoQuFaJiaoTongViewController * huoqu = [HuoQuFaJiaoTongViewController new];
     [self.navigationController pushViewController:huoqu animated:YES];
+}
+- (IBAction)seekRecyclePoint:(id)sender {
+    
+    [SVProgressHUD showInfoWithStatus:@"暂未开通"];
+}
+
+- (IBAction)getKonwledgeOfEnzymes
+{
+    [SVProgressHUD showInfoWithStatus:@"暂未开通"];
+}
+
+- (IBAction)recycleRecord
+{
+    EPCalendarViewController * calendar = [[EPCalendarViewController alloc]init];
+    [self.navigationController pushViewController:calendar animated:YES];
+
 }
 
 @end

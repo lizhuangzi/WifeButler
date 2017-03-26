@@ -33,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"记录";
+    self.title = @"交易明细";
     [self.tableView registerNib:[UINib nibWithNibName:@"BalanceRecordTableViewCell" bundle:nil] forCellReuseIdentifier:@"BalanceRecordTableViewCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.allowsSelection = NO;
@@ -47,7 +47,7 @@
 {
     NSString * page = [NSString stringWithFormat:@"%zd",self.page];
     NSDictionary * parm = @{@"userid":KUserId,@"token":KToken,@"page":page};
-    
+    [SVProgressHUD showWithStatus:@""];
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KTransactionRecord parameter:parm success:^(id resultCode) {
       
         D_SuccessLoadingDeal(0, resultCode, ^(NSArray * arr){

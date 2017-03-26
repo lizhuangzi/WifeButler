@@ -35,11 +35,11 @@
     
     if ([model.defaults intValue] == 2) {
         
-        self.addressLab.text = [NSString stringWithFormat:@"【默认】%@", model.address];
+        self.addressLab.text = [NSString stringWithFormat:@"【默认】%@ %@",model.qu, model.address];
     }
     else
     {
-        self.addressLab.text = model.address;
+        self.addressLab.text = [NSString stringWithFormat:@"%@ %@",model.qu, model.address];
     }
 }
 

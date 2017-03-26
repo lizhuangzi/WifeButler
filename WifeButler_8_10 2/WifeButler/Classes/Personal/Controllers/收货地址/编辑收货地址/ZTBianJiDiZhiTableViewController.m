@@ -181,9 +181,20 @@
         dic[@"sex"] = @"女";
     }
     [SVProgressHUD showWithStatus:@"加载中..."];
+    WifeButlerUserParty * party = [WifeButlerAccount sharedAccount].userParty;
+
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KAddShouHuoAddress parameter:dic success:^(id resultCode) {
         
         [SVProgressHUD showSuccessWithStatus:@"添加成功"];
+        
+        if (_isMoRenAddress.on == YES) {
+            if (self.returnXiaoQuModel) {
+                party.defaultAddress = [NSString stringWithFormat:@"%@ %@",self.returnXiaoQuModel.village,self.address2TextV.text];
+            }else{
+                party.defaultAddress = [NSString stringWithFormat:@"%@ %@",self.xiaoQuLab.text,self.address2TextV.text];
+            }
+        }
+
         if (self.relshBlack) {
             
             self.relshBlack();
@@ -242,10 +253,19 @@
         dic[@"sex"] = @"女";
     }
     
+    WifeButlerUserParty * party = [WifeButlerAccount sharedAccount].userParty;
     [SVProgressHUD showWithStatus:@"加载中..."];
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:KBianJiShouHuoAddress parameter:dic success:^(id resultCode) {
         
         [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+         if (_isMoRenAddress.on == YES) {
+             if (self.returnXiaoQuModel) {
+                 party.defaultAddress = [NSString stringWithFormat:@"%@ %@",self.returnXiaoQuModel.village,self.address2TextV.text];
+             }else{
+                  party.defaultAddress = [NSString stringWithFormat:@"%@ %@",self.xiaoQuLab.text,self.address2TextV.text];
+             }
+            
+         }
         if (self.relshBlack) {
             self.relshBlack();
         }
@@ -324,6 +344,7 @@
     sender.selected = YES;
     self.currentSelectSexBtn = sender;
 }
+
 
 
 @end

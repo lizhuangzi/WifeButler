@@ -81,7 +81,7 @@
     
     
     WifebutlerRCRHomeHeaderView * headerView = [WifebutlerRCRHomeHeaderView headerView];
-    headerView.frame = CGRectMake(0, 0, iphoneWidth, 209);
+    headerView.frame = CGRectMake(0, 0, iphoneWidth, 174);
     table.tableHeaderView = headerView;
     self.tableHeaderView = headerView;
     
@@ -97,11 +97,11 @@
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.titleLabel.font = [UIFont systemFontOfSize:13];
     btn.titleLabel.textAlignment = NSTextAlignmentLeft;
-    btn.frame = CGRectMake(0, 0, 120, 17);
+    btn.frame = CGRectMake(0, 0, 120, 20);
     [btn setImage:[UIImage imageNamed:@"ArrowDown2"] forState:UIControlStateNormal];
     [btn setTitle:[WifeButlerLocationManager sharedManager].village forState:UIControlStateNormal];
-    btn.titleEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
-    btn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+    btn.titleEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 0);
+    btn.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"QRCodeImage"] style:UIBarButtonItemStylePlain target:self action:@selector(WifebutlerRCRHomeHeaderViewdidClickQR)];
@@ -149,6 +149,7 @@
         
     } failure:^(NSError *error) {
         [self.tableView.mj_header endRefreshing];
+        WifeButlerNoDataViewShow(self.view,1,nil);
         SVDCommonErrorDeal
     }];
 }

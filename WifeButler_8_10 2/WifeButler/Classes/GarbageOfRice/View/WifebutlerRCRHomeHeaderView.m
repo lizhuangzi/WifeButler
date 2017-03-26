@@ -51,10 +51,11 @@
 - (void)setModel:(exchangeStationModel *)model
 {
     _model = model;
-    self.backImageView.image = [UIImage imageNamed:@"timg"];
+    self.backImageView.image = [UIImage imageNamed:@"timg2"];
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.shop_pic] placeholderImage:nil];
     self.mainNameLabel.text = model.shop_name;
     self.todayNotice.text = [NSString stringWithFormat:@"今日公告:%@",_model.gonggao];
+    self.locationLabel.text = model.address;
 }
 
 - (IBAction)QRClick:(id)sender {

@@ -30,7 +30,7 @@
     if (!_headerRefreshEnable) {
         self.mj_header = nil;
     }else{
-        self.mj_header =  [MJRefreshHeader headerWithRefreshingBlock:^{
+        self.mj_header =  [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             
             if ([weakSelf.loadingDelegate respondsToSelector:@selector(WifeButlerLoadingTableViewDidRefresh:)]) {
                 [weakSelf.loadingDelegate WifeButlerLoadingTableViewDidRefresh:weakSelf];

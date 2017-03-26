@@ -26,6 +26,7 @@
     [super viewDidLoad];
     
     self.title = @"提现";
+    self.tableView.backgroundColor = WifeButlerTableBackGaryColor;
     [self.tableView registerNib:[UINib nibWithNibName:@"WithDrawTableViewCell" bundle:nil] forCellReuseIdentifier:@"WithDrawTableViewCell"];
     
     [self createFooterView];
@@ -66,13 +67,17 @@
     if (indexPath.section == 0) {
         UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"Id"];
         if (!cell) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Id"];
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Id"];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         if (self.returnModel) {
             cell.textLabel.text = self.returnModel.bankname;
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@",self.returnModel.type,self.returnModel.cardNum];
         }else
+        {
             cell.textLabel.text = @"请选择银行卡";
+            cell.detailTextLabel.text = nil;
+        }
         return cell;
 
     }else{
@@ -86,7 +91,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return 44;
+        if (self.returnModel) {
+            return 77;
+        }else
+            return 44;
     }else{
         return 70;
     }
@@ -105,7 +113,7 @@
         SelectCardViewController * card = [[SelectCardViewController alloc]init];
         [card setReturnBlock:^(CardPocklistModel * model) {
             [weakSelf.tableView reloadData];
-            self.returnModel = model;
+            weakSelf.returnModel = model;
         }];
         [self.navigationController pushViewController:card animated:YES];
     }

@@ -185,15 +185,15 @@
                                             <outlet property="saleLabel" destination="DgC-EM-gEa" id="y1w-gm-cMD"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="good2" rowHeight="66" id="TLm-2D-RbE" customClass="ZJGoodsDetailCell2">
-                                        <rect key="frame" x="0.0" y="170" width="375" height="66"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="good2" rowHeight="60" id="TLm-2D-RbE" customClass="ZJGoodsDetailCell2">
+                                        <rect key="frame" x="0.0" y="170" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TLm-2D-RbE" id="ITR-VX-z3l">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wES-CQ-Z7i">
-                                                    <rect key="frame" x="0.0" y="1" width="375" height="64"/>
+                                                    <rect key="frame" x="0.0" y="1" width="375" height="58.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="superMarket" translatesAutoresizingMaskIntoConstraints="NO" id="HQV-od-7mb">
                                                             <rect key="frame" x="13" y="14" width="20" height="20"/>
@@ -209,14 +209,14 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frY-wL-bIW">
-                                                            <rect key="frame" x="0.0" y="52" width="375" height="15"/>
+                                                            <rect key="frame" x="0.0" y="51.5" width="375" height="10"/>
                                                             <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="15" id="g9A-KY-Ncf"/>
+                                                                <constraint firstAttribute="height" constant="10" id="g9A-KY-Ncf"/>
                                                             </constraints>
                                                         </view>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="axc-rG-geU">
-                                                            <rect key="frame" x="350" y="17" width="10" height="18"/>
+                                                            <rect key="frame" x="350" y="14.5" width="10" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="10" id="MDa-a3-31w"/>
                                                                 <constraint firstAttribute="height" constant="18" id="ajt-d5-UHY"/>
@@ -260,7 +260,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="good4" rowHeight="129" id="D1l-Oj-U2O" customClass="ZJGoodsDetailCell4">
-                                        <rect key="frame" x="0.0" y="236" width="375" height="129"/>
+                                        <rect key="frame" x="0.0" y="230" width="375" height="129"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D1l-Oj-U2O" id="ttJ-41-1YB">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
@@ -340,7 +340,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="good3" rowHeight="103" id="ChK-xo-cip" customClass="ZJGoodsDetailCell3">
-                                        <rect key="frame" x="0.0" y="365" width="375" height="103"/>
+                                        <rect key="frame" x="0.0" y="359" width="375" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ChK-xo-cip" id="tJs-QU-bZx">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="102"/>

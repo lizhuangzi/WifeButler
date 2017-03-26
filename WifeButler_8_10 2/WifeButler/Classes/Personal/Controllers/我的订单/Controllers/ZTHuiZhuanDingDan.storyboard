@@ -303,7 +303,7 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNE-PH-7fc">
                                                     <rect key="frame" x="23" y="6" width="330" height="30"/>
-                                                    <state key="normal" title="客服热线:400-654-400">
+                                                    <state key="normal" title="客服热线:010-51921371">
                                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -333,13 +333,6 @@
                                                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                 </button>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qHi-3H-tzA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
-                                                    <color key="backgroundColor" red="0.68950320512820507" green="0.68950320512820507" blue="0.68950320512820507" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="UVL-G0-LIc"/>
-                                                    </constraints>
-                                                </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQB-zT-Moa">
                                                     <rect key="frame" x="209" y="7" width="75" height="30"/>
                                                     <constraints>
@@ -357,10 +350,7 @@
                                                 <constraint firstItem="ihq-zt-oz7" firstAttribute="top" secondItem="RcU-ll-hl4" secondAttribute="top" constant="7" id="E99-Uw-0we"/>
                                                 <constraint firstAttribute="trailing" secondItem="ihq-zt-oz7" secondAttribute="trailing" constant="8" id="NCY-nT-Ygt"/>
                                                 <constraint firstItem="yQB-zT-Moa" firstAttribute="top" secondItem="RcU-ll-hl4" secondAttribute="top" constant="7" id="QNt-gy-zaW"/>
-                                                <constraint firstAttribute="trailing" secondItem="qHi-3H-tzA" secondAttribute="trailing" id="Wdp-aH-wVm"/>
-                                                <constraint firstItem="qHi-3H-tzA" firstAttribute="top" secondItem="RcU-ll-hl4" secondAttribute="top" id="eOo-63-96e"/>
                                                 <constraint firstAttribute="height" constant="45" id="hrK-Fe-l0P"/>
-                                                <constraint firstItem="qHi-3H-tzA" firstAttribute="leading" secondItem="RcU-ll-hl4" secondAttribute="leading" id="yp4-sH-dSS"/>
                                             </constraints>
                                         </view>
                                     </subviews>

@@ -260,8 +260,8 @@ NSString * const LoginViewControllerDidLoginSuccessNotification = @"LoginViewCon
         [WifeButlerNetWorking getPackagingHttpRequestWithURLsite:KMoRenDiZhi parameter:@{@"token":KToken} success:^(NSDictionary * resultCode) {
             
             NSDictionary * dict = resultCode[@"address"];
-            NSString * village = dict[@"village_name"];
-            
+            NSString * village = dict[@"qu"];
+            party.defaultAddress = [NSString stringWithFormat:@"%@ %@",dict[@"qu"],dict[@"address"]];
             if (village.length == 0) {
                 !finish?:finish(LoginResultReturnTypeSuccess);
             }else{

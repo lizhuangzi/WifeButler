@@ -168,7 +168,7 @@
         }
             break;
         case 3:{ //我要开店
-            [SVProgressHUD showInfoWithStatus:@"该功能暂未开通，敬请期待"];
+            [SVProgressHUD showInfoWithStatus:@"开店请联系客服.."];
         }
             break;
         case 4:{//意见反馈
@@ -274,7 +274,12 @@
 
 }
 - (IBAction)QRClick {
-    
+    WifeButlerLetUserLoginCode
+    WifeButlerUserParty * party = [WifeButlerAccount sharedAccount].userParty;
+    if (party.defaultAddress.length == 0) {
+        [SVProgressHUD showInfoWithStatus:@"请添加默认收货地址"];
+        return;
+    }
     UserQRViewController *qrVc = [[UserQRViewController alloc]init];
     [self.navigationController pushViewController:qrVc animated:YES];
 }

@@ -18,12 +18,14 @@
 /**记录正在显示的商品个数*/
 @property (nonatomic,assign) NSInteger showingNum;
 
+@property (weak, nonatomic) IBOutlet UIView *noStoreView;
+
 @end
 
 @implementation HomePageCommodityCell
 
 - (void)awakeFromNib
-{   
+{
     [super awakeFromNib];
     self.titleLabel.textColor = WifeButlerCommonRedColor;
 }
@@ -44,6 +46,11 @@
     self.titleLabel.text = _model.title;
     
     NSInteger listCount = _model.list.count;
+    if (listCount == 0) {
+        self.noStoreView.hidden = NO;
+    }else{
+         self.noStoreView.hidden = YES;
+    }
     NSInteger tempCount = 0;
     
     if (listCount>6) { //个数是否大于6个
@@ -97,7 +104,7 @@
         }
     }
     if (tempCount == 0) {
-        _model.cellHeight = 39;
+        _model.cellHeight = 39 + 120;
     }
     else if (tempCount<=3) {
         _model.cellHeight = viewHeight + 2 + 39;

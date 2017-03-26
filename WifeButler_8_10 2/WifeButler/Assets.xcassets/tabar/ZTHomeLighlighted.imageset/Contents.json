@@ -2,17 +2,15 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ZTHomeLighlighted.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ZTHomeLighlighted@2x.png",
+      "filename" : "ZTHomeLighlighted@2X.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ZTHomeLighlighted@3x.png",
       "scale" : "3x"
     }
   ],

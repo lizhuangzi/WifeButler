@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define WifeButlerCommonRedColor HexCOLOR(@"#fe564c")
+#define WifeButlerCommonRedColor HexCOLOR(@"#df3031")
 #define WifeButlerTableBackGaryColor HexCOLOR(@"#f4f4f4")
 #define WifeButlerSeparateLineColor HexCOLOR(@"#eaeaea")
 #define WifeButlerGaryTextColor1 HexCOLOR(@"#333333")

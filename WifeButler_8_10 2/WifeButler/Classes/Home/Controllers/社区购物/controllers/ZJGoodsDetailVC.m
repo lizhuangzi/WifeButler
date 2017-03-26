@@ -310,7 +310,7 @@
     if (section == 1) {
         return 44;
     }
-    return 0;
+    return 0.01;
 }
 
 #pragma mark - webViewDatelate
