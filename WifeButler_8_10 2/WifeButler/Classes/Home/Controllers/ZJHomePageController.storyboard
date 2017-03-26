@@ -193,7 +193,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wES-CQ-Z7i">
-                                                    <rect key="frame" x="0.0" y="1" width="375" height="65"/>
+                                                    <rect key="frame" x="0.0" y="1" width="375" height="64"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="superMarket" translatesAutoresizingMaskIntoConstraints="NO" id="HQV-od-7mb">
                                                             <rect key="frame" x="13" y="14" width="20" height="20"/>
@@ -203,28 +203,47 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="思雨超市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4F-vA-Xcx">
-                                                            <rect key="frame" x="39" y="16" width="321" height="18"/>
+                                                            <rect key="frame" x="39" y="15" width="308" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" red="0.2116987179" green="0.2116987179" blue="0.2116987179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frY-wL-bIW">
-                                                            <rect key="frame" x="0.0" y="53" width="375" height="15"/>
+                                                            <rect key="frame" x="0.0" y="52" width="375" height="15"/>
                                                             <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="15" id="g9A-KY-Ncf"/>
                                                             </constraints>
                                                         </view>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="axc-rG-geU">
+                                                            <rect key="frame" x="350" y="17" width="10" height="18"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="MDa-a3-31w"/>
+                                                                <constraint firstAttribute="height" constant="18" id="ajt-d5-UHY"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k39-Dp-ZLe">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                                                            <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="hnm-nM-RuW"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="O4F-vA-Xcx" firstAttribute="top" secondItem="wES-CQ-Z7i" secondAttribute="top" constant="16" id="3F8-OF-3ku"/>
+                                                        <constraint firstItem="O4F-vA-Xcx" firstAttribute="top" secondItem="wES-CQ-Z7i" secondAttribute="top" constant="15" id="3F8-OF-3ku"/>
+                                                        <constraint firstItem="axc-rG-geU" firstAttribute="centerY" secondItem="wES-CQ-Z7i" secondAttribute="centerY" constant="-6" id="4WK-5G-p8R"/>
+                                                        <constraint firstItem="k39-Dp-ZLe" firstAttribute="leading" secondItem="wES-CQ-Z7i" secondAttribute="leading" id="5Sc-Zv-3n0"/>
                                                         <constraint firstItem="HQV-od-7mb" firstAttribute="top" secondItem="wES-CQ-Z7i" secondAttribute="top" constant="14" id="5YM-3n-whm"/>
+                                                        <constraint firstAttribute="trailing" secondItem="k39-Dp-ZLe" secondAttribute="trailing" id="6LA-am-c4v"/>
+                                                        <constraint firstAttribute="trailing" secondItem="axc-rG-geU" secondAttribute="trailing" constant="15" id="701-KH-pTx"/>
                                                         <constraint firstAttribute="bottom" secondItem="frY-wL-bIW" secondAttribute="bottom" constant="-3" id="A3r-ei-Ng4"/>
+                                                        <constraint firstItem="k39-Dp-ZLe" firstAttribute="top" secondItem="wES-CQ-Z7i" secondAttribute="top" id="DJe-Hy-XfF"/>
                                                         <constraint firstItem="frY-wL-bIW" firstAttribute="leading" secondItem="wES-CQ-Z7i" secondAttribute="leading" id="E44-bP-rN5"/>
                                                         <constraint firstAttribute="trailing" secondItem="frY-wL-bIW" secondAttribute="trailing" id="FNG-9a-AdK"/>
                                                         <constraint firstItem="O4F-vA-Xcx" firstAttribute="leading" secondItem="HQV-od-7mb" secondAttribute="trailing" constant="6" id="Kzl-qB-gQI"/>
                                                         <constraint firstItem="HQV-od-7mb" firstAttribute="leading" secondItem="wES-CQ-Z7i" secondAttribute="leading" constant="13" id="abF-33-CiB"/>
-                                                        <constraint firstAttribute="trailing" secondItem="O4F-vA-Xcx" secondAttribute="trailing" constant="15" id="bmk-Y5-q2I"/>
+                                                        <constraint firstAttribute="trailing" secondItem="O4F-vA-Xcx" secondAttribute="trailing" constant="28" id="bmk-Y5-q2I"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -364,11 +383,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j5v-r7-9PL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-324" y="1503"/>
+            <point key="canvasLocation" x="-324" y="1502.6986506746628"/>
         </scene>
     </scenes>
     <resources>
         <image name="lw" width="16" height="21"/>
+        <image name="rightArrow" width="9" height="16"/>
         <image name="superMarket" width="20" height="12"/>
     </resources>
 </document>

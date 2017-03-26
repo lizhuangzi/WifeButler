@@ -10,4 +10,6 @@
 
 @interface UserGuideViewController : UIViewController
 
+@property (nonatomic,assign) NSInteger type;
+
 @end

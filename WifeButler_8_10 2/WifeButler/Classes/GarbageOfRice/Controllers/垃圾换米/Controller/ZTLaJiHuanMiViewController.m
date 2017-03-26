@@ -106,9 +106,9 @@
 //设置头部滚动视图
 - (void)createScorllViewWuWang:(NSArray *)imageArr
 {
-    UIView*headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, iphoneWidth, 375)];
+    UIView*headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, iphoneWidth, iphoneWidth)];
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, iphoneWidth, 375 +1)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, iphoneWidth, iphoneWidth +1)];
     [headerView addSubview:view];
     self.tableView.tableHeaderView = headerView;
     //顶部滑动浏览视图
@@ -145,7 +145,7 @@
         cell.title.text = self.dataDict[@"title"];
         cell.exchangeCountLabel.text = [NSString stringWithFormat:@" %@次兑换",self.dataDict[@"sales"]];
         cell.orginnalLabel.text = [NSString stringWithFormat:@"原价：¥%@",self.dataDict[@"oldprice"]];
-        cell.nowMoneylabel.text = [NSString stringWithFormat:@"%@/%@",self.dataDict[@"scale"],self.dataDict[@"danwei"]];
+        cell.nowMoneylabel.text = [NSString stringWithFormat:@"%@分/%@",self.dataDict[@"scale"],self.dataDict[@"danwei"]];
         return cell;
     }else if(indexPath.row == 1){
         UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"abc"];

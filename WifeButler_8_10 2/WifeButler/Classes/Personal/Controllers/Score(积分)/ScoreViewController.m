@@ -10,6 +10,7 @@
 
 @interface ScoreViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *currentScore;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageHeightCon;
 
 @end
 
@@ -19,6 +20,10 @@
     [super viewDidLoad];
     
     self.title = @"积分";
+    //750  553
+    
+    self.imageHeightCon.constant = iphoneWidth*553/750;
+    
     
     NSMutableAttributedString * attStr = [[NSMutableAttributedString alloc]initWithString:@"当前积分："];
     [attStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(0, attStr.string.length)];

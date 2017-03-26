@@ -15,6 +15,8 @@ typedef NS_ENUM(NSUInteger, WifeButlerNoDataViewNoDataType) {
     WifeButlerNoDataViewNoDataTypeExchange = 1,
     /**购物车无物品*/
     WifeButlerNoDataViewNoDataTypeshoppingCart = 2,
+    /**卡包*/
+    WifeButlerNoDataViewNoDataTypeCardPoctet = 3,
 };
 
 #define WifeButlerNoDataViewShow(view,T,reloblock) \
@@ -22,10 +24,13 @@ typedef NS_ENUM(NSUInteger, WifeButlerNoDataViewNoDataType) {
                                                 if(!nodataview)\
                                                     nodataview = [WifeButlerNoDataView noDataView];\
                                                 nodataview.tag = 1024;\
-                                                nodataview.frame = view.bounds;\
                                                 [view addSubview:nodataview];\
+                                                [nodataview mas_makeConstraints:^(MASConstraintMaker *make) {\
+                                                make.edges.mas_equalTo(view);\
+                                                }];\
                                                 nodataview.type = T;\
                                                 nodataview.reloadBlock = reloblock;
+
 
 #define WifeButlerNoDataViewRemoveFrom(view) WifeButlerNoDataView * nodataview =  [view viewWithTag:1024];\
                                                 [nodataview removeFromSuperview];

@@ -16,6 +16,7 @@
     [super awakeFromNib];
     self.orderSend.backgroundColor = [UIColor setR:124 G:175 B:242];
     self.orderSend.layer.cornerRadius = 3;
+    self.orderSend.clipsToBounds = YES;
     self.orderSend.textColor = [UIColor whiteColor];
 }
 

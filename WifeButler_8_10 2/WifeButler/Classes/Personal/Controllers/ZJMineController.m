@@ -146,7 +146,7 @@
 - (void)roundButtonClick:(UIButton *)button
 {
     NSUInteger index = button.tag - 2017;
-   // WifeButlerLetUserLoginCode
+    WifeButlerLetUserLoginCode
     switch (index) {
             
         case 0:{ //兑换订单
@@ -179,8 +179,11 @@
         case 5:{ //打电话给客服
             D_CommonAlertShow(@"确定要拨打客服电话吗",^{
                 
+                NSString * str = @"telprompt://01051921371";
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
             });
         }
+            //01051921371
             break;
         case 6:{
             ZTGuangYuMyViewController * guanYU = [[ZTGuangYuMyViewController alloc]init];

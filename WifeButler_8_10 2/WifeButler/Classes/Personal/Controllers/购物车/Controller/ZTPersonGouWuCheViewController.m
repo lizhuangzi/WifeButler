@@ -19,6 +19,8 @@
 #import "WifeButlerNoDataView.h"
 #import "WifeButlerNetWorking.h"
 #import "WifeButlerLoadingTableView.h"
+#import "Masonry.h"
+
 
 @interface ZTPersonGouWuCheViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -126,12 +128,13 @@
     
     __weak typeof(cell) weakCell = cell;
     
+    WEAKSELF
     // 增加
     [cell setAddBlack:^{
         
         NSString *strNum = [NSString stringWithFormat:@"%d", ([cell.numTF.text intValue] + 1)];
         
-        [self netWorkingXuanZhongShuLiangModel:model andNum:strNum];
+        [weakSelf netWorkingXuanZhongShuLiangModel:model andNum:strNum];
         
     }];
     
@@ -145,7 +148,7 @@
         
         NSString *strNum = [NSString stringWithFormat:@"%d", ([cell.numTF.text intValue] - 1)];
         
-        [self netWorkingXuanZhongShuLiangModel:model andNum:strNum];
+        [weakSelf netWorkingXuanZhongShuLiangModel:model andNum:strNum];
 
     }];
 
@@ -324,16 +327,17 @@
     [SVProgressHUD showWithStatus:@"加载中..."];
 
     [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:url parameter:dic success:^(NSArray * resultCode) {
-        
+        WEAKSELF
         [SVProgressHUD dismiss];
         if (self.page == 1 && resultCode.count == 0) {
-            WifeButlerNoDataViewShow(self.view, 2, nil);
+            
+            WifeButlerNoDataViewShow(weakSelf.view, 2, nil);
             return ;
         }
         
         D_SuccessLoadingDeal(0, resultCode, ^(NSArray * arr){
             
-            WifeButlerNoDataViewRemoveFrom(self.view);
+            WifeButlerNoDataViewRemoveFrom(weakSelf.view);
             self.dataArray = [ZTGouWuCheModel mj_objectArrayWithKeyValuesArray:arr];
             
             [self setTiJiaoNum];

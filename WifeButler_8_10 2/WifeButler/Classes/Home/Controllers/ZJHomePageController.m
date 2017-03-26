@@ -311,6 +311,7 @@
 #pragma mark - push控制器操作
 - (void)delalPushViewControllerWithClickIndex:(NSInteger)index
 {
+    WifeButlerLetUserLoginCode
     switch (index) {
         case 0:{ //社区圈子
             //[SVProgressHUD showInfoWithStatus:@"功能暂未开放"];
@@ -336,7 +337,7 @@
         }
             break;
         case 4:{ //环保日历
-            WifeButlerLetUserLoginCode
+            
             EPCalendarViewController * calendar = [[EPCalendarViewController alloc]init];
             [self.navigationController pushViewController:calendar animated:YES];
         }

@@ -89,9 +89,9 @@
 - (void)createScorllViewWuWang:(NSArray *)imageArr
 {
     
-    UIView*headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, iphoneWidth, iphoneHeight*0.5)];
+    UIView*headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, iphoneWidth, iphoneWidth)];
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, iphoneWidth, iphoneHeight*0.5 +1)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, iphoneWidth, iphoneWidth+1)];
     [headerView addSubview:view];
     self.tableView.tableHeaderView = headerView;
     //顶部滑动浏览视图

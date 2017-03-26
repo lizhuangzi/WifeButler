@@ -12,6 +12,9 @@
 #import "SettingChangePasswordController.h"
 #import "WifeButlerFileManager.h"
 #import "WifeButlerDefine.h"
+#import "UserGuideViewController.h"
+#import "ZJHomePageController.h"
+
 @interface WifeButlerSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,weak) UITableView * tableView;
@@ -129,6 +132,17 @@
         }
     }else if (indexPath.section == 1){
         if (indexPath.row == 0) {
+            WEAKSELF
+            UserGuideViewController * guide = [UserGuideViewController new];
+            guide.type = 1;
+            [self presentViewController:guide animated:YES completion:^{
+                
+                [weakSelf.tabBarController setSelectedIndex:0];
+                UINavigationController * nv = weakSelf.tabBarController.viewControllers[0];
+                ZJHomePageController * home = nv.viewControllers[0];
+                [home delalPushViewControllerWithClickIndex:4];
+                [weakSelf.navigationController popToRootViewControllerAnimated:YES];
+            }];
         }
     }
 }

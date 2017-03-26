@@ -70,6 +70,12 @@
             self.nodataBtn.enabled = NO;
         }
             break;
+        case WifeButlerNoDataViewNoDataTypeCardPoctet:{
+            [self.nodataBtn setTitle:@"暂无银行卡" forState:UIControlStateDisabled];
+            [self.nodataBtn setTitleColor:WifeButlerGaryTextColor2 forState:UIControlStateDisabled];
+            self.nodataBtn.enabled = NO;
+        }
+            break;
         default:
             break;
     }

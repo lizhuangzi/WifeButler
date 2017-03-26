@@ -24,17 +24,19 @@
 @end
 
 @implementation UserGuideViewController
+- (instancetype)init
+{
+    if (self = [super init]) {
+         self.type = 0;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+   
     [self initGuide];
-}
-
-- (void)didReceiveMemoryWarning {
-    
-    [super didReceiveMemoryWarning];
-    
 }
 
 - (void)initGuide
@@ -48,17 +50,17 @@
     [scrollView setDelegate:self];
     
     UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, KPingKuan, KPingGao)];
-    [imageview setImage:[UIImage imageNamed:@"老板管家引导页1"]];
+    [imageview setImage:[UIImage imageNamed:@"sp2"]];
     [scrollView addSubview:imageview];
     
     
     UIImageView *imageview1 = [[UIImageView alloc] initWithFrame:CGRectMake(KPingKuan, 0, KPingKuan, KPingGao)];
-    [imageview1 setImage:[UIImage imageNamed:@"老板管家引导页2"]];
+    [imageview1 setImage:[UIImage imageNamed:@"sp3"]];
     [scrollView addSubview:imageview1];
     
     
     UIImageView *imageview2 = [[UIImageView alloc] initWithFrame:CGRectMake(KPingKuan*2, 0, KPingKuan, KPingGao)];
-    [imageview2 setImage:[UIImage imageNamed:@"老板管家引导页3"]];
+    [imageview2 setImage:[UIImage imageNamed:@"sp4"]];
     
     UITapGestureRecognizer * tap=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(push)];
     [imageview2 setUserInteractionEnabled:YES];
@@ -76,9 +78,13 @@
 
 - (void)push
 {
-    [self presentViewController:[[ZJTabBarController alloc] init] animated:YES completion:^{
-        
-    }];
+    if (self.type == 0) {
+        [self presentViewController:[[ZJTabBarController alloc] init] animated:YES completion:^{
+        }];
+    }else{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+  
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)sView

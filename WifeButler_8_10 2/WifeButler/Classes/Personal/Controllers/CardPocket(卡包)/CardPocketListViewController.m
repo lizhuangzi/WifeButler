@@ -13,6 +13,8 @@
 #import "PersonalPort.h"
 #import "WifeButlerDefine.h"
 #import "CardPocketAddNextStepController.h"
+#import "WifeButlerNoDataView.h"
+#import "Masonry.h"
 
 @interface CardPocketListViewController ()
 
@@ -62,10 +64,15 @@
     NSString * page = [NSString stringWithFormat:@"%zd",self.page];
     NSDictionary * parm = @{@"userid":KUserId,@"token":KToken,@"page":page};
     
-    [WifeButlerNetWorking getPackagingHttpRequestWithURLsite:KBankCardList parameter:parm success:^(id resultCode) {
+    [WifeButlerNetWorking getPackagingHttpRequestWithURLsite:KBankCardList parameter:parm success:^(NSArray * resultCode) {
         
+        [SVProgressHUD dismiss];
+        if (resultCode.count == 0) {
+            WifeButlerNoDataViewShow(self.view, 3, nil);
+            return ;
+        }
         D_SuccessLoadingDeal(0, resultCode, ^(NSArray * arr){
-            
+            WifeButlerNoDataViewRemoveFrom(self.view);
             for (NSDictionary *dict in arr) {
                 CardPocklistModel * model = [CardPocklistModel modelWithDictionary:dict];
                 [self.dataArray addObject:model];

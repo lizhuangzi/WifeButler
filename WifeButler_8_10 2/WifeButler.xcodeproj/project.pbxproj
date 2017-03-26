@@ -295,6 +295,7 @@
 		C7E4E13D1E65705700169897 /* WifeButlerFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E4E13C1E65705700169897 /* WifeButlerFileManager.m */; };
 		C7E4E1411E657AC900169897 /* WifeButlerAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E4E1401E657AC900169897 /* WifeButlerAccount.m */; };
 		C7E4E1441E657B8A00169897 /* UIWindow+existion.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E4E1431E657B8A00169897 /* UIWindow+existion.m */; };
+		C7ECD2141E87690E00EDB38D /* sp1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7ECD2131E87690E00EDB38D /* sp1@2x.png */; };
 		C7F8EE991E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8EE981E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m */; };
 		C7F8EE9D1E5D6F72008C8A06 /* WifeButlerNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8EE9C1E5D6F72008C8A06 /* WifeButlerNetWorking.m */; };
 		C7F8F1E21E7153170039293C /* PhotoBrowserGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F8F1E11E7153170039293C /* PhotoBrowserGetter.m */; };
@@ -883,6 +884,7 @@
 		C7E4E1421E657B8A00169897 /* UIWindow+existion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+existion.h"; sourceTree = "<group>"; };
 		C7E4E1431E657B8A00169897 /* UIWindow+existion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+existion.m"; sourceTree = "<group>"; };
 		C7E4E1451E658F3300169897 /* PersonalPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalPort.h; sourceTree = "<group>"; };
+		C7ECD2131E87690E00EDB38D /* sp1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sp1@2x.png"; sourceTree = "<group>"; };
 		C7F8EE971E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerHomeTableHeaderView.h; sourceTree = "<group>"; };
 		C7F8EE981E5D6F20008C8A06 /* WifeButlerHomeTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifeButlerHomeTableHeaderView.m; sourceTree = "<group>"; };
 		C7F8EE9B1E5D6F72008C8A06 /* WifeButlerNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifeButlerNetWorking.h; sourceTree = "<group>"; };
@@ -1784,6 +1786,7 @@
 		7BB43F4E1CE9C3BC007D722A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C7ECD2131E87690E00EDB38D /* sp1@2x.png */,
 				7BB43F5A1CE9C3BC007D722A /* Assets.xcassets */,
 				7BB43F5C1CE9C3BC007D722A /* LaunchScreen.storyboard */,
 				7BB43F5F1CE9C3BC007D722A /* Info.plist */,
@@ -3384,6 +3387,7 @@
 				7BE3C6BE1CF1A54C00851512 /* ZYQAssetPicker.Bundle in Resources */,
 				C77944711E7BED2C008812B3 /* HuoQuFaJiaoTongViewController.xib in Resources */,
 				C7FFD4CD1E6716E400754C92 /* MedRefFriendCircleTableHeader.xib in Resources */,
+				C7ECD2141E87690E00EDB38D /* sp1@2x.png in Resources */,
 				C7C1626C1E6FFAA50074A9D2 /* GoodsDetailRemarkSectionHeader.xib in Resources */,
 				C7CCF4AD1E76D2C3009A0ED5 /* NearbyVillageTableViewCell.xib in Resources */,
 				7B2366AE1D026466003BC590 /* ZTWoYaoKaiDian.storyboard in Resources */,

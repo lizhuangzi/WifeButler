@@ -10,4 +10,6 @@
 
 @interface ZJHomePageController : UIViewController
 
+- (void)delalPushViewControllerWithClickIndex:(NSInteger)index;
+
 @end

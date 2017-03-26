@@ -18,7 +18,7 @@
     [super viewDidLoad];
     
     UIImageView * imageView = [[UIImageView alloc]init];
-    imageView.image = [UIImage imageNamed:@"启动页"];
+    imageView.image = [UIImage imageNamed:@"sp1"];
     [self.view addSubview:imageView];
     
     imageView.frame = CGRectMake(0, 0, iphoneWidth, iphoneHeight);

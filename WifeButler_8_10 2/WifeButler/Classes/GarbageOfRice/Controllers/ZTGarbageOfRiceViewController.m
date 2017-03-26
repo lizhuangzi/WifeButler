@@ -85,13 +85,14 @@
     table.tableHeaderView = headerView;
     self.tableHeaderView = headerView;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"QRCodeImage"] style:UIBarButtonItemStylePlain target:self action:@selector(WifebutlerRCRHomeHeaderViewdidClickQR)];
-    
     [self createLeftItem];
 }
 
 - (void)createLeftItem
 {
+    if (![WifeButlerAccount sharedAccount].isLogin) {
+        return;
+    }
     
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.titleLabel.font = [UIFont systemFontOfSize:13];
@@ -102,6 +103,8 @@
     btn.titleEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
     btn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"QRCodeImage"] style:UIBarButtonItemStylePlain target:self action:@selector(WifebutlerRCRHomeHeaderViewdidClickQR)];
 
 }
 
@@ -109,6 +112,8 @@
 - (void)listenNotify
 {
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(locatedChange) name:WifebutlerLocationDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogin) name:LoginViewControllerDidLoginSuccessNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogOut) name:WifeButlerUserDidLogOutNotification object:nil];
 }
 
 - (void)requestData{
@@ -189,6 +194,20 @@
 - (void)choose
 {
     
+}
+
+- (void)userLogin
+{
+    [self createLeftItem];
+    
+    [self requestData];
+}
+
+- (void)userLogOut
+{
+    [self createLeftItem];
+    
+    [self requestData];
 }
 
 - (void)WifebutlerRCRHomeHeaderViewdidClickQR
