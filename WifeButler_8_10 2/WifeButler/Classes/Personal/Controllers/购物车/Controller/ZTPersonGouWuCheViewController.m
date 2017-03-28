@@ -75,7 +75,7 @@
     WEAKSELF
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
-        _page = 1;
+        weakSelf.page = 1;
         [weakSelf netWorking];
     }];
     
@@ -132,7 +132,7 @@
     // 增加
     [cell setAddBlack:^{
         
-        NSString *strNum = [NSString stringWithFormat:@"%d", ([cell.numTF.text intValue] + 1)];
+        NSString *strNum = [NSString stringWithFormat:@"%d", ([weakCell.numTF.text intValue] + 1)];
         
         [weakSelf netWorkingXuanZhongShuLiangModel:model andNum:strNum];
         
@@ -146,7 +146,7 @@
             return;
         }
         
-        NSString *strNum = [NSString stringWithFormat:@"%d", ([cell.numTF.text intValue] - 1)];
+        NSString *strNum = [NSString stringWithFormat:@"%d", ([weakCell.numTF.text intValue] - 1)];
         
         [weakSelf netWorkingXuanZhongShuLiangModel:model andNum:strNum];
 

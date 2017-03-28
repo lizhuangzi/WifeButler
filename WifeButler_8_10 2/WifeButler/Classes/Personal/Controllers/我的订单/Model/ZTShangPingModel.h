@@ -18,5 +18,6 @@
 @property (nonatomic, copy) NSString * order_id;
 @property (nonatomic, copy) NSString * price;
 @property (nonatomic, copy) NSString * title;
+@property (nonatomic,copy)  NSString * flag;
 
 @end

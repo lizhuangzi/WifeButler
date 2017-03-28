@@ -55,6 +55,9 @@
 
 
 @property (nonatomic,strong) ZTXiaoQuXuanZe * returnXiaoQuModel;
+
+
+
 @end
 
 @implementation ZTBianJiDiZhiTableViewController
@@ -98,6 +101,13 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZTBianJiShouHuoDiZhi" bundle:nil];
     ZTXiaoQuXuanZeViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ZTXiaoQuXuanZeViewController"];
     vc.address_id = self.address_id;
+    if (self.isAddAddress) {
+        vc.choseType = 0;
+    }else{
+        vc.choseType = 1;
+        vc.changeLongitude = [self.dataModel.longitude doubleValue];
+        vc.changeLatitude = [self.dataModel.latitude doubleValue];
+    }
     [vc setAddressBlack:^(ZTXiaoQuXuanZe *model) {
       
         self.returnXiaoQuModel = model;
@@ -231,7 +241,7 @@
         [dic setObject:self.xiaoQuLab.text forKey:@"qu"];
         [dic setObject:self.dataModel.position forKey:@"position"];
         [dic setObject:self.dataModel.longitude forKey:@"lng"];
-        [dic setObject:self.dataModel.lat forKey:@"lat"];
+        [dic setObject:self.dataModel.latitude forKey:@"lat"];
         
     }
     [dic setObject:self.xiaoQuLab.text forKey:@"qu"]; //village

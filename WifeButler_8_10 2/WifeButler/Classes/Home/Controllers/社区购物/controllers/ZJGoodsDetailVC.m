@@ -205,7 +205,7 @@
         [cell.imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",KImageUrl,[[self.dataAry objectAtIndex:indexPath.row] objectForKey:@"avatar"]]] placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
         cell.nameLabel.text=[[self.dataAry objectAtIndex:indexPath.row] objectForKey:@"nickname"];
         cell.pingLunLabel.text=[[self.dataAry objectAtIndex:indexPath.row] objectForKey:@"content"];
-        cell.timeLabel.text=[self time:[[self.dataAry objectAtIndex:indexPath.row] objectForKey:@"time"]];
+        cell.timeLabel.text= [[self.dataAry objectAtIndex:indexPath.row] objectForKey:@"time"];
         NSString * star = [[self.dataAry objectAtIndex:indexPath.row] objectForKey:@"star"];
         [cell.startView setCurrentScore:[star floatValue]];
         return cell;
@@ -295,7 +295,7 @@
         }];
         if (self.dataAry.count == 0) {
             footer.showType = GoodsDetailRemarFooterShowTypeNoReview;
-        }else if(self.dataAry.count<3){
+        }else if(self.dataAry.count > 0&&self.dataAry.count<3){
             footer.showType = GoodsDetailRemarFooterShowTypeNothing;
         }else{
             footer.showType = GoodsDetailRemarFooterShowTypeFindMoreReview;
@@ -308,7 +308,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if (section == 1) {
-        return 44;
+        if(self.dataAry.count > 0 && self.dataAry.count<3){
+            return 10;
+        }else
+            return 44;
     }
     return 0.01;
 }
@@ -479,15 +482,6 @@
     return _imgAry;
 }
 
-
-- (NSString *)time :(NSString*)timeStr
-{
-    NSDate * createdDate =[NSDate dateWithTimeIntervalSince1970:[timeStr doubleValue]];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US"];
-    formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
-    return  [formatter stringFromDate:createdDate];
-}
 
 #pragma mark - 底部视图回调BottomDelegate
 - (void)GoodDetilBottomViewDidClickShopping:(GoodDetilBottomView *)view

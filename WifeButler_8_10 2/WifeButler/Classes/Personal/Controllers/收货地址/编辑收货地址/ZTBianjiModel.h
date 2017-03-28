@@ -14,7 +14,7 @@
 
 @property (nonatomic,copy)NSString * defaults;
 
-@property (nonatomic,copy)NSString * lat;
+@property (nonatomic,copy)NSString * latitude;
 
 @property (nonatomic,copy)NSString * longitude;
 

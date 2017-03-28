@@ -68,18 +68,23 @@
     [self.mapView setZoomLevel:16.0];
     
     WEAKSELF;
-    
-    [[WifeButlerLocationManager sharedManager] startLocationAndFinishBlock:^(WifeButlerLocationModel *locationInfo) {
-        _firstLoad = NO;
-        if (locationInfo.POIName) {
-            [weakSelf.mapView setCenterCoordinate:locationInfo.location2D animated:NO];
-        }
-    }];
+    if (self.choseType == 0) {
+        
+        [[WifeButlerLocationManager sharedManager] startLocationAndFinishBlock:^(WifeButlerLocationModel *locationInfo) {
+            _firstLoad = NO;
+            if (locationInfo.POIName) {
+                [weakSelf.mapView setCenterCoordinate:locationInfo.location2D animated:NO];
+            }
+        }];
+    }else{
+        CLLocationCoordinate2D  l = CLLocationCoordinate2DMake(self.changeLatitude, self.changeLongitude);
+         [weakSelf.mapView setCenterCoordinate:l animated:NO];
+    }
 }
 
 - (void)mapView:(MAMapView *)mapView mapDidMoveByUser:(BOOL)wasUserAction {
  
-    if (_firstLoad) { return;}
+    if (_firstLoad && self.choseType == 0) { return;}
     
     ZJLog(@"%lf %lf",self.mapView.centerCoordinate.latitude,self.mapView.centerCoordinate.longitude);
     [self.view endEditing:YES];

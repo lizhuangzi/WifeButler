@@ -18,6 +18,8 @@
     self.delegateBtn.layer.cornerRadius = 5;
     self.delegateBtn.layer.borderColor = [UIColor redColor].CGColor;
     self.delegateBtn.layer.borderWidth = 1;
+    
+    self.priceLabel.textColor = WifeButlerCommonRedColor;
 }
 
 - (IBAction)deleteClick:(id)sender {
@@ -33,8 +35,9 @@
 {
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", KImageUrl, model.file]] placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
     self.titleLab.text = model.title;
-    self.numLab.text = [NSString stringWithFormat:@"%@g", model.weight];
+    self.numLab.text = [NSString stringWithFormat:@"数量:%@", model.weight];
     self.timeLabel.text = [NSDate getdateStrWithCurrentTime:model.time] ;
+    self.priceLabel.text = model.scale;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

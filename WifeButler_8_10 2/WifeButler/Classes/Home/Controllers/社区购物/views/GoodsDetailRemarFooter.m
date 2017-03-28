@@ -50,14 +50,17 @@
     if (_showType == GoodsDetailRemarFooterShowTypeFindMoreReview) {
         self.button.enabled = YES;
         self.button.selected = NO;
+         self.button.hidden = NO;
         self.backgroundColor = [UIColor whiteColor];
     }else if(_showType == GoodsDetailRemarFooterShowTypeNoReview){
         self.button.enabled = NO;
          self.button.selected = NO;
+         self.button.hidden = NO;
         self.backgroundColor = [UIColor clearColor];
     }else{
         self.button.enabled = NO;
         self.button.selected = YES;
+        self.button.hidden = YES;
         self.backgroundColor = [UIColor clearColor];
     }
 }

@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *queRenBtn;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (nonatomic, copy) void (^queRenBlock)(void);
 
 - (void)setDataSourceModel:(ZTDuiHuanOederModel *)model;

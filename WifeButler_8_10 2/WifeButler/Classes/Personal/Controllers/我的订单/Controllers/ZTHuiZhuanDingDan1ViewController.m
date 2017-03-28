@@ -42,8 +42,6 @@ typedef enum {
 
     // 筛选显示判断
     BOOL _isTanChuShaiXuan;
-    
-    int _prize;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *quanBuBtn;
@@ -61,7 +59,7 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITableView *footView;
 
-
+@property (nonatomic,assign) NSInteger prize;
 @property (nonatomic, assign) orderType  orderType;
 @property (nonatomic, strong) NSMutableArray * dataSource;
 @property (nonatomic, strong) NSMutableArray * dataSource1;
@@ -75,8 +73,8 @@ typedef enum {
     
     
     self.title = @"购物订单";
+    self.view.backgroundColor = WifeButlerTableBackGaryColor;
     self.footView.backgroundColor = WifeButlerTableBackGaryColor;
-    self.view.backgroundColor = [UIColor whiteColor];
     self.dataSource1 = [NSMutableArray array];
     self.dataSource = [NSMutableArray array];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -112,16 +110,17 @@ typedef enum {
 #pragma mark - 刷新
 - (void)shuaXinJiaZa
 {
+    WEAKSELF
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
-        _prize = 1;
-        [self netWorkingYype];
+        weakSelf.prize = 1;
+        [weakSelf netWorkingYype];
     }];
     
     _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         
-        _prize ++;
-        [self netWorkingYypeJiaZa];
+         weakSelf.prize ++;
+        [weakSelf netWorkingYypeJiaZa];
     }];
 }
 
@@ -161,7 +160,13 @@ typedef enum {
         
         cell.titleLabel.text = model_shop.title;
         cell.numberLabel.text = [NSString stringWithFormat:@"X%@", model_shop.num];
-        
+        cell.priceLabel.text = model_shop.price;
+        if ([model_shop.flag integerValue] == 0) {
+            cell.pingJiaBtn.hidden = NO;
+        }else{
+            cell.pingJiaBtn.hidden = YES;
+        }
+        WEAKSELF
         //  评价
         [cell setPingJiaBlack:^{
             
@@ -177,10 +182,10 @@ typedef enum {
             
             [vc setShuaiXinBlack:^{
                 
-                [self netWorkingYype];
+                [weakSelf netWorkingYype];
             }];
             
-            [self.navigationController pushViewController:vc animated:YES];
+            [weakSelf.navigationController pushViewController:vc animated:YES];
         }];
         
         return cell;
@@ -210,10 +215,10 @@ typedef enum {
 //    vc.statai_temp = model.status;
     vc.pay_way = model.pay_way;
     
-    
+    WEAKSELF
     [vc setShuaiXinBlack:^{
        
-        [self netWorkingYype];
+        [weakSelf netWorkingYype];
     }];
     
     [self.navigationController pushViewController:vc animated:YES];
@@ -298,6 +303,7 @@ typedef enum {
             [footView.goShopBtn setTitle:@"付款" forState:UIControlStateNormal];
             [footView.deleteBtn setTitle:@"取消订单" forState:UIControlStateNormal];
             
+            WEAKSELF
             // 付款
             [footView setGoShopBlack:^{
                 
@@ -305,8 +311,6 @@ typedef enum {
                 UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ZTHuiZhuanDingDan" bundle:nil];
                 ZTZhiFuFangShiTableViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ZTZhiFuFangShiTableViewController"];
                 vc.order_id = model.id;
-                
-                __weak typeof(self) weakSelf = self;
                 
                 // 刷新
                 [vc setShuaiXinBlack:^{
@@ -514,7 +518,7 @@ typedef enum {
             footView.moneyLab.text = model.order_money;
             
             
-            [footView.goShopBtn setTitle:@"评价" forState:UIControlStateNormal];
+            [footView.goShopBtn setTitle:@"" forState:UIControlStateNormal];
             [footView.goShopBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
             
             footView.deleteBtn.hidden = YES;
@@ -624,19 +628,19 @@ typedef enum {
             
             self.dataSource = [ZTWoDeDingDanModel mj_objectArrayWithKeyValuesArray:responseObject[@"resultCode"]];
             
-            
+             WEAKSELF;
             // 是否有订单  没有给背景图片
             if (self.dataSource.count == 0) {
                 
-                WEAKSELF;
-                WifeButlerNoDataViewShow(self.footView, 0, ^{
+               
+                WifeButlerNoDataViewShow(weakSelf.footView, 0, ^{
                     ZJShopClassVC * shop = [[ZJShopClassVC alloc]init];
                     [weakSelf.navigationController pushViewController:shop animated:YES];
                 });
             }
             else
             {
-                WifeButlerNoDataViewRemoveFrom(self.footView);
+                WifeButlerNoDataViewRemoveFrom(weakSelf.footView);
             }
             
             
@@ -656,12 +660,11 @@ typedef enum {
         else
         {
             
+            WEAKSELF
             // 登录失效 进行提示登录
             if ([[responseObject objectForKey:@"code"] intValue] == 40000) {
                 
                 [SVProgressHUD dismiss];
-                
-                __weak typeof(self) weakSelf = self;
                 
                 UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"提示" message:@"您登录已经失效,请重新进行登录哦!" preferredStyle:UIAlertControllerStyleAlert];
                 
@@ -672,7 +675,7 @@ typedef enum {
                     vc.isLogo = YES;
                     [vc setShuaiXinShuJu:^{
                        
-                        [self netWorkingYype];
+                        [weakSelf netWorkingYype];
                         
                     }];
                     
@@ -782,13 +785,11 @@ typedef enum {
         
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
-            
+            WEAKSELF
             // 登录失效 进行提示登录
             if ([[responseObject objectForKey:@"code"] intValue] == 40000) {
                 
                 [SVProgressHUD dismiss];
-                
-                __weak typeof(self) weakSelf = self;
                 
                 UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"提示" message:@"您登录已经失效,请重新进行登录哦!" preferredStyle:UIAlertControllerStyleAlert];
                 
@@ -800,7 +801,7 @@ typedef enum {
                     vc.isLogo = YES;
                     [vc setShuaiXinShuJu:^{
                         
-                        [self netWorkingYypeJiaZa];
+                        [weakSelf netWorkingYypeJiaZa];
                     }];
                     [weakSelf.navigationController pushViewController:vc animated:YES];
                 }];
@@ -1007,17 +1008,17 @@ typedef enum {
 #pragma mark - 全部
 - (IBAction)quanBuClick:(id)sender {
     
-    [self.quanBuBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
+    [self.quanBuBtn setTitleColor:WifeButlerCommonRedColor forState:UIControlStateNormal];
     [self.daiFuKuanBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self.daiShouHuoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self.daiPingJiaBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self.wanchenBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
-    self.view1.backgroundColor = MAINCOLOR;
-    self.view2.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view3.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view4.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view5.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
+    self.view1.backgroundColor = WifeButlerCommonRedColor;
+    self.view2.backgroundColor =  [UIColor whiteColor];
+    self.view3.backgroundColor =  [UIColor whiteColor];
+    self.view4.backgroundColor =  [UIColor whiteColor];
+    self.view5.backgroundColor =  [UIColor whiteColor];
     
     _orderType = orderTypeQuanBu;
     
@@ -1033,16 +1034,16 @@ typedef enum {
 - (IBAction)daiFuKuanClick:(id)sender {
     
     [self.quanBuBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [self.daiFuKuanBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
+    [self.daiFuKuanBtn setTitleColor:WifeButlerCommonRedColor forState:UIControlStateNormal];
     [self.daiShouHuoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self.daiPingJiaBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self.wanchenBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
-    self.view1.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view2.backgroundColor = MAINCOLOR;
-    self.view3.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view4.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view5.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
+    self.view1.backgroundColor =  [UIColor whiteColor];
+    self.view2.backgroundColor = WifeButlerCommonRedColor;
+    self.view3.backgroundColor =  [UIColor whiteColor];
+    self.view4.backgroundColor =  [UIColor whiteColor];
+    self.view5.backgroundColor =  [UIColor whiteColor];
     
     [_dataSource removeAllObjects];
     [_dataSource1 removeAllObjects];
@@ -1057,15 +1058,15 @@ typedef enum {
     
     [self.quanBuBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self.daiFuKuanBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [self.daiShouHuoBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
+    [self.daiShouHuoBtn setTitleColor:WifeButlerCommonRedColor forState:UIControlStateNormal];
     [self.daiPingJiaBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self.wanchenBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
-    self.view1.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view2.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view3.backgroundColor = MAINCOLOR;
-    self.view4.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view5.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
+    self.view1.backgroundColor =  [UIColor whiteColor];
+    self.view2.backgroundColor =  [UIColor whiteColor];
+    self.view3.backgroundColor = WifeButlerCommonRedColor;
+    self.view4.backgroundColor =  [UIColor whiteColor];
+    self.view5.backgroundColor =  [UIColor whiteColor];
     
     _orderType = orderTypeDaiShouHuo;
     
@@ -1082,14 +1083,14 @@ typedef enum {
     [self.quanBuBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self.daiFuKuanBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self.daiShouHuoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [self.daiPingJiaBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
+    [self.daiPingJiaBtn setTitleColor:WifeButlerCommonRedColor forState:UIControlStateNormal];
     [self.wanchenBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
-    self.view1.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view2.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view3.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view4.backgroundColor = MAINCOLOR;
-    self.view5.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
+    self.view1.backgroundColor =  [UIColor whiteColor];
+    self.view2.backgroundColor =  [UIColor whiteColor];
+    self.view3.backgroundColor =  [UIColor whiteColor];
+    self.view4.backgroundColor = WifeButlerCommonRedColor;
+    self.view5.backgroundColor =  [UIColor whiteColor];
     
     [_dataSource removeAllObjects];
     [_dataSource1 removeAllObjects];
@@ -1106,13 +1107,13 @@ typedef enum {
     [self.daiFuKuanBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self.daiShouHuoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self.daiPingJiaBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [self.wanchenBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
+    [self.wanchenBtn setTitleColor:WifeButlerCommonRedColor forState:UIControlStateNormal];
     
-    self.view1.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view2.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view3.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view4.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view5.backgroundColor = MAINCOLOR;
+    self.view1.backgroundColor = [UIColor whiteColor];
+    self.view2.backgroundColor =  [UIColor whiteColor];
+    self.view3.backgroundColor =  [UIColor whiteColor];
+    self.view4.backgroundColor =  [UIColor whiteColor];
+    self.view5.backgroundColor = WifeButlerCommonRedColor;
     
     [_dataSource removeAllObjects];
     [_dataSource1 removeAllObjects];
@@ -1125,6 +1126,9 @@ typedef enum {
 }
 
 
-
+- (void)dealloc
+{
+    ZJLog(@"购物订单dealloc *******");
+}
 
 @end

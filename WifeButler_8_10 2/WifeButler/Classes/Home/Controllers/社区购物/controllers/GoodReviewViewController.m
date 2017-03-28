@@ -9,6 +9,8 @@
 #import "GoodReviewViewController.h"
 #import "ZJGoodsDetailCell4.h"
 #import "NetWorkPort.h"
+#import "WifeButlerNetWorking.h"
+#import "WifeButlerDefine.h"
 
 @interface GoodReviewViewController ()
 
@@ -47,7 +49,7 @@
     [cell.imgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",KImageUrl,[[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"avatar"]]] placeholderImage:[UIImage imageNamed:@"ZTZhanWeiTu11"]];
     cell.nameLabel.text=[[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"nickname"];
     cell.pingLunLabel.text=[[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"content"];
-    cell.timeLabel.text=[self time:[[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"time"]];
+    cell.timeLabel.text= [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"time"];
     NSString * star = [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"star"];
     [cell.startView setCurrentScore:[star floatValue]];
 
@@ -62,25 +64,17 @@
 
 - (void)requestData
 {
-    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     
-    [dic setObject:self.goodId forKey:@"goods_id"];
-    [dic setObject:@(self.page) forKey:@"pageindex"];
+   /* AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];/*JSON反序列化确保得到的数据时JSON数据*/
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];/*添加接可收数据的数据可行*/
-    
-    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KGoodEvaluationList];
-    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager POST:url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
         
-        
+        NSArray * result = [responseObject objectForKey:@"resultCode"];
         // 登录成功
         if ([[responseObject objectForKey:@"code"] intValue]==10000) {
             
@@ -112,7 +106,27 @@
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
     }];
+*/
+    
+    NSString *url = [HTTP_BaseURL stringByAppendingFormat:@"%@", KGoodEvaluationList];
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    
+    [dic setObject:self.goodId forKey:@"goods_id"];
+    [dic setObject:@(self.page) forKey:@"pageindex"];
 
+    [WifeButlerNetWorking postPackagingHttpRequestWithURLsite:url parameter:dic success:^(NSDictionary * resultCode) {
+        NSArray * arr = resultCode[@"arr"];
+        D_SuccessLoadingDeal(0, arr, ^(NSArray * arr){
+            
+            for (NSDictionary * dict in arr) {
+                [self.dataArray addObject:dict];
+            }
+        });
+
+    } failure:^(NSError *error) {
+        D_FailLoadingDeal(0);
+    }];
+    
 }
 
 #pragma mark - 加载 刷新
@@ -128,14 +142,6 @@
     [self requestData];
 }
 
-- (NSString *)time :(NSString*)timeStr
-{
-    NSDate * createdDate =[NSDate dateWithTimeIntervalSince1970:[timeStr doubleValue]];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US"];
-    formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
-    return  [formatter stringFromDate:createdDate];
-}
 
 
 @end

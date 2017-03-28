@@ -20,6 +20,8 @@
 @property (nonatomic, copy) void (^deleteBlock)(void);
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
+@property (nonatomic,weak)IBOutlet UILabel * priceLabel;
+
 - (void)setDataSourceModel:(ZTDuiHuanOederModel *)model;
 
 @end

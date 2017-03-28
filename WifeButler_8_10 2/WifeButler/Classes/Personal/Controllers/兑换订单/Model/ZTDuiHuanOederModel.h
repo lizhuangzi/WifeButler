@@ -21,6 +21,6 @@
 @property (nonatomic, copy) NSString * file;
 @property (nonatomic, copy) NSString * weight;
 @property (nonatomic, copy) NSString * content;
-
+@property (nonatomic,copy)NSString * scale;
 
 @end

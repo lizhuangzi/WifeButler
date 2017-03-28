@@ -107,7 +107,8 @@ typedef enum {
     self.dataSource = [NSMutableArray array];
     
     self.tableView.tableFooterView = [[UIView alloc] init];
-    
+    self.tableView.backgroundColor = WifeButlerTableBackGaryColor;
+    self.view.backgroundColor = WifeButlerTableBackGaryColor;
     [self leftBtn];
 }
 
@@ -170,13 +171,13 @@ typedef enum {
 #pragma mark - 全部
 - (IBAction)quanBuClick:(id)sender {
     
-    [self.quanBuBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
+    [self.quanBuBtn setTitleColor:WifeButlerCommonRedColor forState:UIControlStateNormal];
     [self.daiShouHuoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self.wanchenBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
-    self.view1.backgroundColor = MAINCOLOR;
-    self.view2.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view3.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
+    self.view1.backgroundColor = WifeButlerCommonRedColor;
+    self.view2.backgroundColor = [UIColor whiteColor];
+    self.view3.backgroundColor = [UIColor whiteColor];
     
     _orderType = orderTypeQuanBu;
     
@@ -191,12 +192,12 @@ typedef enum {
 - (IBAction)daiShouHuoClick:(id)sender {
     
     [self.quanBuBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [self.daiShouHuoBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
+    [self.daiShouHuoBtn setTitleColor:WifeButlerCommonRedColor forState:UIControlStateNormal];
     [self.wanchenBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
-    self.view1.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view3.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view2.backgroundColor = MAINCOLOR;
+    self.view1.backgroundColor = [UIColor whiteColor];
+    self.view3.backgroundColor = [UIColor whiteColor];
+    self.view2.backgroundColor = WifeButlerCommonRedColor;
     
     _orderType = orderTypeDaiShouHuo;
     
@@ -212,11 +213,11 @@ typedef enum {
     
     [self.quanBuBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self.daiShouHuoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [self.wanchenBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
+    [self.wanchenBtn setTitleColor:WifeButlerCommonRedColor forState:UIControlStateNormal];
     
-    self.view1.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view2.backgroundColor = [UIColor colorWithWhite:0.744 alpha:1.000];
-    self.view3.backgroundColor = MAINCOLOR;
+    self.view1.backgroundColor = [UIColor whiteColor];
+    self.view2.backgroundColor = [UIColor whiteColor];
+    self.view3.backgroundColor = WifeButlerCommonRedColor;
     
     
     _orderType = orderTypeYiWanChen;
